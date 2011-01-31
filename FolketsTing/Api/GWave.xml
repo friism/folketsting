@@ -1,0 +1,51 @@
+﻿<Module>
+	<!--
+Copyright 2009 Folkets Ting
+ 
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+ 
+     http://www.apache.org/licenses/LICENSE-2.0
+ 
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+Based on work by Google Inc. and Søren Johannessen (http://www.microformats.dk)
+-->
+	<!--
+
+screenshot="http://code.google.com/apis/kml/embed/res/embedkmlgadget-screen.png"
+description="Embed a KML file in your page using Google Earth or Google Maps!"
+-->
+	<ModulePrefs title="Folketinget TV" 
+							 directory_title="Dansk Earth Wave" 
+							 author="Michael Friis" 
+							 author_email="friism+fttvgwave@gmail.com" 
+							 author_affiliation="Private" 
+							 width="668" 
+							 height="424"
+						 	 thumbnail="http://folketsting.dk/graphics/ch.jpg">
+		<Locale lang="da" country="dk"></Locale>
+		<Require feature="minimessage"></Require>
+		<Require feature="wave"></Require>
+	</ModulePrefs>
+
+
+
+	<Content type="html">
+		<![CDATA[
+<p>
+	<embed src="http://ft.arkena.tv/flash/folketingetPlayer.swf?popup=true&amp;xml=http%3A%2F%2Fft.arkena.tv%2Fxml%2Fcore_player_clip_data.php%3Fwtve%3D187%26wtvl%3D2%26wtvk%3D012536940751284"
+				quality="high" bgcolor="#000000" width="668" height="424" name="folketingetPlayer"
+				align="middle" play="true" loop="false" allowscriptaccess="always" allowfullscreen="true"
+				type="application/x-shockwave-flash" wmode="transparent" pluginspage="http://www.adobe.com/go/getflashplayer" />
+</p>
+
+ 
+]]>
+	</Content>
+</Module>

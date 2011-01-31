@@ -1,0 +1,431 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ftdb" Class="DBDataContext" Serialization="Unidirectional" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.\sqlexpress;Initial Catalog=ftdb;Integrated Security=True" SettingsObjectName="FT.DB.Properties.Settings" SettingsPropertyName="ftdbConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.AnswerPara" Member="AnswerParas">
+    <Type Name="AnswerPara">
+      <Column Name="AnswerParaId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="QuestionId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ParText" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Number" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="P20Question_AnswerPara" Member="P20Question" ThisKey="QuestionId" OtherKey="P20QuestionId" Type="P20Question" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserLawVote" Member="UserLawVotes">
+    <Type Name="UserLawVote">
+      <Column Name="UserLawVoteId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LawVoteId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Vote" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="User_UserLawVote" Member="User" ThisKey="UserId" OtherKey="UserId" Type="User" IsForeignKey="true" />
+      <Association Name="LawVote_UserLawVote" Member="LawVote" ThisKey="LawVoteId" OtherKey="LawVoteId" Type="LawVote" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BlogPost" Member="BlogPosts">
+    <Type Name="BlogPost">
+      <Column Name="BlogPostID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="WordpressId" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Summary" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Title" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CommentCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PermaLink" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Comment" Member="Comments">
+    <Type Name="Comment">
+      <Column Name="CommentId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ItemId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CommentText" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ParentId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CommentType" Type="CommentType" DbType="TinyInt" CanBeNull="true" />
+      <Association Name="Comment_Comment" Member="Comments" ThisKey="CommentId" OtherKey="ParentId" Type="Comment" />
+      <Association Name="Comment_CommentVote" Member="CommentVotes" ThisKey="CommentId" OtherKey="CommentId" Type="CommentVote" />
+      <Association Name="Comment_Comment" Member="Comment1" ThisKey="ParentId" OtherKey="CommentId" Type="Comment" IsForeignKey="true" />
+      <Association Name="User_Comment" Member="User" ThisKey="UserId" OtherKey="UserId" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CommentVote" Member="CommentVotes">
+    <Type Name="CommentVote">
+      <Column Name="CommentVoteId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CommentId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Vote" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Association Name="Comment_CommentVote" Member="Comment" ThisKey="CommentId" OtherKey="CommentId" Type="Comment" IsForeignKey="true" />
+      <Association Name="User_CommentVote" Member="User" ThisKey="UserId" OtherKey="UserId" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Deliberation" Member="Deliberations">
+    <Type Name="Deliberation">
+      <Column Name="DeliberationId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LawId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Number" Type="LawStage" DbType="TinyInt" CanBeNull="true" />
+      <Association Name="Deliberation_Speech" Member="Speeches" ThisKey="DeliberationId" OtherKey="DeliberationId" Type="Speech" />
+      <Association Name="Law_Deliberation" Member="Law" ThisKey="LawId" OtherKey="LawId" Type="Law" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Hit" Member="Hits">
+    <Type Name="Hit">
+      <Column Name="ContentId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ContentType" Type="ContentType" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="HitId" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IP" Type="System.Data.Linq.Binary" DbType="Binary(4) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Image" Member="Images">
+    <Type Name="Image">
+      <Column Name="ImageId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ContentType" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Data" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Image_Politician" Member="Politicians1" ThisKey="ImageId" OtherKey="ImageId" Type="Politician" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LawChange" Member="LawChanges">
+    <Type Name="LawChange">
+      <Column Name="LawChangeId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ParagraphId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Number" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NoformChangeText" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="LawChange_SubChange" Member="SubChanges" ThisKey="LawChangeId" OtherKey="LawchangeId" Type="SubChange" />
+      <Association Name="Paragraph_LawChange" Member="Paragraph" ThisKey="ParagraphId" OtherKey="ParagraphId" Type="Paragraph" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LawChapter" Member="LawChapters">
+    <Type Name="LawChapter">
+      <Column Name="LawChapterId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LawId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Number" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Stage" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="Titel" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="LawChapter_Paragraph" Member="Paragraphs" ThisKey="LawChapterId" OtherKey="ChapterId" Type="Paragraph" />
+      <Association Name="Law_LawChapter" Member="Law" ThisKey="LawId" OtherKey="LawId" Type="Law" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Ministry" Member="Ministries">
+    <Type Name="Ministry">
+      <Column Name="MinistryId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Association Name="Ministry_Law" Member="Laws" ThisKey="MinistryId" OtherKey="MinistryId" Type="Law" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Paragraph" Member="Paragraphs">
+    <Type Name="Paragraph">
+      <Column Name="ParagraphId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LawId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Number" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Stage" Type="LawStage" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="ChangeText" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IsChange" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ChapterId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Letter" Type="System.String" DbType="NVarChar(3)" CanBeNull="true" />
+      <Association Name="Paragraph_LawChange" Member="LawChanges" ThisKey="ParagraphId" OtherKey="ParagraphId" Type="LawChange" />
+      <Association Name="Paragraph_Section" Member="Sections" ThisKey="ParagraphId" OtherKey="ParagraphId" Type="Section" />
+      <Association Name="LawChapter_Paragraph" Member="LawChapter" ThisKey="ChapterId" OtherKey="LawChapterId" Type="LawChapter" IsForeignKey="true" />
+      <Association Name="Law_Paragraph" Member="Law" ThisKey="LawId" OtherKey="LawId" Type="Law" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PoliticianLawVote" Member="PoliticianLawVotes">
+    <Type Name="PoliticianLawVote">
+      <Column Name="PoliticianLawVoteId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PoliticianId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LawVoteId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Vote" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Association Name="Politician_PoliticianLawVote" Member="Politician" ThisKey="PoliticianId" OtherKey="PoliticianId" Type="Politician" IsForeignKey="true" />
+      <Association Name="LawVote_PoliticianLawVote" Member="LawVote" ThisKey="LawVoteId" OtherKey="LawVoteId" Type="LawVote" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProposedLaw" Member="ProposedLaws">
+    <Type Name="ProposedLaw">
+      <Column Name="ProposedLawId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PoliticianId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LawId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsMinister" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Association Name="Law_ProposedLaw" Member="Law" ThisKey="LawId" OtherKey="LawId" Type="Law" IsForeignKey="true" />
+      <Association Name="Politician_ProposedLaw" Member="Politician" ThisKey="PoliticianId" OtherKey="PoliticianId" Type="Politician" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Section" Member="Sections">
+    <Type Name="Section">
+      <Column Name="SectionId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ParagraphId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Number" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Text" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Paragraph_Section" Member="Paragraph" ThisKey="ParagraphId" OtherKey="ParagraphId" Type="Paragraph" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Session" Member="Sessions">
+    <Type Name="Session">
+      <Column Name="SessionId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Year" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Number" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IsDone" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Session_Law" Member="Laws" ThisKey="SessionId" OtherKey="SessionId" Type="Law" />
+      <Association Name="Session_P20Question" Member="P20Questions" ThisKey="SessionId" OtherKey="SessionId" Type="P20Question" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SpeechPara" Member="SpeechParas">
+    <Type Name="SpeechPara">
+      <Column Name="SpeechParaId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SpeechId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ParText" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Number" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Speech_SpeechPara" Member="Speech" ThisKey="SpeechId" OtherKey="SpeechId" Type="Speech" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SubChange" Member="SubChanges">
+    <Type Name="SubChange">
+      <Column Name="SubchangeId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LawchangeId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Number" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Text" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="LawChange_SubChange" Member="LawChange" ThisKey="LawchangeId" OtherKey="LawChangeId" Type="LawChange" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tag" Member="Tags">
+    <Type Name="Tag">
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ContentId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ContentType" Type="ContentType" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="TagId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TagName" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Association Name="User_Tag" Member="User" ThisKey="UserId" OtherKey="UserId" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[User]" Member="Users">
+    <Type Name="User">
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Username" Type="System.String" DbType="NVarChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="Aspnetuserid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="Url" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="Pic" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="User_UserLawVote" Member="UserLawVotes" ThisKey="UserId" OtherKey="UserId" Type="UserLawVote" />
+      <Association Name="User_Comment" Member="Comments" ThisKey="UserId" OtherKey="UserId" Type="Comment" />
+      <Association Name="User_CommentVote" Member="CommentVotes" ThisKey="UserId" OtherKey="UserId" Type="CommentVote" />
+      <Association Name="User_Tag" Member="Tags" ThisKey="UserId" OtherKey="UserId" Type="Tag" />
+      <Association Name="User_P20Question" Member="P20Questions" ThisKey="UserId" OtherKey="AskerUserId" Type="P20Question" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Speaker" Member="Speakers">
+    <Type Name="Speaker">
+      <Column Name="SpeakerId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PoliticianId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LawId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Law_Speaker" Member="Law" ThisKey="LawId" OtherKey="LawId" Type="Law" IsForeignKey="true" />
+      <Association Name="Politician_Speaker" Member="Politician" ThisKey="PoliticianId" OtherKey="PoliticianId" Type="Politician" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Party" Member="Parties">
+    <Type Name="Party">
+      <Column Name="PartyId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Initials" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Association Name="Party_Politician" Member="Politicians" ThisKey="PartyId" OtherKey="PartyId" Type="Politician" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Speech" Member="Speeches">
+    <Type Name="Speech">
+      <Column Name="SpeechId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DeliberationId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PoliticianId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SpeechNr" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SpeechTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsTemp" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ParentSpeechId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PoliticianTitle" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Speech_SpeechPara" Member="SpeechParas" ThisKey="SpeechId" OtherKey="SpeechId" Type="SpeechPara" />
+      <Association Name="Speech_Speech" Member="Speeches" ThisKey="SpeechId" OtherKey="ParentSpeechId" Type="Speech" />
+      <Association Name="Speech_Speech" Member="Speech1" ThisKey="ParentSpeechId" OtherKey="SpeechId" Type="Speech" IsForeignKey="true" />
+      <Association Name="Deliberation_Speech" Member="Deliberation" ThisKey="DeliberationId" OtherKey="DeliberationId" Type="Deliberation" IsForeignKey="true" />
+      <Association Name="Politician_Speech" Member="Politician" ThisKey="PoliticianId" OtherKey="PoliticianId" Type="Politician" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Law" Member="Laws">
+    <Type Name="Law">
+      <Column Name="LawId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SessionId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MinistryId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Subtitle" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ShortName" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Summary" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CommitteeId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FirstDeliberation" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="SecondDeliberation" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Passed" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Proposed" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="FtId" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Association Name="Law_Deliberation" Member="Deliberations" ThisKey="LawId" OtherKey="LawId" Type="Deliberation" />
+      <Association Name="Law_LawChapter" Member="LawChapters" ThisKey="LawId" OtherKey="LawId" Type="LawChapter" />
+      <Association Name="Law_Paragraph" Member="Paragraphs" ThisKey="LawId" OtherKey="LawId" Type="Paragraph" />
+      <Association Name="Law_ProposedLaw" Member="ProposedLaws" ThisKey="LawId" OtherKey="LawId" Type="ProposedLaw" />
+      <Association Name="Law_Speaker" Member="Speakers" ThisKey="LawId" OtherKey="LawId" Type="Speaker" />
+      <Association Name="Law_LawVote" Member="LawVotes" ThisKey="LawId" OtherKey="LawId" Type="LawVote" />
+      <Association Name="Ministry_Law" Member="Ministry" ThisKey="MinistryId" OtherKey="MinistryId" Type="Ministry" IsForeignKey="true" />
+      <Association Name="Session_Law" Member="Session" ThisKey="SessionId" OtherKey="SessionId" Type="Session" IsForeignKey="true" />
+      <Association Name="Committee_Law" Member="Committee" ThisKey="CommitteeId" OtherKey="CommitteeId" Type="Committee" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Politician" Member="Politicians">
+    <Type Name="Politician">
+      <Column Name="PoliticianId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Firstname" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="BioText" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Initials" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="JoinedString" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="EmailAdd" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="ImageId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Lastname" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Telephone" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Mobile" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PartyId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Homepage" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Birthdate" Type="System.DateTime" CanBeNull="true" />
+      <Association Name="Politician_PoliticianLawVote" Member="PoliticianLawVotes" ThisKey="PoliticianId" OtherKey="PoliticianId" Type="PoliticianLawVote" />
+      <Association Name="Politician_ProposedLaw" Member="ProposedLaws" ThisKey="PoliticianId" OtherKey="PoliticianId" Type="ProposedLaw" />
+      <Association Name="Politician_Speaker" Member="Speakers" ThisKey="PoliticianId" OtherKey="PoliticianId" Type="Speaker" />
+      <Association Name="Politician_Speech" Member="Speeches" ThisKey="PoliticianId" OtherKey="PoliticianId" Type="Speech" />
+      <Association Name="Politician_P20Question" Member="P20Questions" ThisKey="PoliticianId" OtherKey="AskerPolId" Type="P20Question" />
+      <Association Name="Politician_P20Question1" Member="P20Questions1" ThisKey="PoliticianId" OtherKey="AskeeId" Type="P20Question" />
+      <Association Name="Politician_CommitteeTripParticipant" Member="CommitteeTripParticipants" ThisKey="PoliticianId" OtherKey="ParticipantId" Type="CommitteeTripParticipant" />
+      <Association Name="Image_Politician" Member="Image1" ThisKey="ImageId" OtherKey="ImageId" Type="Image" IsForeignKey="true" />
+      <Association Name="Party_Politician" Member="Party" ThisKey="PartyId" OtherKey="PartyId" Type="Party" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LawVote" Member="LawVotes">
+    <Type Name="LawVote">
+      <Column Name="LawVoteId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LawId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="VoteText" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IsFinal" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Stage" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Association Name="LawVote_UserLawVote" Member="UserLawVotes" ThisKey="LawVoteId" OtherKey="LawVoteId" Type="UserLawVote" />
+      <Association Name="LawVote_PoliticianLawVote" Member="PoliticianLawVotes" ThisKey="LawVoteId" OtherKey="LawVoteId" Type="PoliticianLawVote" />
+      <Association Name="Law_LawVote" Member="Law" ThisKey="LawId" OtherKey="LawId" Type="Law" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ItemCategory" Member="ItemCategories">
+    <Type Name="ItemCategory">
+      <Column Name="ItemId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ItemType" Type="ItemType" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="CategoryId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ItemCategoryId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Association Name="Category_ItemCategory" Member="Category" ThisKey="ItemCategoryId" OtherKey="CategoryId" Type="Category" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Category" Member="Categories">
+    <Type Name="Category">
+      <Column Name="CategoryId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FTId" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Association Name="Category_ItemCategory" Member="ItemCategories" ThisKey="CategoryId" OtherKey="ItemCategoryId" Type="ItemCategory" />
+    </Type>
+  </Table>
+  <Table Name="dbo.P20Question" Member="P20Questions">
+    <Type Name="P20Question">
+      <Column Name="P20QuestionId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SessionId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AskerPolId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AskeeId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FTId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AskDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AnswerDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Question" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Background" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="AskeeTitle" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Title" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Type" Type="QuestionType" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="AskerUserId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AnswerDocumentId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="P20Question_AnswerPara" Member="AnswerParas" ThisKey="P20QuestionId" OtherKey="QuestionId" Type="AnswerPara" />
+      <Association Name="Politician_P20Question" Member="Politician" ThisKey="AskerPolId" OtherKey="PoliticianId" Type="Politician" IsForeignKey="true" />
+      <Association Name="Politician_P20Question1" Member="Politician1" ThisKey="AskeeId" OtherKey="PoliticianId" Type="Politician" IsForeignKey="true" />
+      <Association Name="Session_P20Question" Member="Session" ThisKey="SessionId" OtherKey="SessionId" Type="Session" IsForeignKey="true" />
+      <Association Name="User_P20Question" Member="User" ThisKey="AskerUserId" OtherKey="UserId" Type="User" IsForeignKey="true" />
+      <Association Name="Document_P20Question" Member="Document" ThisKey="AnswerDocumentId" OtherKey="DocumentId" Type="Document" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ItemCommittee" Member="ItemCommittees">
+    <Type Name="ItemCommittee">
+      <Column Name="ItemId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ItemType" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="CommitteeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ItemCommitteeId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Association Name="Committee_ItemCommittee" Member="Committee" ThisKey="CommitteeId" OtherKey="CommitteeId" Type="Committee" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Committee" Member="Committees">
+    <Type Name="Committee">
+      <Column Name="CommitteeId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Association Name="Committee_Law" Member="Laws" ThisKey="CommitteeId" OtherKey="CommitteeId" Type="Law" />
+      <Association Name="Committee_ItemCommittee" Member="ItemCommittees" ThisKey="CommitteeId" OtherKey="CommitteeId" Type="ItemCommittee" />
+      <Association Name="Committee_CommitteeTrip" Member="CommitteeTrips" ThisKey="CommitteeId" OtherKey="CommitteeId" Type="CommitteeTrip" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Document" Member="Documents">
+    <Type Name="Document">
+      <Column Name="DocumentId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ContentType" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Data" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ScribdId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Uri" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="ScribdAccessKey" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Document_P20Question" Member="P20Questions" ThisKey="DocumentId" OtherKey="AnswerDocumentId" Type="P20Question" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CommitteeTripParticipant" Member="CommitteeTripParticipants">
+    <Type Name="CommitteeTripParticipant">
+      <Column Name="CommitteeTripParticipantId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CommitteeTripId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ParticipantId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Politician_CommitteeTripParticipant" Member="Politician" ThisKey="ParticipantId" OtherKey="PoliticianId" Type="Politician" IsForeignKey="true" />
+      <Association Name="CommitteeTrip_CommitteeTripParticipant" Member="CommitteeTrip" ThisKey="CommitteeTripId" OtherKey="CommitteeTripId" Type="CommitteeTrip" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CommitteeTrip" Member="CommitteeTrips">
+    <Type Name="CommitteeTrip">
+      <Column Name="CommitteeTripId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CommitteeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="EndDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Place" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Purpose" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Budget" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="ActualExpenses" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="NonPolParticipants" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FTId" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Uri" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Association Name="CommitteeTrip_CommitteeTripParticipant" Member="CommitteeTripParticipants" ThisKey="CommitteeTripId" OtherKey="CommitteeTripId" Type="CommitteeTripParticipant" />
+      <Association Name="CommitteeTrip_CommitteeTripDestination" Member="CommitteeTripDestinations" ThisKey="CommitteeTripId" OtherKey="CommitteeTripId" Type="CommitteeTripDestination" />
+      <Association Name="Committee_CommitteeTrip" Member="Committee" ThisKey="CommitteeId" OtherKey="CommitteeId" Type="Committee" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ApiUser" Member="ApiUsers">
+    <Type Name="ApiUser">
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ApiUserId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ApiKey" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="EmailAddress" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="IntendedUse" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CommitteeTripDestination" Member="CommitteeTripDestinations">
+    <Type Name="CommitteeTripDestination">
+      <Column Name="CommitteeTripDestinationId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PlaceNameName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CommitteeTripId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Lat" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Lng" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Association Name="CommitteeTrip_CommitteeTripDestination" Member="CommitteeTrip" ThisKey="CommitteeTripId" OtherKey="CommitteeTripId" Type="CommitteeTrip" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

@@ -1,0 +1,17 @@
+[Oo]bj
+[Bb]in
+deploy
+deploy/*
+*.csproj.user
+*.suo
+*.cache
+TestResults/
+*.user
+*.chw
+App_Data/
+*.exe
+*.suo
+*.schemaview
+*.dbmdl
+/Solr/solr-1.4.0/solr/data/spellchecker/segments_11
+/Solr/solr-1.4.0/solr/data/index/segments_ce

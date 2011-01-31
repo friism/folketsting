@@ -1,0 +1,127 @@
+<dataConfig>
+  <script>
+    <![CDATA[
+                function entityTransformer(row)    {
+                    var type = row.get('Type');
+                    var id = row.get('Id');
+                    row.put('solr_id', type + id);
+                    
+                    row.put('content', row.get('content'));
+                    row.put('spell', row.get('content'));
+                    row.put('doc_type', type);
+                    
+                    if (type == 'Speech') {
+                      row.put('fct_doc_type', 'Tale');
+                    } else if (type =='Politician') {
+                      row.put('fct_doc_type', 'Politiker');
+                    } else {
+                      row.put('fct_doc_type', 'Lovtekst');
+                    }
+                    
+                    var stage = row.get('Stage');
+                    if (stage)
+                    {
+                      row.put('stage', stage);
+                      switch(parseInt(stage))
+                      {
+                        case 0:
+                          row.put('fct_stage', '1. Behandling');
+                          break;
+                        case 2:
+                          row.put('fct_stage', '2. Behandling');
+                          break;
+                        case 1:
+                          row.put('fct_stage', '3. Behandling');
+                          break;
+                        default:
+                          row.put('fct_stage', 'Fail');
+                          break;
+                      }
+                    }
+                    return row;
+                }
+                
+                function collapseEntity(row)
+                {
+                   var collapseType = row.get('CollapseType');
+                   var id = row.get('Id');
+                   row.put('collapse_id', collapseType + id);
+                   return row;
+                }
+        ]]>
+  </script>
+
+  <dataSource type="JdbcDataSource"
+        driver="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+        url="jdbc:sqlserver://localhost\SQLEXPRESS;integratedSecurity=true;" />
+  <document>
+    <entity name="politician" query="SELECT politician.PoliticianId as Id,Firstname 
+              + ' ' + Lastname as PoliticianName, party.Name as PartyName,
+              'Politician' as CollapseType, 'Politician' as Type, politician.ImageId
+              FROM [ftdb].[dbo].[Politician] politician
+              Inner Join ftdb.dbo.Party party on party.PartyId = politician.PartyId"
+              transformer="script:collapseEntity,script:entityTransformer">
+      <field column="PoliticianName" name="title" />
+      <field column="PoliticianName" name="politician_name" />
+      <field column="Id" name="politician_id" />
+      <field column="PartyName" name="party" />
+      <field column="ImageId" name="image_id" />
+    </entity>
+    <entity name="law" query="SELECT law.LawId as Id, law.ShortName, law.Subtitle, 'Law' as CollapseType
+										,YEAR(law.Proposed) as ProposedYear, mini.Name as MinistryName,law.Summary 
+									FROM ftdb.dbo.law law
+									INNER JOIN ftdb.dbo.Ministry mini ON mini.MinistryId = law.MinistryId"
+				  rootEntity="false" transformer="TemplateTransformer,script:collapseEntity" >
+      <field column="ShortName" name="title" />
+      <field column="Subtitle" name="subtitle" />
+      <field column="ProposedYear" name="proposed_year" />
+      <field column="MinistryName" name="ministry_name" />
+      <field column="Summary" name="summary" />
+
+      <entity name="paragraph" rootEntity="true" transformer="TemplateTransformer,script:entityTransformer"
+              query="Select ChangeText as content, Stage, ParagraphId as Id, 'Paragraph' as Type
+                     FROM ftdb.dbo.Paragraph
+                     WHERE LawId='${law.Id}' and ChangeText is not null">
+      </entity>
+
+      <entity name="section" rootEntity="true" transformer="TemplateTransformer, script:entityTransformer"
+              query="SELECT para.Stage, section.Text as content, section.SectionId as Id, 'section' as Type
+                      FROM ftdb.dbo.Section section
+                      INNER JOIN ftdb.dbo.Paragraph para ON para.ParagraphId = section.ParagraphId
+                      WHERE para.LawId = '${law.Id}'">
+      </entity>
+
+      <entity name="law_change" rootEntity="true" transformer="TemplateTransformer, script:entityTransformer"
+              query="SELECT lawchange.LawChangeId as Id, lawchange.NoFormChangeText as content, 'LawChange' as Type,
+                        para.Stage
+                      FROM ftdb.dbo.LawChange lawchange
+                      INNER JOIN ftdb.dbo.Paragraph para ON para.ParagraphId = lawchange.ParagraphId
+                      WHERE para.LawId = '${law.Id}'">
+      </entity>
+
+      <entity name="sub_change" rootEntity="true" transformer="script:entityTransformer"
+              query="SELECT subchange.SubChangeId as Id, subchange.Text as content, 'SubChange' as Type,
+                        para.Stage
+                      FROM ftdb.dbo.SubChange subchange
+                      INNER JOIN ftdb.dbo.LawChange lawchange ON lawchange.LawChangeId = subchange.LawchangeId
+                      INNER JOIN ftdb.dbo.Paragraph para ON para.ParagraphId = lawchange.ParagraphId
+                      WHERE para.LawId = '${law.Id}'">
+      </entity>
+
+      <entity name="speech" rootEntity="true" transformer="TemplateTransformer, script:entityTransformer"
+       query="SELECT SpeechPara.ParText as content, pol.PoliticianId, SpeechPara.SpeechParaId as Id,
+              pol.Firstname + ' ' + pol.Lastname as Name, LawId, 'Speech' as Type, deli.Number as Stage,
+              party.Name as PartyName
+						 FROM ftdb.dbo.SpeechPara speechPara
+						 INNER JOIN ftdb.dbo.Speech speech ON speech.SpeechId = speechPara.SpeechId
+						 INNER JOIN ftdb.dbo.Politician pol ON speech.PoliticianId = pol.PoliticianId
+             INNER JOIN ftdb.dbo.Party party ON pol.PartyId = party.PartyId
+						 INNER JOIN ftdb.dbo.Deliberation deli ON speech.DeliberationId = deli.DeliberationId
+						 WHERE deli.LawId='${law.Id}'">
+        <field column="Name" name="politician_name" />
+        <field column="PoliticianId" name="politician_id" />
+        <field column="PartyName" name="party" />
+      </entity>
+    </entity>
+  </document>
+</dataConfig>

@@ -1,0 +1,2977 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="FolketsTingModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="FolketsTingModelStoreContainer">
+          <EntitySet Name="AnswerPara" EntityType="FolketsTingModel.Store.AnswerPara" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ApiUser" EntityType="FolketsTingModel.Store.ApiUser" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BlogPost" EntityType="FolketsTingModel.Store.BlogPost" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Category" EntityType="FolketsTingModel.Store.Category" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Comment" EntityType="FolketsTingModel.Store.Comment" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CommentVote" EntityType="FolketsTingModel.Store.CommentVote" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Committee" EntityType="FolketsTingModel.Store.Committee" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CommitteeTrip" EntityType="FolketsTingModel.Store.CommitteeTrip" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CommitteeTripDestination" EntityType="FolketsTingModel.Store.CommitteeTripDestination" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CommitteeTripParticipant" EntityType="FolketsTingModel.Store.CommitteeTripParticipant" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Deliberation" EntityType="FolketsTingModel.Store.Deliberation" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Document" EntityType="FolketsTingModel.Store.Document" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Hit" EntityType="FolketsTingModel.Store.Hit" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Image" EntityType="FolketsTingModel.Store.Image" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ItemCategory" EntityType="FolketsTingModel.Store.ItemCategory" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ItemCommittee" EntityType="FolketsTingModel.Store.ItemCommittee" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Law" EntityType="FolketsTingModel.Store.Law" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="LawChange" EntityType="FolketsTingModel.Store.LawChange" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="LawChapter" EntityType="FolketsTingModel.Store.LawChapter" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="LawVote" EntityType="FolketsTingModel.Store.LawVote" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Ministry" EntityType="FolketsTingModel.Store.Ministry" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="P20Question" EntityType="FolketsTingModel.Store.P20Question" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Paragraph" EntityType="FolketsTingModel.Store.Paragraph" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Party" EntityType="FolketsTingModel.Store.Party" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Politician" EntityType="FolketsTingModel.Store.Politician" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PoliticianLawVote" EntityType="FolketsTingModel.Store.PoliticianLawVote" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ProposedLaw" EntityType="FolketsTingModel.Store.ProposedLaw" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Section" EntityType="FolketsTingModel.Store.Section" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Session" EntityType="FolketsTingModel.Store.Session" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Speaker" EntityType="FolketsTingModel.Store.Speaker" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Speech" EntityType="FolketsTingModel.Store.Speech" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SpeechPara" EntityType="FolketsTingModel.Store.SpeechPara" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SubChange" EntityType="FolketsTingModel.Store.SubChange" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="sysdiagrams" EntityType="FolketsTingModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Tag" EntityType="FolketsTingModel.Store.Tag" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="User" EntityType="FolketsTingModel.Store.User" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserLawVote" EntityType="FolketsTingModel.Store.UserLawVote" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_AnswerPara_P20Question" Association="FolketsTingModel.Store.FK_AnswerPara_P20Question">
+            <End Role="P20Question" EntitySet="P20Question" />
+            <End Role="AnswerPara" EntitySet="AnswerPara" />
+          </AssociationSet>
+          <AssociationSet Name="FK_behandlinger_love" Association="FolketsTingModel.Store.FK_behandlinger_love">
+            <End Role="Law" EntitySet="Law" />
+            <End Role="Deliberation" EntitySet="Deliberation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comment_Comment" Association="FolketsTingModel.Store.FK_Comment_Comment">
+            <End Role="Comment" EntitySet="Comment" />
+            <End Role="Comment1" EntitySet="Comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comment_User" Association="FolketsTingModel.Store.FK_Comment_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Comment" EntitySet="Comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CommentVote_Comment" Association="FolketsTingModel.Store.FK_CommentVote_Comment">
+            <End Role="Comment" EntitySet="Comment" />
+            <End Role="CommentVote" EntitySet="CommentVote" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CommentVote_User" Association="FolketsTingModel.Store.FK_CommentVote_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="CommentVote" EntitySet="CommentVote" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CommitteeTrip_Committee" Association="FolketsTingModel.Store.FK_CommitteeTrip_Committee">
+            <End Role="Committee" EntitySet="Committee" />
+            <End Role="CommitteeTrip" EntitySet="CommitteeTrip" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CommitteeTripDestination_CommitteeTrip" Association="FolketsTingModel.Store.FK_CommitteeTripDestination_CommitteeTrip">
+            <End Role="CommitteeTrip" EntitySet="CommitteeTrip" />
+            <End Role="CommitteeTripDestination" EntitySet="CommitteeTripDestination" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CommitteeTripParticipant_CommitteeTrip" Association="FolketsTingModel.Store.FK_CommitteeTripParticipant_CommitteeTrip">
+            <End Role="CommitteeTrip" EntitySet="CommitteeTrip" />
+            <End Role="CommitteeTripParticipant" EntitySet="CommitteeTripParticipant" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CommitteeTripParticipant_Politician" Association="FolketsTingModel.Store.FK_CommitteeTripParticipant_Politician">
+            <End Role="Politician" EntitySet="Politician" />
+            <End Role="CommitteeTripParticipant" EntitySet="CommitteeTripParticipant" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemCategory_Category" Association="FolketsTingModel.Store.FK_ItemCategory_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="ItemCategory" EntitySet="ItemCategory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemCommittee_Committee" Association="FolketsTingModel.Store.FK_ItemCommittee_Committee">
+            <End Role="Committee" EntitySet="Committee" />
+            <End Role="ItemCommittee" EntitySet="ItemCommittee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Law_Committee" Association="FolketsTingModel.Store.FK_Law_Committee">
+            <End Role="Committee" EntitySet="Committee" />
+            <End Role="Law" EntitySet="Law" />
+          </AssociationSet>
+          <AssociationSet Name="FK_lawchange_paragraph" Association="FolketsTingModel.Store.FK_lawchange_paragraph">
+            <End Role="Paragraph" EntitySet="Paragraph" />
+            <End Role="LawChange" EntitySet="LawChange" />
+          </AssociationSet>
+          <AssociationSet Name="FK_lawchapter_love" Association="FolketsTingModel.Store.FK_lawchapter_love">
+            <End Role="Law" EntitySet="Law" />
+            <End Role="LawChapter" EntitySet="LawChapter" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LawVote_love" Association="FolketsTingModel.Store.FK_LawVote_love">
+            <End Role="Law" EntitySet="Law" />
+            <End Role="LawVote" EntitySet="LawVote" />
+          </AssociationSet>
+          <AssociationSet Name="FK_love_ministerium" Association="FolketsTingModel.Store.FK_love_ministerium">
+            <End Role="Ministry" EntitySet="Ministry" />
+            <End Role="Law" EntitySet="Law" />
+          </AssociationSet>
+          <AssociationSet Name="FK_love_samlinger" Association="FolketsTingModel.Store.FK_love_samlinger">
+            <End Role="Session" EntitySet="Session" />
+            <End Role="Law" EntitySet="Law" />
+          </AssociationSet>
+          <AssociationSet Name="FK_P20Question_Document" Association="FolketsTingModel.Store.FK_P20Question_Document">
+            <End Role="Document" EntitySet="Document" />
+            <End Role="P20Question" EntitySet="P20Question" />
+          </AssociationSet>
+          <AssociationSet Name="FK_P20Question_Politician" Association="FolketsTingModel.Store.FK_P20Question_Politician">
+            <End Role="Politician" EntitySet="Politician" />
+            <End Role="P20Question" EntitySet="P20Question" />
+          </AssociationSet>
+          <AssociationSet Name="FK_P20Question_Politician1" Association="FolketsTingModel.Store.FK_P20Question_Politician1">
+            <End Role="Politician" EntitySet="Politician" />
+            <End Role="P20Question" EntitySet="P20Question" />
+          </AssociationSet>
+          <AssociationSet Name="FK_P20Question_Session" Association="FolketsTingModel.Store.FK_P20Question_Session">
+            <End Role="Session" EntitySet="Session" />
+            <End Role="P20Question" EntitySet="P20Question" />
+          </AssociationSet>
+          <AssociationSet Name="FK_P20Question_User" Association="FolketsTingModel.Store.FK_P20Question_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="P20Question" EntitySet="P20Question" />
+          </AssociationSet>
+          <AssociationSet Name="FK_paragraph_lawchapter" Association="FolketsTingModel.Store.FK_paragraph_lawchapter">
+            <End Role="LawChapter" EntitySet="LawChapter" />
+            <End Role="Paragraph" EntitySet="Paragraph" />
+          </AssociationSet>
+          <AssociationSet Name="FK_paragraph_love" Association="FolketsTingModel.Store.FK_paragraph_love">
+            <End Role="Law" EntitySet="Law" />
+            <End Role="Paragraph" EntitySet="Paragraph" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Politician_Images" Association="FolketsTingModel.Store.FK_Politician_Images">
+            <End Role="Image" EntitySet="Image" />
+            <End Role="Politician" EntitySet="Politician" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Politician_Party" Association="FolketsTingModel.Store.FK_Politician_Party">
+            <End Role="Party" EntitySet="Party" />
+            <End Role="Politician" EntitySet="Politician" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PoliticianLawVote_LawVote" Association="FolketsTingModel.Store.FK_PoliticianLawVote_LawVote">
+            <End Role="LawVote" EntitySet="LawVote" />
+            <End Role="PoliticianLawVote" EntitySet="PoliticianLawVote" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PoliticianLawVote_politiker" Association="FolketsTingModel.Store.FK_PoliticianLawVote_politiker">
+            <End Role="Politician" EntitySet="Politician" />
+            <End Role="PoliticianLawVote" EntitySet="PoliticianLawVote" />
+          </AssociationSet>
+          <AssociationSet Name="FK_proposedlaw_love" Association="FolketsTingModel.Store.FK_proposedlaw_love">
+            <End Role="Law" EntitySet="Law" />
+            <End Role="ProposedLaw" EntitySet="ProposedLaw" />
+          </AssociationSet>
+          <AssociationSet Name="FK_proposedlaw_politiker" Association="FolketsTingModel.Store.FK_proposedlaw_politiker">
+            <End Role="Politician" EntitySet="Politician" />
+            <End Role="ProposedLaw" EntitySet="ProposedLaw" />
+          </AssociationSet>
+          <AssociationSet Name="FK_section_paragraph" Association="FolketsTingModel.Store.FK_section_paragraph">
+            <End Role="Paragraph" EntitySet="Paragraph" />
+            <End Role="Section" EntitySet="Section" />
+          </AssociationSet>
+          <AssociationSet Name="FK_speach_para_tale" Association="FolketsTingModel.Store.FK_speach_para_tale">
+            <End Role="Speech" EntitySet="Speech" />
+            <End Role="SpeechPara" EntitySet="SpeechPara" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Speaker_Law" Association="FolketsTingModel.Store.FK_Speaker_Law">
+            <End Role="Law" EntitySet="Law" />
+            <End Role="Speaker" EntitySet="Speaker" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Speaker_Politician" Association="FolketsTingModel.Store.FK_Speaker_Politician">
+            <End Role="Politician" EntitySet="Politician" />
+            <End Role="Speaker" EntitySet="Speaker" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Speech_Speech" Association="FolketsTingModel.Store.FK_Speech_Speech">
+            <End Role="Speech" EntitySet="Speech" />
+            <End Role="Speech1" EntitySet="Speech" />
+          </AssociationSet>
+          <AssociationSet Name="FK_subchange_lawchange" Association="FolketsTingModel.Store.FK_subchange_lawchange">
+            <End Role="LawChange" EntitySet="LawChange" />
+            <End Role="SubChange" EntitySet="SubChange" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tag_User" Association="FolketsTingModel.Store.FK_Tag_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Tag" EntitySet="Tag" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tale_behandlinger" Association="FolketsTingModel.Store.FK_tale_behandlinger">
+            <End Role="Deliberation" EntitySet="Deliberation" />
+            <End Role="Speech" EntitySet="Speech" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tale_politiker" Association="FolketsTingModel.Store.FK_tale_politiker">
+            <End Role="Politician" EntitySet="Politician" />
+            <End Role="Speech" EntitySet="Speech" />
+          </AssociationSet>
+          <AssociationSet Name="FK_userlawvote_LawVote" Association="FolketsTingModel.Store.FK_userlawvote_LawVote">
+            <End Role="LawVote" EntitySet="LawVote" />
+            <End Role="UserLawVote" EntitySet="UserLawVote" />
+          </AssociationSet>
+          <AssociationSet Name="FK_userlawvote_user" Association="FolketsTingModel.Store.FK_userlawvote_user">
+            <End Role="User" EntitySet="User" />
+            <End Role="UserLawVote" EntitySet="UserLawVote" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="AnswerPara">
+          <Key>
+            <PropertyRef Name="AnswerParaId" />
+          </Key>
+          <Property Name="AnswerParaId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="QuestionId" Type="int" />
+          <Property Name="ParText" Type="ntext" />
+          <Property Name="Number" Type="int" />
+        </EntityType>
+        <EntityType Name="ApiUser">
+          <Key>
+            <PropertyRef Name="ApiUserId" />
+          </Key>
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ApiUserId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ApiKey" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="EmailAddress" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="IntendedUse" Type="ntext" />
+        </EntityType>
+        <EntityType Name="BlogPost">
+          <Key>
+            <PropertyRef Name="BlogPostID" />
+          </Key>
+          <Property Name="BlogPostID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="WordpressId" Type="nvarchar" MaxLength="200" />
+          <Property Name="Summary" Type="ntext" />
+          <Property Name="Title" Type="ntext" />
+          <Property Name="CommentCount" Type="int" />
+          <Property Name="PermaLink" Type="ntext" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CategoryId" />
+          </Key>
+          <Property Name="CategoryId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="FTId" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Comment">
+          <Key>
+            <PropertyRef Name="CommentId" />
+          </Key>
+          <Property Name="CommentId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ItemId" Type="int" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="CommentText" Type="ntext" />
+          <Property Name="ParentId" Type="int" />
+          <Property Name="CommentType" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="CommentVote">
+          <Key>
+            <PropertyRef Name="CommentVoteId" />
+          </Key>
+          <Property Name="CommentVoteId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CommentId" Type="int" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="Vote" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="Committee">
+          <Key>
+            <PropertyRef Name="CommitteeId" />
+          </Key>
+          <Property Name="CommitteeId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="CommitteeTrip">
+          <Key>
+            <PropertyRef Name="CommitteeTripId" />
+          </Key>
+          <Property Name="CommitteeTripId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CommitteeId" Type="int" Nullable="false" />
+          <Property Name="StartDate" Type="datetime" Nullable="false" />
+          <Property Name="EndDate" Type="datetime" Nullable="false" />
+          <Property Name="Place" Type="nvarchar" MaxLength="200" />
+          <Property Name="Purpose" Type="ntext" />
+          <Property Name="Budget" Type="decimal" Scale="2" />
+          <Property Name="ActualExpenses" Type="decimal" Scale="2" />
+          <Property Name="NonPolParticipants" Type="int" />
+          <Property Name="FTId" Type="nvarchar" MaxLength="200" />
+          <Property Name="Uri" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="CommitteeTripDestination">
+          <Key>
+            <PropertyRef Name="CommitteeTripDestinationId" />
+          </Key>
+          <Property Name="CommitteeTripDestinationId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="PlaceNameName" Type="nvarchar" MaxLength="100" />
+          <Property Name="CommitteeTripId" Type="int" />
+          <Property Name="Lat" Type="float" />
+          <Property Name="Lng" Type="float" />
+        </EntityType>
+        <EntityType Name="CommitteeTripParticipant">
+          <Key>
+            <PropertyRef Name="CommitteeTripParticipantId" />
+          </Key>
+          <Property Name="CommitteeTripParticipantId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CommitteeTripId" Type="int" Nullable="false" />
+          <Property Name="ParticipantId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Deliberation">
+          <Key>
+            <PropertyRef Name="DeliberationId" />
+          </Key>
+          <Property Name="DeliberationId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="LawId" Type="int" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="Number" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="Document">
+          <Key>
+            <PropertyRef Name="DocumentId" />
+          </Key>
+          <Property Name="DocumentId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ContentType" Type="varchar" MaxLength="50" />
+          <Property Name="Data" Type="varbinary(max)" />
+          <Property Name="ScribdId" Type="int" />
+          <Property Name="Uri" Type="nvarchar" MaxLength="250" />
+          <Property Name="ScribdAccessKey" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Hit">
+          <Key>
+            <PropertyRef Name="HitId" />
+          </Key>
+          <Property Name="ContentId" Type="int" Nullable="false" />
+          <Property Name="ContentType" Type="tinyint" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="HitId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IP" Type="binary" Nullable="false" MaxLength="4" />
+        </EntityType>
+        <EntityType Name="Image">
+          <Key>
+            <PropertyRef Name="ImageId" />
+          </Key>
+          <Property Name="ImageId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ContentType" Type="varchar" MaxLength="50" />
+          <Property Name="Data" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="ItemCategory">
+          <Key>
+            <PropertyRef Name="ItemCategoryId" />
+          </Key>
+          <Property Name="ItemId" Type="int" Nullable="false" />
+          <Property Name="ItemType" Type="tinyint" Nullable="false" />
+          <Property Name="CategoryId" Type="int" Nullable="false" />
+          <Property Name="ItemCategoryId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="ItemCommittee">
+          <Key>
+            <PropertyRef Name="ItemCommitteeId" />
+          </Key>
+          <Property Name="ItemId" Type="int" Nullable="false" />
+          <Property Name="ItemType" Type="tinyint" Nullable="false" />
+          <Property Name="CommitteeId" Type="int" Nullable="false" />
+          <Property Name="ItemCommitteeId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="Law">
+          <Key>
+            <PropertyRef Name="LawId" />
+          </Key>
+          <Property Name="LawId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="SessionId" Type="int" />
+          <Property Name="MinistryId" Type="int" />
+          <Property Name="Subtitle" Type="ntext" />
+          <Property Name="ShortName" Type="ntext" />
+          <Property Name="Summary" Type="ntext" />
+          <Property Name="CommitteeId" Type="int" />
+          <Property Name="FirstDeliberation" Type="date" />
+          <Property Name="SecondDeliberation" Type="date" />
+          <Property Name="Passed" Type="date" />
+          <Property Name="Proposed" Type="date" />
+          <Property Name="FtId" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="LawChange">
+          <Key>
+            <PropertyRef Name="LawChangeId" />
+          </Key>
+          <Property Name="LawChangeId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ParagraphId" Type="int" />
+          <Property Name="Number" Type="int" />
+          <Property Name="NoformChangeText" Type="ntext" />
+        </EntityType>
+        <EntityType Name="LawChapter">
+          <Key>
+            <PropertyRef Name="LawChapterId" />
+          </Key>
+          <Property Name="LawChapterId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="LawId" Type="int" />
+          <Property Name="Number" Type="int" />
+          <Property Name="Stage" Type="smallint" />
+          <Property Name="Titel" Type="ntext" />
+        </EntityType>
+        <EntityType Name="LawVote">
+          <Key>
+            <PropertyRef Name="LawVoteId" />
+          </Key>
+          <Property Name="LawVoteId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="LawId" Type="int" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="VoteText" Type="ntext" />
+          <Property Name="IsFinal" Type="bit" />
+          <Property Name="Stage" Type="smallint" />
+          <Property Name="Name" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Ministry">
+          <Key>
+            <PropertyRef Name="MinistryId" />
+          </Key>
+          <Property Name="MinistryId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="P20Question">
+          <Key>
+            <PropertyRef Name="P20QuestionId" />
+          </Key>
+          <Property Name="P20QuestionId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="SessionId" Type="int" />
+          <Property Name="AskerPolId" Type="int" />
+          <Property Name="AskeeId" Type="int" />
+          <Property Name="FTId" Type="int" />
+          <Property Name="AskDate" Type="datetime" />
+          <Property Name="AnswerDate" Type="datetime" />
+          <Property Name="Question" Type="ntext" />
+          <Property Name="Background" Type="ntext" />
+          <Property Name="AskeeTitle" Type="nvarchar" MaxLength="200" />
+          <Property Name="Title" Type="ntext" />
+          <Property Name="Type" Type="tinyint" Nullable="false" />
+          <Property Name="AskerUserId" Type="int" />
+          <Property Name="AnswerDocumentId" Type="int" />
+        </EntityType>
+        <EntityType Name="Paragraph">
+          <Key>
+            <PropertyRef Name="ParagraphId" />
+          </Key>
+          <Property Name="ParagraphId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="LawId" Type="int" />
+          <Property Name="Number" Type="int" />
+          <Property Name="Stage" Type="smallint" />
+          <Property Name="ChangeText" Type="ntext" />
+          <Property Name="IsChange" Type="bit" />
+          <Property Name="ChapterId" Type="int" />
+          <Property Name="Letter" Type="nvarchar" MaxLength="3" />
+        </EntityType>
+        <EntityType Name="Party">
+          <Key>
+            <PropertyRef Name="PartyId" />
+          </Key>
+          <Property Name="PartyId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="Initials" Type="nvarchar" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="Politician">
+          <Key>
+            <PropertyRef Name="PoliticianId" />
+          </Key>
+          <Property Name="PoliticianId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Firstname" Type="nvarchar" MaxLength="100" />
+          <Property Name="BioText" Type="ntext" />
+          <Property Name="Initials" Type="nvarchar" MaxLength="50" />
+          <Property Name="JoinedString" Type="nvarchar" MaxLength="50" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="EmailAdd" Type="nvarchar" MaxLength="200" />
+          <Property Name="ImageId" Type="int" />
+          <Property Name="Lastname" Type="nvarchar" MaxLength="100" />
+          <Property Name="Telephone" Type="nvarchar" MaxLength="50" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="50" />
+          <Property Name="PartyId" Type="int" />
+          <Property Name="Homepage" Type="ntext" />
+          <Property Name="Birthdate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="PoliticianLawVote">
+          <Key>
+            <PropertyRef Name="PoliticianLawVoteId" />
+          </Key>
+          <Property Name="PoliticianLawVoteId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="PoliticianId" Type="int" />
+          <Property Name="LawVoteId" Type="int" />
+          <Property Name="Vote" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="ProposedLaw">
+          <Key>
+            <PropertyRef Name="ProposedLawId" />
+          </Key>
+          <Property Name="ProposedLawId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="PoliticianId" Type="int" />
+          <Property Name="LawId" Type="int" />
+          <Property Name="IsMinister" Type="bit" />
+          <Property Name="Title" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Section">
+          <Key>
+            <PropertyRef Name="SectionId" />
+          </Key>
+          <Property Name="SectionId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ParagraphId" Type="int" />
+          <Property Name="Number" Type="int" />
+          <Property Name="Text" Type="ntext" />
+        </EntityType>
+        <EntityType Name="Session">
+          <Key>
+            <PropertyRef Name="SessionId" />
+          </Key>
+          <Property Name="SessionId" Type="int" Nullable="false" />
+          <Property Name="Year" Type="int" Nullable="false" />
+          <Property Name="Number" Type="int" Nullable="false" />
+          <Property Name="IsDone" Type="bit" />
+        </EntityType>
+        <EntityType Name="Speaker">
+          <Key>
+            <PropertyRef Name="SpeakerId" />
+          </Key>
+          <Property Name="SpeakerId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="PoliticianId" Type="int" />
+          <Property Name="LawId" Type="int" />
+        </EntityType>
+        <EntityType Name="Speech">
+          <Key>
+            <PropertyRef Name="SpeechId" />
+          </Key>
+          <Property Name="SpeechId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="DeliberationId" Type="int" />
+          <Property Name="PoliticianId" Type="int" />
+          <Property Name="SpeechNr" Type="int" />
+          <Property Name="SpeechTime" Type="datetime" />
+          <Property Name="IsTemp" Type="bit" />
+          <Property Name="ParentSpeechId" Type="int" />
+          <Property Name="PoliticianTitle" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SpeechPara">
+          <Key>
+            <PropertyRef Name="SpeechParaId" />
+          </Key>
+          <Property Name="SpeechParaId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="SpeechId" Type="int" />
+          <Property Name="ParText" Type="ntext" />
+          <Property Name="Number" Type="int" />
+        </EntityType>
+        <EntityType Name="SubChange">
+          <Key>
+            <PropertyRef Name="SubchangeId" />
+          </Key>
+          <Property Name="SubchangeId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="LawchangeId" Type="int" />
+          <Property Name="Number" Type="int" />
+          <Property Name="Text" Type="ntext" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Tag">
+          <Key>
+            <PropertyRef Name="TagId" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="ContentId" Type="int" Nullable="false" />
+          <Property Name="ContentType" Type="tinyint" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="TagId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TagName" Type="nvarchar" Nullable="false" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="Aspnetuserid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Url" Type="nvarchar" MaxLength="256" />
+          <Property Name="Pic" Type="varbinary(max)" />
+          <Property Name="CreatedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="UserLawVote">
+          <Key>
+            <PropertyRef Name="UserLawVoteId" />
+          </Key>
+          <Property Name="UserLawVoteId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="LawVoteId" Type="int" />
+          <Property Name="Vote" Type="tinyint" />
+          <Property Name="Date" Type="datetime" />
+        </EntityType>
+        <Association Name="FK_AnswerPara_P20Question">
+          <End Role="P20Question" Type="FolketsTingModel.Store.P20Question" Multiplicity="0..1" />
+          <End Role="AnswerPara" Type="FolketsTingModel.Store.AnswerPara" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="P20Question">
+              <PropertyRef Name="P20QuestionId" />
+            </Principal>
+            <Dependent Role="AnswerPara">
+              <PropertyRef Name="QuestionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_behandlinger_love">
+          <End Role="Law" Type="FolketsTingModel.Store.Law" Multiplicity="0..1" />
+          <End Role="Deliberation" Type="FolketsTingModel.Store.Deliberation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Law">
+              <PropertyRef Name="LawId" />
+            </Principal>
+            <Dependent Role="Deliberation">
+              <PropertyRef Name="LawId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comment_Comment">
+          <End Role="Comment" Type="FolketsTingModel.Store.Comment" Multiplicity="0..1" />
+          <End Role="Comment1" Type="FolketsTingModel.Store.Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Comment">
+              <PropertyRef Name="CommentId" />
+            </Principal>
+            <Dependent Role="Comment1">
+              <PropertyRef Name="ParentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comment_User">
+          <End Role="User" Type="FolketsTingModel.Store.User" Multiplicity="0..1" />
+          <End Role="Comment" Type="FolketsTingModel.Store.Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Comment">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CommentVote_Comment">
+          <End Role="Comment" Type="FolketsTingModel.Store.Comment" Multiplicity="0..1" />
+          <End Role="CommentVote" Type="FolketsTingModel.Store.CommentVote" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Comment">
+              <PropertyRef Name="CommentId" />
+            </Principal>
+            <Dependent Role="CommentVote">
+              <PropertyRef Name="CommentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CommentVote_User">
+          <End Role="User" Type="FolketsTingModel.Store.User" Multiplicity="0..1" />
+          <End Role="CommentVote" Type="FolketsTingModel.Store.CommentVote" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="CommentVote">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CommitteeTrip_Committee">
+          <End Role="Committee" Type="FolketsTingModel.Store.Committee" Multiplicity="1" />
+          <End Role="CommitteeTrip" Type="FolketsTingModel.Store.CommitteeTrip" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Committee">
+              <PropertyRef Name="CommitteeId" />
+            </Principal>
+            <Dependent Role="CommitteeTrip">
+              <PropertyRef Name="CommitteeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CommitteeTripDestination_CommitteeTrip">
+          <End Role="CommitteeTrip" Type="FolketsTingModel.Store.CommitteeTrip" Multiplicity="0..1" />
+          <End Role="CommitteeTripDestination" Type="FolketsTingModel.Store.CommitteeTripDestination" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CommitteeTrip">
+              <PropertyRef Name="CommitteeTripId" />
+            </Principal>
+            <Dependent Role="CommitteeTripDestination">
+              <PropertyRef Name="CommitteeTripId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CommitteeTripParticipant_CommitteeTrip">
+          <End Role="CommitteeTrip" Type="FolketsTingModel.Store.CommitteeTrip" Multiplicity="1" />
+          <End Role="CommitteeTripParticipant" Type="FolketsTingModel.Store.CommitteeTripParticipant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CommitteeTrip">
+              <PropertyRef Name="CommitteeTripId" />
+            </Principal>
+            <Dependent Role="CommitteeTripParticipant">
+              <PropertyRef Name="CommitteeTripId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CommitteeTripParticipant_Politician">
+          <End Role="Politician" Type="FolketsTingModel.Store.Politician" Multiplicity="1" />
+          <End Role="CommitteeTripParticipant" Type="FolketsTingModel.Store.CommitteeTripParticipant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Politician">
+              <PropertyRef Name="PoliticianId" />
+            </Principal>
+            <Dependent Role="CommitteeTripParticipant">
+              <PropertyRef Name="ParticipantId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemCategory_Category">
+          <End Role="Category" Type="FolketsTingModel.Store.Category" Multiplicity="1" />
+          <End Role="ItemCategory" Type="FolketsTingModel.Store.ItemCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryId" />
+            </Principal>
+            <Dependent Role="ItemCategory">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemCommittee_Committee">
+          <End Role="Committee" Type="FolketsTingModel.Store.Committee" Multiplicity="1" />
+          <End Role="ItemCommittee" Type="FolketsTingModel.Store.ItemCommittee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Committee">
+              <PropertyRef Name="CommitteeId" />
+            </Principal>
+            <Dependent Role="ItemCommittee">
+              <PropertyRef Name="CommitteeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Law_Committee">
+          <End Role="Committee" Type="FolketsTingModel.Store.Committee" Multiplicity="0..1" />
+          <End Role="Law" Type="FolketsTingModel.Store.Law" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Committee">
+              <PropertyRef Name="CommitteeId" />
+            </Principal>
+            <Dependent Role="Law">
+              <PropertyRef Name="CommitteeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_lawchange_paragraph">
+          <End Role="Paragraph" Type="FolketsTingModel.Store.Paragraph" Multiplicity="0..1" />
+          <End Role="LawChange" Type="FolketsTingModel.Store.LawChange" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Paragraph">
+              <PropertyRef Name="ParagraphId" />
+            </Principal>
+            <Dependent Role="LawChange">
+              <PropertyRef Name="ParagraphId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_lawchapter_love">
+          <End Role="Law" Type="FolketsTingModel.Store.Law" Multiplicity="0..1" />
+          <End Role="LawChapter" Type="FolketsTingModel.Store.LawChapter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Law">
+              <PropertyRef Name="LawId" />
+            </Principal>
+            <Dependent Role="LawChapter">
+              <PropertyRef Name="LawId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LawVote_love">
+          <End Role="Law" Type="FolketsTingModel.Store.Law" Multiplicity="0..1" />
+          <End Role="LawVote" Type="FolketsTingModel.Store.LawVote" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Law">
+              <PropertyRef Name="LawId" />
+            </Principal>
+            <Dependent Role="LawVote">
+              <PropertyRef Name="LawId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_love_ministerium">
+          <End Role="Ministry" Type="FolketsTingModel.Store.Ministry" Multiplicity="0..1" />
+          <End Role="Law" Type="FolketsTingModel.Store.Law" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ministry">
+              <PropertyRef Name="MinistryId" />
+            </Principal>
+            <Dependent Role="Law">
+              <PropertyRef Name="MinistryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_love_samlinger">
+          <End Role="Session" Type="FolketsTingModel.Store.Session" Multiplicity="0..1" />
+          <End Role="Law" Type="FolketsTingModel.Store.Law" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Session">
+              <PropertyRef Name="SessionId" />
+            </Principal>
+            <Dependent Role="Law">
+              <PropertyRef Name="SessionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_P20Question_Document">
+          <End Role="Document" Type="FolketsTingModel.Store.Document" Multiplicity="0..1" />
+          <End Role="P20Question" Type="FolketsTingModel.Store.P20Question" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Document">
+              <PropertyRef Name="DocumentId" />
+            </Principal>
+            <Dependent Role="P20Question">
+              <PropertyRef Name="AnswerDocumentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_P20Question_Politician">
+          <End Role="Politician" Type="FolketsTingModel.Store.Politician" Multiplicity="0..1" />
+          <End Role="P20Question" Type="FolketsTingModel.Store.P20Question" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Politician">
+              <PropertyRef Name="PoliticianId" />
+            </Principal>
+            <Dependent Role="P20Question">
+              <PropertyRef Name="AskerPolId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_P20Question_Politician1">
+          <End Role="Politician" Type="FolketsTingModel.Store.Politician" Multiplicity="0..1" />
+          <End Role="P20Question" Type="FolketsTingModel.Store.P20Question" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Politician">
+              <PropertyRef Name="PoliticianId" />
+            </Principal>
+            <Dependent Role="P20Question">
+              <PropertyRef Name="AskeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_P20Question_Session">
+          <End Role="Session" Type="FolketsTingModel.Store.Session" Multiplicity="0..1" />
+          <End Role="P20Question" Type="FolketsTingModel.Store.P20Question" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Session">
+              <PropertyRef Name="SessionId" />
+            </Principal>
+            <Dependent Role="P20Question">
+              <PropertyRef Name="SessionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_P20Question_User">
+          <End Role="User" Type="FolketsTingModel.Store.User" Multiplicity="0..1" />
+          <End Role="P20Question" Type="FolketsTingModel.Store.P20Question" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="P20Question">
+              <PropertyRef Name="AskerUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_paragraph_lawchapter">
+          <End Role="LawChapter" Type="FolketsTingModel.Store.LawChapter" Multiplicity="0..1" />
+          <End Role="Paragraph" Type="FolketsTingModel.Store.Paragraph" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LawChapter">
+              <PropertyRef Name="LawChapterId" />
+            </Principal>
+            <Dependent Role="Paragraph">
+              <PropertyRef Name="ChapterId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_paragraph_love">
+          <End Role="Law" Type="FolketsTingModel.Store.Law" Multiplicity="0..1" />
+          <End Role="Paragraph" Type="FolketsTingModel.Store.Paragraph" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Law">
+              <PropertyRef Name="LawId" />
+            </Principal>
+            <Dependent Role="Paragraph">
+              <PropertyRef Name="LawId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Politician_Images">
+          <End Role="Image" Type="FolketsTingModel.Store.Image" Multiplicity="0..1" />
+          <End Role="Politician" Type="FolketsTingModel.Store.Politician" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Image">
+              <PropertyRef Name="ImageId" />
+            </Principal>
+            <Dependent Role="Politician">
+              <PropertyRef Name="ImageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Politician_Party">
+          <End Role="Party" Type="FolketsTingModel.Store.Party" Multiplicity="0..1" />
+          <End Role="Politician" Type="FolketsTingModel.Store.Politician" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Party">
+              <PropertyRef Name="PartyId" />
+            </Principal>
+            <Dependent Role="Politician">
+              <PropertyRef Name="PartyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PoliticianLawVote_LawVote">
+          <End Role="LawVote" Type="FolketsTingModel.Store.LawVote" Multiplicity="0..1" />
+          <End Role="PoliticianLawVote" Type="FolketsTingModel.Store.PoliticianLawVote" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LawVote">
+              <PropertyRef Name="LawVoteId" />
+            </Principal>
+            <Dependent Role="PoliticianLawVote">
+              <PropertyRef Name="LawVoteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PoliticianLawVote_politiker">
+          <End Role="Politician" Type="FolketsTingModel.Store.Politician" Multiplicity="0..1" />
+          <End Role="PoliticianLawVote" Type="FolketsTingModel.Store.PoliticianLawVote" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Politician">
+              <PropertyRef Name="PoliticianId" />
+            </Principal>
+            <Dependent Role="PoliticianLawVote">
+              <PropertyRef Name="PoliticianId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_proposedlaw_love">
+          <End Role="Law" Type="FolketsTingModel.Store.Law" Multiplicity="0..1" />
+          <End Role="ProposedLaw" Type="FolketsTingModel.Store.ProposedLaw" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Law">
+              <PropertyRef Name="LawId" />
+            </Principal>
+            <Dependent Role="ProposedLaw">
+              <PropertyRef Name="LawId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_proposedlaw_politiker">
+          <End Role="Politician" Type="FolketsTingModel.Store.Politician" Multiplicity="0..1" />
+          <End Role="ProposedLaw" Type="FolketsTingModel.Store.ProposedLaw" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Politician">
+              <PropertyRef Name="PoliticianId" />
+            </Principal>
+            <Dependent Role="ProposedLaw">
+              <PropertyRef Name="PoliticianId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_section_paragraph">
+          <End Role="Paragraph" Type="FolketsTingModel.Store.Paragraph" Multiplicity="0..1" />
+          <End Role="Section" Type="FolketsTingModel.Store.Section" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Paragraph">
+              <PropertyRef Name="ParagraphId" />
+            </Principal>
+            <Dependent Role="Section">
+              <PropertyRef Name="ParagraphId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_speach_para_tale">
+          <End Role="Speech" Type="FolketsTingModel.Store.Speech" Multiplicity="0..1" />
+          <End Role="SpeechPara" Type="FolketsTingModel.Store.SpeechPara" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Speech">
+              <PropertyRef Name="SpeechId" />
+            </Principal>
+            <Dependent Role="SpeechPara">
+              <PropertyRef Name="SpeechId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Speaker_Law">
+          <End Role="Law" Type="FolketsTingModel.Store.Law" Multiplicity="0..1" />
+          <End Role="Speaker" Type="FolketsTingModel.Store.Speaker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Law">
+              <PropertyRef Name="LawId" />
+            </Principal>
+            <Dependent Role="Speaker">
+              <PropertyRef Name="LawId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Speaker_Politician">
+          <End Role="Politician" Type="FolketsTingModel.Store.Politician" Multiplicity="0..1" />
+          <End Role="Speaker" Type="FolketsTingModel.Store.Speaker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Politician">
+              <PropertyRef Name="PoliticianId" />
+            </Principal>
+            <Dependent Role="Speaker">
+              <PropertyRef Name="PoliticianId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Speech_Speech">
+          <End Role="Speech" Type="FolketsTingModel.Store.Speech" Multiplicity="0..1" />
+          <End Role="Speech1" Type="FolketsTingModel.Store.Speech" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Speech">
+              <PropertyRef Name="SpeechId" />
+            </Principal>
+            <Dependent Role="Speech1">
+              <PropertyRef Name="ParentSpeechId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_subchange_lawchange">
+          <End Role="LawChange" Type="FolketsTingModel.Store.LawChange" Multiplicity="0..1" />
+          <End Role="SubChange" Type="FolketsTingModel.Store.SubChange" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LawChange">
+              <PropertyRef Name="LawChangeId" />
+            </Principal>
+            <Dependent Role="SubChange">
+              <PropertyRef Name="LawchangeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tag_User">
+          <End Role="User" Type="FolketsTingModel.Store.User" Multiplicity="1" />
+          <End Role="Tag" Type="FolketsTingModel.Store.Tag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Tag">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tale_behandlinger">
+          <End Role="Deliberation" Type="FolketsTingModel.Store.Deliberation" Multiplicity="0..1" />
+          <End Role="Speech" Type="FolketsTingModel.Store.Speech" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Deliberation">
+              <PropertyRef Name="DeliberationId" />
+            </Principal>
+            <Dependent Role="Speech">
+              <PropertyRef Name="DeliberationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tale_politiker">
+          <End Role="Politician" Type="FolketsTingModel.Store.Politician" Multiplicity="0..1" />
+          <End Role="Speech" Type="FolketsTingModel.Store.Speech" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Politician">
+              <PropertyRef Name="PoliticianId" />
+            </Principal>
+            <Dependent Role="Speech">
+              <PropertyRef Name="PoliticianId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_userlawvote_LawVote">
+          <End Role="LawVote" Type="FolketsTingModel.Store.LawVote" Multiplicity="0..1" />
+          <End Role="UserLawVote" Type="FolketsTingModel.Store.UserLawVote" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LawVote">
+              <PropertyRef Name="LawVoteId" />
+            </Principal>
+            <Dependent Role="UserLawVote">
+              <PropertyRef Name="LawVoteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_userlawvote_user">
+          <End Role="User" Type="FolketsTingModel.Store.User" Multiplicity="0..1" />
+          <End Role="UserLawVote" Type="FolketsTingModel.Store.UserLawVote" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="UserLawVote">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FolketsTingModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="FolketsTingEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AnswerPara" EntityType="FolketsTingModel.AnswerPara" />
+          <EntitySet Name="BlogPost" EntityType="FolketsTingModel.BlogPost" />
+          <EntitySet Name="Category" EntityType="FolketsTingModel.Category" />
+          <EntitySet Name="Comment" EntityType="FolketsTingModel.Comment" />
+          <EntitySet Name="CommentVote" EntityType="FolketsTingModel.CommentVote" />
+          <EntitySet Name="Committee" EntityType="FolketsTingModel.Committee" />
+          <EntitySet Name="CommitteeTrip" EntityType="FolketsTingModel.CommitteeTrip" />
+          <EntitySet Name="CommitteeTripParticipant" EntityType="FolketsTingModel.CommitteeTripParticipant" />
+          <EntitySet Name="Deliberation" EntityType="FolketsTingModel.Deliberation" />
+          <EntitySet Name="Document" EntityType="FolketsTingModel.Document" />
+          <EntitySet Name="Hit" EntityType="FolketsTingModel.Hit" />
+          <EntitySet Name="Image" EntityType="FolketsTingModel.Image" />
+          <EntitySet Name="ItemCategory" EntityType="FolketsTingModel.ItemCategory" />
+          <EntitySet Name="ItemCommittee" EntityType="FolketsTingModel.ItemCommittee" />
+          <EntitySet Name="Law" EntityType="FolketsTingModel.Law" />
+          <EntitySet Name="LawChange" EntityType="FolketsTingModel.LawChange" />
+          <EntitySet Name="LawChapter" EntityType="FolketsTingModel.LawChapter" />
+          <EntitySet Name="LawVote" EntityType="FolketsTingModel.LawVote" />
+          <EntitySet Name="Ministry" EntityType="FolketsTingModel.Ministry" />
+          <EntitySet Name="P20Question" EntityType="FolketsTingModel.P20Question" />
+          <EntitySet Name="Paragraph" EntityType="FolketsTingModel.Paragraph" />
+          <EntitySet Name="Party" EntityType="FolketsTingModel.Party" />
+          <EntitySet Name="Politician" EntityType="FolketsTingModel.Politician" />
+          <EntitySet Name="PoliticianLawVote" EntityType="FolketsTingModel.PoliticianLawVote" />
+          <EntitySet Name="ProposedLaw" EntityType="FolketsTingModel.ProposedLaw" />
+          <EntitySet Name="Section" EntityType="FolketsTingModel.Section" />
+          <EntitySet Name="Session" EntityType="FolketsTingModel.Session" />
+          <EntitySet Name="Speaker" EntityType="FolketsTingModel.Speaker" />
+          <EntitySet Name="Speech" EntityType="FolketsTingModel.Speech" />
+          <EntitySet Name="SpeechPara" EntityType="FolketsTingModel.SpeechPara" />
+          <EntitySet Name="SubChange" EntityType="FolketsTingModel.SubChange" />
+          <EntitySet Name="sysdiagrams" EntityType="FolketsTingModel.sysdiagrams" />
+          <EntitySet Name="Tag" EntityType="FolketsTingModel.Tag" />
+          <EntitySet Name="User" EntityType="FolketsTingModel.User" />
+          <EntitySet Name="UserLawVote" EntityType="FolketsTingModel.UserLawVote" />
+          <AssociationSet Name="FK_AnswerPara_P20Question" Association="FolketsTingModel.FK_AnswerPara_P20Question">
+            <End Role="P20Question" EntitySet="P20Question" />
+            <End Role="AnswerPara" EntitySet="AnswerPara" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemCategory_Category" Association="FolketsTingModel.FK_ItemCategory_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="ItemCategory" EntitySet="ItemCategory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comment_Comment" Association="FolketsTingModel.FK_Comment_Comment">
+            <End Role="Comment" EntitySet="Comment" />
+            <End Role="Comment1" EntitySet="Comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comment_User" Association="FolketsTingModel.FK_Comment_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Comment" EntitySet="Comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CommentVote_Comment" Association="FolketsTingModel.FK_CommentVote_Comment">
+            <End Role="Comment" EntitySet="Comment" />
+            <End Role="CommentVote" EntitySet="CommentVote" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CommentVote_User" Association="FolketsTingModel.FK_CommentVote_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="CommentVote" EntitySet="CommentVote" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemCommittee_Committee" Association="FolketsTingModel.FK_ItemCommittee_Committee">
+            <End Role="Committee" EntitySet="Committee" />
+            <End Role="ItemCommittee" EntitySet="ItemCommittee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Law_Committee" Association="FolketsTingModel.FK_Law_Committee">
+            <End Role="Committee" EntitySet="Committee" />
+            <End Role="Law" EntitySet="Law" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CommitteeTripParticipant_CommitteeTrip" Association="FolketsTingModel.FK_CommitteeTripParticipant_CommitteeTrip">
+            <End Role="CommitteeTrip" EntitySet="CommitteeTrip" />
+            <End Role="CommitteeTripParticipant" EntitySet="CommitteeTripParticipant" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CommitteeTripParticipant_Politician" Association="FolketsTingModel.FK_CommitteeTripParticipant_Politician">
+            <End Role="Politician" EntitySet="Politician" />
+            <End Role="CommitteeTripParticipant" EntitySet="CommitteeTripParticipant" />
+          </AssociationSet>
+          <AssociationSet Name="FK_behandlinger_love" Association="FolketsTingModel.FK_behandlinger_love">
+            <End Role="Law" EntitySet="Law" />
+            <End Role="Deliberation" EntitySet="Deliberation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tale_behandlinger" Association="FolketsTingModel.FK_tale_behandlinger">
+            <End Role="Deliberation" EntitySet="Deliberation" />
+            <End Role="Speech" EntitySet="Speech" />
+          </AssociationSet>
+          <AssociationSet Name="FK_P20Question_Document" Association="FolketsTingModel.FK_P20Question_Document">
+            <End Role="Document" EntitySet="Document" />
+            <End Role="P20Question" EntitySet="P20Question" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Politician_Images" Association="FolketsTingModel.FK_Politician_Images">
+            <End Role="Image" EntitySet="Image" />
+            <End Role="Politician" EntitySet="Politician" />
+          </AssociationSet>
+          <AssociationSet Name="FK_lawchapter_love" Association="FolketsTingModel.FK_lawchapter_love">
+            <End Role="Law" EntitySet="Law" />
+            <End Role="LawChapter" EntitySet="LawChapter" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LawVote_love" Association="FolketsTingModel.FK_LawVote_love">
+            <End Role="Law" EntitySet="Law" />
+            <End Role="LawVote" EntitySet="LawVote" />
+          </AssociationSet>
+          <AssociationSet Name="FK_love_ministerium" Association="FolketsTingModel.FK_love_ministerium">
+            <End Role="Ministry" EntitySet="Ministry" />
+            <End Role="Law" EntitySet="Law" />
+          </AssociationSet>
+          <AssociationSet Name="FK_love_samlinger" Association="FolketsTingModel.FK_love_samlinger">
+            <End Role="Session" EntitySet="Session" />
+            <End Role="Law" EntitySet="Law" />
+          </AssociationSet>
+          <AssociationSet Name="FK_paragraph_love" Association="FolketsTingModel.FK_paragraph_love">
+            <End Role="Law" EntitySet="Law" />
+            <End Role="Paragraph" EntitySet="Paragraph" />
+          </AssociationSet>
+          <AssociationSet Name="FK_proposedlaw_love" Association="FolketsTingModel.FK_proposedlaw_love">
+            <End Role="Law" EntitySet="Law" />
+            <End Role="ProposedLaw" EntitySet="ProposedLaw" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Speaker_Law" Association="FolketsTingModel.FK_Speaker_Law">
+            <End Role="Law" EntitySet="Law" />
+            <End Role="Speaker" EntitySet="Speaker" />
+          </AssociationSet>
+          <AssociationSet Name="FK_lawchange_paragraph" Association="FolketsTingModel.FK_lawchange_paragraph">
+            <End Role="Paragraph" EntitySet="Paragraph" />
+            <End Role="LawChange" EntitySet="LawChange" />
+          </AssociationSet>
+          <AssociationSet Name="FK_subchange_lawchange" Association="FolketsTingModel.FK_subchange_lawchange">
+            <End Role="LawChange" EntitySet="LawChange" />
+            <End Role="SubChange" EntitySet="SubChange" />
+          </AssociationSet>
+          <AssociationSet Name="FK_paragraph_lawchapter" Association="FolketsTingModel.FK_paragraph_lawchapter">
+            <End Role="LawChapter" EntitySet="LawChapter" />
+            <End Role="Paragraph" EntitySet="Paragraph" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PoliticianLawVote_LawVote" Association="FolketsTingModel.FK_PoliticianLawVote_LawVote">
+            <End Role="LawVote" EntitySet="LawVote" />
+            <End Role="PoliticianLawVote" EntitySet="PoliticianLawVote" />
+          </AssociationSet>
+          <AssociationSet Name="FK_userlawvote_LawVote" Association="FolketsTingModel.FK_userlawvote_LawVote">
+            <End Role="LawVote" EntitySet="LawVote" />
+            <End Role="UserLawVote" EntitySet="UserLawVote" />
+          </AssociationSet>
+          <AssociationSet Name="FK_P20Question_Politician" Association="FolketsTingModel.FK_P20Question_Politician">
+            <End Role="Politician" EntitySet="Politician" />
+            <End Role="P20Question" EntitySet="P20Question" />
+          </AssociationSet>
+          <AssociationSet Name="FK_P20Question_Politician1" Association="FolketsTingModel.FK_P20Question_Politician1">
+            <End Role="Politician" EntitySet="Politician" />
+            <End Role="P20Question" EntitySet="P20Question" />
+          </AssociationSet>
+          <AssociationSet Name="FK_P20Question_Session" Association="FolketsTingModel.FK_P20Question_Session">
+            <End Role="Session" EntitySet="Session" />
+            <End Role="P20Question" EntitySet="P20Question" />
+          </AssociationSet>
+          <AssociationSet Name="FK_P20Question_User" Association="FolketsTingModel.FK_P20Question_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="P20Question" EntitySet="P20Question" />
+          </AssociationSet>
+          <AssociationSet Name="FK_section_paragraph" Association="FolketsTingModel.FK_section_paragraph">
+            <End Role="Paragraph" EntitySet="Paragraph" />
+            <End Role="Section" EntitySet="Section" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Politician_Party" Association="FolketsTingModel.FK_Politician_Party">
+            <End Role="Party" EntitySet="Party" />
+            <End Role="Politician" EntitySet="Politician" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PoliticianLawVote_politiker" Association="FolketsTingModel.FK_PoliticianLawVote_politiker">
+            <End Role="Politician" EntitySet="Politician" />
+            <End Role="PoliticianLawVote" EntitySet="PoliticianLawVote" />
+          </AssociationSet>
+          <AssociationSet Name="FK_proposedlaw_politiker" Association="FolketsTingModel.FK_proposedlaw_politiker">
+            <End Role="Politician" EntitySet="Politician" />
+            <End Role="ProposedLaw" EntitySet="ProposedLaw" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Speaker_Politician" Association="FolketsTingModel.FK_Speaker_Politician">
+            <End Role="Politician" EntitySet="Politician" />
+            <End Role="Speaker" EntitySet="Speaker" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tale_politiker" Association="FolketsTingModel.FK_tale_politiker">
+            <End Role="Politician" EntitySet="Politician" />
+            <End Role="Speech" EntitySet="Speech" />
+          </AssociationSet>
+          <AssociationSet Name="FK_speach_para_tale" Association="FolketsTingModel.FK_speach_para_tale">
+            <End Role="Speech" EntitySet="Speech" />
+            <End Role="SpeechPara" EntitySet="SpeechPara" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Speech_Speech" Association="FolketsTingModel.FK_Speech_Speech">
+            <End Role="Speech" EntitySet="Speech" />
+            <End Role="Speech1" EntitySet="Speech" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tag_User" Association="FolketsTingModel.FK_Tag_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Tag" EntitySet="Tag" />
+          </AssociationSet>
+          <AssociationSet Name="FK_userlawvote_user" Association="FolketsTingModel.FK_userlawvote_user">
+            <End Role="User" EntitySet="User" />
+            <End Role="UserLawVote" EntitySet="UserLawVote" />
+          </AssociationSet>
+          <EntitySet Name="ApiUser" EntityType="FolketsTingModel.ApiUser" />
+          <EntitySet Name="CommitteeTripDestination" EntityType="FolketsTingModel.CommitteeTripDestination" />
+          <AssociationSet Name="FK_CommitteeTripDestination_CommitteeTrip" Association="FolketsTingModel.FK_CommitteeTripDestination_CommitteeTrip">
+            <End Role="CommitteeTrip" EntitySet="CommitteeTrip" />
+            <End Role="CommitteeTripDestination" EntitySet="CommitteeTripDestination" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CommitteeTrip_Committee" Association="FolketsTingModel.FK_CommitteeTrip_Committee">
+            <End Role="Committee" EntitySet="Committee" />
+            <End Role="CommitteeTrip" EntitySet="CommitteeTrip" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="AnswerPara">
+          <Key>
+            <PropertyRef Name="AnswerParaId" />
+          </Key>
+          <Property Name="AnswerParaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="QuestionId" Type="Int32" />
+          <Property Name="ParText" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Number" Type="Int32" />
+          <NavigationProperty Name="P20Question" Relationship="FolketsTingModel.FK_AnswerPara_P20Question" FromRole="AnswerPara" ToRole="P20Question" />
+        </EntityType>
+        <EntityType Name="BlogPost">
+          <Key>
+            <PropertyRef Name="BlogPostID" />
+          </Key>
+          <Property Name="BlogPostID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="DateTime" />
+          <Property Name="WordpressId" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="Summary" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Title" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="CommentCount" Type="Int32" />
+          <Property Name="PermaLink" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CategoryId" />
+          </Key>
+          <Property Name="CategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="FTId" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="ItemCategory" Relationship="FolketsTingModel.FK_ItemCategory_Category" FromRole="Category" ToRole="ItemCategory" />
+        </EntityType>
+        <EntityType Name="Comment">
+          <Key>
+            <PropertyRef Name="CommentId" />
+          </Key>
+          <Property Name="CommentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItemId" Type="Int32" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="Date" Type="DateTime" />
+          <Property Name="CommentText" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="ParentId" Type="Int32" />
+          <Property Name="CommentType" Type="Byte" />
+          <NavigationProperty Name="Comment1" Relationship="FolketsTingModel.FK_Comment_Comment" FromRole="Comment" ToRole="Comment1" />
+          <NavigationProperty Name="Comment2" Relationship="FolketsTingModel.FK_Comment_Comment" FromRole="Comment1" ToRole="Comment" />
+          <NavigationProperty Name="User" Relationship="FolketsTingModel.FK_Comment_User" FromRole="Comment" ToRole="User" />
+          <NavigationProperty Name="CommentVote" Relationship="FolketsTingModel.FK_CommentVote_Comment" FromRole="Comment" ToRole="CommentVote" />
+        </EntityType>
+        <EntityType Name="CommentVote">
+          <Key>
+            <PropertyRef Name="CommentVoteId" />
+          </Key>
+          <Property Name="CommentVoteId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CommentId" Type="Int32" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="Date" Type="DateTime" />
+          <Property Name="Vote" Type="Byte" />
+          <NavigationProperty Name="Comment" Relationship="FolketsTingModel.FK_CommentVote_Comment" FromRole="CommentVote" ToRole="Comment" />
+          <NavigationProperty Name="User" Relationship="FolketsTingModel.FK_CommentVote_User" FromRole="CommentVote" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Committee">
+          <Key>
+            <PropertyRef Name="CommitteeId" />
+          </Key>
+          <Property Name="CommitteeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="ItemCommittee" Relationship="FolketsTingModel.FK_ItemCommittee_Committee" FromRole="Committee" ToRole="ItemCommittee" />
+          <NavigationProperty Name="Law" Relationship="FolketsTingModel.FK_Law_Committee" FromRole="Committee" ToRole="Law" />
+          <NavigationProperty Name="CommitteeTrip" Relationship="FolketsTingModel.FK_CommitteeTrip_Committee" FromRole="Committee" ToRole="CommitteeTrip" />
+        </EntityType>
+        <EntityType Name="CommitteeTrip">
+          <Key>
+            <PropertyRef Name="CommitteeTripId" />
+          </Key>
+          <Property Name="CommitteeTripId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CommitteeId" Type="Int32" Nullable="false" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" />
+          <Property Name="EndDate" Type="DateTime" Nullable="false" />
+          <Property Name="Place" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="Purpose" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Budget" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ActualExpenses" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="NonPolParticipants" Type="Int32" />
+          <Property Name="FTId" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="CommitteeTripParticipant" Relationship="FolketsTingModel.FK_CommitteeTripParticipant_CommitteeTrip" FromRole="CommitteeTrip" ToRole="CommitteeTripParticipant" />
+          <Property Type="String" Name="Uri" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CommitteeTripDestination" Relationship="FolketsTingModel.FK_CommitteeTripDestination_CommitteeTrip" FromRole="CommitteeTrip" ToRole="CommitteeTripDestination" />
+          <NavigationProperty Name="Committee" Relationship="FolketsTingModel.FK_CommitteeTrip_Committee" FromRole="CommitteeTrip" ToRole="Committee" />
+        </EntityType>
+        <EntityType Name="CommitteeTripParticipant">
+          <Key>
+            <PropertyRef Name="CommitteeTripParticipantId" />
+          </Key>
+          <Property Name="CommitteeTripParticipantId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CommitteeTripId" Type="Int32" Nullable="false" />
+          <Property Name="ParticipantId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CommitteeTrip" Relationship="FolketsTingModel.FK_CommitteeTripParticipant_CommitteeTrip" FromRole="CommitteeTripParticipant" ToRole="CommitteeTrip" />
+          <NavigationProperty Name="Politician" Relationship="FolketsTingModel.FK_CommitteeTripParticipant_Politician" FromRole="CommitteeTripParticipant" ToRole="Politician" />
+        </EntityType>
+        <EntityType Name="Deliberation">
+          <Key>
+            <PropertyRef Name="DeliberationId" />
+          </Key>
+          <Property Name="DeliberationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LawId" Type="Int32" />
+          <Property Name="Date" Type="DateTime" />
+          <Property Name="Number" Type="Byte" />
+          <NavigationProperty Name="Law" Relationship="FolketsTingModel.FK_behandlinger_love" FromRole="Deliberation" ToRole="Law" />
+          <NavigationProperty Name="Speech" Relationship="FolketsTingModel.FK_tale_behandlinger" FromRole="Deliberation" ToRole="Speech" />
+        </EntityType>
+        <EntityType Name="Document">
+          <Key>
+            <PropertyRef Name="DocumentId" />
+          </Key>
+          <Property Name="DocumentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ContentType" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Data" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="ScribdId" Type="Int32" />
+          <Property Name="Uri" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+          <Property Name="ScribdAccessKey" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="P20Question" Relationship="FolketsTingModel.FK_P20Question_Document" FromRole="Document" ToRole="P20Question" />
+        </EntityType>
+        <EntityType Name="Hit">
+          <Key>
+            <PropertyRef Name="HitId" />
+          </Key>
+          <Property Name="ContentId" Type="Int32" Nullable="false" />
+          <Property Name="ContentType" Type="Byte" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" />
+          <Property Name="HitId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IP" Type="Binary" Nullable="false" MaxLength="4" FixedLength="true" />
+        </EntityType>
+        <EntityType Name="Image">
+          <Key>
+            <PropertyRef Name="ImageId" />
+          </Key>
+          <Property Name="ImageId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ContentType" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Data" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Politician1" Relationship="FolketsTingModel.FK_Politician_Images" FromRole="Image" ToRole="Politician" />
+        </EntityType>
+        <EntityType Name="ItemCategory">
+          <Key>
+            <PropertyRef Name="ItemCategoryId" />
+          </Key>
+          <Property Name="ItemId" Type="Int32" Nullable="false" />
+          <Property Name="ItemType" Type="Byte" Nullable="false" />
+          <Property Name="CategoryId" Type="Int32" Nullable="false" />
+          <Property Name="ItemCategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Category" Relationship="FolketsTingModel.FK_ItemCategory_Category" FromRole="ItemCategory" ToRole="Category" />
+        </EntityType>
+        <EntityType Name="ItemCommittee">
+          <Key>
+            <PropertyRef Name="ItemCommitteeId" />
+          </Key>
+          <Property Name="ItemId" Type="Int32" Nullable="false" />
+          <Property Name="ItemType" Type="Byte" Nullable="false" />
+          <Property Name="CommitteeId" Type="Int32" Nullable="false" />
+          <Property Name="ItemCommitteeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Committee" Relationship="FolketsTingModel.FK_ItemCommittee_Committee" FromRole="ItemCommittee" ToRole="Committee" />
+        </EntityType>
+        <EntityType Name="Law">
+          <Key>
+            <PropertyRef Name="LawId" />
+          </Key>
+          <Property Name="LawId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SessionId" Type="Int32" />
+          <Property Name="MinistryId" Type="Int32" />
+          <Property Name="Subtitle" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="ShortName" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Summary" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="CommitteeId" Type="Int32" />
+          <Property Name="FirstDeliberation" Type="DateTime" />
+          <Property Name="SecondDeliberation" Type="DateTime" />
+          <Property Name="Passed" Type="DateTime" />
+          <Property Name="Proposed" Type="DateTime" />
+          <Property Name="FtId" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Committee" Relationship="FolketsTingModel.FK_Law_Committee" FromRole="Law" ToRole="Committee" />
+          <NavigationProperty Name="Deliberation" Relationship="FolketsTingModel.FK_behandlinger_love" FromRole="Law" ToRole="Deliberation" />
+          <NavigationProperty Name="LawChapter" Relationship="FolketsTingModel.FK_lawchapter_love" FromRole="Law" ToRole="LawChapter" />
+          <NavigationProperty Name="LawVote" Relationship="FolketsTingModel.FK_LawVote_love" FromRole="Law" ToRole="LawVote" />
+          <NavigationProperty Name="Ministry" Relationship="FolketsTingModel.FK_love_ministerium" FromRole="Law" ToRole="Ministry" />
+          <NavigationProperty Name="Session" Relationship="FolketsTingModel.FK_love_samlinger" FromRole="Law" ToRole="Session" />
+          <NavigationProperty Name="Paragraph" Relationship="FolketsTingModel.FK_paragraph_love" FromRole="Law" ToRole="Paragraph" />
+          <NavigationProperty Name="ProposedLaw" Relationship="FolketsTingModel.FK_proposedlaw_love" FromRole="Law" ToRole="ProposedLaw" />
+          <NavigationProperty Name="Speaker" Relationship="FolketsTingModel.FK_Speaker_Law" FromRole="Law" ToRole="Speaker" />
+        </EntityType>
+        <EntityType Name="LawChange">
+          <Key>
+            <PropertyRef Name="LawChangeId" />
+          </Key>
+          <Property Name="LawChangeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ParagraphId" Type="Int32" />
+          <Property Name="Number" Type="Int32" />
+          <Property Name="NoformChangeText" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Paragraph" Relationship="FolketsTingModel.FK_lawchange_paragraph" FromRole="LawChange" ToRole="Paragraph" />
+          <NavigationProperty Name="SubChange" Relationship="FolketsTingModel.FK_subchange_lawchange" FromRole="LawChange" ToRole="SubChange" />
+        </EntityType>
+        <EntityType Name="LawChapter">
+          <Key>
+            <PropertyRef Name="LawChapterId" />
+          </Key>
+          <Property Name="LawChapterId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LawId" Type="Int32" />
+          <Property Name="Number" Type="Int32" />
+          <Property Name="Stage" Type="Int16" />
+          <Property Name="Titel" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Law" Relationship="FolketsTingModel.FK_lawchapter_love" FromRole="LawChapter" ToRole="Law" />
+          <NavigationProperty Name="Paragraph" Relationship="FolketsTingModel.FK_paragraph_lawchapter" FromRole="LawChapter" ToRole="Paragraph" />
+        </EntityType>
+        <EntityType Name="LawVote">
+          <Key>
+            <PropertyRef Name="LawVoteId" />
+          </Key>
+          <Property Name="LawVoteId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LawId" Type="Int32" />
+          <Property Name="Date" Type="DateTime" />
+          <Property Name="VoteText" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="IsFinal" Type="Boolean" />
+          <Property Name="Stage" Type="Int16" />
+          <Property Name="Name" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Law" Relationship="FolketsTingModel.FK_LawVote_love" FromRole="LawVote" ToRole="Law" />
+          <NavigationProperty Name="PoliticianLawVote" Relationship="FolketsTingModel.FK_PoliticianLawVote_LawVote" FromRole="LawVote" ToRole="PoliticianLawVote" />
+          <NavigationProperty Name="UserLawVote" Relationship="FolketsTingModel.FK_userlawvote_LawVote" FromRole="LawVote" ToRole="UserLawVote" />
+        </EntityType>
+        <EntityType Name="Ministry">
+          <Key>
+            <PropertyRef Name="MinistryId" />
+          </Key>
+          <Property Name="MinistryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Law" Relationship="FolketsTingModel.FK_love_ministerium" FromRole="Ministry" ToRole="Law" />
+        </EntityType>
+        <EntityType Name="P20Question">
+          <Key>
+            <PropertyRef Name="P20QuestionId" />
+          </Key>
+          <Property Name="P20QuestionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SessionId" Type="Int32" />
+          <Property Name="AskerPolId" Type="Int32" />
+          <Property Name="AskeeId" Type="Int32" />
+          <Property Name="FTId" Type="Int32" />
+          <Property Name="AskDate" Type="DateTime" />
+          <Property Name="AnswerDate" Type="DateTime" />
+          <Property Name="Question" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Background" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="AskeeTitle" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="Title" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Type" Type="Byte" Nullable="false" />
+          <Property Name="AskerUserId" Type="Int32" />
+          <Property Name="AnswerDocumentId" Type="Int32" />
+          <NavigationProperty Name="AnswerPara" Relationship="FolketsTingModel.FK_AnswerPara_P20Question" FromRole="P20Question" ToRole="AnswerPara" />
+          <NavigationProperty Name="Document" Relationship="FolketsTingModel.FK_P20Question_Document" FromRole="P20Question" ToRole="Document" />
+          <NavigationProperty Name="Politician" Relationship="FolketsTingModel.FK_P20Question_Politician" FromRole="P20Question" ToRole="Politician" />
+          <NavigationProperty Name="Politician1" Relationship="FolketsTingModel.FK_P20Question_Politician1" FromRole="P20Question" ToRole="Politician" />
+          <NavigationProperty Name="Session" Relationship="FolketsTingModel.FK_P20Question_Session" FromRole="P20Question" ToRole="Session" />
+          <NavigationProperty Name="User" Relationship="FolketsTingModel.FK_P20Question_User" FromRole="P20Question" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Paragraph">
+          <Key>
+            <PropertyRef Name="ParagraphId" />
+          </Key>
+          <Property Name="ParagraphId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LawId" Type="Int32" />
+          <Property Name="Number" Type="Int32" />
+          <Property Name="Stage" Type="Int16" />
+          <Property Name="ChangeText" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="IsChange" Type="Boolean" />
+          <Property Name="ChapterId" Type="Int32" />
+          <Property Name="Letter" Type="String" MaxLength="3" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Law" Relationship="FolketsTingModel.FK_paragraph_love" FromRole="Paragraph" ToRole="Law" />
+          <NavigationProperty Name="LawChange" Relationship="FolketsTingModel.FK_lawchange_paragraph" FromRole="Paragraph" ToRole="LawChange" />
+          <NavigationProperty Name="LawChapter" Relationship="FolketsTingModel.FK_paragraph_lawchapter" FromRole="Paragraph" ToRole="LawChapter" />
+          <NavigationProperty Name="Section" Relationship="FolketsTingModel.FK_section_paragraph" FromRole="Paragraph" ToRole="Section" />
+        </EntityType>
+        <EntityType Name="Party">
+          <Key>
+            <PropertyRef Name="PartyId" />
+          </Key>
+          <Property Name="PartyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Initials" Type="String" MaxLength="5" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Politician" Relationship="FolketsTingModel.FK_Politician_Party" FromRole="Party" ToRole="Politician" />
+        </EntityType>
+        <EntityType Name="Politician">
+          <Key>
+            <PropertyRef Name="PoliticianId" />
+          </Key>
+          <Property Name="PoliticianId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Firstname" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="BioText" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Initials" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="JoinedString" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Title" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="EmailAdd" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="ImageId" Type="Int32" />
+          <Property Name="Lastname" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Telephone" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Mobile" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="PartyId" Type="Int32" />
+          <Property Name="Homepage" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Birthdate" Type="DateTime" />
+          <NavigationProperty Name="CommitteeTripParticipant" Relationship="FolketsTingModel.FK_CommitteeTripParticipant_Politician" FromRole="Politician" ToRole="CommitteeTripParticipant" />
+          <NavigationProperty Name="Image1" Relationship="FolketsTingModel.FK_Politician_Images" FromRole="Politician" ToRole="Image" />
+          <NavigationProperty Name="P20Question" Relationship="FolketsTingModel.FK_P20Question_Politician" FromRole="Politician" ToRole="P20Question" />
+          <NavigationProperty Name="P20Question1" Relationship="FolketsTingModel.FK_P20Question_Politician1" FromRole="Politician" ToRole="P20Question" />
+          <NavigationProperty Name="Party" Relationship="FolketsTingModel.FK_Politician_Party" FromRole="Politician" ToRole="Party" />
+          <NavigationProperty Name="PoliticianLawVote" Relationship="FolketsTingModel.FK_PoliticianLawVote_politiker" FromRole="Politician" ToRole="PoliticianLawVote" />
+          <NavigationProperty Name="ProposedLaw" Relationship="FolketsTingModel.FK_proposedlaw_politiker" FromRole="Politician" ToRole="ProposedLaw" />
+          <NavigationProperty Name="Speaker" Relationship="FolketsTingModel.FK_Speaker_Politician" FromRole="Politician" ToRole="Speaker" />
+          <NavigationProperty Name="Speech" Relationship="FolketsTingModel.FK_tale_politiker" FromRole="Politician" ToRole="Speech" />
+        </EntityType>
+        <EntityType Name="PoliticianLawVote">
+          <Key>
+            <PropertyRef Name="PoliticianLawVoteId" />
+          </Key>
+          <Property Name="PoliticianLawVoteId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PoliticianId" Type="Int32" />
+          <Property Name="LawVoteId" Type="Int32" />
+          <Property Name="Vote" Type="Byte" />
+          <NavigationProperty Name="LawVote" Relationship="FolketsTingModel.FK_PoliticianLawVote_LawVote" FromRole="PoliticianLawVote" ToRole="LawVote" />
+          <NavigationProperty Name="Politician" Relationship="FolketsTingModel.FK_PoliticianLawVote_politiker" FromRole="PoliticianLawVote" ToRole="Politician" />
+        </EntityType>
+        <EntityType Name="ProposedLaw">
+          <Key>
+            <PropertyRef Name="ProposedLawId" />
+          </Key>
+          <Property Name="ProposedLawId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PoliticianId" Type="Int32" />
+          <Property Name="LawId" Type="Int32" />
+          <Property Name="IsMinister" Type="Boolean" />
+          <Property Name="Title" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Law" Relationship="FolketsTingModel.FK_proposedlaw_love" FromRole="ProposedLaw" ToRole="Law" />
+          <NavigationProperty Name="Politician" Relationship="FolketsTingModel.FK_proposedlaw_politiker" FromRole="ProposedLaw" ToRole="Politician" />
+        </EntityType>
+        <EntityType Name="Section">
+          <Key>
+            <PropertyRef Name="SectionId" />
+          </Key>
+          <Property Name="SectionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ParagraphId" Type="Int32" />
+          <Property Name="Number" Type="Int32" />
+          <Property Name="Text" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Paragraph" Relationship="FolketsTingModel.FK_section_paragraph" FromRole="Section" ToRole="Paragraph" />
+        </EntityType>
+        <EntityType Name="Session">
+          <Key>
+            <PropertyRef Name="SessionId" />
+          </Key>
+          <Property Name="SessionId" Type="Int32" Nullable="false" />
+          <Property Name="Year" Type="Int32" Nullable="false" />
+          <Property Name="Number" Type="Int32" Nullable="false" />
+          <Property Name="IsDone" Type="Boolean" />
+          <NavigationProperty Name="Law" Relationship="FolketsTingModel.FK_love_samlinger" FromRole="Session" ToRole="Law" />
+          <NavigationProperty Name="P20Question" Relationship="FolketsTingModel.FK_P20Question_Session" FromRole="Session" ToRole="P20Question" />
+        </EntityType>
+        <EntityType Name="Speaker">
+          <Key>
+            <PropertyRef Name="SpeakerId" />
+          </Key>
+          <Property Name="SpeakerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PoliticianId" Type="Int32" />
+          <Property Name="LawId" Type="Int32" />
+          <NavigationProperty Name="Law" Relationship="FolketsTingModel.FK_Speaker_Law" FromRole="Speaker" ToRole="Law" />
+          <NavigationProperty Name="Politician" Relationship="FolketsTingModel.FK_Speaker_Politician" FromRole="Speaker" ToRole="Politician" />
+        </EntityType>
+        <EntityType Name="Speech">
+          <Key>
+            <PropertyRef Name="SpeechId" />
+          </Key>
+          <Property Name="SpeechId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DeliberationId" Type="Int32" />
+          <Property Name="PoliticianId" Type="Int32" />
+          <Property Name="SpeechNr" Type="Int32" />
+          <Property Name="SpeechTime" Type="DateTime" />
+          <Property Name="IsTemp" Type="Boolean" />
+          <Property Name="ParentSpeechId" Type="Int32" />
+          <Property Name="PoliticianTitle" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Deliberation" Relationship="FolketsTingModel.FK_tale_behandlinger" FromRole="Speech" ToRole="Deliberation" />
+          <NavigationProperty Name="Politician" Relationship="FolketsTingModel.FK_tale_politiker" FromRole="Speech" ToRole="Politician" />
+          <NavigationProperty Name="SpeechPara" Relationship="FolketsTingModel.FK_speach_para_tale" FromRole="Speech" ToRole="SpeechPara" />
+          <NavigationProperty Name="Speech1" Relationship="FolketsTingModel.FK_Speech_Speech" FromRole="Speech" ToRole="Speech1" />
+          <NavigationProperty Name="Speech2" Relationship="FolketsTingModel.FK_Speech_Speech" FromRole="Speech1" ToRole="Speech" />
+        </EntityType>
+        <EntityType Name="SpeechPara">
+          <Key>
+            <PropertyRef Name="SpeechParaId" />
+          </Key>
+          <Property Name="SpeechParaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SpeechId" Type="Int32" />
+          <Property Name="ParText" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Number" Type="Int32" />
+          <NavigationProperty Name="Speech" Relationship="FolketsTingModel.FK_speach_para_tale" FromRole="SpeechPara" ToRole="Speech" />
+        </EntityType>
+        <EntityType Name="SubChange">
+          <Key>
+            <PropertyRef Name="SubchangeId" />
+          </Key>
+          <Property Name="SubchangeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LawchangeId" Type="Int32" />
+          <Property Name="Number" Type="Int32" />
+          <Property Name="Text" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="LawChange" Relationship="FolketsTingModel.FK_subchange_lawchange" FromRole="SubChange" ToRole="LawChange" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Tag">
+          <Key>
+            <PropertyRef Name="TagId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="ContentId" Type="Int32" Nullable="false" />
+          <Property Name="ContentType" Type="Byte" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" />
+          <Property Name="TagId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TagName" Type="String" Nullable="false" MaxLength="150" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="User" Relationship="FolketsTingModel.FK_Tag_User" FromRole="Tag" ToRole="User" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="Aspnetuserid" Type="Guid" Nullable="false" />
+          <Property Name="Url" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="Pic" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="CreatedOn" Type="DateTime" />
+          <NavigationProperty Name="Comment" Relationship="FolketsTingModel.FK_Comment_User" FromRole="User" ToRole="Comment" />
+          <NavigationProperty Name="CommentVote" Relationship="FolketsTingModel.FK_CommentVote_User" FromRole="User" ToRole="CommentVote" />
+          <NavigationProperty Name="P20Question" Relationship="FolketsTingModel.FK_P20Question_User" FromRole="User" ToRole="P20Question" />
+          <NavigationProperty Name="Tag" Relationship="FolketsTingModel.FK_Tag_User" FromRole="User" ToRole="Tag" />
+          <NavigationProperty Name="UserLawVote" Relationship="FolketsTingModel.FK_userlawvote_user" FromRole="User" ToRole="UserLawVote" />
+        </EntityType>
+        <EntityType Name="UserLawVote">
+          <Key>
+            <PropertyRef Name="UserLawVoteId" />
+          </Key>
+          <Property Name="UserLawVoteId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="LawVoteId" Type="Int32" />
+          <Property Name="Vote" Type="Byte" />
+          <Property Name="Date" Type="DateTime" />
+          <NavigationProperty Name="LawVote" Relationship="FolketsTingModel.FK_userlawvote_LawVote" FromRole="UserLawVote" ToRole="LawVote" />
+          <NavigationProperty Name="User" Relationship="FolketsTingModel.FK_userlawvote_user" FromRole="UserLawVote" ToRole="User" />
+        </EntityType>
+        <Association Name="FK_AnswerPara_P20Question">
+          <End Role="P20Question" Type="FolketsTingModel.P20Question" Multiplicity="0..1" />
+          <End Role="AnswerPara" Type="FolketsTingModel.AnswerPara" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="P20Question">
+              <PropertyRef Name="P20QuestionId" />
+            </Principal>
+            <Dependent Role="AnswerPara">
+              <PropertyRef Name="QuestionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemCategory_Category">
+          <End Role="Category" Type="FolketsTingModel.Category" Multiplicity="1" />
+          <End Role="ItemCategory" Type="FolketsTingModel.ItemCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryId" />
+            </Principal>
+            <Dependent Role="ItemCategory">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comment_Comment">
+          <End Role="Comment" Type="FolketsTingModel.Comment" Multiplicity="0..1" />
+          <End Role="Comment1" Type="FolketsTingModel.Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Comment">
+              <PropertyRef Name="CommentId" />
+            </Principal>
+            <Dependent Role="Comment1">
+              <PropertyRef Name="ParentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comment_User">
+          <End Role="User" Type="FolketsTingModel.User" Multiplicity="0..1" />
+          <End Role="Comment" Type="FolketsTingModel.Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Comment">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CommentVote_Comment">
+          <End Role="Comment" Type="FolketsTingModel.Comment" Multiplicity="0..1" />
+          <End Role="CommentVote" Type="FolketsTingModel.CommentVote" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Comment">
+              <PropertyRef Name="CommentId" />
+            </Principal>
+            <Dependent Role="CommentVote">
+              <PropertyRef Name="CommentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CommentVote_User">
+          <End Role="User" Type="FolketsTingModel.User" Multiplicity="0..1" />
+          <End Role="CommentVote" Type="FolketsTingModel.CommentVote" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="CommentVote">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemCommittee_Committee">
+          <End Role="Committee" Type="FolketsTingModel.Committee" Multiplicity="1" />
+          <End Role="ItemCommittee" Type="FolketsTingModel.ItemCommittee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Committee">
+              <PropertyRef Name="CommitteeId" />
+            </Principal>
+            <Dependent Role="ItemCommittee">
+              <PropertyRef Name="CommitteeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Law_Committee">
+          <End Role="Committee" Type="FolketsTingModel.Committee" Multiplicity="0..1" />
+          <End Role="Law" Type="FolketsTingModel.Law" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Committee">
+              <PropertyRef Name="CommitteeId" />
+            </Principal>
+            <Dependent Role="Law">
+              <PropertyRef Name="CommitteeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CommitteeTripParticipant_CommitteeTrip">
+          <End Role="CommitteeTrip" Type="FolketsTingModel.CommitteeTrip" Multiplicity="1" />
+          <End Role="CommitteeTripParticipant" Type="FolketsTingModel.CommitteeTripParticipant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CommitteeTrip">
+              <PropertyRef Name="CommitteeTripId" />
+            </Principal>
+            <Dependent Role="CommitteeTripParticipant">
+              <PropertyRef Name="CommitteeTripId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CommitteeTripParticipant_Politician">
+          <End Role="Politician" Type="FolketsTingModel.Politician" Multiplicity="1" />
+          <End Role="CommitteeTripParticipant" Type="FolketsTingModel.CommitteeTripParticipant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Politician">
+              <PropertyRef Name="PoliticianId" />
+            </Principal>
+            <Dependent Role="CommitteeTripParticipant">
+              <PropertyRef Name="ParticipantId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_behandlinger_love">
+          <End Role="Law" Type="FolketsTingModel.Law" Multiplicity="0..1" />
+          <End Role="Deliberation" Type="FolketsTingModel.Deliberation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Law">
+              <PropertyRef Name="LawId" />
+            </Principal>
+            <Dependent Role="Deliberation">
+              <PropertyRef Name="LawId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tale_behandlinger">
+          <End Role="Deliberation" Type="FolketsTingModel.Deliberation" Multiplicity="0..1" />
+          <End Role="Speech" Type="FolketsTingModel.Speech" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Deliberation">
+              <PropertyRef Name="DeliberationId" />
+            </Principal>
+            <Dependent Role="Speech">
+              <PropertyRef Name="DeliberationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_P20Question_Document">
+          <End Role="Document" Type="FolketsTingModel.Document" Multiplicity="0..1" />
+          <End Role="P20Question" Type="FolketsTingModel.P20Question" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Document">
+              <PropertyRef Name="DocumentId" />
+            </Principal>
+            <Dependent Role="P20Question">
+              <PropertyRef Name="AnswerDocumentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Politician_Images">
+          <End Role="Image" Type="FolketsTingModel.Image" Multiplicity="0..1" />
+          <End Role="Politician" Type="FolketsTingModel.Politician" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Image">
+              <PropertyRef Name="ImageId" />
+            </Principal>
+            <Dependent Role="Politician">
+              <PropertyRef Name="ImageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_lawchapter_love">
+          <End Role="Law" Type="FolketsTingModel.Law" Multiplicity="0..1" />
+          <End Role="LawChapter" Type="FolketsTingModel.LawChapter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Law">
+              <PropertyRef Name="LawId" />
+            </Principal>
+            <Dependent Role="LawChapter">
+              <PropertyRef Name="LawId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LawVote_love">
+          <End Role="Law" Type="FolketsTingModel.Law" Multiplicity="0..1" />
+          <End Role="LawVote" Type="FolketsTingModel.LawVote" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Law">
+              <PropertyRef Name="LawId" />
+            </Principal>
+            <Dependent Role="LawVote">
+              <PropertyRef Name="LawId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_love_ministerium">
+          <End Role="Ministry" Type="FolketsTingModel.Ministry" Multiplicity="0..1" />
+          <End Role="Law" Type="FolketsTingModel.Law" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ministry">
+              <PropertyRef Name="MinistryId" />
+            </Principal>
+            <Dependent Role="Law">
+              <PropertyRef Name="MinistryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_love_samlinger">
+          <End Role="Session" Type="FolketsTingModel.Session" Multiplicity="0..1" />
+          <End Role="Law" Type="FolketsTingModel.Law" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Session">
+              <PropertyRef Name="SessionId" />
+            </Principal>
+            <Dependent Role="Law">
+              <PropertyRef Name="SessionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_paragraph_love">
+          <End Role="Law" Type="FolketsTingModel.Law" Multiplicity="0..1" />
+          <End Role="Paragraph" Type="FolketsTingModel.Paragraph" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Law">
+              <PropertyRef Name="LawId" />
+            </Principal>
+            <Dependent Role="Paragraph">
+              <PropertyRef Name="LawId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_proposedlaw_love">
+          <End Role="Law" Type="FolketsTingModel.Law" Multiplicity="0..1" />
+          <End Role="ProposedLaw" Type="FolketsTingModel.ProposedLaw" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Law">
+              <PropertyRef Name="LawId" />
+            </Principal>
+            <Dependent Role="ProposedLaw">
+              <PropertyRef Name="LawId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Speaker_Law">
+          <End Role="Law" Type="FolketsTingModel.Law" Multiplicity="0..1" />
+          <End Role="Speaker" Type="FolketsTingModel.Speaker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Law">
+              <PropertyRef Name="LawId" />
+            </Principal>
+            <Dependent Role="Speaker">
+              <PropertyRef Name="LawId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_lawchange_paragraph">
+          <End Role="Paragraph" Type="FolketsTingModel.Paragraph" Multiplicity="0..1" />
+          <End Role="LawChange" Type="FolketsTingModel.LawChange" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Paragraph">
+              <PropertyRef Name="ParagraphId" />
+            </Principal>
+            <Dependent Role="LawChange">
+              <PropertyRef Name="ParagraphId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_subchange_lawchange">
+          <End Role="LawChange" Type="FolketsTingModel.LawChange" Multiplicity="0..1" />
+          <End Role="SubChange" Type="FolketsTingModel.SubChange" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LawChange">
+              <PropertyRef Name="LawChangeId" />
+            </Principal>
+            <Dependent Role="SubChange">
+              <PropertyRef Name="LawchangeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_paragraph_lawchapter">
+          <End Role="LawChapter" Type="FolketsTingModel.LawChapter" Multiplicity="0..1" />
+          <End Role="Paragraph" Type="FolketsTingModel.Paragraph" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LawChapter">
+              <PropertyRef Name="LawChapterId" />
+            </Principal>
+            <Dependent Role="Paragraph">
+              <PropertyRef Name="ChapterId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PoliticianLawVote_LawVote">
+          <End Role="LawVote" Type="FolketsTingModel.LawVote" Multiplicity="0..1" />
+          <End Role="PoliticianLawVote" Type="FolketsTingModel.PoliticianLawVote" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LawVote">
+              <PropertyRef Name="LawVoteId" />
+            </Principal>
+            <Dependent Role="PoliticianLawVote">
+              <PropertyRef Name="LawVoteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_userlawvote_LawVote">
+          <End Role="LawVote" Type="FolketsTingModel.LawVote" Multiplicity="0..1" />
+          <End Role="UserLawVote" Type="FolketsTingModel.UserLawVote" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LawVote">
+              <PropertyRef Name="LawVoteId" />
+            </Principal>
+            <Dependent Role="UserLawVote">
+              <PropertyRef Name="LawVoteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_P20Question_Politician">
+          <End Role="Politician" Type="FolketsTingModel.Politician" Multiplicity="0..1" />
+          <End Role="P20Question" Type="FolketsTingModel.P20Question" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Politician">
+              <PropertyRef Name="PoliticianId" />
+            </Principal>
+            <Dependent Role="P20Question">
+              <PropertyRef Name="AskerPolId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_P20Question_Politician1">
+          <End Role="Politician" Type="FolketsTingModel.Politician" Multiplicity="0..1" />
+          <End Role="P20Question" Type="FolketsTingModel.P20Question" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Politician">
+              <PropertyRef Name="PoliticianId" />
+            </Principal>
+            <Dependent Role="P20Question">
+              <PropertyRef Name="AskeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_P20Question_Session">
+          <End Role="Session" Type="FolketsTingModel.Session" Multiplicity="0..1" />
+          <End Role="P20Question" Type="FolketsTingModel.P20Question" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Session">
+              <PropertyRef Name="SessionId" />
+            </Principal>
+            <Dependent Role="P20Question">
+              <PropertyRef Name="SessionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_P20Question_User">
+          <End Role="User" Type="FolketsTingModel.User" Multiplicity="0..1" />
+          <End Role="P20Question" Type="FolketsTingModel.P20Question" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="P20Question">
+              <PropertyRef Name="AskerUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_section_paragraph">
+          <End Role="Paragraph" Type="FolketsTingModel.Paragraph" Multiplicity="0..1" />
+          <End Role="Section" Type="FolketsTingModel.Section" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Paragraph">
+              <PropertyRef Name="ParagraphId" />
+            </Principal>
+            <Dependent Role="Section">
+              <PropertyRef Name="ParagraphId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Politician_Party">
+          <End Role="Party" Type="FolketsTingModel.Party" Multiplicity="0..1" />
+          <End Role="Politician" Type="FolketsTingModel.Politician" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Party">
+              <PropertyRef Name="PartyId" />
+            </Principal>
+            <Dependent Role="Politician">
+              <PropertyRef Name="PartyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PoliticianLawVote_politiker">
+          <End Role="Politician" Type="FolketsTingModel.Politician" Multiplicity="0..1" />
+          <End Role="PoliticianLawVote" Type="FolketsTingModel.PoliticianLawVote" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Politician">
+              <PropertyRef Name="PoliticianId" />
+            </Principal>
+            <Dependent Role="PoliticianLawVote">
+              <PropertyRef Name="PoliticianId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_proposedlaw_politiker">
+          <End Role="Politician" Type="FolketsTingModel.Politician" Multiplicity="0..1" />
+          <End Role="ProposedLaw" Type="FolketsTingModel.ProposedLaw" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Politician">
+              <PropertyRef Name="PoliticianId" />
+            </Principal>
+            <Dependent Role="ProposedLaw">
+              <PropertyRef Name="PoliticianId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Speaker_Politician">
+          <End Role="Politician" Type="FolketsTingModel.Politician" Multiplicity="0..1" />
+          <End Role="Speaker" Type="FolketsTingModel.Speaker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Politician">
+              <PropertyRef Name="PoliticianId" />
+            </Principal>
+            <Dependent Role="Speaker">
+              <PropertyRef Name="PoliticianId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tale_politiker">
+          <End Role="Politician" Type="FolketsTingModel.Politician" Multiplicity="0..1" />
+          <End Role="Speech" Type="FolketsTingModel.Speech" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Politician">
+              <PropertyRef Name="PoliticianId" />
+            </Principal>
+            <Dependent Role="Speech">
+              <PropertyRef Name="PoliticianId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_speach_para_tale">
+          <End Role="Speech" Type="FolketsTingModel.Speech" Multiplicity="0..1" />
+          <End Role="SpeechPara" Type="FolketsTingModel.SpeechPara" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Speech">
+              <PropertyRef Name="SpeechId" />
+            </Principal>
+            <Dependent Role="SpeechPara">
+              <PropertyRef Name="SpeechId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Speech_Speech">
+          <End Role="Speech" Type="FolketsTingModel.Speech" Multiplicity="0..1" />
+          <End Role="Speech1" Type="FolketsTingModel.Speech" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Speech">
+              <PropertyRef Name="SpeechId" />
+            </Principal>
+            <Dependent Role="Speech1">
+              <PropertyRef Name="ParentSpeechId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tag_User">
+          <End Role="User" Type="FolketsTingModel.User" Multiplicity="1" />
+          <End Role="Tag" Type="FolketsTingModel.Tag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Tag">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_userlawvote_user">
+          <End Role="User" Type="FolketsTingModel.User" Multiplicity="0..1" />
+          <End Role="UserLawVote" Type="FolketsTingModel.UserLawVote" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="UserLawVote">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ApiUser">
+          <Key>
+            <PropertyRef Name="ApiUserId" />
+          </Key>
+          <Property Type="DateTime" Name="CreatedDate" Nullable="false" />
+          <Property Type="Int32" Name="ApiUserId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="ApiKey" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="EmailAddress" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IntendedUse" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CommitteeTripDestination">
+          <Key>
+            <PropertyRef Name="CommitteeTripDestinationId" />
+          </Key>
+          <Property Type="Int32" Name="CommitteeTripDestinationId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="PlaceNameName" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="CommitteeTripId" />
+          <Property Type="Double" Name="Lat" />
+          <Property Type="Double" Name="Lng" />
+          <NavigationProperty Name="CommitteeTrip" Relationship="FolketsTingModel.FK_CommitteeTripDestination_CommitteeTrip" FromRole="CommitteeTripDestination" ToRole="CommitteeTrip" />
+        </EntityType>
+        <Association Name="FK_CommitteeTripDestination_CommitteeTrip">
+          <End Type="FolketsTingModel.CommitteeTrip" Role="CommitteeTrip" Multiplicity="0..1" />
+          <End Type="FolketsTingModel.CommitteeTripDestination" Role="CommitteeTripDestination" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CommitteeTrip">
+              <PropertyRef Name="CommitteeTripId" />
+            </Principal>
+            <Dependent Role="CommitteeTripDestination">
+              <PropertyRef Name="CommitteeTripId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CommitteeTrip_Committee">
+          <End Type="FolketsTingModel.Committee" Role="Committee" Multiplicity="1" />
+          <End Type="FolketsTingModel.CommitteeTrip" Role="CommitteeTrip" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Committee">
+              <PropertyRef Name="CommitteeId" />
+            </Principal>
+            <Dependent Role="CommitteeTrip">
+              <PropertyRef Name="CommitteeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FolketsTingModelStoreContainer" CdmEntityContainer="FolketsTingEntities">
+          <EntitySetMapping Name="AnswerPara"><EntityTypeMapping TypeName="FolketsTingModel.AnswerPara"><MappingFragment StoreEntitySet="AnswerPara">
+            <ScalarProperty Name="AnswerParaId" ColumnName="AnswerParaId" />
+            <ScalarProperty Name="QuestionId" ColumnName="QuestionId" />
+            <ScalarProperty Name="ParText" ColumnName="ParText" />
+            <ScalarProperty Name="Number" ColumnName="Number" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="BlogPost"><EntityTypeMapping TypeName="FolketsTingModel.BlogPost"><MappingFragment StoreEntitySet="BlogPost">
+            <ScalarProperty Name="BlogPostID" ColumnName="BlogPostID" />
+            <ScalarProperty Name="Date" ColumnName="Date" />
+            <ScalarProperty Name="WordpressId" ColumnName="WordpressId" />
+            <ScalarProperty Name="Summary" ColumnName="Summary" />
+            <ScalarProperty Name="Title" ColumnName="Title" />
+            <ScalarProperty Name="CommentCount" ColumnName="CommentCount" />
+            <ScalarProperty Name="PermaLink" ColumnName="PermaLink" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Category"><EntityTypeMapping TypeName="FolketsTingModel.Category"><MappingFragment StoreEntitySet="Category">
+            <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+            <ScalarProperty Name="FTId" ColumnName="FTId" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Comment"><EntityTypeMapping TypeName="FolketsTingModel.Comment"><MappingFragment StoreEntitySet="Comment">
+            <ScalarProperty Name="CommentId" ColumnName="CommentId" />
+            <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+            <ScalarProperty Name="UserId" ColumnName="UserId" />
+            <ScalarProperty Name="Date" ColumnName="Date" />
+            <ScalarProperty Name="CommentText" ColumnName="CommentText" />
+            <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+            <ScalarProperty Name="CommentType" ColumnName="CommentType" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="CommentVote"><EntityTypeMapping TypeName="FolketsTingModel.CommentVote"><MappingFragment StoreEntitySet="CommentVote">
+            <ScalarProperty Name="CommentVoteId" ColumnName="CommentVoteId" />
+            <ScalarProperty Name="CommentId" ColumnName="CommentId" />
+            <ScalarProperty Name="UserId" ColumnName="UserId" />
+            <ScalarProperty Name="Date" ColumnName="Date" />
+            <ScalarProperty Name="Vote" ColumnName="Vote" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Committee"><EntityTypeMapping TypeName="FolketsTingModel.Committee"><MappingFragment StoreEntitySet="Committee">
+            <ScalarProperty Name="CommitteeId" ColumnName="CommitteeId" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="CommitteeTrip"><EntityTypeMapping TypeName="FolketsTingModel.CommitteeTrip"><MappingFragment StoreEntitySet="CommitteeTrip">
+            <ScalarProperty Name="Uri" ColumnName="Uri" />
+                <ScalarProperty Name="CommitteeTripId" ColumnName="CommitteeTripId" />
+            <ScalarProperty Name="CommitteeId" ColumnName="CommitteeId" />
+            <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+            <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+            <ScalarProperty Name="Place" ColumnName="Place" />
+            <ScalarProperty Name="Purpose" ColumnName="Purpose" />
+            <ScalarProperty Name="Budget" ColumnName="Budget" />
+            <ScalarProperty Name="ActualExpenses" ColumnName="ActualExpenses" />
+            <ScalarProperty Name="NonPolParticipants" ColumnName="NonPolParticipants" />
+            <ScalarProperty Name="FTId" ColumnName="FTId" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="CommitteeTripParticipant"><EntityTypeMapping TypeName="FolketsTingModel.CommitteeTripParticipant"><MappingFragment StoreEntitySet="CommitteeTripParticipant">
+            <ScalarProperty Name="CommitteeTripParticipantId" ColumnName="CommitteeTripParticipantId" />
+            <ScalarProperty Name="CommitteeTripId" ColumnName="CommitteeTripId" />
+            <ScalarProperty Name="ParticipantId" ColumnName="ParticipantId" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Deliberation"><EntityTypeMapping TypeName="FolketsTingModel.Deliberation"><MappingFragment StoreEntitySet="Deliberation">
+            <ScalarProperty Name="DeliberationId" ColumnName="DeliberationId" />
+            <ScalarProperty Name="LawId" ColumnName="LawId" />
+            <ScalarProperty Name="Date" ColumnName="Date" />
+            <ScalarProperty Name="Number" ColumnName="Number" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Document"><EntityTypeMapping TypeName="FolketsTingModel.Document"><MappingFragment StoreEntitySet="Document">
+            <ScalarProperty Name="DocumentId" ColumnName="DocumentId" />
+            <ScalarProperty Name="ContentType" ColumnName="ContentType" />
+            <ScalarProperty Name="Data" ColumnName="Data" />
+            <ScalarProperty Name="ScribdId" ColumnName="ScribdId" />
+            <ScalarProperty Name="Uri" ColumnName="Uri" />
+            <ScalarProperty Name="ScribdAccessKey" ColumnName="ScribdAccessKey" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Hit"><EntityTypeMapping TypeName="FolketsTingModel.Hit"><MappingFragment StoreEntitySet="Hit">
+            <ScalarProperty Name="ContentId" ColumnName="ContentId" />
+            <ScalarProperty Name="ContentType" ColumnName="ContentType" />
+            <ScalarProperty Name="Date" ColumnName="Date" />
+            <ScalarProperty Name="HitId" ColumnName="HitId" />
+            <ScalarProperty Name="IP" ColumnName="IP" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Image"><EntityTypeMapping TypeName="FolketsTingModel.Image"><MappingFragment StoreEntitySet="Image">
+            <ScalarProperty Name="ImageId" ColumnName="ImageId" />
+            <ScalarProperty Name="ContentType" ColumnName="ContentType" />
+            <ScalarProperty Name="Data" ColumnName="Data" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="ItemCategory"><EntityTypeMapping TypeName="FolketsTingModel.ItemCategory"><MappingFragment StoreEntitySet="ItemCategory">
+            <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+            <ScalarProperty Name="ItemType" ColumnName="ItemType" />
+            <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+            <ScalarProperty Name="ItemCategoryId" ColumnName="ItemCategoryId" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="ItemCommittee"><EntityTypeMapping TypeName="FolketsTingModel.ItemCommittee"><MappingFragment StoreEntitySet="ItemCommittee">
+            <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+            <ScalarProperty Name="ItemType" ColumnName="ItemType" />
+            <ScalarProperty Name="CommitteeId" ColumnName="CommitteeId" />
+            <ScalarProperty Name="ItemCommitteeId" ColumnName="ItemCommitteeId" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Law"><EntityTypeMapping TypeName="FolketsTingModel.Law"><MappingFragment StoreEntitySet="Law">
+            <ScalarProperty Name="LawId" ColumnName="LawId" />
+            <ScalarProperty Name="SessionId" ColumnName="SessionId" />
+            <ScalarProperty Name="MinistryId" ColumnName="MinistryId" />
+            <ScalarProperty Name="Subtitle" ColumnName="Subtitle" />
+            <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+            <ScalarProperty Name="Summary" ColumnName="Summary" />
+            <ScalarProperty Name="CommitteeId" ColumnName="CommitteeId" />
+            <ScalarProperty Name="FirstDeliberation" ColumnName="FirstDeliberation" />
+            <ScalarProperty Name="SecondDeliberation" ColumnName="SecondDeliberation" />
+            <ScalarProperty Name="Passed" ColumnName="Passed" />
+            <ScalarProperty Name="Proposed" ColumnName="Proposed" />
+            <ScalarProperty Name="FtId" ColumnName="FtId" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="LawChange"><EntityTypeMapping TypeName="FolketsTingModel.LawChange"><MappingFragment StoreEntitySet="LawChange">
+            <ScalarProperty Name="LawChangeId" ColumnName="LawChangeId" />
+            <ScalarProperty Name="ParagraphId" ColumnName="ParagraphId" />
+            <ScalarProperty Name="Number" ColumnName="Number" />
+            <ScalarProperty Name="NoformChangeText" ColumnName="NoformChangeText" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="LawChapter"><EntityTypeMapping TypeName="FolketsTingModel.LawChapter"><MappingFragment StoreEntitySet="LawChapter">
+            <ScalarProperty Name="LawChapterId" ColumnName="LawChapterId" />
+            <ScalarProperty Name="LawId" ColumnName="LawId" />
+            <ScalarProperty Name="Number" ColumnName="Number" />
+            <ScalarProperty Name="Stage" ColumnName="Stage" />
+            <ScalarProperty Name="Titel" ColumnName="Titel" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="LawVote"><EntityTypeMapping TypeName="FolketsTingModel.LawVote"><MappingFragment StoreEntitySet="LawVote">
+            <ScalarProperty Name="LawVoteId" ColumnName="LawVoteId" />
+            <ScalarProperty Name="LawId" ColumnName="LawId" />
+            <ScalarProperty Name="Date" ColumnName="Date" />
+            <ScalarProperty Name="VoteText" ColumnName="VoteText" />
+            <ScalarProperty Name="IsFinal" ColumnName="IsFinal" />
+            <ScalarProperty Name="Stage" ColumnName="Stage" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Ministry"><EntityTypeMapping TypeName="FolketsTingModel.Ministry"><MappingFragment StoreEntitySet="Ministry">
+            <ScalarProperty Name="MinistryId" ColumnName="MinistryId" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="P20Question"><EntityTypeMapping TypeName="FolketsTingModel.P20Question"><MappingFragment StoreEntitySet="P20Question">
+            <ScalarProperty Name="P20QuestionId" ColumnName="P20QuestionId" />
+            <ScalarProperty Name="SessionId" ColumnName="SessionId" />
+            <ScalarProperty Name="AskerPolId" ColumnName="AskerPolId" />
+            <ScalarProperty Name="AskeeId" ColumnName="AskeeId" />
+            <ScalarProperty Name="FTId" ColumnName="FTId" />
+            <ScalarProperty Name="AskDate" ColumnName="AskDate" />
+            <ScalarProperty Name="AnswerDate" ColumnName="AnswerDate" />
+            <ScalarProperty Name="Question" ColumnName="Question" />
+            <ScalarProperty Name="Background" ColumnName="Background" />
+            <ScalarProperty Name="AskeeTitle" ColumnName="AskeeTitle" />
+            <ScalarProperty Name="Title" ColumnName="Title" />
+            <ScalarProperty Name="Type" ColumnName="Type" />
+            <ScalarProperty Name="AskerUserId" ColumnName="AskerUserId" />
+            <ScalarProperty Name="AnswerDocumentId" ColumnName="AnswerDocumentId" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Paragraph"><EntityTypeMapping TypeName="FolketsTingModel.Paragraph"><MappingFragment StoreEntitySet="Paragraph">
+            <ScalarProperty Name="ParagraphId" ColumnName="ParagraphId" />
+            <ScalarProperty Name="LawId" ColumnName="LawId" />
+            <ScalarProperty Name="Number" ColumnName="Number" />
+            <ScalarProperty Name="Stage" ColumnName="Stage" />
+            <ScalarProperty Name="ChangeText" ColumnName="ChangeText" />
+            <ScalarProperty Name="IsChange" ColumnName="IsChange" />
+            <ScalarProperty Name="ChapterId" ColumnName="ChapterId" />
+            <ScalarProperty Name="Letter" ColumnName="Letter" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Party"><EntityTypeMapping TypeName="FolketsTingModel.Party"><MappingFragment StoreEntitySet="Party">
+            <ScalarProperty Name="PartyId" ColumnName="PartyId" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+            <ScalarProperty Name="Initials" ColumnName="Initials" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Politician"><EntityTypeMapping TypeName="FolketsTingModel.Politician"><MappingFragment StoreEntitySet="Politician">
+            <ScalarProperty Name="PoliticianId" ColumnName="PoliticianId" />
+            <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+            <ScalarProperty Name="BioText" ColumnName="BioText" />
+            <ScalarProperty Name="Initials" ColumnName="Initials" />
+            <ScalarProperty Name="JoinedString" ColumnName="JoinedString" />
+            <ScalarProperty Name="Title" ColumnName="Title" />
+            <ScalarProperty Name="EmailAdd" ColumnName="EmailAdd" />
+            <ScalarProperty Name="ImageId" ColumnName="ImageId" />
+            <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+            <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+            <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+            <ScalarProperty Name="PartyId" ColumnName="PartyId" />
+            <ScalarProperty Name="Homepage" ColumnName="Homepage" />
+            <ScalarProperty Name="Birthdate" ColumnName="Birthdate" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="PoliticianLawVote"><EntityTypeMapping TypeName="FolketsTingModel.PoliticianLawVote"><MappingFragment StoreEntitySet="PoliticianLawVote">
+            <ScalarProperty Name="PoliticianLawVoteId" ColumnName="PoliticianLawVoteId" />
+            <ScalarProperty Name="PoliticianId" ColumnName="PoliticianId" />
+            <ScalarProperty Name="LawVoteId" ColumnName="LawVoteId" />
+            <ScalarProperty Name="Vote" ColumnName="Vote" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="ProposedLaw"><EntityTypeMapping TypeName="FolketsTingModel.ProposedLaw"><MappingFragment StoreEntitySet="ProposedLaw">
+            <ScalarProperty Name="ProposedLawId" ColumnName="ProposedLawId" />
+            <ScalarProperty Name="PoliticianId" ColumnName="PoliticianId" />
+            <ScalarProperty Name="LawId" ColumnName="LawId" />
+            <ScalarProperty Name="IsMinister" ColumnName="IsMinister" />
+            <ScalarProperty Name="Title" ColumnName="Title" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Section"><EntityTypeMapping TypeName="FolketsTingModel.Section"><MappingFragment StoreEntitySet="Section">
+            <ScalarProperty Name="SectionId" ColumnName="SectionId" />
+            <ScalarProperty Name="ParagraphId" ColumnName="ParagraphId" />
+            <ScalarProperty Name="Number" ColumnName="Number" />
+            <ScalarProperty Name="Text" ColumnName="Text" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Session"><EntityTypeMapping TypeName="FolketsTingModel.Session"><MappingFragment StoreEntitySet="Session">
+            <ScalarProperty Name="SessionId" ColumnName="SessionId" />
+            <ScalarProperty Name="Year" ColumnName="Year" />
+            <ScalarProperty Name="Number" ColumnName="Number" />
+            <ScalarProperty Name="IsDone" ColumnName="IsDone" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Speaker"><EntityTypeMapping TypeName="FolketsTingModel.Speaker"><MappingFragment StoreEntitySet="Speaker">
+            <ScalarProperty Name="SpeakerId" ColumnName="SpeakerId" />
+            <ScalarProperty Name="PoliticianId" ColumnName="PoliticianId" />
+            <ScalarProperty Name="LawId" ColumnName="LawId" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Speech"><EntityTypeMapping TypeName="FolketsTingModel.Speech"><MappingFragment StoreEntitySet="Speech">
+            <ScalarProperty Name="SpeechId" ColumnName="SpeechId" />
+            <ScalarProperty Name="DeliberationId" ColumnName="DeliberationId" />
+            <ScalarProperty Name="PoliticianId" ColumnName="PoliticianId" />
+            <ScalarProperty Name="SpeechNr" ColumnName="SpeechNr" />
+            <ScalarProperty Name="SpeechTime" ColumnName="SpeechTime" />
+            <ScalarProperty Name="IsTemp" ColumnName="IsTemp" />
+            <ScalarProperty Name="ParentSpeechId" ColumnName="ParentSpeechId" />
+            <ScalarProperty Name="PoliticianTitle" ColumnName="PoliticianTitle" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="SpeechPara"><EntityTypeMapping TypeName="FolketsTingModel.SpeechPara"><MappingFragment StoreEntitySet="SpeechPara">
+            <ScalarProperty Name="SpeechParaId" ColumnName="SpeechParaId" />
+            <ScalarProperty Name="SpeechId" ColumnName="SpeechId" />
+            <ScalarProperty Name="ParText" ColumnName="ParText" />
+            <ScalarProperty Name="Number" ColumnName="Number" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="SubChange"><EntityTypeMapping TypeName="FolketsTingModel.SubChange"><MappingFragment StoreEntitySet="SubChange">
+            <ScalarProperty Name="SubchangeId" ColumnName="SubchangeId" />
+            <ScalarProperty Name="LawchangeId" ColumnName="LawchangeId" />
+            <ScalarProperty Name="Number" ColumnName="Number" />
+            <ScalarProperty Name="Text" ColumnName="Text" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams"><EntityTypeMapping TypeName="FolketsTingModel.sysdiagrams"><MappingFragment StoreEntitySet="sysdiagrams">
+            <ScalarProperty Name="name" ColumnName="name" />
+            <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+            <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+            <ScalarProperty Name="version" ColumnName="version" />
+            <ScalarProperty Name="definition" ColumnName="definition" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Tag"><EntityTypeMapping TypeName="FolketsTingModel.Tag"><MappingFragment StoreEntitySet="Tag">
+            <ScalarProperty Name="UserId" ColumnName="UserId" />
+            <ScalarProperty Name="ContentId" ColumnName="ContentId" />
+            <ScalarProperty Name="ContentType" ColumnName="ContentType" />
+            <ScalarProperty Name="Date" ColumnName="Date" />
+            <ScalarProperty Name="TagId" ColumnName="TagId" />
+            <ScalarProperty Name="TagName" ColumnName="TagName" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="User"><EntityTypeMapping TypeName="FolketsTingModel.User"><MappingFragment StoreEntitySet="User">
+            <ScalarProperty Name="UserId" ColumnName="UserId" />
+            <ScalarProperty Name="Username" ColumnName="Username" />
+            <ScalarProperty Name="Aspnetuserid" ColumnName="Aspnetuserid" />
+            <ScalarProperty Name="Url" ColumnName="Url" />
+            <ScalarProperty Name="Pic" ColumnName="Pic" />
+            <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="UserLawVote"><EntityTypeMapping TypeName="FolketsTingModel.UserLawVote"><MappingFragment StoreEntitySet="UserLawVote">
+            <ScalarProperty Name="UserLawVoteId" ColumnName="UserLawVoteId" />
+            <ScalarProperty Name="UserId" ColumnName="UserId" />
+            <ScalarProperty Name="LawVoteId" ColumnName="LawVoteId" />
+            <ScalarProperty Name="Vote" ColumnName="Vote" />
+            <ScalarProperty Name="Date" ColumnName="Date" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="ApiUser">
+            <EntityTypeMapping TypeName="FolketsTingModel.ApiUser">
+              <MappingFragment StoreEntitySet="ApiUser">
+                <ScalarProperty Name="IntendedUse" ColumnName="IntendedUse" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="ApiKey" ColumnName="ApiKey" />
+                <ScalarProperty Name="ApiUserId" ColumnName="ApiUserId" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CommitteeTripDestination">
+            <EntityTypeMapping TypeName="FolketsTingModel.CommitteeTripDestination">
+              <MappingFragment StoreEntitySet="CommitteeTripDestination">
+                <ScalarProperty Name="Lng" ColumnName="Lng" />
+                <ScalarProperty Name="Lat" ColumnName="Lat" />
+                <ScalarProperty Name="CommitteeTripId" ColumnName="CommitteeTripId" />
+                <ScalarProperty Name="PlaceNameName" ColumnName="PlaceNameName" />
+                <ScalarProperty Name="CommitteeTripDestinationId" ColumnName="CommitteeTripDestinationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Default" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="DB">
+        <EntityTypeShape EntityType="FolketsTingModel.AnswerPara" Width="1.5" PointX="10.5" PointY="11.25" Height="1.9802864583333317" IsExpanded="true" />
+        <EntityTypeShape EntityType="FolketsTingModel.BlogPost" Width="1.5" PointX="0.75" PointY="0.875" Height="2.3648893229166665" IsExpanded="true" />
+        <EntityTypeShape EntityType="FolketsTingModel.Category" Width="1.5" PointX="12.75" PointY="1.125" Height="1.7879850260416665" IsExpanded="true" />
+        <EntityTypeShape EntityType="FolketsTingModel.Comment" Width="1.5" PointX="8.25" PointY="24.75" Height="3.1340950520833317" IsExpanded="true" />
+        <EntityTypeShape EntityType="FolketsTingModel.CommentVote" Width="1.5" PointX="10.5" PointY="23.375" Height="2.3648893229166674" IsExpanded="true" />
+        <EntityTypeShape EntityType="FolketsTingModel.Committee" Width="1.5" PointX="3.75" PointY="4.875" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="FolketsTingModel.CommitteeTrip" Width="1.5" PointX="3" PointY="24.75" Height="3.1340950520833317" IsExpanded="true" />
+        <EntityTypeShape EntityType="FolketsTingModel.CommitteeTripParticipant" Width="1.5" PointX="5.25" PointY="11.25" Height="1.9802864583333317" IsExpanded="true" />
+        <EntityTypeShape EntityType="FolketsTingModel.Deliberation" Width="1.5" PointX="6" PointY="25.25" Height="2.172587890624996" IsExpanded="true" />
+        <EntityTypeShape EntityType="FolketsTingModel.Document" Width="1.5" PointX="6" PointY="18.125" Height="2.3648893229166674" IsExpanded="true" />
+        <EntityTypeShape EntityType="FolketsTingModel.Hit" Width="1.5" PointX="0.75" PointY="4.875" Height="1.9802864583333353" IsExpanded="true" />
+        <EntityTypeShape EntityType="FolketsTingModel.Image" Width="1.5" PointX="0.75" PointY="11.25" Height="1.9802864583333317" IsExpanded="true" />
+        <EntityTypeShape EntityType="FolketsTingModel.ItemCategory" Width="1.5" PointX="15" PointY="1" Height="1.9802864583333388" IsExpanded="true" />
+        <EntityTypeShape EntityType="FolketsTingModel.ItemCommittee" Width="1.5" PointX="6" PointY="28.75" Height="1.9802864583333388" IsExpanded="true" />
+        <EntityTypeShape EntityType="FolketsTingModel.Law" Width="1.5" PointX="6" PointY="0.75" Height="5.0571093750000031" IsExpanded="true" />
+        <EntityTypeShape EntityType="FolketsTingModel.LawChange" Width="1.5" PointX="12.75" PointY="6.25" Height="2.172587890624996" IsExpanded="true" />
+        <EntityTypeShape EntityType="FolketsTingModel.LawChapter" Width="1.5" PointX="8.25" PointY="2.125" Height="2.3648893229166674" IsExpanded="true" />
+        <EntityTypeShape EntityType="FolketsTingModel.LawVote" Width="1.5" PointX="3" PointY="20.75" Height="2.9417936197916674" IsExpanded="true" />
+        <EntityTypeShape EntityType="FolketsTingModel.Ministry" Width="1.5" PointX="3.75" PointY="2.375" Height="1.5956835937500031" IsExpanded="true" />
+        <EntityTypeShape EntityType="FolketsTingModel.P20Question" Width="1.5" PointX="8.25" PointY="9.875" Height="4.8648079427083317" IsExpanded="true" />
+        <EntityTypeShape EntityType="FolketsTingModel.Paragraph" Width="1.5" PointX="10.5" PointY="1.625" Height="3.326396484374996" IsExpanded="true" />
+        <EntityTypeShape EntityType="FolketsTingModel.Party" Width="1.5" PointX="0.75" PointY="8.375" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="FolketsTingModel.Politician" Width="1.5" PointX="3" PointY="9.375" Height="5.634013671875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FolketsTingModel.PoliticianLawVote" Width="1.5" PointX="5.25" PointY="8.25" Height="2.1725878906250102" IsExpanded="true" />
+        <EntityTypeShape EntityType="FolketsTingModel.ProposedLaw" Width="1.5" PointX="5.25" PointY="14.125" Height="2.3648893229166674" IsExpanded="true" />
+        <EntityTypeShape EntityType="FolketsTingModel.Section" Width="1.5" PointX="12.75" PointY="9.125" Height="1.9802864583333246" IsExpanded="true" />
+        <EntityTypeShape EntityType="FolketsTingModel.Session" Width="1.5" PointX="3.75" PointY="17.75" Height="2.1725878906250102" IsExpanded="true" />
+        <EntityTypeShape EntityType="FolketsTingModel.Speaker" Width="1.5" PointX="8.25" PointY="6.25" Height="1.9802864583333388" IsExpanded="true" />
+        <EntityTypeShape EntityType="FolketsTingModel.Speech" Width="1.5" PointX="8.25" PointY="15.5" Height="3.5186979166666674" IsExpanded="true" />
+        <EntityTypeShape EntityType="FolketsTingModel.SpeechPara" Width="1.5" PointX="10.5" PointY="16.25" Height="1.9802864583333246" IsExpanded="true" />
+        <EntityTypeShape EntityType="FolketsTingModel.SubChange" Width="1.5" PointX="15" PointY="6.25" Height="1.9802864583333246" IsExpanded="true" />
+        <EntityTypeShape EntityType="FolketsTingModel.sysdiagrams" Width="1.5" PointX="12.75" PointY="11.875" Height="1.9802864583333246" IsExpanded="true" />
+        <EntityTypeShape EntityType="FolketsTingModel.Tag" Width="1.5" PointX="8.25" PointY="28.625" Height="2.3648893229166674" IsExpanded="true" />
+        <EntityTypeShape EntityType="FolketsTingModel.User" Width="1.5" PointX="6" PointY="21.25" Height="3.1340950520833388" IsExpanded="true" />
+        <EntityTypeShape EntityType="FolketsTingModel.UserLawVote" Width="1.5" PointX="8.25" PointY="21.375" Height="2.3648893229166674" IsExpanded="true" />
+        <AssociationConnector Association="FolketsTingModel.FK_AnswerPara_P20Question" ManuallyRouted="false">
+          <ConnectorPoint PointX="9.75" PointY="12.240143229166666" />
+          <ConnectorPoint PointX="10.5" PointY="12.240143229166666" />
+        </AssociationConnector>
+        <AssociationConnector Association="FolketsTingModel.FK_ItemCategory_Category" ManuallyRouted="false">
+          <ConnectorPoint PointX="14.25" PointY="2.0189925130208333" />
+          <ConnectorPoint PointX="15" PointY="2.0189925130208333" />
+        </AssociationConnector>
+        <AssociationConnector Association="FolketsTingModel.FK_Comment_Comment" ManuallyRouted="false">
+          <ConnectorPoint PointX="8.7819230769230767" PointY="27.884095052083332" />
+          <ConnectorPoint PointX="8.7819230769230767" PointY="28.134095052083332" />
+          <ConnectorPoint PointX="9.2284615384615378" PointY="28.134095052083332" />
+          <ConnectorPoint PointX="9.2284615384615378" PointY="27.884095052083332" />
+        </AssociationConnector>
+        <AssociationConnector Association="FolketsTingModel.FK_Comment_User" ManuallyRouted="false">
+          <ConnectorPoint PointX="7.5" PointY="24.327555590544875" />
+          <ConnectorPoint PointX="7.65625" PointY="24.483805590544875" />
+          <ConnectorPoint PointX="7.65625" PointY="24.15625" />
+          <ConnectorPoint PointX="7.9098244349011217" PointY="24.409824434901122" />
+          <ConnectorPoint PointX="8.1214255650988783" PointY="24.621425565098878" />
+          <ConnectorPoint PointX="8.25" PointY="24.75" />
+        </AssociationConnector>
+        <AssociationConnector Association="FolketsTingModel.FK_CommentVote_Comment" ManuallyRouted="false">
+          <ConnectorPoint PointX="9.75" PointY="25.244944661458334" />
+          <ConnectorPoint PointX="10.5" PointY="25.244944661458334" />
+        </AssociationConnector>
+        <AssociationConnector Association="FolketsTingModel.FK_CommentVote_User" ManuallyRouted="false">
+          <ConnectorPoint PointX="7.5" PointY="24.061989687500009" />
+          <ConnectorPoint PointX="7.885416666666667" PointY="24.061989687500009" />
+          <ConnectorPoint PointX="8.1458333333333339" PointY="24.061989687500009" />
+          <ConnectorPoint PointX="10.5" PointY="24.061989687500009" />
+        </AssociationConnector>
+        <AssociationConnector Association="FolketsTingModel.FK_ItemCommittee_Committee" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.3437505000000005" PointY="6.8552864583333326" />
+          <ConnectorPoint PointX="4.3437505000000005" PointY="9.125" />
+          <ConnectorPoint PointX="4.75" PointY="9.125" />
+          <ConnectorPoint PointX="4.75" PointY="17.5" />
+          <ConnectorPoint PointX="5.5" PointY="17.5" />
+          <ConnectorPoint PointX="5.5" PointY="29.740143229166669" />
+          <ConnectorPoint PointX="6" PointY="29.740143229166669" />
+        </AssociationConnector>
+        <AssociationConnector Association="FolketsTingModel.FK_Law_Committee" ManuallyRouted="false">
+          <ConnectorPoint PointX="5.25" PointY="5.3410546875000016" />
+          <ConnectorPoint PointX="6" PointY="5.3410546875000016" />
+        </AssociationConnector>
+        <AssociationConnector Association="FolketsTingModel.FK_CommitteeTripParticipant_CommitteeTrip" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="26.605499674479169" />
+          <ConnectorPoint PointX="5.416666666666667" PointY="26.605499674479169" />
+          <ConnectorPoint PointX="5.583333333333333" PointY="26.605499674479169" />
+          <ConnectorPoint PointX="5.75" PointY="26.605499674479169" />
+          <ConnectorPoint PointX="5.75" PointY="16.739889322916667" />
+          <ConnectorPoint PointX="5" PointY="16.739889322916667" />
+          <ConnectorPoint PointX="5" PointY="13.605286458333332" />
+          <ConnectorPoint PointX="6" PointY="13.605286458333332" />
+          <ConnectorPoint PointX="6" PointY="13.230286458333332" />
+        </AssociationConnector>
+        <AssociationConnector Association="FolketsTingModel.FK_CommitteeTripParticipant_Politician" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="12.240143229166666" />
+          <ConnectorPoint PointX="4.666666666666667" PointY="12.240143229166666" />
+          <ConnectorPoint PointX="4.833333333333333" PointY="12.240143229166666" />
+          <ConnectorPoint PointX="4.854166666666667" PointY="12.240143229166666" />
+          <ConnectorPoint PointX="5.020833333333333" PointY="12.240143229166666" />
+          <ConnectorPoint PointX="5.25" PointY="12.240143229166666" />
+        </AssociationConnector>
+        <AssociationConnector Association="FolketsTingModel.FK_behandlinger_love" ManuallyRouted="false">
+          <ConnectorPoint PointX="7.5" PointY="5.74480068269231" />
+          <ConnectorPoint PointX="8.0625" PointY="6.30730068269231" />
+          <ConnectorPoint PointX="8.0625" PointY="24.663269230769231" />
+          <ConnectorPoint PointX="8.0380922317655461" PointY="24.687676999003685" />
+          <ConnectorPoint PointX="7.9202411015677878" PointY="24.805528129201441" />
+          <ConnectorPoint PointX="7.47576923076923" PointY="25.25" />
+        </AssociationConnector>
+        <AssociationConnector Association="FolketsTingModel.FK_tale_behandlinger" ManuallyRouted="false">
+          <ConnectorPoint PointX="7.5" PointY="25.307691307692306" />
+          <ConnectorPoint PointX="7.8154304978679034" PointY="24.999117994560667" />
+          <ConnectorPoint PointX="7.9345695021320957" PointY="24.882568968650045" />
+          <ConnectorPoint PointX="7.979166666666667" PointY="24.838941307692309" />
+          <ConnectorPoint PointX="7.979166666666667" PointY="17.259348958333334" />
+          <ConnectorPoint PointX="8.0729166666666661" PointY="17.259348958333334" />
+          <ConnectorPoint PointX="8.2395833333333339" PointY="17.259348958333334" />
+          <ConnectorPoint PointX="8.25" PointY="17.259348958333334" />
+        </AssociationConnector>
+        <AssociationConnector Association="FolketsTingModel.FK_P20Question_Document" ManuallyRouted="false">
+          <ConnectorPoint PointX="7.15625" PointY="18.125" />
+          <ConnectorPoint PointX="7.15625" PointY="13.677643229166666" />
+          <ConnectorPoint PointX="7.979166666666667" PointY="13.677643229166664" />
+          <ConnectorPoint PointX="8.2395833333333339" PointY="13.677643229166666" />
+          <ConnectorPoint PointX="8.25" PointY="13.677643229166666" />
+        </AssociationConnector>
+        <AssociationConnector Association="FolketsTingModel.FK_Politician_Images" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="12.143992513020834" />
+          <ConnectorPoint PointX="2.5416666666666665" PointY="12.143992513020834" />
+          <ConnectorPoint PointX="2.7083333333333335" PointY="12.143992513020834" />
+          <ConnectorPoint PointX="3" PointY="12.143992513020834" />
+        </AssociationConnector>
+        <AssociationConnector Association="FolketsTingModel.FK_lawchapter_love" ManuallyRouted="false">
+          <ConnectorPoint PointX="7.5" PointY="3.3074446614583337" />
+          <ConnectorPoint PointX="8.25" PointY="3.3074446614583337" />
+        </AssociationConnector>
+        <AssociationConnector Association="FolketsTingModel.FK_LawVote_love" ManuallyRouted="false">
+          <ConnectorPoint PointX="6.1914035" PointY="5.8071093750000031" />
+          <ConnectorPoint PointX="6.1914035" PointY="8" />
+          <ConnectorPoint PointX="4.9375" PointY="8" />
+          <ConnectorPoint PointX="4.9375" PointY="17.484375" />
+          <ConnectorPoint PointX="5.416666666666667" PointY="17.484375" />
+          <ConnectorPoint PointX="5.583333333333333" PointY="17.484375" />
+          <ConnectorPoint PointX="5.8125" PointY="17.484375" />
+          <ConnectorPoint PointX="5.8125" PointY="22.220896809895834" />
+          <ConnectorPoint PointX="5.583333333333333" PointY="22.220896809895834" />
+          <ConnectorPoint PointX="5.416666666666667" PointY="22.220896809895834" />
+          <ConnectorPoint PointX="4.5" PointY="22.220896809895834" />
+        </AssociationConnector>
+        <AssociationConnector Association="FolketsTingModel.FK_love_ministerium" ManuallyRouted="false">
+          <ConnectorPoint PointX="5.25" PointY="3.1728417968750016" />
+          <ConnectorPoint PointX="6" PointY="3.1728417968750016" />
+        </AssociationConnector>
+        <AssociationConnector Association="FolketsTingModel.FK_love_samlinger" ManuallyRouted="false">
+          <ConnectorPoint PointX="5.25" PointY="18.836293945312505" />
+          <ConnectorPoint PointX="5.416666666666667" PointY="18.836293945312505" />
+          <ConnectorPoint PointX="5.583333333333333" PointY="18.836293945312505" />
+          <ConnectorPoint PointX="5.666666666666667" PointY="18.836293945312505" />
+          <ConnectorPoint PointX="5.833333333333333" PointY="18.836293945312505" />
+          <ConnectorPoint PointX="5.875" PointY="18.836293945312505" />
+          <ConnectorPoint PointX="5.875" PointY="16.864889322916667" />
+          <ConnectorPoint PointX="7" PointY="16.864889322916667" />
+          <ConnectorPoint PointX="7" PointY="6.1821093750000031" />
+          <ConnectorPoint PointX="7.257815" PointY="6.1821093750000031" />
+          <ConnectorPoint PointX="7.257815" PointY="5.8071093750000031" />
+        </AssociationConnector>
+        <AssociationConnector Association="FolketsTingModel.FK_paragraph_love" ManuallyRouted="false">
+          <ConnectorPoint PointX="7.5" PointY="1.84375" />
+          <ConnectorPoint PointX="10.5" PointY="1.84375" />
+        </AssociationConnector>
+        <AssociationConnector Association="FolketsTingModel.FK_proposedlaw_love" ManuallyRouted="false">
+          <ConnectorPoint PointX="6.953126" PointY="5.8071093750000031" />
+          <ConnectorPoint PointX="6.953126" PointY="15.307444661458334" />
+          <ConnectorPoint PointX="6.75" PointY="15.307444661458334" />
+        </AssociationConnector>
+        <AssociationConnector Association="FolketsTingModel.FK_Speaker_Law" ManuallyRouted="false">
+          <ConnectorPoint PointX="6.445311" PointY="5.8071093750000031" />
+          <ConnectorPoint PointX="6.445311" PointY="7.125" />
+          <ConnectorPoint PointX="6.8697926666666671" PointY="7.1249999999999991" />
+          <ConnectorPoint PointX="7.0833333333333339" PointY="7.125" />
+          <ConnectorPoint PointX="7.979166666666667" PointY="7.1249999999999991" />
+          <ConnectorPoint PointX="8.1458333333333339" PointY="7.125" />
+          <ConnectorPoint PointX="8.25" PointY="7.125" />
+        </AssociationConnector>
+        <AssociationConnector Association="FolketsTingModel.FK_lawchange_paragraph" ManuallyRouted="false">
+          <ConnectorPoint PointX="11.25" PointY="4.951396484374996" />
+          <ConnectorPoint PointX="11.25" PointY="7.336293945312498" />
+          <ConnectorPoint PointX="11.572919166666667" PointY="7.3362939453124971" />
+          <ConnectorPoint PointX="11.739585833333335" PointY="7.336293945312498" />
+          <ConnectorPoint PointX="12.75" PointY="7.336293945312498" />
+        </AssociationConnector>
+        <AssociationConnector Association="FolketsTingModel.FK_subchange_lawchange" ManuallyRouted="false">
+          <ConnectorPoint PointX="14.25" PointY="7.2401432291666623" />
+          <ConnectorPoint PointX="15" PointY="7.2401432291666623" />
+        </AssociationConnector>
+        <AssociationConnector Association="FolketsTingModel.FK_paragraph_lawchapter" ManuallyRouted="false">
+          <ConnectorPoint PointX="9.75" PointY="3.3074446614583337" />
+          <ConnectorPoint PointX="10.5" PointY="3.3074446614583337" />
+        </AssociationConnector>
+        <AssociationConnector Association="FolketsTingModel.FK_PoliticianLawVote_LawVote" ManuallyRouted="false">
+          <ConnectorPoint PointX="3.75" PointY="20.75" />
+          <ConnectorPoint PointX="3.75" PointY="20.17258789062501" />
+          <ConnectorPoint PointX="5.5" PointY="20.17258789062501" />
+          <ConnectorPoint PointX="5.5" PointY="16.864889322916667" />
+          <ConnectorPoint PointX="5.020833333333333" PointY="16.864889322916667" />
+          <ConnectorPoint PointX="4.854166666666667" PointY="16.864889322916667" />
+          <ConnectorPoint PointX="4.75" PointY="16.864889322916667" />
+          <ConnectorPoint PointX="4.75" PointY="9.6115928339843855" />
+          <ConnectorPoint PointX="4.854166666666667" PointY="9.6115928339843855" />
+          <ConnectorPoint PointX="5.020833333333333" PointY="9.6115928339843855" />
+          <ConnectorPoint PointX="5.25" PointY="9.6115928339843855" />
+        </AssociationConnector>
+        <AssociationConnector Association="FolketsTingModel.FK_userlawvote_LawVote" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="20.9687505" />
+          <ConnectorPoint PointX="5.416666666666667" PointY="20.9687505" />
+          <ConnectorPoint PointX="5.583333333333333" PointY="20.9687505" />
+          <ConnectorPoint PointX="5.666666666666667" PointY="20.9687505" />
+          <ConnectorPoint PointX="5.895833333333333" PointY="20.9687505" />
+          <ConnectorPoint PointX="7.7302228589743569" PointY="20.9687505" />
+          <ConnectorPoint PointX="8.12142556509888" PointY="20.9687505" />
+          <ConnectorPoint PointX="9" PointY="20.9687505" />
+          <ConnectorPoint PointX="9" PointY="21.375" />
+        </AssociationConnector>
+        <AssociationConnector Association="FolketsTingModel.FK_P20Question_Politician" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="10.836293945312505" />
+          <ConnectorPoint PointX="4.666666666666667" PointY="10.836293945312505" />
+          <ConnectorPoint PointX="4.833333333333333" PointY="10.836293945312505" />
+          <ConnectorPoint PointX="4.854166666666667" PointY="10.836293945312505" />
+          <ConnectorPoint PointX="5.020833333333333" PointY="10.836293945312505" />
+          <ConnectorPoint PointX="6.8697926666666671" PointY="10.836293945312505" />
+          <ConnectorPoint PointX="7.0833333333333339" PointY="10.836293945312505" />
+          <ConnectorPoint PointX="7.9547588984322131" PointY="10.836293945312505" />
+          <ConnectorPoint PointX="8.12142556509888" PointY="10.836293945312505" />
+          <ConnectorPoint PointX="8.25" PointY="10.836293945312505" />
+        </AssociationConnector>
+        <AssociationConnector Association="FolketsTingModel.FK_P20Question_Politician1" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="13.932571614583333" />
+          <ConnectorPoint PointX="4.666666666666667" PointY="13.932571614583333" />
+          <ConnectorPoint PointX="4.833333333333333" PointY="13.932571614583333" />
+          <ConnectorPoint PointX="4.854166666666667" PointY="13.932571614583333" />
+          <ConnectorPoint PointX="5.083333333333333" PointY="13.932571614583333" />
+          <ConnectorPoint PointX="6.8697926666666671" PointY="13.932571614583331" />
+          <ConnectorPoint PointX="7.2395833333333339" PointY="13.932571614583333" />
+          <ConnectorPoint PointX="7.9547588984322131" PointY="13.932571614583331" />
+          <ConnectorPoint PointX="8.2395833333333339" PointY="13.932571614583333" />
+          <ConnectorPoint PointX="8.25" PointY="13.932571614583333" />
+        </AssociationConnector>
+        <AssociationConnector Association="FolketsTingModel.FK_P20Question_Session" ManuallyRouted="false">
+          <ConnectorPoint PointX="5.25" PointY="17.751152846153843" />
+          <ConnectorPoint PointX="5.416666666666667" PointY="17.625" />
+          <ConnectorPoint PointX="5.666666666666667" PointY="17.625" />
+          <ConnectorPoint PointX="5.958333333333333" PointY="17.625" />
+          <ConnectorPoint PointX="7.072916666666667" PointY="17.625" />
+          <ConnectorPoint PointX="7.239583333333333" PointY="17.625" />
+          <ConnectorPoint PointX="7.875" PointY="17.625" />
+          <ConnectorPoint PointX="7.875" PointY="15.114807942708332" />
+          <ConnectorPoint PointX="7.979166666666667" PointY="15.010641276041664" />
+          <ConnectorPoint PointX="8.0970177968644244" PointY="14.892790145843907" />
+          <ConnectorPoint PointX="8.09732443490112" PointY="14.89248350780721" />
+          <ConnectorPoint PointX="8.2151755650988783" PointY="14.774632377609454" />
+          <ConnectorPoint PointX="8.25" PointY="14.739807942708332" />
+        </AssociationConnector>
+        <AssociationConnector Association="FolketsTingModel.FK_P20Question_User" ManuallyRouted="false">
+          <ConnectorPoint PointX="7.5" PointY="21.282306692307689" />
+          <ConnectorPoint PointX="7.9202411015677887" PointY="20.8620655907399" />
+          <ConnectorPoint PointX="8.1214255650988783" PointY="20.66088112720881" />
+          <ConnectorPoint PointX="8.15625" PointY="20.626056692307689" />
+          <ConnectorPoint PointX="8.15625" PointY="12.129504394531253" />
+          <ConnectorPoint PointX="8.25" PointY="12.129504394531253" />
+        </AssociationConnector>
+        <AssociationConnector Association="FolketsTingModel.FK_section_paragraph" ManuallyRouted="false">
+          <ConnectorPoint PointX="11.6562525" PointY="4.951396484374996" />
+          <ConnectorPoint PointX="11.6562525" PointY="10.115143229166662" />
+          <ConnectorPoint PointX="12.75" PointY="10.115143229166662" />
+        </AssociationConnector>
+        <AssociationConnector Association="FolketsTingModel.FK_Politician_Party" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="9.7689925130208337" />
+          <ConnectorPoint PointX="2.5416666666666665" PointY="9.7689925130208337" />
+          <ConnectorPoint PointX="2.7083333333333335" PointY="9.7689925130208337" />
+          <ConnectorPoint PointX="3" PointY="9.7689925130208337" />
+        </AssociationConnector>
+        <AssociationConnector Association="FolketsTingModel.FK_PoliticianLawVote_politiker" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="10.059315285888683" />
+          <ConnectorPoint PointX="4.666666666666667" PointY="10.059315285888683" />
+          <ConnectorPoint PointX="4.833333333333333" PointY="10.059315285888683" />
+          <ConnectorPoint PointX="4.854166666666667" PointY="10.059315285888683" />
+          <ConnectorPoint PointX="5.020833333333333" PointY="10.059315285888683" />
+          <ConnectorPoint PointX="5.25" PointY="10.059315285888683" />
+        </AssociationConnector>
+        <AssociationConnector Association="FolketsTingModel.FK_proposedlaw_politiker" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="14.470856119791666" />
+          <ConnectorPoint PointX="4.666666666666667" PointY="14.470856119791666" />
+          <ConnectorPoint PointX="4.833333333333333" PointY="14.470856119791666" />
+          <ConnectorPoint PointX="4.854166666666667" PointY="14.470856119791666" />
+          <ConnectorPoint PointX="5.083333333333333" PointY="14.470856119791666" />
+          <ConnectorPoint PointX="5.25" PointY="14.470856119791666" />
+        </AssociationConnector>
+        <AssociationConnector Association="FolketsTingModel.FK_Speaker_Politician" ManuallyRouted="false">
+          <ConnectorPoint PointX="3.34375" PointY="9.375" />
+          <ConnectorPoint PointX="3.34375" PointY="7.5937524999999937" />
+          <ConnectorPoint PointX="4.2604171666666675" PointY="7.5937524999999928" />
+          <ConnectorPoint PointX="4.4270838333333336" PointY="7.5937524999999937" />
+          <ConnectorPoint PointX="6.1080701666666668" PointY="7.5937524999999928" />
+          <ConnectorPoint PointX="6.2747368333333329" PointY="7.5937524999999937" />
+          <ConnectorPoint PointX="6.8697926666666671" PointY="7.5937524999999928" />
+          <ConnectorPoint PointX="7.0833333333333339" PointY="7.5937524999999937" />
+          <ConnectorPoint PointX="7.9547588984322131" PointY="7.5937524999999928" />
+          <ConnectorPoint PointX="8.12142556509888" PointY="7.5937524999999937" />
+          <ConnectorPoint PointX="8.25" PointY="7.5937524999999937" />
+        </AssociationConnector>
+        <AssociationConnector Association="FolketsTingModel.FK_tale_politiker" ManuallyRouted="false">
+          <ConnectorPoint PointX="3.34375" PointY="14.816712239583334" />
+          <ConnectorPoint PointX="3.34375" PointY="17.030866640625007" />
+          <ConnectorPoint PointX="4.666666666666667" PointY="17.030866640625007" />
+          <ConnectorPoint PointX="4.833333333333333" PointY="17.030866640625007" />
+          <ConnectorPoint PointX="4.854166666666667" PointY="17.030866640625007" />
+          <ConnectorPoint PointX="5.020833333333333" PointY="17.030866640625007" />
+          <ConnectorPoint PointX="5.416666666666667" PointY="17.030866640625007" />
+          <ConnectorPoint PointX="5.583333333333333" PointY="17.030866640625007" />
+          <ConnectorPoint PointX="5.666666666666667" PointY="17.030866640625007" />
+          <ConnectorPoint PointX="5.958333333333333" PointY="17.030866640625007" />
+          <ConnectorPoint PointX="7.072916666666667" PointY="17.030866640625007" />
+          <ConnectorPoint PointX="7.239583333333333" PointY="17.030866640625007" />
+          <ConnectorPoint PointX="7.791666666666667" PointY="17.030866640625007" />
+          <ConnectorPoint PointX="8.2395833333333339" PointY="17.030866640625007" />
+          <ConnectorPoint PointX="8.25" PointY="17.030866640625007" />
+        </AssociationConnector>
+        <AssociationConnector Association="FolketsTingModel.FK_speach_para_tale" ManuallyRouted="false">
+          <ConnectorPoint PointX="9.75" PointY="17.240143229166662" />
+          <ConnectorPoint PointX="10.5" PointY="17.240143229166662" />
+        </AssociationConnector>
+        <AssociationConnector Association="FolketsTingModel.FK_Speech_Speech" ManuallyRouted="false">
+          <ConnectorPoint PointX="8.7819230769230767" PointY="19.018697916666667" />
+          <ConnectorPoint PointX="8.7819230769230767" PointY="19.268697916666667" />
+          <ConnectorPoint PointX="9.2284615384615378" PointY="19.268697916666667" />
+          <ConnectorPoint PointX="9.2284615384615378" PointY="19.018697916666667" />
+        </AssociationConnector>
+        <AssociationConnector Association="FolketsTingModel.FK_Tag_User" ManuallyRouted="false">
+          <ConnectorPoint PointX="7.47576923076923" PointY="24.384095052083339" />
+          <ConnectorPoint PointX="7.875" PointY="24.783325821314108" />
+          <ConnectorPoint PointX="7.875" PointY="29.807444661458334" />
+          <ConnectorPoint PointX="8.25" PointY="29.807444661458334" />
+        </AssociationConnector>
+        <AssociationConnector Association="FolketsTingModel.FK_userlawvote_user" ManuallyRouted="false">
+          <ConnectorPoint PointX="7.5" PointY="22.557444661458334" />
+          <ConnectorPoint PointX="7.885416666666667" PointY="22.557444661458334" />
+          <ConnectorPoint PointX="8.1458333333333339" PointY="22.557444661458334" />
+          <ConnectorPoint PointX="8.25" PointY="22.557444661458334" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="FolketsTingModel.ApiUser" Width="1.5" PointX="13.375" PointY="14.75" Height="1.9802864583333246" />
+        <EntityTypeShape EntityType="FolketsTingModel.CommitteeTripDestination" Width="1.5" PointX="5.25" PointY="32.375" Height="2.172587890624996" />
+        <AssociationConnector Association="FolketsTingModel.FK_CommitteeTripDestination_CommitteeTrip" >
+          <ConnectorPoint PointX="3.75" PointY="28.460999348958335" />
+          <ConnectorPoint PointX="3.75" PointY="33.4612939453125" />
+          <ConnectorPoint PointX="5.25" PointY="33.4612939453125" />
+        </AssociationConnector>
+        <AssociationConnector Association="FolketsTingModel.FK_CommitteeTrip_Committee" >
+          <ConnectorPoint PointX="3.7499999999999991" PointY="6.8552864583333326" />
+          <ConnectorPoint PointX="3.375" PointY="7.2302864583333317" />
+          <ConnectorPoint PointX="2.625" PointY="7.2302864583333317" />
+          <ConnectorPoint PointX="2.625" PointY="24.373847153846153" />
+          <ConnectorPoint PointX="3.0011528461538459" PointY="24.75" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

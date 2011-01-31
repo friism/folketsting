@@ -1,0 +1,159 @@
+<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage<BaseViewModel>" %>
+
+<%@ Import Namespace="FolketsTing.Controllers" %>
+<!DOCTYPE html 
+	xmlns:og="http://opengraphprotocol.org/schema/"
+	xmlns:fb="http://www.facebook.com/2008/fbml">
+<head runat="server">
+	<title>
+		<asp:ContentPlaceHolder ID="TitleContent" runat="server" />
+	</title>
+	<asp:ContentPlaceHolder ID="HeadContent" runat="server" />
+	<link rel="shortcut icon" type="image/x-icon" href="<%= ResolveUrl("~/Graphics/favicon.ico") %>" />
+	<%= "<meta name=\"description\" content=\"" +
+		((Model != null && Model.MetaDescription != null) ? 
+		Model.MetaDescription.Substring(0, Math.Min(150, Model.MetaDescription.Length)) : "") + 
+	"\" />"%>
+	<%  if (Model != null && !string.IsNullOrEmpty(Model.CountLink))
+	 { %>
+	<link href="<%= ResolveUrl("~" + Model.CountLink) %>" type="text/css" rel="stylesheet" />
+	<%} %>
+	<link rel="stylesheet" href="../../Content/print.css" type="text/css" media="print" />
+	<link rel="stylesheet" href="../../Content/screen.css" type="text/css" media="screen, projection" />
+	<!--[if IE]>
+		<link href="../../Content/ie.css" rel="stylesheet" type="text/css" />
+	<![endif]-->
+	<link href="<%= ResolveUrl("~/Content/site.css")%>" rel="stylesheet" type="text/css" />
+	<link href="<%= ResolveUrl("~/Content/jqueryui/jquery-ui-1.7.2.custom.css")%>" rel="stylesheet"
+		type="text/css" />
+	<% if (Model != null && Model.Breadcrumb != null && Model.Breadcrumb.Count > 0)
+	{
+		var canonicalurl = Url.Action(ViewData.Model.Breadcrumb.Last().Action,
+		 ViewData.Model.Breadcrumb.Last().Controller,
+		 ViewData.Model.Breadcrumb.Last().RVals); %>
+	<link href="<%= ResolveUrl("~" + canonicalurl.ToString()) %>" rel="canonical" />
+	<%} %>
+	<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+	<script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<%--This is to get semi-nice facebook stories--%>
+		<img alt="fbpic" style="display: none" src="<%= ResolveUrl("~/Graphics/ch.jpg") %>" />
+		<asp:ContentPlaceHolder ID="NotifyContent" runat="server" />
+		<div class="span-24 maincontent">
+			<div id="header" class="span-12 header">
+				<span class="title"><strong>
+					<%= Html.ActionLink("Folkets Ting","Index","Home") %>
+				</strong></span><span class="note">(beta)</span>
+			</div>
+			<div class="span-12 last right search">
+				&nbsp;
+<%--				<% using (Html.BeginForm<SearchController>(_ => _.ExperimentalSearch(null),
+					   FormMethod.Get, new { id = "advancedsearch" })) %>
+				<% {  %>
+				<%= Html.TextBox("query", "") %>
+				<%= Html.SubmitButton("", "Søg")%>
+				<p class="tiny">
+					<%= Html.ActionLink<SearchController>(_ => _.ExperimentalSearch(null), 
+						"avanceret søgning")%>
+				</p>
+				<% } %>--%>
+				<%--				<% using (Html.BeginForm<SearchController>(
+		   _ => _.Search(""), FormMethod.Get, new { id = "navsearchform" }))
+				--%>
+			</div>
+			<div id="nav" class="span-24 nav">
+				<div class="span-2">
+					&nbsp;
+				</div>
+				<div class="span-18">
+					<ul class="">
+						<li>
+							<%= Html.ActionLink("Love","Index","Law") %></li>
+						<li>
+							<%= Html.ActionLink("Politikere", "Index", "Politician")%></li>
+						<li>
+							<%= Html.ActionLink("§20 spørgsmål", "Index", "P20Question")%>
+						</li>
+						<li>
+							<%= Html.ActionLink("Live", "LiveDebate", "Home")%></li>
+					</ul>
+				</div>
+				<div class="span-4 login last">
+					<span>
+						&nbsp;
+						<%--<% Html.RenderPartial("Controls/LogOnUserControl"); %>--%>
+					</span>
+				</div>
+			</div>
+			<% if (Model != null && Model.Breadcrumb != null && Model.Breadcrumb.Count > 0)
+	  {%>
+			<div id="breadcrumb" class="span-24 breadcrumb">
+				<ul>
+					<% foreach (var bc in ViewData.Model.Breadcrumb.Take(ViewData.Model.Breadcrumb.Count - 1))
+		{
+					%><li>
+						<%= Html.ActionLink(bc.Text, bc.Action, bc.Controller, bc.RVals, null)%>
+						> </li>
+					<%
+						} %>
+					<li>
+						<%= Html.ActionLink(ViewData.Model.Breadcrumb.Last().Text,
+						ViewData.Model.Breadcrumb.Last().Action,
+						ViewData.Model.Breadcrumb.Last().Controller,
+						ViewData.Model.Breadcrumb.Last().RVals, null)%>
+					</li>
+				</ul>
+			</div>
+			<%} %>
+			<asp:ContentPlaceHolder ID="MainContent" runat="server" />
+			<div id="footer" class="span-24 footer last">
+				<span>Folkets Ting er et <a href="http://friism.com/michael-friis">friism</a> hypertekst
+					produkt</span> <span><a href="http://blog.folketsting.dk">blog</a> </span><span>
+						<%= Html.ActionLink("betingelser","Terms","Home") %>
+					</span><span>
+						<%= Html.ActionLink("om Folkets Ting","Contact","Home") %></span> </span><span>
+							<%= Html.ActionLink<ApiRegistrationController>(_ => _.New(), "API") %></span>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+		document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+		try {
+			var pageTracker = _gat._getTracker('<%= ConfigurationManager.AppSettings["GoogleAnalyticsTrackingToken"] %>');
+			pageTracker._trackPageview();
+		} catch (err) { }
+	</script>
+	<script src="http://static.ak.connect.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php"
+		type="text/javascript"></script>
+	<script type="text/javascript" charset="utf-8">
+		var is_ssl = ("https:" == document.location.protocol);
+		var asset_host = is_ssl ? "https://s3.amazonaws.com/getsatisfaction.com/" : "http://s3.amazonaws.com/getsatisfaction.com/";
+		document.write(unescape("%3Cscript src='" + asset_host + "javascripts/feedback-v2.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript" charset="utf-8">
+		var feedback_widget_options = {};
+		feedback_widget_options.display = "overlay";
+		feedback_widget_options.company = "folkets_ting";
+		feedback_widget_options.placement = "left";
+		feedback_widget_options.color = "#222";
+		feedback_widget_options.style = "idea";
+
+		var feedback_widget = new GSFN.feedback_widget(feedback_widget_options);
+	</script>
+	<%--    <script type="text/javascript">
+		var bookmarkName = document.location.hash.split("#")[1];
+		$("[name=" + bookmarkName + "]").parent().effect("highlight", {}, 10000);
+	</script>--%>
+	<%--    <script type="text/javascript">
+		tyntVariables = { "ap": "Læs mere: " };
+	</script>
+	<script type="text/javascript" src="http://tcr.tynt.com/javascripts/Tracer.js?user=co6meOhXWr35ZiadbiUzgI&amp;s=61&amp;lang=en">
+	</script>--%>
+</body>
+</html> 
