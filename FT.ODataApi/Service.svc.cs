@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data.Services;
 using System.Data.Services.Common;
 using System.Linq;
-using System.ServiceModel.Web;
-using System.Web;
-using FT.Data;
-using DataServicesJSONP;
 using System.ServiceModel;
-using System.Text;
+using System.Web;
+using DataServicesJSONP;
+using FT.Data;
 using FT.DB;
-using System.Data.Linq;
 
 namespace FT.ODataApi
 {
