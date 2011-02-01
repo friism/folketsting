@@ -55,8 +55,8 @@
 			<%--<% Html.RenderPartial("Controls/AddThis"); %>--%>
 		</div>
 		<div class="span-15 last">
-			<div class="span-15 last activitychart" id="activity-chart" style="width: 590px;
-				height: 200px;">
+			<div class="span-15 last activitychart" id="activity-chart"
+				style="width: 590px;height: 200px;">
 			</div>
 		</div>
 	</div>
