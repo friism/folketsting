@@ -130,7 +130,6 @@ namespace FT.Model
 					count = d.Count()
 				}).ToList();
 
-
 			// there's a lovely bug in here, for when government changes we need another grouping
 			var questionact =
 				(
