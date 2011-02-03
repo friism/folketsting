@@ -58,7 +58,6 @@
 				var template = _.template($('script[name=politician]').html());
 				var triplistitemtemplate = _.template($('script[name=triplistitem]').html());
 				var infowindowtemplate = _.template($('script[name=infowindow]').html());
-				//S3ULAG4qAASgzcsvNhbf
 				var polquery =
 					'http://data.folketsting.dk/Service.svc/Politician/?$expand=CommitteeTripParticipant&$select=Firstname,Lastname,PoliticianId,CommitteeTripParticipant/CommitteeTripId&$format=json&$callback=render&callback=render&apikey=7mRWp6WmTzsbAkMwvHxy';
 				var tripquery =
