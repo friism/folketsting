@@ -85,7 +85,7 @@
 
 				function callback1(result) {
 					// parse the trip result
-					trips = _.reduce(result["d"], function (m, t) {
+					trips = _.reduce(result["d"].results, function (m, t) {
 						var tripid = t.CommitteeTripId;
 
 						var participantcount = t.NonPolParticipants + t.CommitteeTripParticipant.length;
