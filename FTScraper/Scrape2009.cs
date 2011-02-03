@@ -1164,7 +1164,6 @@ namespace FT.Scraper
 			}
 		}
 
-
 		private static Politician GetPoliticianByNameAndParty(string name, string party, DBDataContext db)
 		{
 			lock (dblock)
@@ -1237,9 +1236,7 @@ namespace FT.Scraper
 			var doti = url.LastIndexOf('.');
 			var ftid = url.Substring(slashi + 1, doti - slashi - 1);
 			return ftid.Trim();
-
 		}
-
 
 		public static int? GetPoliticianByUrl(string url, DBDataContext db)
 		{
@@ -1295,9 +1292,7 @@ namespace FT.Scraper
 				db.SubmitChanges();
 				pol.ImageId = ishrunk.ImageId;
 				db.SubmitChanges();
-
 			}
-
 		}
 
 		private static ImageFormat GetImageFormat(string contenttype)
@@ -1461,7 +1456,6 @@ namespace FT.Scraper
 			{
 				ShrinkPolPic(pol.PoliticianId, db);
 			}
-
 		}
 
 		private static DateTime? GetDate(string html, string name)
@@ -1501,7 +1495,6 @@ namespace FT.Scraper
 					throw new Exception(string.Format("Failed to download {0}", url), e);
 				}
 			}
-
 		}
 
 		private static HtmlDocument GetDocRec(string url)
