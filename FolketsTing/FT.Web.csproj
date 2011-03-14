@@ -231,7 +231,6 @@
     <Content Include="Views\Shared\Controls\Searchable.ascx" />
     <Content Include="Views\Shared\Controls\SearchableHighlight.ascx" />
     <Content Include="Views\Shared\Controls\SearchResult.ascx" />
-    <Content Include="Views\Shared\Controls\SearchResultList.ascx" />
     <Content Include="Views\Shared\Controls\SuperSearchable.ascx" />
     <Content Include="Views\Shared\Controls\UserBox.ascx" />
     <Content Include="Views\Shared\Controls\TagForm.ascx" />
