@@ -228,10 +228,6 @@
     <Content Include="Views\Search\Search.aspx" />
     <Content Include="Views\Shared\Controls\CommentNotify.ascx" />
     <Content Include="Views\Shared\Controls\AddThis.ascx" />
-    <Content Include="Views\Shared\Controls\Searchable.ascx" />
-    <Content Include="Views\Shared\Controls\SearchableHighlight.ascx" />
-    <Content Include="Views\Shared\Controls\SearchResult.ascx" />
-    <Content Include="Views\Shared\Controls\SuperSearchable.ascx" />
     <Content Include="Views\Shared\Controls\UserBox.ascx" />
     <Content Include="Views\Shared\Controls\TagForm.ascx" />
     <Content Include="Views\Shared\Controls\PolBox.ascx" />
