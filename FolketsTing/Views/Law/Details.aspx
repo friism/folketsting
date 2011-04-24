@@ -121,11 +121,11 @@
 					<td class="<%= col1class %>" >
 						<%= Model.IsProposed ?
 							Html.ActionLink("Fremsat", "LawText",
-																new
-																{
-																	lawname = Model.Law.ShortName.ToUrlFriendly(),
-										lawid = Model.Law.LawId,
-										stage = "fremsat"
+								new
+								{
+									lawname = Model.Law.ShortName.ToUrlFriendly(),
+									lawid = Model.Law.LawId,
+									stage = "fremsat",
 						}) : MvcHtmlString.Create("Fremsat")%>
 					</td>
 					<td class="<%= col2class %>">
