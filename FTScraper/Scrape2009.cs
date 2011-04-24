@@ -22,14 +22,6 @@ namespace FT.Scraper
 		public static string domain = "http://www.ft.dk/"; //"http://ft.dk/";
 		public static string fastdomain = "http://www.ft.dk/dokumenter/tingdok.aspx?";
 
-		//private static Dictionary<string, string> searchinitials = new Dictionary<string, string>();
-		//private static List<string> badinitials = new List<string>();
-
-		//private static List<Politician> polcache;
-
-		//public static string wwwdomain = ;C:\Users\friism\Documents\Visual Studio 2010\Projects\folketstinggit\FolketsTing\Views\ApiRegistration\Created.aspx
-
-
 		public static object dblock = new object();
 
 		public void DoScrape()
