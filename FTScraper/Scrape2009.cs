@@ -89,7 +89,7 @@ namespace FT.Scraper
 							  (g.Key, g.First().Item2,
 								g.Select(_ => _.Item3), g.First().Item4, g.First().Item5);
 
-			groupedrows.AsParallel().WithDegreeOfParallelism(20).ForAll(
+			groupedrows.AsParallel().WithDegreeOfParallelism(1).ForAll(
 				_ => P20QuestionScraper.GetQChecked(_.Item1, _.Item2, _.Item3, _.Item4, _.Item5,
 					samling) //"L 67"  "L 14" "L 24 A" "L 103""L 78" "L 2"
 				);
@@ -110,7 +110,7 @@ namespace FT.Scraper
 		private static void DoLaws(Session samling)
 		{
 			var rows = GetLawRows(samling.Year, samling.Number);
-			rows.AsParallel().WithDegreeOfParallelism(20).ForAll(
+			rows.AsParallel().WithDegreeOfParallelism(1).ForAll(
 				_ => GetLawChecked(_, samling,
 					//"L 127", 2000, 1
 					 null, null, null
@@ -868,7 +868,7 @@ namespace FT.Scraper
 			var pols = db.Politicians.Where(_ => 
 				_.ImageId == null || _.Homepage == null || _.Birthdate == null);
 
-			pols.AsParallel().WithDegreeOfParallelism(20).ForAll(p => UpdatePol(p, db));
+			pols.AsParallel().WithDegreeOfParallelism(1).ForAll(p => UpdatePol(p, db));
 			db.SubmitChanges();
 		}
 
