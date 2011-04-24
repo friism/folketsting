@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using HtmlAgilityPack;
-using FT.DB;
-using System.Text.RegularExpressions;
 using System.Globalization;
-using FileHelpers;
+using System.Linq;
+using FT.DB;
+using HtmlAgilityPack;
 using Geo = EB.Crime.Geocoding;
 
 namespace FT.Scraper
