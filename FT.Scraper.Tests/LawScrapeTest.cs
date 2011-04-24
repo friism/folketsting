@@ -123,5 +123,17 @@ namespace FT.Scraper.Tests
 				"Arbejdsmarkedsudvalget (AMU)", "3. behandlet, vedtaget",
 				"/samling/20101/lovforslag/L32/index.htm", samling, null, null, null, true);
 		}
+
+		[TestMethod]
+		public void TestL3_2010()
+		{
+			var db = new DBDataContext();
+			var samling = db.Sessions.Single(_ => _.Number == 1 && _.Year == 2010);
+			Scrape2009.GetLaw("L 3",
+				"Forslag til lov om ændring af straffeloven og retsplejeloven. (Skærpede straffe for hæleri og etablering af tæt samarbejde om udveksling af oplysninger mellem kriminalforsorgen, de sociale myndigheder og politiet i forbindelse med dømtes løsladelse (KSP-samarbejdet)).",
+				"Justitsministeriet",
+				"Retsudvalget (REU)", "Stadfæstet",
+				"/samling/20101/lovforslag/L3/index.htm#dok", samling, null, null, null, false);
+		}
 	}
 }
