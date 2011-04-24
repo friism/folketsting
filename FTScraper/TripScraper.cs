@@ -62,11 +62,6 @@ namespace FT.Scraper
 				Skip(1);
 
 			rows.AsParallel().WithDegreeOfParallelism(1).ForAll(_ => HandleRow(_));
-
-			//foreach (var item in rows.Take(10))
-			//{
-			//    HandleRow(item);
-			//}
 		}
 
 		private static void HandleRow(HtmlNode row)
