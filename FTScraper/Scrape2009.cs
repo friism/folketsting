@@ -297,18 +297,20 @@ namespace FT.Scraper
 						}
 					}
 
-					lock (dblock)
+					if (polid != -1)
 					{
-						db.ProposedLaws.InsertOnSubmit(
-						new ProposedLaw
+						lock (dblock)
 						{
-							Law = law,
-							PoliticianId = polid,
-							IsMinister = true,
-							Title = ministername
-						});
+							db.ProposedLaws.InsertOnSubmit(
+							new ProposedLaw
+							{
+								Law = law,
+								PoliticianId = polid,
+								IsMinister = true,
+								Title = ministername
+							});
+						}
 					}
-
 				}
 				else if (!string.IsNullOrEmpty(ministername) && pollinks.Count() > 1)
 				{
