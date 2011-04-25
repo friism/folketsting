@@ -378,14 +378,6 @@ namespace FT.Scraper
 					s.Law = law;
 					s.PoliticianId = GetPoliticianByUrl(href, db);
 				}
-				//= 
-				//    speakerhrefs.Distinct().Select(_ =>
-				//        new Speaker
-				//        {
-				//            Law = law,
-				//            PoliticianId = GetPoliticianByUrl(_, db)
-				//        }
-				//    );
 				lock (dblock)
 					db.Speakers.InsertAllOnSubmit(speakers);
 			}
