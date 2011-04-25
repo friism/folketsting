@@ -135,5 +135,17 @@ namespace FT.Scraper.Tests
 				"Retsudvalget (REU)", "Stadfæstet",
 				"/samling/20101/lovforslag/L3/index.htm#dok", samling, null, null, null, false);
 		}
+
+		[TestMethod]
+		public void TestL11_2010()
+		{
+			var db = new DBDataContext();
+			var samling = db.Sessions.Single(_ => _.Number == 1 && _.Year == 2010);
+			Scrape2009.GetLaw("L 11",
+					"Forslag til lov om ændring af lov om miljøbeskyttelse. (Gennemførelse af EU-regler om fremme af renere og mere energieffektive køretøjer til vejtransport m.v.).",
+					"Miljøministeriet",
+					"Miljø- og Planlægningsudvalget (MPU)", "Stadfæstet",
+					"/samling/20101/lovforslag/L11/index.htm#dok", samling, null, null, null, false);
+		}
 	}
 }
