@@ -1411,6 +1411,8 @@ namespace FT.Scraper
 				initials = "DF_JettePlesnerDali";
 			else if (initials == "SNiNi")
 				initials = "snien";
+			else if (initials == "SHARA")
+				initials = "SHUAR";
 			return initials;
 		}
 
