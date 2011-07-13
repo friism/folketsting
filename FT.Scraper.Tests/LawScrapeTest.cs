@@ -147,5 +147,16 @@ namespace FT.Scraper.Tests
 					"Miljø- og Planlægningsudvalget (MPU)", "Stadfæstet",
 					"/samling/20101/lovforslag/L11/index.htm#dok", samling, null, null, null, false);
 		}
+		[TestMethod]
+		public void TestL46_2010()
+		{
+			var db = new DBDataContext();
+			var samling = db.Sessions.Single(_ => _.Number == 1 && _.Year == 2010);
+			Scrape2009.GetLaw("L 46",
+					"Forslag til lov om ændring af sundhedsloven. (Specialiseret behandling på Øfeldt Centret).",
+					"Indenrigs- og Sundhedsministeriet",
+					"Sundhedsudvalget (SUU)", "3.beh./Vedtaget",
+					"/samling/20101/lovforslag/L46/index.htm#dok", samling, null, null, null, false);
+		}
 	}
 }
