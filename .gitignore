@@ -13,5 +13,6 @@ App_Data/
 *.suo
 *.schemaview
 *.dbmdl
+*.layout
 /Solr/solr-1.4.0/solr/data/spellchecker/segments_11
 /Solr/solr-1.4.0/solr/data/index/segments_ce
