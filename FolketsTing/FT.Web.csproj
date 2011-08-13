@@ -62,6 +62,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DataServicesJSONP">
+      <HintPath>..\lib\DataServicesJSONP.dll</HintPath>
+    </Reference>
     <Reference Include="Elmah, Version=1.0.10617.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\Elmah.dll</HintPath>
@@ -103,9 +106,12 @@
     <Reference Include="System.Data.DataSetExtensions">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Data.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
+    <Reference Include="System.Data.Services" />
+    <Reference Include="System.Data.Services.Client" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.ServiceModel.Web">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -156,6 +162,9 @@
     <Compile Include="Controllers\LawController.cs" />
     <Compile Include="Controllers\PoliticianController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Data\Service.svc.cs">
+      <DependentUpon>Service.svc</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -175,6 +184,7 @@
     <Content Include="Content\print.css" />
     <Content Include="Content\screen.css" />
     <Content Include="Content\site.css" />
+    <Content Include="Data\Service.svc" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Graphics\ajax-loader.gif" />
@@ -265,6 +275,10 @@
     <Content Include="xd_receiver.htm" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\FT.Data\FT.Data.csproj">
+      <Project>{59B3EFF7-F5E6-470B-A243-0F0EF23EFE3B}</Project>
+      <Name>FT.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FT.DB\FT.DB.csproj">
       <Project>{21DD47F4-4584-47C5-B603-34603ACE2C66}</Project>
       <Name>FT.DB</Name>
