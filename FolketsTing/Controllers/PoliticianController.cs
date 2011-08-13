@@ -65,6 +65,13 @@ namespace FolketsTing.Controllers
 			var activity = _polRep.ActivityStats(polid, monthstoshow);
 			var terms = _polRep.LatestSpeechesBlob(polid, 500, 50);
 
+			var wordrows = terms.Any() ? "[" +
+					terms.Shuffle().Select(t =>
+						string.Format("{{c:[{{v:\"{0}\"}},{{v:{1}}}]}}", t.Item1, t.Item2)
+						).Aggregate((a, b) => a + "," + b)
+						+ "]" : "";
+
+
 			var res = new PolViewModel()
 			{
 				Politician = pol,
@@ -89,18 +96,16 @@ namespace FolketsTing.Controllers
 					new {id = "speeches", type = "number", label= "taler (måned)" }, 
 					new {id = "questions", type = "number", label= "§20 spørgsmål (måned)" }, 
 				}),
+				
 				WordCols =
 				(new JavaScriptSerializer()).Serialize(new object[] { 
 					new {id = "text", type = "string"}, 
 					new {id = "count", type = "number"}, 
 				}),
-				WordRows = "[" + 
-					terms.Shuffle().Select(t =>
-						string.Format("{{c:[{{v:\"{0}\"}},{{v:{1}}}]}}", t.Item1, t.Item2)
-						).Aggregate((a,b) => a + "," + b)
-					 + "]",
 				
-				Breadcrumb = new List<Breadcrumb>() { 
+				WordRows = wordrows,
+
+				Breadcrumb = new List<Breadcrumb>() {
 					Breadcrumb.Home,
 					Breadcrumb.PolIndex,
 						new Breadcrumb(
