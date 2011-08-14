@@ -69,11 +69,11 @@ namespace FT.Scraper
 			var db = new DBDataContext();
 			var trip = db.CommitteeTrips.SingleOrDefault(_ => _.FTId == ftid);
 
-			if (trip != null && trip.ActualExpenses.HasValue && trip.ActualExpenses != 0)
-			{
-				// this trip is prolly completely accounted for
-				return;
-			}
+			//if (trip != null && trip.ActualExpenses.HasValue && trip.ActualExpenses != 0)
+			//{
+			//    // this trip is prolly completely accounted for
+			//    return;
+			//}
 
 			var cells = row.SelectHtmlNodes("td");
 
