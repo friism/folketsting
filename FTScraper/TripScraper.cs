@@ -78,10 +78,10 @@ namespace FT.Scraper
 			var cells = row.SelectHtmlNodes("td");
 
 			var startstring = cells.ElementAt(0).InnerText.Trim();
-			var startdate = DateTime.ParseExact(startstring, "dd-mm-yyyy", null);
+			var startdate = DateTime.ParseExact(startstring, "dd-MM-yyyy", null);
 
 			var endstring = cells.ElementAt(1).InnerText.Trim();
-			var enddate = DateTime.ParseExact(endstring, "dd-mm-yyyy", null);
+			var enddate = DateTime.ParseExact(endstring, "dd-MM-yyyy", null);
 
 			if (startdate.Year < 1900 || enddate.Year < 1900)
 			{
