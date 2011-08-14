@@ -57,7 +57,7 @@ namespace FT.Scraper
 				doc.SelectHtmlNodes("//div[@class='contentLine']/table[@class='calendarList']/tr").
 				Skip(1);
 
-			rows.AsParallel().WithDegreeOfParallelism(1).ForAll(_ => HandleRow(_));
+			rows.AsParallel().WithDegreeOfParallelism(20).ForAll(_ => HandleRow(_));
 		}
 
 		private static void HandleRow(HtmlNode row)
