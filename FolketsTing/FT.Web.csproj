@@ -150,7 +150,6 @@
     <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="Controllers\ControllerExtensions.cs" />
     <Compile Include="Controllers\Helpers\ControllerHelper.cs" />
-    <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Controllers\TripController.cs" />
     <Compile Include="Controllers\UtilController.cs" />
     <Compile Include="Controllers\CustomAttributes\CaptchaValidatorAttribute.cs" />
@@ -256,15 +255,12 @@
     <Content Include="Views\Shared\Controls\VotePieCharts.ascx" />
     <Content Include="Views\Tag\Index.aspx" />
     <Content Include="Views\Tag\Details.aspx" />
-    <Content Include="Views\Test\TravelTest.aspx" />
+    <Content Include="Views\Trip\Details.aspx" />
+    <Content Include="Views\Trip\Index.aspx" />
     <Content Include="Views\User\Details.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Scripts\MicrosoftAjax.js" />
-    <Content Include="Scripts\MicrosoftAjax.debug.js" />
-    <Content Include="Scripts\MicrosoftMvcAjax.js" />
-    <Content Include="Scripts\MicrosoftMvcAjax.debug.js" />
     <Content Include="Views\Account\ChangePassword.aspx" />
     <Content Include="Views\Account\ChangePasswordSuccess.aspx" />
     <Content Include="Views\Account\LogOn.aspx" />
