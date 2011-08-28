@@ -729,9 +729,8 @@ namespace FT.Scraper
 
 		public static WebClient GetWC(Encoding enc)
 		{
-			WebClient wc = new CGWebClient();
+			WebClient wc = new CookieContainingWebClient();
 			wc.Encoding = enc ?? e;//Encoding.UTF8;
-			wc.Headers.Add("Accept-Encoding", "gzip");
 			return wc;
 		}
 	}
