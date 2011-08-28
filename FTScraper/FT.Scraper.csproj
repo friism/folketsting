@@ -97,9 +97,7 @@
     <Compile Include="Law2009.cs" />
     <Compile Include="P20Question.cs" />
     <Compile Include="Scrape2009.cs" />
-    <Compile Include="Scraper.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Scraper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util.cs" />
   </ItemGroup>
