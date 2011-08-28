@@ -467,7 +467,7 @@ namespace FT.Scraper
 			else
 			{
 				// very simple title
-				lov.ShortName = name.Trim(new char[] { '.' });
+				lov.ShortName = name.Trim(new char[] { '.' }).Replace("\r","");
 				return lov;
 			}
 
@@ -481,7 +481,7 @@ namespace FT.Scraper
 
 			if (!string.IsNullOrEmpty(noamble))
 			{
-				noamble = noamble.Trim().TrimEnd(new char[] { '.' });
+				noamble = noamble.Trim().TrimEnd(new char[] { '.' }).Replace("\r","");
 				if (changefalg)
 					noamble = noamble + " (ændring af)";
 				lov.ShortName = noamble;
