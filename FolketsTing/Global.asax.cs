@@ -22,6 +22,7 @@ namespace FolketsTing
 			//routes.IgnoreRoute("elmah.axd");
 			routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 			routes.IgnoreRoute("{resource}.svc/{*pathInfo}");
+			routes.IgnoreRoute("Data/Service.svc/{*pathInfo}");
 			routes.IgnoreRoute("{*favicon}", new { favicon = @"(.*/)?favicon.ico(/.*)?" });
 
 			routes.MapRoute(
