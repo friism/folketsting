@@ -33,6 +33,9 @@ namespace FolketsTing.Controllers
 		private static Breadcrumb _polindex = new Breadcrumb("Politikere", "Politician", "Index");
 		public static Breadcrumb PolIndex { get { return _polindex; } }
 
+		private static Breadcrumb _tripindex = new Breadcrumb("Rejser", "Trip", "Index");
+		public static Breadcrumb TripIndex { get { return _tripindex; } }
+
 		public string Text { get; set; }
 		public string Controller { get; set; }
 		public string Action { get; set; }
@@ -52,7 +55,3 @@ namespace FolketsTing.Controllers
 		}
 	}
 }
-
-		private static Breadcrumb _tripindex = new Breadcrumb("Rejser", "Trip", "Index");
-		public static Breadcrumb TripIndex { get { return _tripindex; } }
-
