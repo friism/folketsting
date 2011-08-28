@@ -21,7 +21,7 @@
 	{ %>
 	<%--<div>--%>
 		<a href="<%= Url.Action("Details", "Politician", 
-					new { polname = p.Name.ToUrlFriendly(), polid = p.PoliticianId}) %>">
+					new { name = p.Name.ToUrlFriendly(), id = p.PoliticianId}) %>">
 			<%= Html.Image(
 					Url.Action(
 						"GetScaledImage", 
@@ -43,8 +43,8 @@
 				"Details", "Politician",
 							new
 							{
-								polname = p.Name.ToUrlFriendly(),
-								polid = p.PoliticianId
+								name = p.Name.ToUrlFriendly(),
+								id = p.PoliticianId
 							}, null)
 		%>
 		(<%= ViewConstants.GetCommentCountString(p.CommentCount)  %>,

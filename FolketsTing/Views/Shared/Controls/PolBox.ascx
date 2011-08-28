@@ -21,7 +21,7 @@
 		<% if (Model.Pol.ImageId != null)
 	 { %>
 		<a href="<%= Url.Action("Details", "Politician", 
-					new { polname = Model.Pol.FullName().ToUrlFriendly(), polid = Model.Pol.PoliticianId}) %>">
+					new { name = Model.Pol.FullName().ToUrlFriendly(), id = Model.Pol.PoliticianId}) %>">
 			<%= Html.Image(
 					Url.Action(
 						"GetScaledImage", 

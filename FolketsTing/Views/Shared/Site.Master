@@ -8,7 +8,6 @@
 	<title>
 		<asp:ContentPlaceHolder ID="TitleContent" runat="server" />
 	</title>
-	<asp:ContentPlaceHolder ID="HeadContent" runat="server" />
 	<link rel="shortcut icon" type="image/x-icon" href="<%= ResolveUrl("~/Graphics/favicon.ico") %>" />
 	<%= "<meta name=\"description\" content=\"" +
 		((Model != null && Model.MetaDescription != null) ? 
@@ -36,6 +35,7 @@
 	<script type="text/javascript" src="http://www.google.com/jsapi"></script>
 	<script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+	<asp:ContentPlaceHolder ID="HeadContent" runat="server" />
 </head>
 <body>
 	<div class="container">
@@ -78,8 +78,11 @@
 							<%= Html.ActionLink("§20 spørgsmål", "Index", "P20Question")%>
 						</li>
 						<li>
+							<%= Html.ActionLink("Udvalgsrejser", "Index", "Trip")%>
+						</li>
+<%--						<li>
 							<%= Html.ActionLink("Live", "LiveDebate", "Home")%></li>
-					</ul>
+--%>					</ul>
 				</div>
 				<div class="span-4 login last">
 					<span>
