@@ -15,7 +15,7 @@ namespace FolketsTing.Views
 		public static string ReCaptchaKey { 
 			get { return ConfigurationManager.AppSettings["ReCaptchaKey"]; } }
 
-		public static string DateFormat { get { return "d. MMMM yy"; } }
+		public static string DateFormat { get { return "d. MMMM yyyy"; } }
 
 		private static System.Web.Script.Serialization.JavaScriptSerializer serializer =
 			new System.Web.Script.Serialization.JavaScriptSerializer();
