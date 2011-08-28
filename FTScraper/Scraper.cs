@@ -732,72 +732,7 @@ namespace FT.Scraper
 			WebClient wc = new CGWebClient();
 			wc.Encoding = enc ?? e;//Encoding.UTF8;
 			wc.Headers.Add("Accept-Encoding", "gzip");
-			//wc.Headers.Add("Accept-Encoding", "deflate");
 			return wc;
 		}
-
-		//private static DateTime GetDateFromLinkString(string linktxt, int offset)
-		//{
-		//    int day = int.Parse(linktxt.Split(new char[] { ' ' })[offset].Split(new char[] { '/' })[0]);
-		//    int month = int.Parse(linktxt.Split(new char[] { ' ' })[offset].Split(new char[] { '/' })[1]);
-		//    // TODO: warn bad year 2000 bug
-		//    int year = 2000 + int.Parse(linktxt.Split(new char[] { ' ' })[offset + 1]);
-
-		//    var date = new DateTime(year, month, day);
-		//    return date;
-		//}
-
-		//private static HtmlDocument GetDocFromText(string html)
-		//{
-		//    HtmlDocument doc = new HtmlDocument();
-		//    doc.LoadHtml(html);
-		//    return doc;
-		//}
-
 	}
-
-	public class CGWebClient : WebClient
-	{
-		private System.Net.CookieContainer cookieContainer;
-		private string userAgent;
-		private int timeout;
-
-		public System.Net.CookieContainer CookieContainer
-		{
-			get { return cookieContainer; }
-			set { cookieContainer = value; }
-		}
-
-		public string UserAgent
-		{
-			get { return userAgent; }
-			set { userAgent = value; }
-		}
-
-		public int Timeout
-		{
-			get { return timeout; }
-			set { timeout = value; }
-		}
-
-		public CGWebClient()
-		{
-			timeout = -1;
-			cookieContainer = new CookieContainer();
-		}
-
-		protected override WebRequest GetWebRequest(Uri address)
-		{
-			WebRequest request = base.GetWebRequest(address);
-
-			if (request.GetType() == typeof(HttpWebRequest))
-			{
-				((HttpWebRequest)request).CookieContainer = cookieContainer;
-				((HttpWebRequest)request).UserAgent = userAgent;
-				((HttpWebRequest)request).Timeout = timeout;
-			}
-
-			return request;
-		}
-	}  
 }
