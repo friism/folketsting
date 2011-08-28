@@ -60,5 +60,49 @@ namespace FT.Scraper.Tests
 				new List<string>() { "Uddannelsesudvalget" },
 				true, "/samling/20101/spoergsmaal/S22/index.htm", samling, false);
 		}
+
+		[TestMethod]
+		public void Test2056()
+		{
+			var db = new DBDataContext();
+			var samling = db.Sessions.Single(_ => _.Number == 1 && _.Year == 2010);
+			P20QuestionScraper.GetQChecked(2056,
+				"",
+				new List<string>() { "" },
+				true, "/samling/20101/spoergsmaal/S2056/index.htm#dok", samling, false);
+		}
+
+		[TestMethod]
+		public void Test1990()
+		{
+			var db = new DBDataContext();
+			var samling = db.Sessions.Single(_ => _.Number == 1 && _.Year == 2010);
+			P20QuestionScraper.GetQChecked(1990,
+				"",
+				new List<string>() { "" },
+				true, "/samling/20101/spoergsmaal/S1990/index.htm#dok", samling, false);
+		}
+
+		[TestMethod]
+		public void Test1961()
+		{
+			var db = new DBDataContext();
+			var samling = db.Sessions.Single(_ => _.Number == 1 && _.Year == 2010);
+			P20QuestionScraper.GetQChecked(1961,
+				"",
+				new List<string>() { "" },
+				true, "/samling/20101/spoergsmaal/S1961/index.htm#dok", samling, false);
+		}
+
+		[TestMethod]
+		public void Test1297()
+		{
+			var db = new DBDataContext();
+			var samling = db.Sessions.Single(_ => _.Number == 1 && _.Year == 2010);
+			P20QuestionScraper.GetQChecked(1297,
+				"",
+				new List<string>() { "" },
+				true, "/samling/20101/spoergsmaal/S1297/index.htm#dok", samling, false);
+		}
 	}
 }
