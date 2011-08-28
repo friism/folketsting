@@ -359,6 +359,13 @@ namespace FolketsTing.Views
 							_ => _.Details(q.Question.ToUrlFriendly(), q.P20QuestionId),
 							q.Title);
 					}
+				case "CommitteeTrip":
+					{
+						CommitteeTrip trip = item as CommitteeTrip;
+						return help.ActionLink<TripController>(
+							x => x.Details(trip.CommitteeTripId),
+							trip.Place);
+					}
 				default: throw new ArgumentException(string.Format("unknow type: {0}", typeof(T)));
 			}
 		}
