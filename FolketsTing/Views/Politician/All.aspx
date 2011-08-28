@@ -21,8 +21,8 @@ Html.ActionLink(
 				"Details",
 							new
 							{
-								polname = p.name.ToUrlFriendly(),
-								polid = p.politiker_id
+								name = p.name.ToUrlFriendly(),
+								id = p.politiker_id
 							})								  %>
 		</li>
 		<%	 

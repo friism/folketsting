@@ -39,8 +39,9 @@
 				<%= Html.LinkTo(tale.Politician) %>
 				<% if (tale.Politician.ImageId.HasValue)
 				   { %>
-				<a href="<%= Url.Action("Details", "Politician", 
-					new { polname = tale.Politician.FullName().ToUrlFriendly(), polid = tale.Politician.PoliticianId}) %>">
+				<a href="<%= Url.Action("Details", "Politician", new {
+						name = tale.Politician.FullName().ToUrlFriendly(),
+						id = tale.Politician.PoliticianId}) %>">
 					<%= Html.Image(
 					Url.Action(
 						"GetScaledImage",

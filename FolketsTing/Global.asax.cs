@@ -128,19 +128,19 @@ namespace FolketsTing
 
 			routes.MapRoute(
 				"PolDetails",                                              // Route name
-				"politikere/{polname}/{polid}",                           // URL with parameters
+				"politikere/{name}/{id}",                           // URL with parameters
 				new { controller = "Politician", action = "Details" }  // Parameter defaults
 			);
 
 			routes.MapRoute(
 				"PolActivityFeed",                                              // Route name
-				"politikere/{polname}/{polid}/activityfeed",                           // URL with parameters
+				"politikere/{name}/{id}/activityfeed",                           // URL with parameters
 				new { controller = "Politician", action = "ActivityFeed" }  // Parameter defaults
 			);
 
 			routes.MapRoute(
 				"PolCount",                                              // Route name
-				"politikere/{polname}/{polid}/count",                           // URL with parameters
+				"politikere/{name}/{id}/count",                           // URL with parameters
 				new { controller = "Politician", action = "Count" }  // Parameter defaults
 			);
 
