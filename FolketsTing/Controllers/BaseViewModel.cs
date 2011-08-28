@@ -52,3 +52,7 @@ namespace FolketsTing.Controllers
 		}
 	}
 }
+
+		private static Breadcrumb _tripindex = new Breadcrumb("Rejser", "Trip", "Index");
+		public static Breadcrumb TripIndex { get { return _tripindex; } }
+
