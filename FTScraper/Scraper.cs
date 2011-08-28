@@ -36,8 +36,14 @@ namespace FT.Scraper
 			//TripScraper.ExportCommittees();
 			//return;
 
+			int parallelism = 50;
+			if (args.Length > 0)
+			{
+				parallelism = int.Parse(args[0]);
+			}
+
 			Scrape2009 newScraper = new Scrape2009();
-			newScraper.DoScrape();
+			newScraper.DoScrape(parallelism);
 			return;
 
 			//Scraper s = new Scraper();

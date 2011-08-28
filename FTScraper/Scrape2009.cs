@@ -20,12 +20,23 @@ namespace FT.Scraper
 		public static string domain = "http://www.ft.dk/"; //"http://ft.dk/";
 		public static string fastdomain = "http://www.ft.dk/dokumenter/tingdok.aspx?";
 
-		private static int parallelism = 50;
+		private static int _parallelism = 50;
 
 		public static object dblock = new object();
 
-		public void DoScrape()
+		//public static void FixLineFeeds()
+		//{
+		//    var db = new DBDataContext();
+		//    foreach (var law in db.Laws)
+		//    {
+		//        law.ShortName = law.ShortName.Replace("\r", "");
+		//    }
+		//    db.SubmitChanges();
+		//}
+
+		public void DoScrape(int paralellism)
 		{
+			_parallelism = paralellism;
 			var db = new DBDataContext();
 			GetCategories();
 			TripScraper.GetTrips();
@@ -89,7 +100,7 @@ namespace FT.Scraper
 							  (g.Key, g.First().Item2,
 								g.Select(_ => _.Item3), g.First().Item4, g.First().Item5);
 
-			groupedrows.AsParallel().WithDegreeOfParallelism(parallelism).ForAll(
+			groupedrows.AsParallel().WithDegreeOfParallelism(_parallelism).ForAll(
 				_ => P20QuestionScraper.GetQChecked(_.Item1, _.Item2, _.Item3, _.Item4, _.Item5,
 					samling) //"L 67"  "L 14" "L 24 A" "L 103""L 78" "L 2"
 				);
@@ -110,7 +121,7 @@ namespace FT.Scraper
 		private static void DoLaws(Session samling)
 		{
 			var rows = GetLawRows(samling.Year, samling.Number);
-			rows.AsParallel().WithDegreeOfParallelism(parallelism).ForAll(
+			rows.AsParallel().WithDegreeOfParallelism(_parallelism).ForAll(
 				_ => GetLawChecked(_, samling,
 					//"L 127", 2000, 1
 					 null, null, null
@@ -866,7 +877,7 @@ namespace FT.Scraper
 			var pols = db.Politicians.Where(_ => 
 				_.ImageId == null || _.Homepage == null || _.Birthdate == null);
 
-			pols.AsParallel().WithDegreeOfParallelism(parallelism).ForAll(p => UpdatePol(p, db));
+			pols.AsParallel().WithDegreeOfParallelism(_parallelism).ForAll(p => UpdatePol(p, db));
 			db.SubmitChanges();
 		}
 
