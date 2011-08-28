@@ -8,14 +8,14 @@ using System.Data.Linq;
 
 namespace FT.Model
 {
-    public interface IHitRepository
-    {
+	public interface IHitRepository
+	{
 		void SaveHit(int contentId, ContentType contentType, string IPAddress);
 		int ViewCount(int elementid, ContentType type);
-    }
+	}
 
 	public class HitRepository : Repository, IHitRepository
-    {
+	{
 		public void SaveHit(int contentId, ContentType contentType, string IP)
 		{
 			var address = IPAddress.Parse(
@@ -46,5 +46,5 @@ namespace FT.Model
 		{
 			return viewcount(DB, elementid, type);
 		}
-    }
+	}
 }
