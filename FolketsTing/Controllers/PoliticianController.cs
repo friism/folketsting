@@ -220,7 +220,7 @@ namespace FolketsTing.Controllers
 
 		public static string FTMemberPage(this Politician p)
 		{
-			return string.Format("http://www.ft.dk/Folketinget/Medlemmer/findMedlem/{0}.aspx", p.Initials);
+			return string.Format("http://www.ft.dk/folketinget/findmedlem/{0}.aspx", p.Initials);
 		}
 
 		public static string CountLink(this Politician p, Controller c)
