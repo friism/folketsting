@@ -147,6 +147,7 @@ namespace FT.Scraper.Tests
 					"Miljø- og Planlægningsudvalget (MPU)", "Stadfæstet",
 					"/samling/20101/lovforslag/L11/index.htm#dok", samling, null, null, null, false);
 		}
+
 		[TestMethod]
 		public void TestL46_2010()
 		{
@@ -157,6 +158,30 @@ namespace FT.Scraper.Tests
 					"Indenrigs- og Sundhedsministeriet",
 					"Sundhedsudvalget (SUU)", "3.beh./Vedtaget",
 					"/samling/20101/lovforslag/L46/index.htm#dok", samling, null, null, null, false);
+		}
+
+		[TestMethod]
+		public void TestL150_2010()
+		{
+			var db = new DBDataContext();
+			var samling = db.Sessions.Single(_ => _.Number == 1 && _.Year == 2010);
+			Scrape2009.GetLaw("L 150",
+					"Forslag til lov om ændring af lov om finansiel virksomhed. (Udvidelse af hjemmel til at videregive informa- tion til færøske og grønlandske myndigheder).",
+					"Økonomi- og Erhvervsministeriet",
+					"Færøudvalget (FÆU)", "1. beh./Henvist til udvalg",
+					"/samling/20101/lovforslag/L150/index.htm#dok", samling, null, null, null, false);
+		}
+
+		[TestMethod]
+		public void TestL212_2010()
+		{
+			var db = new DBDataContext();
+			var samling = db.Sessions.Single(_ => _.Number == 1 && _.Year == 2010);
+			Scrape2009.GetLaw("L 212",
+					"",
+					"",
+					"", "",
+					"/samling/20101/lovforslag/L212/index.htm#dok", samling, null, null, null, false);
 		}
 	}
 }
