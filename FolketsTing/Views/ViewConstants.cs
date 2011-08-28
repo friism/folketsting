@@ -356,7 +356,8 @@ namespace FolketsTing.Views
 					{
 						P20Question q = item as P20Question;
 						return help.ActionLink<P20QuestionController>(
-							_ => _.Details(q.Question.ToUrlFriendly(), q.P20QuestionId), q.Title);
+							_ => _.Details(q.Question.ToUrlFriendly(), q.P20QuestionId),
+							q.Title);
 					}
 				default: throw new ArgumentException(string.Format("unknow type: {0}", typeof(T)));
 			}
