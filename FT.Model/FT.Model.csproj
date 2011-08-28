@@ -79,6 +79,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TripRepository.cs" />
     <Compile Include="IUtilRepository.cs" />
     <Compile Include="Feed.cs" />
     <Compile Include="ICommentRepository.cs" />
