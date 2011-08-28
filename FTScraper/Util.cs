@@ -1,57 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using HtmlAgilityPack;
-using System.IO;
-using ICSharpCode.SharpZipLib.GZip;
-using System.Net;
-//using ScrapeDB;
-using FT.DB;
 using System.Data.Linq;
+using System.IO;
+using System.Linq;
+using System.Net;
+using FT.DB;
+using HtmlAgilityPack;
 
 namespace FT.Scraper
 {
 	public static class Util
 	{
-		public static string ExtractString(byte[] webResult)
-		{
-			return ExtractString(webResult, null);
-		}
-
-		public static string ExtractString(byte[] webResult, Encoding enc)
-		{
-			//HtmlDocument contract_doc = new HtmlDocument();
-			Encoding e = enc ?? Encoding.GetEncoding("ISO-8859-1");
-			string s = Encoding.Unicode.GetString(Encoding.Convert(e, Encoding.Unicode, Util.Decompress(webResult)));
-			return s;
-			//contract_doc.LoadHtml(s);
-			//string contractString = contract_doc.DocumentNode.SelectSingleNode("//div[@id=\"fullDocument\"]").OuterHtml;
-			//return contractString;
-		}
-
-		public static byte[] Decompress(byte[] data)
-		{
-			Stream s = new GZipInputStream(new MemoryStream(data));
-
-			// I hate this shit.
-			int chunkSize = 2048;
-			byte[] unzipBytes = new byte[chunkSize];
-			int sizeRead;
-			MemoryStream ms = new MemoryStream();
-			while (true)
-			{
-				sizeRead = s.Read(unzipBytes, 0, chunkSize);
-				if (sizeRead > 0)
-					ms.Write(unzipBytes, 0, chunkSize);
-				else
-					break;
-			}
-
-			s.Close();
-			return ms.GetBuffer();
-		}
-
 		public static bool IsPotentialFormandTale(HtmlDocument taleDoc)
 		{
 			var polNode = taleDoc.DocumentNode.SelectSingleNode("//p[@class=\"TalerTitel\"]")
@@ -153,44 +111,6 @@ namespace FT.Scraper
 					//fall through
 				}
 		}
-
-		//public static Image GetImage(string url)
-		//{
-		//    int BufferLength = 1024;
-		//    try
-		//    {
-		//        WebRequest r = WebRequest.Create(url);
-		//        HttpWebResponse resp = (HttpWebResponse)r.GetResponse();
-
-		//        Image img = new Image();
-
-		//        Stream s = resp.GetResponseStream(); //Source
-		//        MemoryStream ms = new MemoryStream((int)resp.ContentLength); //Destination
-
-		//        // from http://www.xtremevbtalk.com/showthread.php?t=263275
-		//        byte[] b = new byte[BufferLength]; //Buffer
-		//        int cnt = 0;
-		//        do
-		//        {
-		//            cnt = s.Read(b, 0, BufferLength);
-		//            //Write the number of bytes actually read
-		//            ms.Write(b, 0, cnt);
-		//        }
-		//        while (cnt > 0);
-
-		//        Binary bin = new Binary(ms.ToArray());
-		//        img.Data = bin;
-		//        img.ContentType = resp.ContentType;
-		//        return img;
-		//    }
-
-		//    catch (Exception ex)
-		//    {
-		//        Console.WriteLine("Exception caught, trying to fetch: " + url + " - Exception: " + ex.ToString());
-		//        return null;
-		//    }
-
-		//}
 
 		public static FT.DB.Image GetNewImage(string url)
 		{

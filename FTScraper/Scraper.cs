@@ -27,7 +27,7 @@ namespace FT.Scraper
 		//    //"Udlændingeloven og retsafgiftsloven",
 		//};
 
-		static Encoding e = Encoding.GetEncoding("ISO-8859-1");
+		static Encoding defaultEncoding = Encoding.GetEncoding("ISO-8859-1");
 
 		static object pollock = new object();
 
@@ -716,7 +716,7 @@ namespace FT.Scraper
 		{
 			WebClient wc = GetWC(enc);
 
-			string s = Util.ExtractString(wc.DownloadData(url), enc);
+			string s = wc.DownloadString(url);
 			HtmlDocument doc = new HtmlDocument();
 			doc.LoadHtml(s);
 			return doc;
@@ -729,8 +729,8 @@ namespace FT.Scraper
 
 		public static WebClient GetWC(Encoding enc)
 		{
-			WebClient wc = new CookieContainingWebClient();
-			wc.Encoding = enc ?? e;//Encoding.UTF8;
+			WebClient wc = new CompressingWebClient();//CookieContainingWebClient();
+			wc.Encoding = enc ?? defaultEncoding;//Encoding.UTF8;
 			return wc;
 		}
 	}

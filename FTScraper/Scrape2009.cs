@@ -1,19 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Linq;
+using System.Drawing.Imaging;
+using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
-using FT.DB;
-using System.Net;
-using HtmlAgilityPack;
 using System.Text.RegularExpressions;
 using FolketsTing.Controllers;
-using SD = System.Drawing;
+using FT.DB;
 using FT.Model;
-using System.IO;
-using System.Drawing.Imaging;
-using System.Data.Linq;
-using System.Globalization;
-
+using HtmlAgilityPack;
+using SD = System.Drawing;
 
 namespace FT.Scraper
 {
@@ -23,6 +21,7 @@ namespace FT.Scraper
 		public static string fastdomain = "http://www.ft.dk/dokumenter/tingdok.aspx?";
 
 		private static int parallelism = 50;
+
 		public static object dblock = new object();
 
 		public void DoScrape()
@@ -37,7 +36,7 @@ namespace FT.Scraper
 				CategorizeLaws(samling.Year, samling.Number);
 			}
 
-			FetchPolPics();
+			//FetchPolPics();
 		}
 
 		private static void AssortedCalls()
@@ -153,8 +152,10 @@ namespace FT.Scraper
 			}
 			catch (Exception e)
 			{
-				throw new Exception(string.Format("Problem with law {0} {1} {2} {3}",
-					code, name, samling.Year, samling.Number), e);
+				string error = string.Format("Problem with law {0} {1} {2} {3}",
+					code, name, samling.Year, samling.Number);
+				Console.WriteLine(error);
+				//throw new Exception(error, e);
 			}
 		}
 
@@ -935,13 +936,6 @@ namespace FT.Scraper
 			}
 		}
 
-		//private void FetchPolPics()
-		//{
-		//    var db = new DBDataContext();
-		//    var pols = db.Politicians.Where(_ => _.ShrunkImageId == null || _.Homepage == null);
-
-		//}
-
 		private void GetDefaultPolPic(DBDataContext db, Politician pol, HtmlDocument doc)
 		{
 			var imgnode = doc.DocumentNode.SelectSingleNode("//div[@class='person clearfix']/img");
@@ -1040,21 +1034,6 @@ namespace FT.Scraper
 			db.SubmitChanges();
 		}
 
-		//private void FetchCrapPoliticians()
-		//{
-		//    var db = new DBDataContext();
-		//    var crappols = 
-		//        db.Politicians.
-		//        //polcache.
-		//        Where(_ => _.Firstname == null || _.Firstname == "");
-		//    foreach (var pol in crappols)
-		//    {
-		//        FetchCrapPol(pol, db);
-		//    }
-		//    db.SubmitChanges();
-
-		//}
-
 		private static void FetchCrapPol(Politician pol, DBDataContext db)
 		{
 			var doc = GetDoc(pol.FTMemberPage());
@@ -1097,7 +1076,6 @@ namespace FT.Scraper
 
 			foreach (var row in rows)
 			{
-
 				FetchPolitician(db, row);
 			}
 		}
@@ -1153,7 +1131,15 @@ namespace FT.Scraper
 			}
 		}
 
-		private static Politician GetPoliticianByNameAndParty(string name, string party, DBDataContext db)
+		public static Politician GetPoliticianByName(string name,
+			DBDataContext db)
+		{
+			return db.Politicians.SingleOrDefault(
+				x => x.Firstname + " " + x.Lastname == name);
+		}
+
+		public static Politician GetPoliticianByNameAndParty(string name,
+			string party, DBDataContext db)
 		{
 			lock (dblock)
 			{
@@ -1512,18 +1498,21 @@ namespace FT.Scraper
 				foreach (var r in rows)
 				{
 					var ftid = r.SelectHtmlNodes("td/a").ElementAt(0).InnerText.Trim();
-					var lawid = db.Laws.Single(l => l.FtId == ftid
-								&& l.Session.Year == year && l.Session.Number == number).LawId;
-					if (!db.ItemCategories.Any(ic => ic.ItemType == ItemType.Law
-						&& ic.ItemId == lawid && ic.CategoryId == c.CategoryId))
+					if (!string.IsNullOrEmpty(ftid))
 					{
-						db.ItemCategories.InsertOnSubmit(
-							new ItemCategory
-							{
-								CategoryId = c.CategoryId,
-								ItemId = lawid,
-								ItemType = ItemType.Law,
-							});
+						var lawid = db.Laws.Single(l => l.FtId == ftid
+									&& l.Session.Year == year && l.Session.Number == number).LawId;
+						if (!db.ItemCategories.Any(ic => ic.ItemType == ItemType.Law
+							&& ic.ItemId == lawid && ic.CategoryId == c.CategoryId))
+						{
+							db.ItemCategories.InsertOnSubmit(
+								new ItemCategory
+								{
+									CategoryId = c.CategoryId,
+									ItemId = lawid,
+									ItemType = ItemType.Law,
+								});
+						}
 					}
 				}
 			}

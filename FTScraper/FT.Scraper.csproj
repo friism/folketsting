@@ -91,7 +91,9 @@
     <Compile Include="CompressingWebClient.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="CookieContainingWebClient.cs" />
+    <Compile Include="CookieContainingWebClient.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="TripExport.cs" />
     <Compile Include="TripScraper.cs" />
     <Compile Include="Law2009.cs" />

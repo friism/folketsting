@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using HtmlAgilityPack;
-using FT.DB;
 using System.Text.RegularExpressions;
+using FT.DB;
+using HtmlAgilityPack;
 
 namespace FT.Scraper
 {
 	public class P20QuestionScraper
 	{
-		public static void GetQChecked(int ftid, string title, 
-			IEnumerable<string> commiteestrings, bool answered, string url, 
+		public static void GetQChecked(int ftid, string title,
+			IEnumerable<string> commiteestrings, bool answered, string url,
 			Session samling, bool record = true)
 		{
 			try
@@ -20,10 +20,11 @@ namespace FT.Scraper
 			}
 			catch (Exception e)
 			{
-				throw new Exception("Problem with question " + ftid + " year " + samling.Year
-					+ " nr " + samling.Number, e);
+				Console.WriteLine("Problem with: {0}", url);
+				//throw new Exception("Problem with question " + ftid + " year " + samling.Year
+				//    + " nr " + samling.Number, e);
 			}
-		}        
+		}
 		
 		public static void GetQ(int ftid, string title, IEnumerable<string> commiteestrings,
 			bool answered, string url, Session samling, bool record = true)
@@ -62,14 +63,26 @@ namespace FT.Scraper
 					// we have to this due to this one with no asker: http://www.ft.dk/samling/20091/spoergsmaal/S445/index.htm
 					return;
 				}
-				var polurls = pasker.SelectNodes("a").OfType<HtmlNode>().
-					Select(n => n.Attributes["href"].Value).Distinct();
-				var paskerurl = polurls.First();
+				//var polurls = pasker.SelectNodes("a").OfType<HtmlNode>()
+				//    .Where(x => x.Attributes["href"] != null)
+				//    .Select(n => n.Attributes["href"].Value).Distinct();
+
+				var politicianAnchors = pasker.SelectNodes("a").OfType<HtmlNode>();
+
+				var askerPoliticianNameAndParty = politicianAnchors
+					.Where(x => x.InnerText.Contains("("))
+					.First().InnerText;
+				var askerName = askerPoliticianNameAndParty.Split('(')[0].Trim();
+				var askerParty = askerPoliticianNameAndParty.Split('(')[1].Replace(")", "").Trim();
+
+				//var paskerurl = polurls.First();
 					//pasker.SelectNodes("a").OfType<HtmlNode>().First().Attributes["href"].Value;
-				var asker = Scrape2009.GetPoliticianByUrl(paskerurl, db);
+				var asker =
+					Scrape2009.GetPoliticianByNameAndParty(askerName, askerParty, db)
+					.PoliticianId;
 
 				// get the relevant minister
-				var minregex = new Regex(@"Til[ \t]*(?'tit'[\w\s]*)<br>");
+				var minregex = new Regex(@"Til[ \t]*(?'tit'[\w\s-]*)<br>");
 				var match = minregex.Matches(pasker.InnerHtml);
 				if (match.Count < 1)
 				{
@@ -77,9 +90,26 @@ namespace FT.Scraper
 					return;
 				}
 				string ministertitle = match[0].Groups["tit"].Value.Trim();
-				var paskeeurl = polurls.Skip(1).First();
+				//var paskeeurl = polurls.Skip(1).First();
 					//pasker.SelectNodes("a").OfType<HtmlNode>().Skip(1).First().Attributes["href"].Value;
-				var askee = Scrape2009.GetPoliticianByUrl(paskeeurl, db);
+				//var askee = Scrape2009.GetPoliticianByUrl(paskeeurl, db);
+
+				var askeeePoliticianNameAndParty = politicianAnchors
+					.Skip(1).Last().InnerText;
+				var askeeName = askeeePoliticianNameAndParty.Split('(')[0].Trim();
+
+				int? askee = null;
+				if (!askeeePoliticianNameAndParty.Contains("("))
+				{
+					// sometimes the party is not listed with name
+					askee = Scrape2009.GetPoliticianByName(askeeName, db).PoliticianId;
+				}
+				else
+				{
+					var askeeParty = askeeePoliticianNameAndParty.Split('(')[1].Replace(")", "").Trim();
+					askee = Scrape2009.GetPoliticianByNameAndParty(askeeName,
+						askeeParty, db).PoliticianId;
+				}
 
 				var pbackground = doc.SelectHtmlNodes("//div[@id='menuSkip']/p").SingleOrDefault(
 					_ => _.InnerText.Trim().ToLower().StartsWith("skriftlig begrundelse"));
@@ -135,7 +165,7 @@ namespace FT.Scraper
 				}
 			}
 
-			if (question != null && !question.AnswerDate.HasValue && answered)
+			if (question != null && (!question.AnswerDate.HasValue || !answered))
 			{
 				// ok, try to get the answer, it should be there since the question looks answered
 				// first, the date
@@ -145,11 +175,8 @@ namespace FT.Scraper
 				var dateps = doc.SelectHtmlNodes("//p[@style='padding-left:10px;']");
 				if (dateps.Any())
 				{
-
-
 					var datep = dateps.Last();
 					//doc.SelectHtmlNodes("//div[@class='lovlist' or class='line clearfix']/*/p").Single();
-
 
 					var receivedregex =
 						new Regex(@"Modtaget: (?'day'\d\d)-(?'mon'\d\d)-(?'yea'\d\d\d\d)<br>");
@@ -178,8 +205,7 @@ namespace FT.Scraper
 						SingleOrDefault(_ => answerrowfinder(_.InnerText));
 					if (rowwithcrapanswerlink == null)
 					{
-						// apparently not quute ready yet
-
+						// apparently not quite ready yet
 					}
 					else
 					{
@@ -227,6 +253,7 @@ namespace FT.Scraper
 			}
 			if (record)
 			{
+				//Console.WriteLine("submitting {0}", question.Title);
 				db.SubmitChanges();
 			}
 		}
@@ -268,10 +295,7 @@ namespace FT.Scraper
 				{
 					ispastsvar = true;
 				}
-
-
 			}
-
 			string answerstring = sb.ToString().Trim();
 		}
 	}
