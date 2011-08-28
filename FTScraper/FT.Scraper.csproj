@@ -88,6 +88,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CompressingWebClient.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CookieContainingWebClient.cs" />
     <Compile Include="TripExport.cs" />
     <Compile Include="TripScraper.cs" />
     <Compile Include="Law2009.cs" />
