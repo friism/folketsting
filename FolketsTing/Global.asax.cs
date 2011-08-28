@@ -288,13 +288,19 @@ namespace FolketsTing
 			);
 
 			routes.MapRoute(
-				 "TravelTest",                                              // Route name
-				 "test/traveltest",                           // URL with parameters
-				 new { controller = "Test", action = "TravelTest" }  // Parameter defaults
-			 );
+				 "TripIndex",
+				 "rejser/",
+				 new { controller = "Trip", action = "Index" }
+			);
 
 			routes.MapRoute(
-				"Default",                                              // Route name
+				 "TripDetails",
+				 "rejser/{id}",
+				 new { controller = "Trip", action = "Details" }
+			);
+
+			routes.MapRoute(
+				"Default",                                              // Route name,
 				"{controller}/{action}/{id}",                           // URL with parameters
 				new { controller = "Home", action = "Index", id = "" }  // Parameter defaults
 			);
