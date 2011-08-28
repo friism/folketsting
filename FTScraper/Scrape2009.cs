@@ -323,7 +323,9 @@ namespace FT.Scraper
 					lock (dblock)
 					{
 						db.ProposedLaws.InsertAllOnSubmit(
-							pollinks.Select(_ =>
+							pollinks
+							.Where(x => x.Attributes["href"] != null)
+							.Select(_ =>
 								new ProposedLaw
 								{
 									Law = law,
