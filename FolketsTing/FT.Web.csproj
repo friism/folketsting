@@ -151,6 +151,7 @@
     <Compile Include="Controllers\ControllerExtensions.cs" />
     <Compile Include="Controllers\Helpers\ControllerHelper.cs" />
     <Compile Include="Controllers\TestController.cs" />
+    <Compile Include="Controllers\TripController.cs" />
     <Compile Include="Controllers\UtilController.cs" />
     <Compile Include="Controllers\CustomAttributes\CaptchaValidatorAttribute.cs" />
     <Compile Include="Controllers\FileController.cs" />
