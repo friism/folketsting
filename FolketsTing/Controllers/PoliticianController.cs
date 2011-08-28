@@ -57,20 +57,19 @@ namespace FolketsTing.Controllers
 		}
 
 		[OutputCache(Duration = 60, VaryByParam = "*", VaryByCustom = "userName")]
-		public ActionResult Details(string polname, int polid)
+		public ActionResult Details(string name, int id)
 		{
-			var pol = _polRep.GetPoliticianById(polid).Or404();
-			var topdebated = _polRep.DebatedFeed(polid, includeposts).ToList();
-			var events = _polRep.LatestFeed(polid, includeposts).ToList();
-			var activity = _polRep.ActivityStats(polid, monthstoshow);
-			var terms = _polRep.LatestSpeechesBlob(polid, 500, 50);
+			var pol = _polRep.GetPoliticianById(id).Or404();
+			var topdebated = _polRep.DebatedFeed(id, includeposts).ToList();
+			var events = _polRep.LatestFeed(id, includeposts).ToList();
+			var activity = _polRep.ActivityStats(id, monthstoshow);
+			var terms = _polRep.LatestSpeechesBlob(id, 500, 50);
 
 			var wordrows = terms.Any() ? "[" +
 					terms.Shuffle().Select(t =>
 						string.Format("{{c:[{{v:\"{0}\"}},{{v:{1}}}]}}", t.Item1, t.Item2)
 						).Aggregate((a, b) => a + "," + b)
 						+ "]" : "";
-
 
 			var res = new PolViewModel()
 			{
@@ -108,11 +107,15 @@ namespace FolketsTing.Controllers
 				Breadcrumb = new List<Breadcrumb>() {
 					Breadcrumb.Home,
 					Breadcrumb.PolIndex,
-						new Breadcrumb(
+					new Breadcrumb(
 						pol.FullName(), 
 						"Politician", 
 						"Details", 
-						new{polname = pol.FullName().ToUrlFriendly(), polid = pol.PoliticianId})
+						new {
+							name = pol.FullName().ToUrlFriendly(),
+							id = pol.PoliticianId
+						}
+					),
 				},
 				CountLink = pol.CountLink(this),
 				ActivityFeedLink = pol.PolActivityFeedLink(this)
@@ -123,11 +126,11 @@ namespace FolketsTing.Controllers
 		}
 
 		[OutputCache(Duration = 600, VaryByParam = "*")]
-		public ActionResult ActivityFeed(string polname, int polid)
+		public ActionResult ActivityFeed(string name, int id)
 		{
-			var polfeed = _polRep.LatestFeed(polid, includeposts);
+			var polfeed = _polRep.LatestFeed(id, includeposts);
 			List<SyndicationItem> items = new List<SyndicationItem>();
-			var pol = _polRep.GetPoliticianById(polid);
+			var pol = _polRep.GetPoliticianById(id);
 			var polLink = this.Request.Url.GetLeftPart(UriPartial.Authority) + pol.PolLink(this);
 
 			SyndicationFeed feed =
@@ -153,10 +156,10 @@ namespace FolketsTing.Controllers
 			return new RssActionResult() { Feed = feed };
 		}
 
-		public ActionResult Count(string polname, int polid)
+		public ActionResult Count(string name, int id)
 		{
 			IHitRepository rep = new HitRepository();
-			rep.SaveHit(polid, ContentType.Politician, Request.UserHostAddress);
+			rep.SaveHit(id, ContentType.Politician, Request.UserHostAddress);
 
 			return new EmptyResult();
 		}
@@ -225,27 +228,24 @@ namespace FolketsTing.Controllers
 
 		public static string CountLink(this Politician p, Controller c)
 		{
-			return c.Url.Action("Count", "Politician", new
-			{
-				polname = p.FullName().ToUrlFriendly(),
-				polid = p.PoliticianId
-			}
-			);
+			return c.Url.Action("Count", "Politician", new {
+				name = p.FullName().ToUrlFriendly(),
+				id = p.PoliticianId
+			});
 		}
 
 		public static string PolLink(this Politician p, Controller c)
 		{
-			return c.Url.Action("Details", "Politician", new
-			{
-				polname = p.FullName().ToUrlFriendly(),
-				polid = p.PoliticianId
-			}
-			);
+			return c.Url.Action("Details", "Politician", new {
+				name = p.FullName().ToUrlFriendly(),
+				id = p.PoliticianId
+			});
 		}
 
 		public static string PolActivityFeedLink(this Politician p, Controller c)
 		{
-			return c.Url.Action("ActivityFeed", "Politician", new { polname = p.FullName().ToUrlFriendly(), polid = p.PoliticianId });
+			return c.Url.Action("ActivityFeed", "Politician", new {
+				name = p.FullName().ToUrlFriendly(), id = p.PoliticianId });
 		}
 
 		public static int Views(this Politician p)

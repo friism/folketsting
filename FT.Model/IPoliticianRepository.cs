@@ -189,6 +189,7 @@ namespace FT.Model
 			var prelimanswers = Answers(polid, includeposts, _ => _.Date);
 			var prelimlawprops = LawSuggestions(polid, includeposts, _ => _.Date);
 			var prelimspeakerships = Speakerships(polid, includeposts, _ => _.Date);
+			var prelimtrips = Trips(polid, includeposts, _ => _.Date);
 
 			var preevents =
 				prelimvotes
@@ -197,6 +198,7 @@ namespace FT.Model
 				.Concat(prelimanswers)
 				.Concat(prelimlawprops)
 				.Concat(prelimspeakerships)
+				.Concat(prelimtrips)
 				.OrderByDescending(_ => _.Date).
 				Take(includeposts);
 
@@ -244,6 +246,8 @@ namespace FT.Model
 					return new FeedEvent(DB.ProposedLaws.Single(p => p.ProposedLawId == id));
 				case EventType.Speaker:
 					return new FeedEvent(DB.Speakers.Single(q => q.SpeakerId == id));
+				case EventType.Trip:
+					return new FeedEvent(DB.CommitteeTrips.Single(x => x.CommitteeTripId== id));
 				default: throw new ArgumentException();
 			}
 		}
@@ -312,6 +316,23 @@ namespace FT.Model
 					 Date = l.Proposed,
 					 Id = s.SpeakerId,
 					 Type = EventType.Speaker,
+					 CommentCount = null
+				 }
+				).OrderByDescending(order).Take(includeposts);
+		}
+
+		private IEnumerable<ProtoEvent> Trips<T>(int polid, int includeposts, Func<ProtoEvent, T> order)
+		{
+			return
+				(from t in DB.CommitteeTrips
+				 join p in DB.CommitteeTripParticipants on t.CommitteeTripId equals p.CommitteeTripId
+				 where p.Politician.PoliticianId == polid
+					&& t.Place != null && t.Place != "" && t.CommitteeTripDestinations.Any()
+				 select new ProtoEvent()
+				 {
+					 Date = t.StartDate,
+					 Id = t.CommitteeTripId,
+					 Type = EventType.Trip,
 					 CommentCount = null
 				 }
 				).OrderByDescending(order).Take(includeposts);
@@ -448,6 +469,6 @@ namespace FT.Model
 		public int Questions { get; set; }
 	}
 
-	public enum EventType { Vote, Debate, Question, Answer, Speaker, ProposedLaw };
+	public enum EventType { Vote, Debate, Question, Answer, Speaker, ProposedLaw, Trip };
 	public enum Ordering { Comments, Date };
 }

@@ -141,7 +141,9 @@ namespace FolketsTing.Controllers
 							cf.target_type = "tale";
 							cf.target_name = pol.FullName();
 							cf.target_link = sp.Speech.LinkTo(this);
-							cf.pol_link = Url.Action("Details", "Politician", new { polname = pol.FullName().ToUrlFriendly(), polid = pol.PoliticianId });
+							cf.pol_link = Url.Action("Details", "Politician", new {
+								name = pol.FullName().ToUrlFriendly(),
+								id = pol.PoliticianId });
 							break;
 						}
 					case CommentType.Change:
@@ -169,7 +171,9 @@ namespace FolketsTing.Controllers
 							{
 								case QuestionType.Politician:
 									Politician pol = p20q.AskerPol;
-									cf.pol_link = Url.Action("Details", "Politician", new { polname = pol.FullName().ToUrlFriendly(), polid = pol.PoliticianId });
+									cf.pol_link = Url.Action("Details", "Politician", new {
+										name = pol.FullName().ToUrlFriendly(),
+										id = pol.PoliticianId });
 									cf.pol = pol;
 									break;
 								case QuestionType.User:
@@ -191,7 +195,9 @@ namespace FolketsTing.Controllers
 							cf.pol = pol;
 							cf.target_title = p20q.Title;
 							cf.target_link = p20q.LinkTo(this);
-							cf.pol_link = Url.Action("Details", "Politician", new { polname = pol.FullName().ToUrlFriendly(), polid = pol.PoliticianId });
+							cf.pol_link = Url.Action("Details", "Politician", new {
+								name = pol.FullName().ToUrlFriendly(),
+								id = pol.PoliticianId });
 							break;
 						}
 					default:
