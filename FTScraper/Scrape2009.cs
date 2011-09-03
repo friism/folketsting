@@ -298,16 +298,17 @@ namespace FT.Scraper
 					}
 					else
 					{
-						// where in a big doo-doo
-						// http://www.ft.dk/samling/20091/lovforslag/L127/index.htm
-						var lameministername = pollinks.First().InnerText.
-							Replace("(", "").Replace(")", "").Trim();
-						if (lameministername == "Lykke Friis")
-						{
-							polid =
-								GetPoliticianByNameAndParty(lameministername, "V", db).
-								PoliticianId;
-						}
+						polid = GetPoliticianByNameAndParty(pollinks.First().InnerText, db).PoliticianId;
+						//// where in a big doo-doo
+						//// http://www.ft.dk/samling/20091/lovforslag/L127/index.htm
+						//var lameministername = pollinks.First().InnerText.
+						//    Replace("(", "").Replace(")", "").Trim();
+						//if (lameministername == "Lykke Friis")
+						//{
+						//    polid =
+						//        GetPoliticianByNameAndParty(lameministername, "V", db).
+						//        PoliticianId;
+						//}
 					}
 
 					if (polid != -1)
@@ -752,80 +753,32 @@ namespace FT.Scraper
 				}
 
 				//these are the relevant ones
+				//var speechdivs = delibdoc.
+				//    SelectHtmlNodes(
+				//        "//div[@id='movieList']/div[@class='tableTitle' or @class='tableTitleComment' or @class='lovListViewAllElements' or @class='tableTitle clearfix']"
+				//    );
+
 				var speechdivs = delibdoc.
 					SelectHtmlNodes(
-						"//div[@id='menuSkip']/div[@class='tableTitle' or @class='tableTitleComment' or @class='lovListViewAllElements' or @class='tableTitle clearfix']"
-					);
-
-				//if (speechdivs.Count() > 0) //DBDataContext
-				//{
-				//    // there are speeches and we don't know whether they are drafts, crap
-				//    throw new ArgumentException("Don't know whether speeches are drafts or not");
-				//}
+						"//div[@id='movieList']/div[@class='movieListItem']/div[@class='movieContentDescr clearfix']"
+						);
 
 				// divs are somewhat threaded, one speaker says something and others respond
-				Speech currentspeakerspeech = null;
+				//Speech currentspeakerspeech = null;
 				var count = 0; // used to order them
 				// itereate over relevant divs and create speeches
 				foreach (var div in speechdivs)
 				{
-					if (div.Attributes["class"].Value == "lovListViewAllElements")
-						currentspeakerspeech = null; // this ends a stream of comments
-					else
+					string firstName = GetMetaContent(div, "OratorFirstName");
+					string lastName =  GetMetaContent(div, "OratorLastName");
+					string party = GetMetaContent(div, "GroupNameShort");
+					string title = GetMetaContent(div, "OratorRole");
+
+					if (firstName != null)
 					{
-						// also fish out time and politician name
-						string polstring = div.SelectSingleNode("div[@class='col2']/a").InnerText;
-						string name = null;
-						string party = null;
-						string title = null;
-						if (polstring != "Formanden" && polstring != "Kommentar") // kommentar-bit is due to here: http://www.ft.dk/dokumenter/tingdok.aspx?/samling/20081/lovforslag/l2/beh1/forhandling.htm&startItem=-1
-						{
-							if (polstring.ToLower().Contains("minister"))
-							{
-								// uh-oh
-								title = polstring.Split('(')[0].Trim();
-								name = polstring.Split('(')[1].Replace(")", "").Trim();
-							}
-							else
-							{
-								name = polstring.Split('(')[0].Trim();
-								party = polstring.Split('(')[1].Replace(")", "").Trim();
-							}
-						}
-						else
-						{
-							// it's the formand
-						}
+						string timestring = GetMetaContent(div, "StartDateTime");
 
-						string timestring =
-							div.SelectSingleNode("div[@class='col3']").InnerText.Trim();
-						int? hours = null;
-						int? minutes = null;
-						if (!string.IsNullOrEmpty(timestring))
-						{
-							var split = ' ';
-							if (timestring.Contains(":"))
-								split = ':';
-							else if (timestring.Contains("."))
-								split = '.';
-							else
-								throw new ArgumentException("unknown timesplitter");
-
-							timestring = timestring.Replace("Kl.", "");
-							hours = int.Parse(timestring.Split(split)[0].Trim());
-							minutes = int.Parse(timestring.Split(split)[1].Trim());
-						}
-						else
-						{
-							// no time means we're in the first bogus speech, ignore
-							continue;
-						}
-
-						// get politician
-						var p = GetPoliticianByNameAndParty(name, party, db);
-
-						if (!string.IsNullOrEmpty(title) && title.Length > 50)
-							throw new Exception("argh, long title");
+						var p = GetPoliticianByNameAndParty(firstName + " " + lastName, party, db);
 
 						var speech = new Speech
 						{
@@ -836,36 +789,16 @@ namespace FT.Scraper
 							PoliticianTitle = title
 
 						};
-						if (minutes.HasValue)
-						{
-							speech.SpeechTime = new DateTime(delibdate.Year, delibdate.Month,
-								delibdate.Day, hours.Value, minutes.Value, 0);
-						}
-
-						if (div.Attributes["class"].Value == "tableTitleComment")
-						{
-							// it's likely a comment to speaker one, or introductory formand stuff    
-							speech.ParentSpeech = currentspeakerspeech;
-
-						}
-						else if (div.Attributes["class"].Value == "tableTitle" ||
-							div.Attributes["class"].Value == "tableTitle clearfix")
-						{
-							// it's one of the speaker ones
-							speech.ParentSpeech = null;
-						}
-						else
-						{
-							throw new ArgumentException("unknow speech state");
-						}
+						speech.SpeechTime =
+							DateTime.ParseExact(timestring,
+							"yyyy-MM-ddTHH:mm:ss", CultureInfo.InvariantCulture);
 
 						lock (dblock)
 							db.Speeches.InsertOnSubmit(speech);
 
-						currentspeakerspeech = speech;
-
 						lock (dblock)
-							db.SpeechParas.InsertAllOnSubmit(GetPars(div.NextSibling, speech));
+							db.SpeechParas.InsertAllOnSubmit(
+								GetPars(div, speech));
 					}
 				}
 			}
@@ -1147,6 +1080,13 @@ namespace FT.Scraper
 		{
 			return db.Politicians.SingleOrDefault(
 				x => x.Firstname + " " + x.Lastname == name);
+		}
+
+		public static Politician GetPoliticianByNameAndParty(string nameAndParty, DBDataContext db)
+		{
+			var name = nameAndParty.Split('(')[0].Trim();
+			var party = nameAndParty.Split('(')[1].Replace(")", "").Trim();
+			return GetPoliticianByNameAndParty(name, party, db);
 		}
 
 		public static Politician GetPoliticianByNameAndParty(string name,
@@ -1549,6 +1489,16 @@ namespace FT.Scraper
 				cats.Where(c => !db.Categories.Any(
 					_ => _.FTId == c.FTId && _.Name == c.Name)));
 			db.SubmitChanges();
+		}
+
+		private static string GetMetaContent(HtmlNode node, string name)
+		{
+			var metaNode = node.SelectSingleNode("meta[@name='" + name + "']");
+			if(metaNode != null && metaNode.Attributes["content"] != null)
+			{
+				return metaNode.Attributes["content"].Value;
+			}
+			return null;
 		}
 	}
 
