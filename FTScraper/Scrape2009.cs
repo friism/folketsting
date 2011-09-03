@@ -301,16 +301,6 @@ namespace FT.Scraper
 					else
 					{
 						polid = GetPoliticianByNameAndParty(pollinks.First().InnerText, db).PoliticianId;
-						//// where in a big doo-doo
-						//// http://www.ft.dk/samling/20091/lovforslag/L127/index.htm
-						//var lameministername = pollinks.First().InnerText.
-						//    Replace("(", "").Replace(")", "").Trim();
-						//if (lameministername == "Lykke Friis")
-						//{
-						//    polid =
-						//        GetPoliticianByNameAndParty(lameministername, "V", db).
-						//        PoliticianId;
-						//}
 					}
 
 					if (polid != -1)
@@ -752,12 +742,6 @@ namespace FT.Scraper
 					lock (dblock)
 						db.Deliberations.InsertOnSubmit(d);
 				}
-
-				//these are the relevant ones
-				//var speechdivs = delibdoc.
-				//    SelectHtmlNodes(
-				//        "//div[@id='movieList']/div[@class='tableTitle' or @class='tableTitleComment' or @class='lovListViewAllElements' or @class='tableTitle clearfix']"
-				//    );
 
 				var speechdivs = delibdoc.
 					SelectHtmlNodes(
