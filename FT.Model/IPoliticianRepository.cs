@@ -199,6 +199,7 @@ namespace FT.Model
 				.Concat(prelimlawprops)
 				.Concat(prelimspeakerships)
 				.Concat(prelimtrips)
+				.Where(x => x.Date < DateTime.Now)
 				.OrderByDescending(_ => _.Date).
 				Take(includeposts);
 
