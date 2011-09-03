@@ -38,9 +38,11 @@ namespace FT.Scraper
 		{
 			_parallelism = paralellism;
 			var db = new DBDataContext();
+
 			GetCategories();
 			TripScraper.GetTrips(_parallelism);
 			TripScraper.GeoCode();
+
 			foreach (var samling in db.Sessions.Where(s => s.IsDone == false))
 			{
 				DoSession(samling);
@@ -142,7 +144,7 @@ namespace FT.Scraper
 			return rows;
 		}
 
-		public static void GetLawChecked(HtmlNode row, Session samling, string singlecode, 
+		public static void GetLawChecked(HtmlNode row, Session samling, string singlecode,
 			int? singleyear, int? singlenr)
 		{
 			var links = row.SelectNodes("td/a").OfType<HtmlNode>().ToArray();
@@ -158,7 +160,7 @@ namespace FT.Scraper
 			try
 			{
 
-				GetLaw(code, name, ministry, committee, state, url, 
+				GetLaw(code, name, ministry, committee, state, url,
 					samling, singlecode, singleyear, singlenr, true);
 			}
 			catch (Exception e)
@@ -171,7 +173,7 @@ namespace FT.Scraper
 		}
 
 		public static void GetLaw(string code, string name, string ministry, string committee,
-			string state, string url, Session samling, string singlecode, 
+			string state, string url, Session samling, string singlecode,
 			int? singleyear, int? singlenr, bool record)
 		{
 
@@ -352,7 +354,6 @@ namespace FT.Scraper
 			}
 
 			// fish out the relevant dates
-
 			var datepar =
 				doc.DocumentNode.SelectNodes("//div[@id='menuSkip']/p").OfType<HtmlNode>().
 					SingleOrDefault(_ => _.InnerText.Trim().StartsWith("Sagsgang"));
@@ -479,7 +480,7 @@ namespace FT.Scraper
 			else
 			{
 				// very simple title
-				lov.ShortName = name.Trim(new char[] { '.' }).Replace("\r","");
+				lov.ShortName = name.Trim(new char[] { '.' }).Replace("\r", "");
 				return lov;
 			}
 
@@ -493,7 +494,7 @@ namespace FT.Scraper
 
 			if (!string.IsNullOrEmpty(noamble))
 			{
-				noamble = noamble.Trim().TrimEnd(new char[] { '.' }).Replace("\r","");
+				noamble = noamble.Trim().TrimEnd(new char[] { '.' }).Replace("\r", "");
 				if (changefalg)
 					noamble = noamble + " (ændring af)";
 				lov.ShortName = noamble;
@@ -807,7 +808,7 @@ namespace FT.Scraper
 		private void FetchPolPics()
 		{
 			var db = new DBDataContext();
-			var pols = db.Politicians.Where(_ => 
+			var pols = db.Politicians.Where(_ =>
 				_.ImageId == null || _.Homepage == null || _.Birthdate == null);
 
 			pols.AsParallel().WithDegreeOfParallelism(_parallelism).ForAll(p => UpdatePol(p, db));
@@ -848,12 +849,12 @@ namespace FT.Scraper
 			string regs = @" født \d{1,2}. \w{1,4}. \d{4}";
 			Regex reg = new Regex(regs);
 			var match = reg.Matches(firstp.InnerText);
-			
+
 			if (match.Count > 0)
 			{
 				string url = match[0].Groups[0].Value.Trim();
-				var datepart = url.Replace("født","").Trim();
-					//url.Split(new string[]{"født"}, StringSplitOptions.RemoveEmptyEntries)[1].Trim();
+				var datepart = url.Replace("født", "").Trim();
+				//url.Split(new string[]{"født"}, StringSplitOptions.RemoveEmptyEntries)[1].Trim();
 				try
 				{
 					var bdate = DateTime.ParseExact(datepart, "dd. MMM. yyyy", CultureInfo.GetCultureInfo("da-DK"));
@@ -1002,7 +1003,7 @@ namespace FT.Scraper
 					pol.Lastname = h1.Replace(pol.Firstname + " ", "");
 					return;
 				}
-				Console.WriteLine("problem, not adding pol");    
+				Console.WriteLine("problem, not adding pol");
 			}
 			Console.WriteLine("problem, not adding pol");
 		}
@@ -1369,7 +1370,8 @@ namespace FT.Scraper
 
 		public static IEnumerable<SpeechPara> GetPars(HtmlNode speechnode, Speech speech)
 		{
-			var parnodes = speechnode.SelectHtmlNodes("p[@class='Tekst' or @class='TekstIndryk']");
+			var parnodes = speechnode.SelectHtmlNodes(
+				"p[@class='Tekst' or @class='TekstIndryk']");
 			var counter = 0;
 			foreach (var node in parnodes)
 			{
@@ -1522,6 +1524,7 @@ namespace FT.Scraper
 				return Enumerable.Empty<HtmlNode>();
 		}
 	}
+
 
 	public class QuestionRowCompater : IEqualityComparer<HtmlNode>
 	{
