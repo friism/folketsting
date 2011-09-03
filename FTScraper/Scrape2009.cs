@@ -39,7 +39,7 @@ namespace FT.Scraper
 			_parallelism = paralellism;
 			var db = new DBDataContext();
 			GetCategories();
-			TripScraper.GetTrips();
+			TripScraper.GetTrips(_parallelism);
 			TripScraper.GeoCode();
 			foreach (var samling in db.Sessions.Where(s => s.IsDone == false))
 			{

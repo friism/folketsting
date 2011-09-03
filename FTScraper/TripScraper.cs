@@ -48,7 +48,7 @@ namespace FT.Scraper
 			Console.WriteLine("all done");
 		}
 
-		public static void GetTrips()
+		public static void GetTrips(int parallelism)
 		{
 			string url = "http://www.ft.dk/Aktuelt/Kalender/Rejser.aspx?from=01-01-2004&to=31-12-2020&committee=all&delegationOrCommission=all&member=all";
 			HtmlDocument doc = Scrape2009.GetDoc(url);
@@ -57,7 +57,8 @@ namespace FT.Scraper
 				doc.SelectHtmlNodes("//div[@class='contentLine']/table[@class='calendarList']/tr").
 				Skip(1);
 
-			rows.AsParallel().WithDegreeOfParallelism(20).ForAll(_ => HandleRow(_));
+			rows.AsParallel().WithDegreeOfParallelism(parallelism).ForAll(
+				_ => HandleRow(_));
 		}
 
 		private static void HandleRow(HtmlNode row)
