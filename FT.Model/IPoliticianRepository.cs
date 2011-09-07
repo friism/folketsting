@@ -134,29 +134,17 @@ namespace FT.Model
 			var questionact =
 				(
 					from q in DB.P20Questions
-					where q.Type == QuestionType.Politician && q.AskerPolId == polid &&
+					where ((q.Type == QuestionType.Politician && q.AskerPolId == polid) || q.AskeeId == polid ) &&
 						q.AskDate > DateTime.Now.AddMonths(-monthstoshow)
 					group q by new
 					{
 						year = q.AskDate.Value.Year,
 						month = q.AskDate.Value.Month
 					} into d
-					select new { date = new DateTime(d.Key.year, d.Key.month, 1), count = d.Count() })
-				.Concat(
-					from q in DB.P20Questions
-					where q.AskeeId == polid && q.AnswerDate > DateTime.Now.AddMonths(-monthstoshow)
-					group q by new
-					{
-						year = q.AnswerDate.Value.Year,
-						month = q.AnswerDate.Value.Month
-					} into d
-					select new
-					{
+					select new {
 						date = new DateTime(d.Key.year, d.Key.month, 1),
-						count = d.Count()
-					}
-				)
-				.ToList();
+						count = d.Count(),
+					}).ToList();
 
 			var now = DateTime.Now;
 			var months = from i in Enumerable.Range(0, monthstoshow)
