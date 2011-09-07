@@ -8,12 +8,13 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.ComponentModel;
+using System.Configuration;
+using System.Data.EntityClient;
 using System.Data.Objects;
 using System.Data.Objects.DataClasses;
-using System.Data.EntityClient;
-using System.ComponentModel;
-using System.Xml.Serialization;
 using System.Runtime.Serialization;
+using System.Xml.Serialization;
 
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
@@ -77,7 +78,8 @@ namespace FT.Data
         /// <summary>
         /// Initializes a new FolketsTingEntities object using the connection string found in the 'FolketsTingEntities' section of the application configuration file.
         /// </summary>
-        public FolketsTingEntities() : base("name=FolketsTingEntities", "FolketsTingEntities")
+        public FolketsTingEntities()
+            : base(ConfigurationManager.AppSettings["efconnectionstring"], "FolketsTingEntities")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();

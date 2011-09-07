@@ -11,24 +11,24 @@
 
 namespace FT.DB
 {
-	using System.Data.Linq;
-	using System.Data.Linq.Mapping;
-	using System.Data;
-	using System.Collections.Generic;
-	using System.Reflection;
-	using System.Linq;
-	using System.Linq.Expressions;
-	using System.Runtime.Serialization;
-	using System.ComponentModel;
-	using System;
-	
-	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="ftdb")]
-	public partial class DBDataContext : System.Data.Linq.DataContext
-	{
-		
-		private static System.Data.Linq.Mapping.MappingSource mappingSource = new AttributeMappingSource();
-		
+    using System.Data.Linq;
+    using System.Data.Linq.Mapping;
+    using System.Data;
+    using System.Collections.Generic;
+    using System.Reflection;
+    using System.Linq;
+    using System.Linq.Expressions;
+    using System.Runtime.Serialization;
+    using System.ComponentModel;
+    using System;
+    using System.Configuration;
+    
+    [global::System.Data.Linq.Mapping.DatabaseAttribute(Name="ftdb")]
+    public partial class DBDataContext : System.Data.Linq.DataContext
+    {
+        
+        private static System.Data.Linq.Mapping.MappingSource mappingSource = new AttributeMappingSource();
+        
     #region Extensibility Method Definitions
     partial void OnCreated();
     partial void InsertAnswerPara(AnswerPara instance);
@@ -140,343 +140,343 @@ namespace FT.DB
     partial void UpdateCommitteeTripDestination(CommitteeTripDestination instance);
     partial void DeleteCommitteeTripDestination(CommitteeTripDestination instance);
     #endregion
-		
-		public DBDataContext() : 
-				base(global::FT.DB.Properties.Settings.Default.ftdbConnectionString, mappingSource)
-		{
-			OnCreated();
-		}
-		
-		public DBDataContext(string connection) : 
-				base(connection, mappingSource)
-		{
-			OnCreated();
-		}
-		
-		public DBDataContext(System.Data.IDbConnection connection) : 
-				base(connection, mappingSource)
-		{
-			OnCreated();
-		}
-		
-		public DBDataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
-				base(connection, mappingSource)
-		{
-			OnCreated();
-		}
-		
-		public DBDataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
-				base(connection, mappingSource)
-		{
-			OnCreated();
-		}
-		
-		public System.Data.Linq.Table<AnswerPara> AnswerParas
-		{
-			get
-			{
-				return this.GetTable<AnswerPara>();
-			}
-		}
-		
-		public System.Data.Linq.Table<UserLawVote> UserLawVotes
-		{
-			get
-			{
-				return this.GetTable<UserLawVote>();
-			}
-		}
-		
-		public System.Data.Linq.Table<BlogPost> BlogPosts
-		{
-			get
-			{
-				return this.GetTable<BlogPost>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Comment> Comments
-		{
-			get
-			{
-				return this.GetTable<Comment>();
-			}
-		}
-		
-		public System.Data.Linq.Table<CommentVote> CommentVotes
-		{
-			get
-			{
-				return this.GetTable<CommentVote>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Deliberation> Deliberations
-		{
-			get
-			{
-				return this.GetTable<Deliberation>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Hit> Hits
-		{
-			get
-			{
-				return this.GetTable<Hit>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Image> Images
-		{
-			get
-			{
-				return this.GetTable<Image>();
-			}
-		}
-		
-		public System.Data.Linq.Table<LawChange> LawChanges
-		{
-			get
-			{
-				return this.GetTable<LawChange>();
-			}
-		}
-		
-		public System.Data.Linq.Table<LawChapter> LawChapters
-		{
-			get
-			{
-				return this.GetTable<LawChapter>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Ministry> Ministries
-		{
-			get
-			{
-				return this.GetTable<Ministry>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Paragraph> Paragraphs
-		{
-			get
-			{
-				return this.GetTable<Paragraph>();
-			}
-		}
-		
-		public System.Data.Linq.Table<PoliticianLawVote> PoliticianLawVotes
-		{
-			get
-			{
-				return this.GetTable<PoliticianLawVote>();
-			}
-		}
-		
-		public System.Data.Linq.Table<ProposedLaw> ProposedLaws
-		{
-			get
-			{
-				return this.GetTable<ProposedLaw>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Section> Sections
-		{
-			get
-			{
-				return this.GetTable<Section>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Session> Sessions
-		{
-			get
-			{
-				return this.GetTable<Session>();
-			}
-		}
-		
-		public System.Data.Linq.Table<SpeechPara> SpeechParas
-		{
-			get
-			{
-				return this.GetTable<SpeechPara>();
-			}
-		}
-		
-		public System.Data.Linq.Table<SubChange> SubChanges
-		{
-			get
-			{
-				return this.GetTable<SubChange>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Tag> Tags
-		{
-			get
-			{
-				return this.GetTable<Tag>();
-			}
-		}
-		
-		public System.Data.Linq.Table<User> Users
-		{
-			get
-			{
-				return this.GetTable<User>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Speaker> Speakers
-		{
-			get
-			{
-				return this.GetTable<Speaker>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Party> Parties
-		{
-			get
-			{
-				return this.GetTable<Party>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Speech> Speeches
-		{
-			get
-			{
-				return this.GetTable<Speech>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Law> Laws
-		{
-			get
-			{
-				return this.GetTable<Law>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Politician> Politicians
-		{
-			get
-			{
-				return this.GetTable<Politician>();
-			}
-		}
-		
-		public System.Data.Linq.Table<LawVote> LawVotes
-		{
-			get
-			{
-				return this.GetTable<LawVote>();
-			}
-		}
-		
-		public System.Data.Linq.Table<ItemCategory> ItemCategories
-		{
-			get
-			{
-				return this.GetTable<ItemCategory>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Category> Categories
-		{
-			get
-			{
-				return this.GetTable<Category>();
-			}
-		}
-		
-		public System.Data.Linq.Table<P20Question> P20Questions
-		{
-			get
-			{
-				return this.GetTable<P20Question>();
-			}
-		}
-		
-		public System.Data.Linq.Table<ItemCommittee> ItemCommittees
-		{
-			get
-			{
-				return this.GetTable<ItemCommittee>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Committee> Committees
-		{
-			get
-			{
-				return this.GetTable<Committee>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Document> Documents
-		{
-			get
-			{
-				return this.GetTable<Document>();
-			}
-		}
-		
-		public System.Data.Linq.Table<CommitteeTripParticipant> CommitteeTripParticipants
-		{
-			get
-			{
-				return this.GetTable<CommitteeTripParticipant>();
-			}
-		}
-		
-		public System.Data.Linq.Table<CommitteeTrip> CommitteeTrips
-		{
-			get
-			{
-				return this.GetTable<CommitteeTrip>();
-			}
-		}
-		
-		public System.Data.Linq.Table<ApiUser> ApiUsers
-		{
-			get
-			{
-				return this.GetTable<ApiUser>();
-			}
-		}
-		
-		public System.Data.Linq.Table<CommitteeTripDestination> CommitteeTripDestinations
-		{
-			get
-			{
-				return this.GetTable<CommitteeTripDestination>();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.AnswerPara")]
-	[global::System.Runtime.Serialization.DataContractAttribute()]
-	public partial class AnswerPara : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _AnswerParaId;
-		
-		private System.Nullable<int> _QuestionId;
-		
-		private string _ParText;
-		
-		private System.Nullable<int> _Number;
-		
-		private EntityRef<P20Question> _P20Question;
-		
+        
+        public DBDataContext() :
+            base(ConfigurationManager.AppSettings["l2sconnectionstring"] , mappingSource)
+        {
+            OnCreated();
+        }
+        
+        public DBDataContext(string connection) : 
+                base(connection, mappingSource)
+        {
+            OnCreated();
+        }
+        
+        public DBDataContext(System.Data.IDbConnection connection) : 
+                base(connection, mappingSource)
+        {
+            OnCreated();
+        }
+        
+        public DBDataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+                base(connection, mappingSource)
+        {
+            OnCreated();
+        }
+        
+        public DBDataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+                base(connection, mappingSource)
+        {
+            OnCreated();
+        }
+        
+        public System.Data.Linq.Table<AnswerPara> AnswerParas
+        {
+            get
+            {
+                return this.GetTable<AnswerPara>();
+            }
+        }
+        
+        public System.Data.Linq.Table<UserLawVote> UserLawVotes
+        {
+            get
+            {
+                return this.GetTable<UserLawVote>();
+            }
+        }
+        
+        public System.Data.Linq.Table<BlogPost> BlogPosts
+        {
+            get
+            {
+                return this.GetTable<BlogPost>();
+            }
+        }
+        
+        public System.Data.Linq.Table<Comment> Comments
+        {
+            get
+            {
+                return this.GetTable<Comment>();
+            }
+        }
+        
+        public System.Data.Linq.Table<CommentVote> CommentVotes
+        {
+            get
+            {
+                return this.GetTable<CommentVote>();
+            }
+        }
+        
+        public System.Data.Linq.Table<Deliberation> Deliberations
+        {
+            get
+            {
+                return this.GetTable<Deliberation>();
+            }
+        }
+        
+        public System.Data.Linq.Table<Hit> Hits
+        {
+            get
+            {
+                return this.GetTable<Hit>();
+            }
+        }
+        
+        public System.Data.Linq.Table<Image> Images
+        {
+            get
+            {
+                return this.GetTable<Image>();
+            }
+        }
+        
+        public System.Data.Linq.Table<LawChange> LawChanges
+        {
+            get
+            {
+                return this.GetTable<LawChange>();
+            }
+        }
+        
+        public System.Data.Linq.Table<LawChapter> LawChapters
+        {
+            get
+            {
+                return this.GetTable<LawChapter>();
+            }
+        }
+        
+        public System.Data.Linq.Table<Ministry> Ministries
+        {
+            get
+            {
+                return this.GetTable<Ministry>();
+            }
+        }
+        
+        public System.Data.Linq.Table<Paragraph> Paragraphs
+        {
+            get
+            {
+                return this.GetTable<Paragraph>();
+            }
+        }
+        
+        public System.Data.Linq.Table<PoliticianLawVote> PoliticianLawVotes
+        {
+            get
+            {
+                return this.GetTable<PoliticianLawVote>();
+            }
+        }
+        
+        public System.Data.Linq.Table<ProposedLaw> ProposedLaws
+        {
+            get
+            {
+                return this.GetTable<ProposedLaw>();
+            }
+        }
+        
+        public System.Data.Linq.Table<Section> Sections
+        {
+            get
+            {
+                return this.GetTable<Section>();
+            }
+        }
+        
+        public System.Data.Linq.Table<Session> Sessions
+        {
+            get
+            {
+                return this.GetTable<Session>();
+            }
+        }
+        
+        public System.Data.Linq.Table<SpeechPara> SpeechParas
+        {
+            get
+            {
+                return this.GetTable<SpeechPara>();
+            }
+        }
+        
+        public System.Data.Linq.Table<SubChange> SubChanges
+        {
+            get
+            {
+                return this.GetTable<SubChange>();
+            }
+        }
+        
+        public System.Data.Linq.Table<Tag> Tags
+        {
+            get
+            {
+                return this.GetTable<Tag>();
+            }
+        }
+        
+        public System.Data.Linq.Table<User> Users
+        {
+            get
+            {
+                return this.GetTable<User>();
+            }
+        }
+        
+        public System.Data.Linq.Table<Speaker> Speakers
+        {
+            get
+            {
+                return this.GetTable<Speaker>();
+            }
+        }
+        
+        public System.Data.Linq.Table<Party> Parties
+        {
+            get
+            {
+                return this.GetTable<Party>();
+            }
+        }
+        
+        public System.Data.Linq.Table<Speech> Speeches
+        {
+            get
+            {
+                return this.GetTable<Speech>();
+            }
+        }
+        
+        public System.Data.Linq.Table<Law> Laws
+        {
+            get
+            {
+                return this.GetTable<Law>();
+            }
+        }
+        
+        public System.Data.Linq.Table<Politician> Politicians
+        {
+            get
+            {
+                return this.GetTable<Politician>();
+            }
+        }
+        
+        public System.Data.Linq.Table<LawVote> LawVotes
+        {
+            get
+            {
+                return this.GetTable<LawVote>();
+            }
+        }
+        
+        public System.Data.Linq.Table<ItemCategory> ItemCategories
+        {
+            get
+            {
+                return this.GetTable<ItemCategory>();
+            }
+        }
+        
+        public System.Data.Linq.Table<Category> Categories
+        {
+            get
+            {
+                return this.GetTable<Category>();
+            }
+        }
+        
+        public System.Data.Linq.Table<P20Question> P20Questions
+        {
+            get
+            {
+                return this.GetTable<P20Question>();
+            }
+        }
+        
+        public System.Data.Linq.Table<ItemCommittee> ItemCommittees
+        {
+            get
+            {
+                return this.GetTable<ItemCommittee>();
+            }
+        }
+        
+        public System.Data.Linq.Table<Committee> Committees
+        {
+            get
+            {
+                return this.GetTable<Committee>();
+            }
+        }
+        
+        public System.Data.Linq.Table<Document> Documents
+        {
+            get
+            {
+                return this.GetTable<Document>();
+            }
+        }
+        
+        public System.Data.Linq.Table<CommitteeTripParticipant> CommitteeTripParticipants
+        {
+            get
+            {
+                return this.GetTable<CommitteeTripParticipant>();
+            }
+        }
+        
+        public System.Data.Linq.Table<CommitteeTrip> CommitteeTrips
+        {
+            get
+            {
+                return this.GetTable<CommitteeTrip>();
+            }
+        }
+        
+        public System.Data.Linq.Table<ApiUser> ApiUsers
+        {
+            get
+            {
+                return this.GetTable<ApiUser>();
+            }
+        }
+        
+        public System.Data.Linq.Table<CommitteeTripDestination> CommitteeTripDestinations
+        {
+            get
+            {
+                return this.GetTable<CommitteeTripDestination>();
+            }
+        }
+    }
+    
+    [global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.AnswerPara")]
+    [global::System.Runtime.Serialization.DataContractAttribute()]
+    public partial class AnswerPara : INotifyPropertyChanging, INotifyPropertyChanged
+    {
+        
+        private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+        
+        private int _AnswerParaId;
+        
+        private System.Nullable<int> _QuestionId;
+        
+        private string _ParText;
+        
+        private System.Nullable<int> _Number;
+        
+        private EntityRef<P20Question> _P20Question;
+        
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -490,189 +490,189 @@ namespace FT.DB
     partial void OnNumberChanging(System.Nullable<int> value);
     partial void OnNumberChanged();
     #endregion
-		
-		public AnswerPara()
-		{
-			this.Initialize();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AnswerParaId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
-		public int AnswerParaId
-		{
-			get
-			{
-				return this._AnswerParaId;
-			}
-			set
-			{
-				if ((this._AnswerParaId != value))
-				{
-					this.OnAnswerParaIdChanging(value);
-					this.SendPropertyChanging();
-					this._AnswerParaId = value;
-					this.SendPropertyChanged("AnswerParaId");
-					this.OnAnswerParaIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QuestionId", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-		public System.Nullable<int> QuestionId
-		{
-			get
-			{
-				return this._QuestionId;
-			}
-			set
-			{
-				if ((this._QuestionId != value))
-				{
-					if (this._P20Question.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnQuestionIdChanging(value);
-					this.SendPropertyChanging();
-					this._QuestionId = value;
-					this.SendPropertyChanged("QuestionId");
-					this.OnQuestionIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ParText", DbType="NText", UpdateCheck=UpdateCheck.Never)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
-		public string ParText
-		{
-			get
-			{
-				return this._ParText;
-			}
-			set
-			{
-				if ((this._ParText != value))
-				{
-					this.OnParTextChanging(value);
-					this.SendPropertyChanging();
-					this._ParText = value;
-					this.SendPropertyChanged("ParText");
-					this.OnParTextChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Number", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
-		public System.Nullable<int> Number
-		{
-			get
-			{
-				return this._Number;
-			}
-			set
-			{
-				if ((this._Number != value))
-				{
-					this.OnNumberChanging(value);
-					this.SendPropertyChanging();
-					this._Number = value;
-					this.SendPropertyChanged("Number");
-					this.OnNumberChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="P20Question_AnswerPara", Storage="_P20Question", ThisKey="QuestionId", OtherKey="P20QuestionId", IsForeignKey=true)]
-		public P20Question P20Question
-		{
-			get
-			{
-				return this._P20Question.Entity;
-			}
-			set
-			{
-				P20Question previousValue = this._P20Question.Entity;
-				if (((previousValue != value) 
-							|| (this._P20Question.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._P20Question.Entity = null;
-						previousValue.AnswerParas.Remove(this);
-					}
-					this._P20Question.Entity = value;
-					if ((value != null))
-					{
-						value.AnswerParas.Add(this);
-						this._QuestionId = value.P20QuestionId;
-					}
-					else
-					{
-						this._QuestionId = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("P20Question");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void Initialize()
-		{
-			this._P20Question = default(EntityRef<P20Question>);
-			OnCreated();
-		}
-		
-		[global::System.Runtime.Serialization.OnDeserializingAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnDeserializing(StreamingContext context)
-		{
-			this.Initialize();
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.UserLawVote")]
-	[global::System.Runtime.Serialization.DataContractAttribute()]
-	public partial class UserLawVote : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _UserLawVoteId;
-		
-		private System.Nullable<int> _UserId;
-		
-		private System.Nullable<int> _LawVoteId;
-		
-		private System.Nullable<byte> _Vote;
-		
-		private System.Nullable<System.DateTime> _Date;
-		
-		private EntityRef<User> _User;
-		
-		private EntityRef<LawVote> _LawVote;
-		
+        
+        public AnswerPara()
+        {
+            this.Initialize();
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AnswerParaId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public int AnswerParaId
+        {
+            get
+            {
+                return this._AnswerParaId;
+            }
+            set
+            {
+                if ((this._AnswerParaId != value))
+                {
+                    this.OnAnswerParaIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._AnswerParaId = value;
+                    this.SendPropertyChanged("AnswerParaId");
+                    this.OnAnswerParaIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QuestionId", DbType="Int")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public System.Nullable<int> QuestionId
+        {
+            get
+            {
+                return this._QuestionId;
+            }
+            set
+            {
+                if ((this._QuestionId != value))
+                {
+                    if (this._P20Question.HasLoadedOrAssignedValue)
+                    {
+                        throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+                    }
+                    this.OnQuestionIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._QuestionId = value;
+                    this.SendPropertyChanged("QuestionId");
+                    this.OnQuestionIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ParText", DbType="NText", UpdateCheck=UpdateCheck.Never)]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        public string ParText
+        {
+            get
+            {
+                return this._ParText;
+            }
+            set
+            {
+                if ((this._ParText != value))
+                {
+                    this.OnParTextChanging(value);
+                    this.SendPropertyChanging();
+                    this._ParText = value;
+                    this.SendPropertyChanged("ParText");
+                    this.OnParTextChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Number", DbType="Int")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+        public System.Nullable<int> Number
+        {
+            get
+            {
+                return this._Number;
+            }
+            set
+            {
+                if ((this._Number != value))
+                {
+                    this.OnNumberChanging(value);
+                    this.SendPropertyChanging();
+                    this._Number = value;
+                    this.SendPropertyChanged("Number");
+                    this.OnNumberChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="P20Question_AnswerPara", Storage="_P20Question", ThisKey="QuestionId", OtherKey="P20QuestionId", IsForeignKey=true)]
+        public P20Question P20Question
+        {
+            get
+            {
+                return this._P20Question.Entity;
+            }
+            set
+            {
+                P20Question previousValue = this._P20Question.Entity;
+                if (((previousValue != value) 
+                            || (this._P20Question.HasLoadedOrAssignedValue == false)))
+                {
+                    this.SendPropertyChanging();
+                    if ((previousValue != null))
+                    {
+                        this._P20Question.Entity = null;
+                        previousValue.AnswerParas.Remove(this);
+                    }
+                    this._P20Question.Entity = value;
+                    if ((value != null))
+                    {
+                        value.AnswerParas.Add(this);
+                        this._QuestionId = value.P20QuestionId;
+                    }
+                    else
+                    {
+                        this._QuestionId = default(Nullable<int>);
+                    }
+                    this.SendPropertyChanged("P20Question");
+                }
+            }
+        }
+        
+        public event PropertyChangingEventHandler PropertyChanging;
+        
+        public event PropertyChangedEventHandler PropertyChanged;
+        
+        protected virtual void SendPropertyChanging()
+        {
+            if ((this.PropertyChanging != null))
+            {
+                this.PropertyChanging(this, emptyChangingEventArgs);
+            }
+        }
+        
+        protected virtual void SendPropertyChanged(String propertyName)
+        {
+            if ((this.PropertyChanged != null))
+            {
+                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+        
+        private void Initialize()
+        {
+            this._P20Question = default(EntityRef<P20Question>);
+            OnCreated();
+        }
+        
+        [global::System.Runtime.Serialization.OnDeserializingAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnDeserializing(StreamingContext context)
+        {
+            this.Initialize();
+        }
+    }
+    
+    [global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.UserLawVote")]
+    [global::System.Runtime.Serialization.DataContractAttribute()]
+    public partial class UserLawVote : INotifyPropertyChanging, INotifyPropertyChanged
+    {
+        
+        private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+        
+        private int _UserLawVoteId;
+        
+        private System.Nullable<int> _UserId;
+        
+        private System.Nullable<int> _LawVoteId;
+        
+        private System.Nullable<byte> _Vote;
+        
+        private System.Nullable<System.DateTime> _Date;
+        
+        private EntityRef<User> _User;
+        
+        private EntityRef<LawVote> _LawVote;
+        
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -688,249 +688,249 @@ namespace FT.DB
     partial void OnDateChanging(System.Nullable<System.DateTime> value);
     partial void OnDateChanged();
     #endregion
-		
-		public UserLawVote()
-		{
-			this.Initialize();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserLawVoteId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
-		public int UserLawVoteId
-		{
-			get
-			{
-				return this._UserLawVoteId;
-			}
-			set
-			{
-				if ((this._UserLawVoteId != value))
-				{
-					this.OnUserLawVoteIdChanging(value);
-					this.SendPropertyChanging();
-					this._UserLawVoteId = value;
-					this.SendPropertyChanged("UserLawVoteId");
-					this.OnUserLawVoteIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserId", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-		public System.Nullable<int> UserId
-		{
-			get
-			{
-				return this._UserId;
-			}
-			set
-			{
-				if ((this._UserId != value))
-				{
-					if (this._User.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnUserIdChanging(value);
-					this.SendPropertyChanging();
-					this._UserId = value;
-					this.SendPropertyChanged("UserId");
-					this.OnUserIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LawVoteId", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
-		public System.Nullable<int> LawVoteId
-		{
-			get
-			{
-				return this._LawVoteId;
-			}
-			set
-			{
-				if ((this._LawVoteId != value))
-				{
-					if (this._LawVote.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnLawVoteIdChanging(value);
-					this.SendPropertyChanging();
-					this._LawVoteId = value;
-					this.SendPropertyChanged("LawVoteId");
-					this.OnLawVoteIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Vote", DbType="TinyInt")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
-		public System.Nullable<byte> Vote
-		{
-			get
-			{
-				return this._Vote;
-			}
-			set
-			{
-				if ((this._Vote != value))
-				{
-					this.OnVoteChanging(value);
-					this.SendPropertyChanging();
-					this._Vote = value;
-					this.SendPropertyChanged("Vote");
-					this.OnVoteChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="DateTime")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
-		public System.Nullable<System.DateTime> Date
-		{
-			get
-			{
-				return this._Date;
-			}
-			set
-			{
-				if ((this._Date != value))
-				{
-					this.OnDateChanging(value);
-					this.SendPropertyChanging();
-					this._Date = value;
-					this.SendPropertyChanged("Date");
-					this.OnDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_UserLawVote", Storage="_User", ThisKey="UserId", OtherKey="UserId", IsForeignKey=true)]
-		public User User
-		{
-			get
-			{
-				return this._User.Entity;
-			}
-			set
-			{
-				User previousValue = this._User.Entity;
-				if (((previousValue != value) 
-							|| (this._User.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._User.Entity = null;
-						previousValue.UserLawVotes.Remove(this);
-					}
-					this._User.Entity = value;
-					if ((value != null))
-					{
-						value.UserLawVotes.Add(this);
-						this._UserId = value.UserId;
-					}
-					else
-					{
-						this._UserId = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("User");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="LawVote_UserLawVote", Storage="_LawVote", ThisKey="LawVoteId", OtherKey="LawVoteId", IsForeignKey=true)]
-		public LawVote LawVote
-		{
-			get
-			{
-				return this._LawVote.Entity;
-			}
-			set
-			{
-				LawVote previousValue = this._LawVote.Entity;
-				if (((previousValue != value) 
-							|| (this._LawVote.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._LawVote.Entity = null;
-						previousValue.UserLawVotes.Remove(this);
-					}
-					this._LawVote.Entity = value;
-					if ((value != null))
-					{
-						value.UserLawVotes.Add(this);
-						this._LawVoteId = value.LawVoteId;
-					}
-					else
-					{
-						this._LawVoteId = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("LawVote");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void Initialize()
-		{
-			this._User = default(EntityRef<User>);
-			this._LawVote = default(EntityRef<LawVote>);
-			OnCreated();
-		}
-		
-		[global::System.Runtime.Serialization.OnDeserializingAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnDeserializing(StreamingContext context)
-		{
-			this.Initialize();
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.BlogPost")]
-	[global::System.Runtime.Serialization.DataContractAttribute()]
-	public partial class BlogPost : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _BlogPostID;
-		
-		private System.Nullable<System.DateTime> _Date;
-		
-		private string _WordpressId;
-		
-		private string _Summary;
-		
-		private string _Title;
-		
-		private System.Nullable<int> _CommentCount;
-		
-		private string _PermaLink;
-		
+        
+        public UserLawVote()
+        {
+            this.Initialize();
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserLawVoteId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public int UserLawVoteId
+        {
+            get
+            {
+                return this._UserLawVoteId;
+            }
+            set
+            {
+                if ((this._UserLawVoteId != value))
+                {
+                    this.OnUserLawVoteIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._UserLawVoteId = value;
+                    this.SendPropertyChanged("UserLawVoteId");
+                    this.OnUserLawVoteIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserId", DbType="Int")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public System.Nullable<int> UserId
+        {
+            get
+            {
+                return this._UserId;
+            }
+            set
+            {
+                if ((this._UserId != value))
+                {
+                    if (this._User.HasLoadedOrAssignedValue)
+                    {
+                        throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+                    }
+                    this.OnUserIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._UserId = value;
+                    this.SendPropertyChanged("UserId");
+                    this.OnUserIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LawVoteId", DbType="Int")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        public System.Nullable<int> LawVoteId
+        {
+            get
+            {
+                return this._LawVoteId;
+            }
+            set
+            {
+                if ((this._LawVoteId != value))
+                {
+                    if (this._LawVote.HasLoadedOrAssignedValue)
+                    {
+                        throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+                    }
+                    this.OnLawVoteIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._LawVoteId = value;
+                    this.SendPropertyChanged("LawVoteId");
+                    this.OnLawVoteIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Vote", DbType="TinyInt")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+        public System.Nullable<byte> Vote
+        {
+            get
+            {
+                return this._Vote;
+            }
+            set
+            {
+                if ((this._Vote != value))
+                {
+                    this.OnVoteChanging(value);
+                    this.SendPropertyChanging();
+                    this._Vote = value;
+                    this.SendPropertyChanged("Vote");
+                    this.OnVoteChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="DateTime")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+        public System.Nullable<System.DateTime> Date
+        {
+            get
+            {
+                return this._Date;
+            }
+            set
+            {
+                if ((this._Date != value))
+                {
+                    this.OnDateChanging(value);
+                    this.SendPropertyChanging();
+                    this._Date = value;
+                    this.SendPropertyChanged("Date");
+                    this.OnDateChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_UserLawVote", Storage="_User", ThisKey="UserId", OtherKey="UserId", IsForeignKey=true)]
+        public User User
+        {
+            get
+            {
+                return this._User.Entity;
+            }
+            set
+            {
+                User previousValue = this._User.Entity;
+                if (((previousValue != value) 
+                            || (this._User.HasLoadedOrAssignedValue == false)))
+                {
+                    this.SendPropertyChanging();
+                    if ((previousValue != null))
+                    {
+                        this._User.Entity = null;
+                        previousValue.UserLawVotes.Remove(this);
+                    }
+                    this._User.Entity = value;
+                    if ((value != null))
+                    {
+                        value.UserLawVotes.Add(this);
+                        this._UserId = value.UserId;
+                    }
+                    else
+                    {
+                        this._UserId = default(Nullable<int>);
+                    }
+                    this.SendPropertyChanged("User");
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="LawVote_UserLawVote", Storage="_LawVote", ThisKey="LawVoteId", OtherKey="LawVoteId", IsForeignKey=true)]
+        public LawVote LawVote
+        {
+            get
+            {
+                return this._LawVote.Entity;
+            }
+            set
+            {
+                LawVote previousValue = this._LawVote.Entity;
+                if (((previousValue != value) 
+                            || (this._LawVote.HasLoadedOrAssignedValue == false)))
+                {
+                    this.SendPropertyChanging();
+                    if ((previousValue != null))
+                    {
+                        this._LawVote.Entity = null;
+                        previousValue.UserLawVotes.Remove(this);
+                    }
+                    this._LawVote.Entity = value;
+                    if ((value != null))
+                    {
+                        value.UserLawVotes.Add(this);
+                        this._LawVoteId = value.LawVoteId;
+                    }
+                    else
+                    {
+                        this._LawVoteId = default(Nullable<int>);
+                    }
+                    this.SendPropertyChanged("LawVote");
+                }
+            }
+        }
+        
+        public event PropertyChangingEventHandler PropertyChanging;
+        
+        public event PropertyChangedEventHandler PropertyChanged;
+        
+        protected virtual void SendPropertyChanging()
+        {
+            if ((this.PropertyChanging != null))
+            {
+                this.PropertyChanging(this, emptyChangingEventArgs);
+            }
+        }
+        
+        protected virtual void SendPropertyChanged(String propertyName)
+        {
+            if ((this.PropertyChanged != null))
+            {
+                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+        
+        private void Initialize()
+        {
+            this._User = default(EntityRef<User>);
+            this._LawVote = default(EntityRef<LawVote>);
+            OnCreated();
+        }
+        
+        [global::System.Runtime.Serialization.OnDeserializingAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnDeserializing(StreamingContext context)
+        {
+            this.Initialize();
+        }
+    }
+    
+    [global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.BlogPost")]
+    [global::System.Runtime.Serialization.DataContractAttribute()]
+    public partial class BlogPost : INotifyPropertyChanging, INotifyPropertyChanged
+    {
+        
+        private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+        
+        private int _BlogPostID;
+        
+        private System.Nullable<System.DateTime> _Date;
+        
+        private string _WordpressId;
+        
+        private string _Summary;
+        
+        private string _Title;
+        
+        private System.Nullable<int> _CommentCount;
+        
+        private string _PermaLink;
+        
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -950,223 +950,223 @@ namespace FT.DB
     partial void OnPermaLinkChanging(string value);
     partial void OnPermaLinkChanged();
     #endregion
-		
-		public BlogPost()
-		{
-			this.Initialize();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BlogPostID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
-		public int BlogPostID
-		{
-			get
-			{
-				return this._BlogPostID;
-			}
-			set
-			{
-				if ((this._BlogPostID != value))
-				{
-					this.OnBlogPostIDChanging(value);
-					this.SendPropertyChanging();
-					this._BlogPostID = value;
-					this.SendPropertyChanged("BlogPostID");
-					this.OnBlogPostIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="DateTime")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-		public System.Nullable<System.DateTime> Date
-		{
-			get
-			{
-				return this._Date;
-			}
-			set
-			{
-				if ((this._Date != value))
-				{
-					this.OnDateChanging(value);
-					this.SendPropertyChanging();
-					this._Date = value;
-					this.SendPropertyChanged("Date");
-					this.OnDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WordpressId", DbType="NVarChar(200)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
-		public string WordpressId
-		{
-			get
-			{
-				return this._WordpressId;
-			}
-			set
-			{
-				if ((this._WordpressId != value))
-				{
-					this.OnWordpressIdChanging(value);
-					this.SendPropertyChanging();
-					this._WordpressId = value;
-					this.SendPropertyChanged("WordpressId");
-					this.OnWordpressIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Summary", DbType="NText", UpdateCheck=UpdateCheck.Never)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
-		public string Summary
-		{
-			get
-			{
-				return this._Summary;
-			}
-			set
-			{
-				if ((this._Summary != value))
-				{
-					this.OnSummaryChanging(value);
-					this.SendPropertyChanging();
-					this._Summary = value;
-					this.SendPropertyChanged("Summary");
-					this.OnSummaryChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", DbType="NText", UpdateCheck=UpdateCheck.Never)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
-		public string Title
-		{
-			get
-			{
-				return this._Title;
-			}
-			set
-			{
-				if ((this._Title != value))
-				{
-					this.OnTitleChanging(value);
-					this.SendPropertyChanging();
-					this._Title = value;
-					this.SendPropertyChanged("Title");
-					this.OnTitleChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CommentCount", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=6)]
-		public System.Nullable<int> CommentCount
-		{
-			get
-			{
-				return this._CommentCount;
-			}
-			set
-			{
-				if ((this._CommentCount != value))
-				{
-					this.OnCommentCountChanging(value);
-					this.SendPropertyChanging();
-					this._CommentCount = value;
-					this.SendPropertyChanged("CommentCount");
-					this.OnCommentCountChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PermaLink", DbType="NText", UpdateCheck=UpdateCheck.Never)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=7)]
-		public string PermaLink
-		{
-			get
-			{
-				return this._PermaLink;
-			}
-			set
-			{
-				if ((this._PermaLink != value))
-				{
-					this.OnPermaLinkChanging(value);
-					this.SendPropertyChanging();
-					this._PermaLink = value;
-					this.SendPropertyChanged("PermaLink");
-					this.OnPermaLinkChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void Initialize()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Runtime.Serialization.OnDeserializingAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnDeserializing(StreamingContext context)
-		{
-			this.Initialize();
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Comment")]
-	[global::System.Runtime.Serialization.DataContractAttribute()]
-	public partial class Comment : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _CommentId;
-		
-		private System.Nullable<int> _ItemId;
-		
-		private System.Nullable<int> _UserId;
-		
-		private System.Nullable<System.DateTime> _Date;
-		
-		private string _CommentText;
-		
-		private System.Nullable<int> _ParentId;
-		
-		private CommentType _CommentType;
-		
-		private EntitySet<Comment> _Comments;
-		
-		private EntitySet<CommentVote> _CommentVotes;
-		
-		private EntityRef<Comment> _Comment1;
-		
-		private EntityRef<User> _User;
-		
-		private bool serializing;
-		
+        
+        public BlogPost()
+        {
+            this.Initialize();
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BlogPostID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public int BlogPostID
+        {
+            get
+            {
+                return this._BlogPostID;
+            }
+            set
+            {
+                if ((this._BlogPostID != value))
+                {
+                    this.OnBlogPostIDChanging(value);
+                    this.SendPropertyChanging();
+                    this._BlogPostID = value;
+                    this.SendPropertyChanged("BlogPostID");
+                    this.OnBlogPostIDChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="DateTime")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public System.Nullable<System.DateTime> Date
+        {
+            get
+            {
+                return this._Date;
+            }
+            set
+            {
+                if ((this._Date != value))
+                {
+                    this.OnDateChanging(value);
+                    this.SendPropertyChanging();
+                    this._Date = value;
+                    this.SendPropertyChanged("Date");
+                    this.OnDateChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WordpressId", DbType="NVarChar(200)")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        public string WordpressId
+        {
+            get
+            {
+                return this._WordpressId;
+            }
+            set
+            {
+                if ((this._WordpressId != value))
+                {
+                    this.OnWordpressIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._WordpressId = value;
+                    this.SendPropertyChanged("WordpressId");
+                    this.OnWordpressIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Summary", DbType="NText", UpdateCheck=UpdateCheck.Never)]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+        public string Summary
+        {
+            get
+            {
+                return this._Summary;
+            }
+            set
+            {
+                if ((this._Summary != value))
+                {
+                    this.OnSummaryChanging(value);
+                    this.SendPropertyChanging();
+                    this._Summary = value;
+                    this.SendPropertyChanged("Summary");
+                    this.OnSummaryChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", DbType="NText", UpdateCheck=UpdateCheck.Never)]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+        public string Title
+        {
+            get
+            {
+                return this._Title;
+            }
+            set
+            {
+                if ((this._Title != value))
+                {
+                    this.OnTitleChanging(value);
+                    this.SendPropertyChanging();
+                    this._Title = value;
+                    this.SendPropertyChanged("Title");
+                    this.OnTitleChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CommentCount", DbType="Int")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=6)]
+        public System.Nullable<int> CommentCount
+        {
+            get
+            {
+                return this._CommentCount;
+            }
+            set
+            {
+                if ((this._CommentCount != value))
+                {
+                    this.OnCommentCountChanging(value);
+                    this.SendPropertyChanging();
+                    this._CommentCount = value;
+                    this.SendPropertyChanged("CommentCount");
+                    this.OnCommentCountChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PermaLink", DbType="NText", UpdateCheck=UpdateCheck.Never)]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=7)]
+        public string PermaLink
+        {
+            get
+            {
+                return this._PermaLink;
+            }
+            set
+            {
+                if ((this._PermaLink != value))
+                {
+                    this.OnPermaLinkChanging(value);
+                    this.SendPropertyChanging();
+                    this._PermaLink = value;
+                    this.SendPropertyChanged("PermaLink");
+                    this.OnPermaLinkChanged();
+                }
+            }
+        }
+        
+        public event PropertyChangingEventHandler PropertyChanging;
+        
+        public event PropertyChangedEventHandler PropertyChanged;
+        
+        protected virtual void SendPropertyChanging()
+        {
+            if ((this.PropertyChanging != null))
+            {
+                this.PropertyChanging(this, emptyChangingEventArgs);
+            }
+        }
+        
+        protected virtual void SendPropertyChanged(String propertyName)
+        {
+            if ((this.PropertyChanged != null))
+            {
+                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+        
+        private void Initialize()
+        {
+            OnCreated();
+        }
+        
+        [global::System.Runtime.Serialization.OnDeserializingAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnDeserializing(StreamingContext context)
+        {
+            this.Initialize();
+        }
+    }
+    
+    [global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Comment")]
+    [global::System.Runtime.Serialization.DataContractAttribute()]
+    public partial class Comment : INotifyPropertyChanging, INotifyPropertyChanged
+    {
+        
+        private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+        
+        private int _CommentId;
+        
+        private System.Nullable<int> _ItemId;
+        
+        private System.Nullable<int> _UserId;
+        
+        private System.Nullable<System.DateTime> _Date;
+        
+        private string _CommentText;
+        
+        private System.Nullable<int> _ParentId;
+        
+        private CommentType _CommentType;
+        
+        private EntitySet<Comment> _Comments;
+        
+        private EntitySet<CommentVote> _CommentVotes;
+        
+        private EntityRef<Comment> _Comment1;
+        
+        private EntityRef<User> _User;
+        
+        private bool serializing;
+        
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -1186,369 +1186,369 @@ namespace FT.DB
     partial void OnCommentTypeChanging(CommentType value);
     partial void OnCommentTypeChanged();
     #endregion
-		
-		public Comment()
-		{
-			this.Initialize();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CommentId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
-		public int CommentId
-		{
-			get
-			{
-				return this._CommentId;
-			}
-			set
-			{
-				if ((this._CommentId != value))
-				{
-					this.OnCommentIdChanging(value);
-					this.SendPropertyChanging();
-					this._CommentId = value;
-					this.SendPropertyChanged("CommentId");
-					this.OnCommentIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ItemId", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-		public System.Nullable<int> ItemId
-		{
-			get
-			{
-				return this._ItemId;
-			}
-			set
-			{
-				if ((this._ItemId != value))
-				{
-					this.OnItemIdChanging(value);
-					this.SendPropertyChanging();
-					this._ItemId = value;
-					this.SendPropertyChanged("ItemId");
-					this.OnItemIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserId", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
-		public System.Nullable<int> UserId
-		{
-			get
-			{
-				return this._UserId;
-			}
-			set
-			{
-				if ((this._UserId != value))
-				{
-					if (this._User.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnUserIdChanging(value);
-					this.SendPropertyChanging();
-					this._UserId = value;
-					this.SendPropertyChanged("UserId");
-					this.OnUserIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="DateTime")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
-		public System.Nullable<System.DateTime> Date
-		{
-			get
-			{
-				return this._Date;
-			}
-			set
-			{
-				if ((this._Date != value))
-				{
-					this.OnDateChanging(value);
-					this.SendPropertyChanging();
-					this._Date = value;
-					this.SendPropertyChanged("Date");
-					this.OnDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CommentText", DbType="NText", UpdateCheck=UpdateCheck.Never)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
-		public string CommentText
-		{
-			get
-			{
-				return this._CommentText;
-			}
-			set
-			{
-				if ((this._CommentText != value))
-				{
-					this.OnCommentTextChanging(value);
-					this.SendPropertyChanging();
-					this._CommentText = value;
-					this.SendPropertyChanged("CommentText");
-					this.OnCommentTextChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ParentId", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=6)]
-		public System.Nullable<int> ParentId
-		{
-			get
-			{
-				return this._ParentId;
-			}
-			set
-			{
-				if ((this._ParentId != value))
-				{
-					if (this._Comment1.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnParentIdChanging(value);
-					this.SendPropertyChanging();
-					this._ParentId = value;
-					this.SendPropertyChanged("ParentId");
-					this.OnParentIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CommentType", DbType="TinyInt", CanBeNull=true)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=7)]
-		public CommentType CommentType
-		{
-			get
-			{
-				return this._CommentType;
-			}
-			set
-			{
-				if ((this._CommentType != value))
-				{
-					this.OnCommentTypeChanging(value);
-					this.SendPropertyChanging();
-					this._CommentType = value;
-					this.SendPropertyChanged("CommentType");
-					this.OnCommentTypeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Comment_Comment", Storage="_Comments", ThisKey="CommentId", OtherKey="ParentId")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=8, EmitDefaultValue=false)]
-		public EntitySet<Comment> Comments
-		{
-			get
-			{
-				if ((this.serializing 
-							&& (this._Comments.HasLoadedOrAssignedValues == false)))
-				{
-					return null;
-				}
-				return this._Comments;
-			}
-			set
-			{
-				this._Comments.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Comment_CommentVote", Storage="_CommentVotes", ThisKey="CommentId", OtherKey="CommentId")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=9, EmitDefaultValue=false)]
-		public EntitySet<CommentVote> CommentVotes
-		{
-			get
-			{
-				if ((this.serializing 
-							&& (this._CommentVotes.HasLoadedOrAssignedValues == false)))
-				{
-					return null;
-				}
-				return this._CommentVotes;
-			}
-			set
-			{
-				this._CommentVotes.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Comment_Comment", Storage="_Comment1", ThisKey="ParentId", OtherKey="CommentId", IsForeignKey=true)]
-		public Comment Comment1
-		{
-			get
-			{
-				return this._Comment1.Entity;
-			}
-			set
-			{
-				Comment previousValue = this._Comment1.Entity;
-				if (((previousValue != value) 
-							|| (this._Comment1.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Comment1.Entity = null;
-						previousValue.Comments.Remove(this);
-					}
-					this._Comment1.Entity = value;
-					if ((value != null))
-					{
-						value.Comments.Add(this);
-						this._ParentId = value.CommentId;
-					}
-					else
-					{
-						this._ParentId = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Comment1");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_Comment", Storage="_User", ThisKey="UserId", OtherKey="UserId", IsForeignKey=true)]
-		public User User
-		{
-			get
-			{
-				return this._User.Entity;
-			}
-			set
-			{
-				User previousValue = this._User.Entity;
-				if (((previousValue != value) 
-							|| (this._User.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._User.Entity = null;
-						previousValue.Comments.Remove(this);
-					}
-					this._User.Entity = value;
-					if ((value != null))
-					{
-						value.Comments.Add(this);
-						this._UserId = value.UserId;
-					}
-					else
-					{
-						this._UserId = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("User");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Comments(Comment entity)
-		{
-			this.SendPropertyChanging();
-			entity.Comment1 = this;
-		}
-		
-		private void detach_Comments(Comment entity)
-		{
-			this.SendPropertyChanging();
-			entity.Comment1 = null;
-		}
-		
-		private void attach_CommentVotes(CommentVote entity)
-		{
-			this.SendPropertyChanging();
-			entity.Comment = this;
-		}
-		
-		private void detach_CommentVotes(CommentVote entity)
-		{
-			this.SendPropertyChanging();
-			entity.Comment = null;
-		}
-		
-		private void Initialize()
-		{
-			this._Comments = new EntitySet<Comment>(new Action<Comment>(this.attach_Comments), new Action<Comment>(this.detach_Comments));
-			this._CommentVotes = new EntitySet<CommentVote>(new Action<CommentVote>(this.attach_CommentVotes), new Action<CommentVote>(this.detach_CommentVotes));
-			this._Comment1 = default(EntityRef<Comment>);
-			this._User = default(EntityRef<User>);
-			OnCreated();
-		}
-		
-		[global::System.Runtime.Serialization.OnDeserializingAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnDeserializing(StreamingContext context)
-		{
-			this.Initialize();
-		}
-		
-		[global::System.Runtime.Serialization.OnSerializingAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnSerializing(StreamingContext context)
-		{
-			this.serializing = true;
-		}
-		
-		[global::System.Runtime.Serialization.OnSerializedAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnSerialized(StreamingContext context)
-		{
-			this.serializing = false;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CommentVote")]
-	[global::System.Runtime.Serialization.DataContractAttribute()]
-	public partial class CommentVote : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _CommentVoteId;
-		
-		private System.Nullable<int> _CommentId;
-		
-		private System.Nullable<int> _UserId;
-		
-		private System.Nullable<System.DateTime> _Date;
-		
-		private System.Nullable<byte> _Vote;
-		
-		private EntityRef<Comment> _Comment;
-		
-		private EntityRef<User> _User;
-		
+        
+        public Comment()
+        {
+            this.Initialize();
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CommentId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public int CommentId
+        {
+            get
+            {
+                return this._CommentId;
+            }
+            set
+            {
+                if ((this._CommentId != value))
+                {
+                    this.OnCommentIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._CommentId = value;
+                    this.SendPropertyChanged("CommentId");
+                    this.OnCommentIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ItemId", DbType="Int")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public System.Nullable<int> ItemId
+        {
+            get
+            {
+                return this._ItemId;
+            }
+            set
+            {
+                if ((this._ItemId != value))
+                {
+                    this.OnItemIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._ItemId = value;
+                    this.SendPropertyChanged("ItemId");
+                    this.OnItemIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserId", DbType="Int")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        public System.Nullable<int> UserId
+        {
+            get
+            {
+                return this._UserId;
+            }
+            set
+            {
+                if ((this._UserId != value))
+                {
+                    if (this._User.HasLoadedOrAssignedValue)
+                    {
+                        throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+                    }
+                    this.OnUserIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._UserId = value;
+                    this.SendPropertyChanged("UserId");
+                    this.OnUserIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="DateTime")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+        public System.Nullable<System.DateTime> Date
+        {
+            get
+            {
+                return this._Date;
+            }
+            set
+            {
+                if ((this._Date != value))
+                {
+                    this.OnDateChanging(value);
+                    this.SendPropertyChanging();
+                    this._Date = value;
+                    this.SendPropertyChanged("Date");
+                    this.OnDateChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CommentText", DbType="NText", UpdateCheck=UpdateCheck.Never)]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+        public string CommentText
+        {
+            get
+            {
+                return this._CommentText;
+            }
+            set
+            {
+                if ((this._CommentText != value))
+                {
+                    this.OnCommentTextChanging(value);
+                    this.SendPropertyChanging();
+                    this._CommentText = value;
+                    this.SendPropertyChanged("CommentText");
+                    this.OnCommentTextChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ParentId", DbType="Int")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=6)]
+        public System.Nullable<int> ParentId
+        {
+            get
+            {
+                return this._ParentId;
+            }
+            set
+            {
+                if ((this._ParentId != value))
+                {
+                    if (this._Comment1.HasLoadedOrAssignedValue)
+                    {
+                        throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+                    }
+                    this.OnParentIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._ParentId = value;
+                    this.SendPropertyChanged("ParentId");
+                    this.OnParentIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CommentType", DbType="TinyInt", CanBeNull=true)]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=7)]
+        public CommentType CommentType
+        {
+            get
+            {
+                return this._CommentType;
+            }
+            set
+            {
+                if ((this._CommentType != value))
+                {
+                    this.OnCommentTypeChanging(value);
+                    this.SendPropertyChanging();
+                    this._CommentType = value;
+                    this.SendPropertyChanged("CommentType");
+                    this.OnCommentTypeChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Comment_Comment", Storage="_Comments", ThisKey="CommentId", OtherKey="ParentId")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=8, EmitDefaultValue=false)]
+        public EntitySet<Comment> Comments
+        {
+            get
+            {
+                if ((this.serializing 
+                            && (this._Comments.HasLoadedOrAssignedValues == false)))
+                {
+                    return null;
+                }
+                return this._Comments;
+            }
+            set
+            {
+                this._Comments.Assign(value);
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Comment_CommentVote", Storage="_CommentVotes", ThisKey="CommentId", OtherKey="CommentId")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=9, EmitDefaultValue=false)]
+        public EntitySet<CommentVote> CommentVotes
+        {
+            get
+            {
+                if ((this.serializing 
+                            && (this._CommentVotes.HasLoadedOrAssignedValues == false)))
+                {
+                    return null;
+                }
+                return this._CommentVotes;
+            }
+            set
+            {
+                this._CommentVotes.Assign(value);
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Comment_Comment", Storage="_Comment1", ThisKey="ParentId", OtherKey="CommentId", IsForeignKey=true)]
+        public Comment Comment1
+        {
+            get
+            {
+                return this._Comment1.Entity;
+            }
+            set
+            {
+                Comment previousValue = this._Comment1.Entity;
+                if (((previousValue != value) 
+                            || (this._Comment1.HasLoadedOrAssignedValue == false)))
+                {
+                    this.SendPropertyChanging();
+                    if ((previousValue != null))
+                    {
+                        this._Comment1.Entity = null;
+                        previousValue.Comments.Remove(this);
+                    }
+                    this._Comment1.Entity = value;
+                    if ((value != null))
+                    {
+                        value.Comments.Add(this);
+                        this._ParentId = value.CommentId;
+                    }
+                    else
+                    {
+                        this._ParentId = default(Nullable<int>);
+                    }
+                    this.SendPropertyChanged("Comment1");
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_Comment", Storage="_User", ThisKey="UserId", OtherKey="UserId", IsForeignKey=true)]
+        public User User
+        {
+            get
+            {
+                return this._User.Entity;
+            }
+            set
+            {
+                User previousValue = this._User.Entity;
+                if (((previousValue != value) 
+                            || (this._User.HasLoadedOrAssignedValue == false)))
+                {
+                    this.SendPropertyChanging();
+                    if ((previousValue != null))
+                    {
+                        this._User.Entity = null;
+                        previousValue.Comments.Remove(this);
+                    }
+                    this._User.Entity = value;
+                    if ((value != null))
+                    {
+                        value.Comments.Add(this);
+                        this._UserId = value.UserId;
+                    }
+                    else
+                    {
+                        this._UserId = default(Nullable<int>);
+                    }
+                    this.SendPropertyChanged("User");
+                }
+            }
+        }
+        
+        public event PropertyChangingEventHandler PropertyChanging;
+        
+        public event PropertyChangedEventHandler PropertyChanged;
+        
+        protected virtual void SendPropertyChanging()
+        {
+            if ((this.PropertyChanging != null))
+            {
+                this.PropertyChanging(this, emptyChangingEventArgs);
+            }
+        }
+        
+        protected virtual void SendPropertyChanged(String propertyName)
+        {
+            if ((this.PropertyChanged != null))
+            {
+                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+        
+        private void attach_Comments(Comment entity)
+        {
+            this.SendPropertyChanging();
+            entity.Comment1 = this;
+        }
+        
+        private void detach_Comments(Comment entity)
+        {
+            this.SendPropertyChanging();
+            entity.Comment1 = null;
+        }
+        
+        private void attach_CommentVotes(CommentVote entity)
+        {
+            this.SendPropertyChanging();
+            entity.Comment = this;
+        }
+        
+        private void detach_CommentVotes(CommentVote entity)
+        {
+            this.SendPropertyChanging();
+            entity.Comment = null;
+        }
+        
+        private void Initialize()
+        {
+            this._Comments = new EntitySet<Comment>(new Action<Comment>(this.attach_Comments), new Action<Comment>(this.detach_Comments));
+            this._CommentVotes = new EntitySet<CommentVote>(new Action<CommentVote>(this.attach_CommentVotes), new Action<CommentVote>(this.detach_CommentVotes));
+            this._Comment1 = default(EntityRef<Comment>);
+            this._User = default(EntityRef<User>);
+            OnCreated();
+        }
+        
+        [global::System.Runtime.Serialization.OnDeserializingAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnDeserializing(StreamingContext context)
+        {
+            this.Initialize();
+        }
+        
+        [global::System.Runtime.Serialization.OnSerializingAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnSerializing(StreamingContext context)
+        {
+            this.serializing = true;
+        }
+        
+        [global::System.Runtime.Serialization.OnSerializedAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnSerialized(StreamingContext context)
+        {
+            this.serializing = false;
+        }
+    }
+    
+    [global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CommentVote")]
+    [global::System.Runtime.Serialization.DataContractAttribute()]
+    public partial class CommentVote : INotifyPropertyChanging, INotifyPropertyChanged
+    {
+        
+        private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+        
+        private int _CommentVoteId;
+        
+        private System.Nullable<int> _CommentId;
+        
+        private System.Nullable<int> _UserId;
+        
+        private System.Nullable<System.DateTime> _Date;
+        
+        private System.Nullable<byte> _Vote;
+        
+        private EntityRef<Comment> _Comment;
+        
+        private EntityRef<User> _User;
+        
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -1564,249 +1564,249 @@ namespace FT.DB
     partial void OnVoteChanging(System.Nullable<byte> value);
     partial void OnVoteChanged();
     #endregion
-		
-		public CommentVote()
-		{
-			this.Initialize();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CommentVoteId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
-		public int CommentVoteId
-		{
-			get
-			{
-				return this._CommentVoteId;
-			}
-			set
-			{
-				if ((this._CommentVoteId != value))
-				{
-					this.OnCommentVoteIdChanging(value);
-					this.SendPropertyChanging();
-					this._CommentVoteId = value;
-					this.SendPropertyChanged("CommentVoteId");
-					this.OnCommentVoteIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CommentId", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-		public System.Nullable<int> CommentId
-		{
-			get
-			{
-				return this._CommentId;
-			}
-			set
-			{
-				if ((this._CommentId != value))
-				{
-					if (this._Comment.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnCommentIdChanging(value);
-					this.SendPropertyChanging();
-					this._CommentId = value;
-					this.SendPropertyChanged("CommentId");
-					this.OnCommentIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserId", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
-		public System.Nullable<int> UserId
-		{
-			get
-			{
-				return this._UserId;
-			}
-			set
-			{
-				if ((this._UserId != value))
-				{
-					if (this._User.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnUserIdChanging(value);
-					this.SendPropertyChanging();
-					this._UserId = value;
-					this.SendPropertyChanged("UserId");
-					this.OnUserIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="DateTime")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
-		public System.Nullable<System.DateTime> Date
-		{
-			get
-			{
-				return this._Date;
-			}
-			set
-			{
-				if ((this._Date != value))
-				{
-					this.OnDateChanging(value);
-					this.SendPropertyChanging();
-					this._Date = value;
-					this.SendPropertyChanged("Date");
-					this.OnDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Vote", DbType="TinyInt")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
-		public System.Nullable<byte> Vote
-		{
-			get
-			{
-				return this._Vote;
-			}
-			set
-			{
-				if ((this._Vote != value))
-				{
-					this.OnVoteChanging(value);
-					this.SendPropertyChanging();
-					this._Vote = value;
-					this.SendPropertyChanged("Vote");
-					this.OnVoteChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Comment_CommentVote", Storage="_Comment", ThisKey="CommentId", OtherKey="CommentId", IsForeignKey=true)]
-		public Comment Comment
-		{
-			get
-			{
-				return this._Comment.Entity;
-			}
-			set
-			{
-				Comment previousValue = this._Comment.Entity;
-				if (((previousValue != value) 
-							|| (this._Comment.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Comment.Entity = null;
-						previousValue.CommentVotes.Remove(this);
-					}
-					this._Comment.Entity = value;
-					if ((value != null))
-					{
-						value.CommentVotes.Add(this);
-						this._CommentId = value.CommentId;
-					}
-					else
-					{
-						this._CommentId = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Comment");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_CommentVote", Storage="_User", ThisKey="UserId", OtherKey="UserId", IsForeignKey=true)]
-		public User User
-		{
-			get
-			{
-				return this._User.Entity;
-			}
-			set
-			{
-				User previousValue = this._User.Entity;
-				if (((previousValue != value) 
-							|| (this._User.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._User.Entity = null;
-						previousValue.CommentVotes.Remove(this);
-					}
-					this._User.Entity = value;
-					if ((value != null))
-					{
-						value.CommentVotes.Add(this);
-						this._UserId = value.UserId;
-					}
-					else
-					{
-						this._UserId = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("User");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void Initialize()
-		{
-			this._Comment = default(EntityRef<Comment>);
-			this._User = default(EntityRef<User>);
-			OnCreated();
-		}
-		
-		[global::System.Runtime.Serialization.OnDeserializingAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnDeserializing(StreamingContext context)
-		{
-			this.Initialize();
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Deliberation")]
-	[global::System.Runtime.Serialization.DataContractAttribute()]
-	public partial class Deliberation : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _DeliberationId;
-		
-		private System.Nullable<int> _LawId;
-		
-		private System.Nullable<System.DateTime> _Date;
-		
-		private LawStage _Number;
-		
-		private EntitySet<Speech> _Speeches;
-		
-		private EntityRef<Law> _Law;
-		
-		private bool serializing;
-		
+        
+        public CommentVote()
+        {
+            this.Initialize();
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CommentVoteId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public int CommentVoteId
+        {
+            get
+            {
+                return this._CommentVoteId;
+            }
+            set
+            {
+                if ((this._CommentVoteId != value))
+                {
+                    this.OnCommentVoteIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._CommentVoteId = value;
+                    this.SendPropertyChanged("CommentVoteId");
+                    this.OnCommentVoteIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CommentId", DbType="Int")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public System.Nullable<int> CommentId
+        {
+            get
+            {
+                return this._CommentId;
+            }
+            set
+            {
+                if ((this._CommentId != value))
+                {
+                    if (this._Comment.HasLoadedOrAssignedValue)
+                    {
+                        throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+                    }
+                    this.OnCommentIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._CommentId = value;
+                    this.SendPropertyChanged("CommentId");
+                    this.OnCommentIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserId", DbType="Int")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        public System.Nullable<int> UserId
+        {
+            get
+            {
+                return this._UserId;
+            }
+            set
+            {
+                if ((this._UserId != value))
+                {
+                    if (this._User.HasLoadedOrAssignedValue)
+                    {
+                        throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+                    }
+                    this.OnUserIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._UserId = value;
+                    this.SendPropertyChanged("UserId");
+                    this.OnUserIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="DateTime")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+        public System.Nullable<System.DateTime> Date
+        {
+            get
+            {
+                return this._Date;
+            }
+            set
+            {
+                if ((this._Date != value))
+                {
+                    this.OnDateChanging(value);
+                    this.SendPropertyChanging();
+                    this._Date = value;
+                    this.SendPropertyChanged("Date");
+                    this.OnDateChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Vote", DbType="TinyInt")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+        public System.Nullable<byte> Vote
+        {
+            get
+            {
+                return this._Vote;
+            }
+            set
+            {
+                if ((this._Vote != value))
+                {
+                    this.OnVoteChanging(value);
+                    this.SendPropertyChanging();
+                    this._Vote = value;
+                    this.SendPropertyChanged("Vote");
+                    this.OnVoteChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Comment_CommentVote", Storage="_Comment", ThisKey="CommentId", OtherKey="CommentId", IsForeignKey=true)]
+        public Comment Comment
+        {
+            get
+            {
+                return this._Comment.Entity;
+            }
+            set
+            {
+                Comment previousValue = this._Comment.Entity;
+                if (((previousValue != value) 
+                            || (this._Comment.HasLoadedOrAssignedValue == false)))
+                {
+                    this.SendPropertyChanging();
+                    if ((previousValue != null))
+                    {
+                        this._Comment.Entity = null;
+                        previousValue.CommentVotes.Remove(this);
+                    }
+                    this._Comment.Entity = value;
+                    if ((value != null))
+                    {
+                        value.CommentVotes.Add(this);
+                        this._CommentId = value.CommentId;
+                    }
+                    else
+                    {
+                        this._CommentId = default(Nullable<int>);
+                    }
+                    this.SendPropertyChanged("Comment");
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_CommentVote", Storage="_User", ThisKey="UserId", OtherKey="UserId", IsForeignKey=true)]
+        public User User
+        {
+            get
+            {
+                return this._User.Entity;
+            }
+            set
+            {
+                User previousValue = this._User.Entity;
+                if (((previousValue != value) 
+                            || (this._User.HasLoadedOrAssignedValue == false)))
+                {
+                    this.SendPropertyChanging();
+                    if ((previousValue != null))
+                    {
+                        this._User.Entity = null;
+                        previousValue.CommentVotes.Remove(this);
+                    }
+                    this._User.Entity = value;
+                    if ((value != null))
+                    {
+                        value.CommentVotes.Add(this);
+                        this._UserId = value.UserId;
+                    }
+                    else
+                    {
+                        this._UserId = default(Nullable<int>);
+                    }
+                    this.SendPropertyChanged("User");
+                }
+            }
+        }
+        
+        public event PropertyChangingEventHandler PropertyChanging;
+        
+        public event PropertyChangedEventHandler PropertyChanged;
+        
+        protected virtual void SendPropertyChanging()
+        {
+            if ((this.PropertyChanging != null))
+            {
+                this.PropertyChanging(this, emptyChangingEventArgs);
+            }
+        }
+        
+        protected virtual void SendPropertyChanged(String propertyName)
+        {
+            if ((this.PropertyChanged != null))
+            {
+                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+        
+        private void Initialize()
+        {
+            this._Comment = default(EntityRef<Comment>);
+            this._User = default(EntityRef<User>);
+            OnCreated();
+        }
+        
+        [global::System.Runtime.Serialization.OnDeserializingAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnDeserializing(StreamingContext context)
+        {
+            this.Initialize();
+        }
+    }
+    
+    [global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Deliberation")]
+    [global::System.Runtime.Serialization.DataContractAttribute()]
+    public partial class Deliberation : INotifyPropertyChanging, INotifyPropertyChanged
+    {
+        
+        private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+        
+        private int _DeliberationId;
+        
+        private System.Nullable<int> _LawId;
+        
+        private System.Nullable<System.DateTime> _Date;
+        
+        private LawStage _Number;
+        
+        private EntitySet<Speech> _Speeches;
+        
+        private EntityRef<Law> _Law;
+        
+        private bool serializing;
+        
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -1820,231 +1820,231 @@ namespace FT.DB
     partial void OnNumberChanging(LawStage value);
     partial void OnNumberChanged();
     #endregion
-		
-		public Deliberation()
-		{
-			this.Initialize();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DeliberationId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
-		public int DeliberationId
-		{
-			get
-			{
-				return this._DeliberationId;
-			}
-			set
-			{
-				if ((this._DeliberationId != value))
-				{
-					this.OnDeliberationIdChanging(value);
-					this.SendPropertyChanging();
-					this._DeliberationId = value;
-					this.SendPropertyChanged("DeliberationId");
-					this.OnDeliberationIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LawId", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-		public System.Nullable<int> LawId
-		{
-			get
-			{
-				return this._LawId;
-			}
-			set
-			{
-				if ((this._LawId != value))
-				{
-					if (this._Law.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnLawIdChanging(value);
-					this.SendPropertyChanging();
-					this._LawId = value;
-					this.SendPropertyChanged("LawId");
-					this.OnLawIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="DateTime")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
-		public System.Nullable<System.DateTime> Date
-		{
-			get
-			{
-				return this._Date;
-			}
-			set
-			{
-				if ((this._Date != value))
-				{
-					this.OnDateChanging(value);
-					this.SendPropertyChanging();
-					this._Date = value;
-					this.SendPropertyChanged("Date");
-					this.OnDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Number", DbType="TinyInt", CanBeNull=true)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
-		public LawStage Number
-		{
-			get
-			{
-				return this._Number;
-			}
-			set
-			{
-				if ((this._Number != value))
-				{
-					this.OnNumberChanging(value);
-					this.SendPropertyChanging();
-					this._Number = value;
-					this.SendPropertyChanged("Number");
-					this.OnNumberChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Deliberation_Speech", Storage="_Speeches", ThisKey="DeliberationId", OtherKey="DeliberationId")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5, EmitDefaultValue=false)]
-		public EntitySet<Speech> Speeches
-		{
-			get
-			{
-				if ((this.serializing 
-							&& (this._Speeches.HasLoadedOrAssignedValues == false)))
-				{
-					return null;
-				}
-				return this._Speeches;
-			}
-			set
-			{
-				this._Speeches.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Law_Deliberation", Storage="_Law", ThisKey="LawId", OtherKey="LawId", IsForeignKey=true)]
-		public Law Law
-		{
-			get
-			{
-				return this._Law.Entity;
-			}
-			set
-			{
-				Law previousValue = this._Law.Entity;
-				if (((previousValue != value) 
-							|| (this._Law.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Law.Entity = null;
-						previousValue.Deliberations.Remove(this);
-					}
-					this._Law.Entity = value;
-					if ((value != null))
-					{
-						value.Deliberations.Add(this);
-						this._LawId = value.LawId;
-					}
-					else
-					{
-						this._LawId = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Law");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Speeches(Speech entity)
-		{
-			this.SendPropertyChanging();
-			entity.Deliberation = this;
-		}
-		
-		private void detach_Speeches(Speech entity)
-		{
-			this.SendPropertyChanging();
-			entity.Deliberation = null;
-		}
-		
-		private void Initialize()
-		{
-			this._Speeches = new EntitySet<Speech>(new Action<Speech>(this.attach_Speeches), new Action<Speech>(this.detach_Speeches));
-			this._Law = default(EntityRef<Law>);
-			OnCreated();
-		}
-		
-		[global::System.Runtime.Serialization.OnDeserializingAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnDeserializing(StreamingContext context)
-		{
-			this.Initialize();
-		}
-		
-		[global::System.Runtime.Serialization.OnSerializingAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnSerializing(StreamingContext context)
-		{
-			this.serializing = true;
-		}
-		
-		[global::System.Runtime.Serialization.OnSerializedAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnSerialized(StreamingContext context)
-		{
-			this.serializing = false;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Hit")]
-	[global::System.Runtime.Serialization.DataContractAttribute()]
-	public partial class Hit : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ContentId;
-		
-		private ContentType _ContentType;
-		
-		private System.DateTime _Date;
-		
-		private long _HitId;
-		
-		private System.Data.Linq.Binary _IP;
-		
+        
+        public Deliberation()
+        {
+            this.Initialize();
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DeliberationId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public int DeliberationId
+        {
+            get
+            {
+                return this._DeliberationId;
+            }
+            set
+            {
+                if ((this._DeliberationId != value))
+                {
+                    this.OnDeliberationIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._DeliberationId = value;
+                    this.SendPropertyChanged("DeliberationId");
+                    this.OnDeliberationIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LawId", DbType="Int")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public System.Nullable<int> LawId
+        {
+            get
+            {
+                return this._LawId;
+            }
+            set
+            {
+                if ((this._LawId != value))
+                {
+                    if (this._Law.HasLoadedOrAssignedValue)
+                    {
+                        throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+                    }
+                    this.OnLawIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._LawId = value;
+                    this.SendPropertyChanged("LawId");
+                    this.OnLawIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="DateTime")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        public System.Nullable<System.DateTime> Date
+        {
+            get
+            {
+                return this._Date;
+            }
+            set
+            {
+                if ((this._Date != value))
+                {
+                    this.OnDateChanging(value);
+                    this.SendPropertyChanging();
+                    this._Date = value;
+                    this.SendPropertyChanged("Date");
+                    this.OnDateChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Number", DbType="TinyInt", CanBeNull=true)]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+        public LawStage Number
+        {
+            get
+            {
+                return this._Number;
+            }
+            set
+            {
+                if ((this._Number != value))
+                {
+                    this.OnNumberChanging(value);
+                    this.SendPropertyChanging();
+                    this._Number = value;
+                    this.SendPropertyChanged("Number");
+                    this.OnNumberChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Deliberation_Speech", Storage="_Speeches", ThisKey="DeliberationId", OtherKey="DeliberationId")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=5, EmitDefaultValue=false)]
+        public EntitySet<Speech> Speeches
+        {
+            get
+            {
+                if ((this.serializing 
+                            && (this._Speeches.HasLoadedOrAssignedValues == false)))
+                {
+                    return null;
+                }
+                return this._Speeches;
+            }
+            set
+            {
+                this._Speeches.Assign(value);
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Law_Deliberation", Storage="_Law", ThisKey="LawId", OtherKey="LawId", IsForeignKey=true)]
+        public Law Law
+        {
+            get
+            {
+                return this._Law.Entity;
+            }
+            set
+            {
+                Law previousValue = this._Law.Entity;
+                if (((previousValue != value) 
+                            || (this._Law.HasLoadedOrAssignedValue == false)))
+                {
+                    this.SendPropertyChanging();
+                    if ((previousValue != null))
+                    {
+                        this._Law.Entity = null;
+                        previousValue.Deliberations.Remove(this);
+                    }
+                    this._Law.Entity = value;
+                    if ((value != null))
+                    {
+                        value.Deliberations.Add(this);
+                        this._LawId = value.LawId;
+                    }
+                    else
+                    {
+                        this._LawId = default(Nullable<int>);
+                    }
+                    this.SendPropertyChanged("Law");
+                }
+            }
+        }
+        
+        public event PropertyChangingEventHandler PropertyChanging;
+        
+        public event PropertyChangedEventHandler PropertyChanged;
+        
+        protected virtual void SendPropertyChanging()
+        {
+            if ((this.PropertyChanging != null))
+            {
+                this.PropertyChanging(this, emptyChangingEventArgs);
+            }
+        }
+        
+        protected virtual void SendPropertyChanged(String propertyName)
+        {
+            if ((this.PropertyChanged != null))
+            {
+                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+        
+        private void attach_Speeches(Speech entity)
+        {
+            this.SendPropertyChanging();
+            entity.Deliberation = this;
+        }
+        
+        private void detach_Speeches(Speech entity)
+        {
+            this.SendPropertyChanging();
+            entity.Deliberation = null;
+        }
+        
+        private void Initialize()
+        {
+            this._Speeches = new EntitySet<Speech>(new Action<Speech>(this.attach_Speeches), new Action<Speech>(this.detach_Speeches));
+            this._Law = default(EntityRef<Law>);
+            OnCreated();
+        }
+        
+        [global::System.Runtime.Serialization.OnDeserializingAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnDeserializing(StreamingContext context)
+        {
+            this.Initialize();
+        }
+        
+        [global::System.Runtime.Serialization.OnSerializingAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnSerializing(StreamingContext context)
+        {
+            this.serializing = true;
+        }
+        
+        [global::System.Runtime.Serialization.OnSerializedAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnSerialized(StreamingContext context)
+        {
+            this.serializing = false;
+        }
+    }
+    
+    [global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Hit")]
+    [global::System.Runtime.Serialization.DataContractAttribute()]
+    public partial class Hit : INotifyPropertyChanging, INotifyPropertyChanged
+    {
+        
+        private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+        
+        private int _ContentId;
+        
+        private ContentType _ContentType;
+        
+        private System.DateTime _Date;
+        
+        private long _HitId;
+        
+        private System.Data.Linq.Binary _IP;
+        
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -2060,167 +2060,167 @@ namespace FT.DB
     partial void OnIPChanging(System.Data.Linq.Binary value);
     partial void OnIPChanged();
     #endregion
-		
-		public Hit()
-		{
-			this.Initialize();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContentId", DbType="Int NOT NULL")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
-		public int ContentId
-		{
-			get
-			{
-				return this._ContentId;
-			}
-			set
-			{
-				if ((this._ContentId != value))
-				{
-					this.OnContentIdChanging(value);
-					this.SendPropertyChanging();
-					this._ContentId = value;
-					this.SendPropertyChanged("ContentId");
-					this.OnContentIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContentType", DbType="TinyInt NOT NULL", CanBeNull=false)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-		public ContentType ContentType
-		{
-			get
-			{
-				return this._ContentType;
-			}
-			set
-			{
-				if ((this._ContentType != value))
-				{
-					this.OnContentTypeChanging(value);
-					this.SendPropertyChanging();
-					this._ContentType = value;
-					this.SendPropertyChanged("ContentType");
-					this.OnContentTypeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="DateTime NOT NULL")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
-		public System.DateTime Date
-		{
-			get
-			{
-				return this._Date;
-			}
-			set
-			{
-				if ((this._Date != value))
-				{
-					this.OnDateChanging(value);
-					this.SendPropertyChanging();
-					this._Date = value;
-					this.SendPropertyChanged("Date");
-					this.OnDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HitId", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
-		public long HitId
-		{
-			get
-			{
-				return this._HitId;
-			}
-			set
-			{
-				if ((this._HitId != value))
-				{
-					this.OnHitIdChanging(value);
-					this.SendPropertyChanging();
-					this._HitId = value;
-					this.SendPropertyChanged("HitId");
-					this.OnHitIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IP", DbType="Binary(4) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
-		public System.Data.Linq.Binary IP
-		{
-			get
-			{
-				return this._IP;
-			}
-			set
-			{
-				if ((this._IP != value))
-				{
-					this.OnIPChanging(value);
-					this.SendPropertyChanging();
-					this._IP = value;
-					this.SendPropertyChanged("IP");
-					this.OnIPChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void Initialize()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Runtime.Serialization.OnDeserializingAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnDeserializing(StreamingContext context)
-		{
-			this.Initialize();
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Image")]
-	[global::System.Runtime.Serialization.DataContractAttribute()]
-	public partial class Image : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ImageId;
-		
-		private string _ContentType;
-		
-		private System.Data.Linq.Binary _Data;
-		
-		private EntitySet<Politician> _Politicians1;
-		
-		private bool serializing;
-		
+        
+        public Hit()
+        {
+            this.Initialize();
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContentId", DbType="Int NOT NULL")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public int ContentId
+        {
+            get
+            {
+                return this._ContentId;
+            }
+            set
+            {
+                if ((this._ContentId != value))
+                {
+                    this.OnContentIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._ContentId = value;
+                    this.SendPropertyChanged("ContentId");
+                    this.OnContentIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContentType", DbType="TinyInt NOT NULL", CanBeNull=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public ContentType ContentType
+        {
+            get
+            {
+                return this._ContentType;
+            }
+            set
+            {
+                if ((this._ContentType != value))
+                {
+                    this.OnContentTypeChanging(value);
+                    this.SendPropertyChanging();
+                    this._ContentType = value;
+                    this.SendPropertyChanged("ContentType");
+                    this.OnContentTypeChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="DateTime NOT NULL")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        public System.DateTime Date
+        {
+            get
+            {
+                return this._Date;
+            }
+            set
+            {
+                if ((this._Date != value))
+                {
+                    this.OnDateChanging(value);
+                    this.SendPropertyChanging();
+                    this._Date = value;
+                    this.SendPropertyChanged("Date");
+                    this.OnDateChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HitId", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+        public long HitId
+        {
+            get
+            {
+                return this._HitId;
+            }
+            set
+            {
+                if ((this._HitId != value))
+                {
+                    this.OnHitIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._HitId = value;
+                    this.SendPropertyChanged("HitId");
+                    this.OnHitIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IP", DbType="Binary(4) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+        public System.Data.Linq.Binary IP
+        {
+            get
+            {
+                return this._IP;
+            }
+            set
+            {
+                if ((this._IP != value))
+                {
+                    this.OnIPChanging(value);
+                    this.SendPropertyChanging();
+                    this._IP = value;
+                    this.SendPropertyChanged("IP");
+                    this.OnIPChanged();
+                }
+            }
+        }
+        
+        public event PropertyChangingEventHandler PropertyChanging;
+        
+        public event PropertyChangedEventHandler PropertyChanged;
+        
+        protected virtual void SendPropertyChanging()
+        {
+            if ((this.PropertyChanging != null))
+            {
+                this.PropertyChanging(this, emptyChangingEventArgs);
+            }
+        }
+        
+        protected virtual void SendPropertyChanged(String propertyName)
+        {
+            if ((this.PropertyChanged != null))
+            {
+                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+        
+        private void Initialize()
+        {
+            OnCreated();
+        }
+        
+        [global::System.Runtime.Serialization.OnDeserializingAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnDeserializing(StreamingContext context)
+        {
+            this.Initialize();
+        }
+    }
+    
+    [global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Image")]
+    [global::System.Runtime.Serialization.DataContractAttribute()]
+    public partial class Image : INotifyPropertyChanging, INotifyPropertyChanged
+    {
+        
+        private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+        
+        private int _ImageId;
+        
+        private string _ContentType;
+        
+        private System.Data.Linq.Binary _Data;
+        
+        private EntitySet<Politician> _Politicians1;
+        
+        private bool serializing;
+        
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -2232,175 +2232,175 @@ namespace FT.DB
     partial void OnDataChanging(System.Data.Linq.Binary value);
     partial void OnDataChanged();
     #endregion
-		
-		public Image()
-		{
-			this.Initialize();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImageId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
-		public int ImageId
-		{
-			get
-			{
-				return this._ImageId;
-			}
-			set
-			{
-				if ((this._ImageId != value))
-				{
-					this.OnImageIdChanging(value);
-					this.SendPropertyChanging();
-					this._ImageId = value;
-					this.SendPropertyChanged("ImageId");
-					this.OnImageIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContentType", DbType="VarChar(50)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-		public string ContentType
-		{
-			get
-			{
-				return this._ContentType;
-			}
-			set
-			{
-				if ((this._ContentType != value))
-				{
-					this.OnContentTypeChanging(value);
-					this.SendPropertyChanging();
-					this._ContentType = value;
-					this.SendPropertyChanged("ContentType");
-					this.OnContentTypeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Data", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
-		public System.Data.Linq.Binary Data
-		{
-			get
-			{
-				return this._Data;
-			}
-			set
-			{
-				if ((this._Data != value))
-				{
-					this.OnDataChanging(value);
-					this.SendPropertyChanging();
-					this._Data = value;
-					this.SendPropertyChanged("Data");
-					this.OnDataChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Image_Politician", Storage="_Politicians1", ThisKey="ImageId", OtherKey="ImageId")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4, EmitDefaultValue=false)]
-		public EntitySet<Politician> Politicians1
-		{
-			get
-			{
-				if ((this.serializing 
-							&& (this._Politicians1.HasLoadedOrAssignedValues == false)))
-				{
-					return null;
-				}
-				return this._Politicians1;
-			}
-			set
-			{
-				this._Politicians1.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Politicians1(Politician entity)
-		{
-			this.SendPropertyChanging();
-			entity.Image1 = this;
-		}
-		
-		private void detach_Politicians1(Politician entity)
-		{
-			this.SendPropertyChanging();
-			entity.Image1 = null;
-		}
-		
-		private void Initialize()
-		{
-			this._Politicians1 = new EntitySet<Politician>(new Action<Politician>(this.attach_Politicians1), new Action<Politician>(this.detach_Politicians1));
-			OnCreated();
-		}
-		
-		[global::System.Runtime.Serialization.OnDeserializingAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnDeserializing(StreamingContext context)
-		{
-			this.Initialize();
-		}
-		
-		[global::System.Runtime.Serialization.OnSerializingAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnSerializing(StreamingContext context)
-		{
-			this.serializing = true;
-		}
-		
-		[global::System.Runtime.Serialization.OnSerializedAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnSerialized(StreamingContext context)
-		{
-			this.serializing = false;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.LawChange")]
-	[global::System.Runtime.Serialization.DataContractAttribute()]
-	public partial class LawChange : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _LawChangeId;
-		
-		private System.Nullable<int> _ParagraphId;
-		
-		private System.Nullable<int> _Number;
-		
-		private string _NoformChangeText;
-		
-		private EntitySet<SubChange> _SubChanges;
-		
-		private EntityRef<Paragraph> _Paragraph;
-		
-		private bool serializing;
-		
+        
+        public Image()
+        {
+            this.Initialize();
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImageId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public int ImageId
+        {
+            get
+            {
+                return this._ImageId;
+            }
+            set
+            {
+                if ((this._ImageId != value))
+                {
+                    this.OnImageIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._ImageId = value;
+                    this.SendPropertyChanged("ImageId");
+                    this.OnImageIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContentType", DbType="VarChar(50)")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public string ContentType
+        {
+            get
+            {
+                return this._ContentType;
+            }
+            set
+            {
+                if ((this._ContentType != value))
+                {
+                    this.OnContentTypeChanging(value);
+                    this.SendPropertyChanging();
+                    this._ContentType = value;
+                    this.SendPropertyChanged("ContentType");
+                    this.OnContentTypeChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Data", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        public System.Data.Linq.Binary Data
+        {
+            get
+            {
+                return this._Data;
+            }
+            set
+            {
+                if ((this._Data != value))
+                {
+                    this.OnDataChanging(value);
+                    this.SendPropertyChanging();
+                    this._Data = value;
+                    this.SendPropertyChanged("Data");
+                    this.OnDataChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Image_Politician", Storage="_Politicians1", ThisKey="ImageId", OtherKey="ImageId")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=4, EmitDefaultValue=false)]
+        public EntitySet<Politician> Politicians1
+        {
+            get
+            {
+                if ((this.serializing 
+                            && (this._Politicians1.HasLoadedOrAssignedValues == false)))
+                {
+                    return null;
+                }
+                return this._Politicians1;
+            }
+            set
+            {
+                this._Politicians1.Assign(value);
+            }
+        }
+        
+        public event PropertyChangingEventHandler PropertyChanging;
+        
+        public event PropertyChangedEventHandler PropertyChanged;
+        
+        protected virtual void SendPropertyChanging()
+        {
+            if ((this.PropertyChanging != null))
+            {
+                this.PropertyChanging(this, emptyChangingEventArgs);
+            }
+        }
+        
+        protected virtual void SendPropertyChanged(String propertyName)
+        {
+            if ((this.PropertyChanged != null))
+            {
+                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+        
+        private void attach_Politicians1(Politician entity)
+        {
+            this.SendPropertyChanging();
+            entity.Image1 = this;
+        }
+        
+        private void detach_Politicians1(Politician entity)
+        {
+            this.SendPropertyChanging();
+            entity.Image1 = null;
+        }
+        
+        private void Initialize()
+        {
+            this._Politicians1 = new EntitySet<Politician>(new Action<Politician>(this.attach_Politicians1), new Action<Politician>(this.detach_Politicians1));
+            OnCreated();
+        }
+        
+        [global::System.Runtime.Serialization.OnDeserializingAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnDeserializing(StreamingContext context)
+        {
+            this.Initialize();
+        }
+        
+        [global::System.Runtime.Serialization.OnSerializingAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnSerializing(StreamingContext context)
+        {
+            this.serializing = true;
+        }
+        
+        [global::System.Runtime.Serialization.OnSerializedAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnSerialized(StreamingContext context)
+        {
+            this.serializing = false;
+        }
+    }
+    
+    [global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.LawChange")]
+    [global::System.Runtime.Serialization.DataContractAttribute()]
+    public partial class LawChange : INotifyPropertyChanging, INotifyPropertyChanged
+    {
+        
+        private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+        
+        private int _LawChangeId;
+        
+        private System.Nullable<int> _ParagraphId;
+        
+        private System.Nullable<int> _Number;
+        
+        private string _NoformChangeText;
+        
+        private EntitySet<SubChange> _SubChanges;
+        
+        private EntityRef<Paragraph> _Paragraph;
+        
+        private bool serializing;
+        
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -2414,237 +2414,237 @@ namespace FT.DB
     partial void OnNoformChangeTextChanging(string value);
     partial void OnNoformChangeTextChanged();
     #endregion
-		
-		public LawChange()
-		{
-			this.Initialize();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LawChangeId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
-		public int LawChangeId
-		{
-			get
-			{
-				return this._LawChangeId;
-			}
-			set
-			{
-				if ((this._LawChangeId != value))
-				{
-					this.OnLawChangeIdChanging(value);
-					this.SendPropertyChanging();
-					this._LawChangeId = value;
-					this.SendPropertyChanged("LawChangeId");
-					this.OnLawChangeIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ParagraphId", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-		public System.Nullable<int> ParagraphId
-		{
-			get
-			{
-				return this._ParagraphId;
-			}
-			set
-			{
-				if ((this._ParagraphId != value))
-				{
-					if (this._Paragraph.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnParagraphIdChanging(value);
-					this.SendPropertyChanging();
-					this._ParagraphId = value;
-					this.SendPropertyChanged("ParagraphId");
-					this.OnParagraphIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Number", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
-		public System.Nullable<int> Number
-		{
-			get
-			{
-				return this._Number;
-			}
-			set
-			{
-				if ((this._Number != value))
-				{
-					this.OnNumberChanging(value);
-					this.SendPropertyChanging();
-					this._Number = value;
-					this.SendPropertyChanged("Number");
-					this.OnNumberChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NoformChangeText", DbType="NText", UpdateCheck=UpdateCheck.Never)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
-		public string NoformChangeText
-		{
-			get
-			{
-				return this._NoformChangeText;
-			}
-			set
-			{
-				if ((this._NoformChangeText != value))
-				{
-					this.OnNoformChangeTextChanging(value);
-					this.SendPropertyChanging();
-					this._NoformChangeText = value;
-					this.SendPropertyChanged("NoformChangeText");
-					this.OnNoformChangeTextChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="LawChange_SubChange", Storage="_SubChanges", ThisKey="LawChangeId", OtherKey="LawchangeId")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5, EmitDefaultValue=false)]
-		public EntitySet<SubChange> SubChanges
-		{
-			get
-			{
-				if ((this.serializing 
-							&& (this._SubChanges.HasLoadedOrAssignedValues == false)))
-				{
-					return null;
-				}
-				return this._SubChanges;
-			}
-			set
-			{
-				this._SubChanges.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Paragraph_LawChange", Storage="_Paragraph", ThisKey="ParagraphId", OtherKey="ParagraphId", IsForeignKey=true)]
-		public Paragraph Paragraph
-		{
-			get
-			{
-				return this._Paragraph.Entity;
-			}
-			set
-			{
-				Paragraph previousValue = this._Paragraph.Entity;
-				if (((previousValue != value) 
-							|| (this._Paragraph.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Paragraph.Entity = null;
-						previousValue.LawChanges.Remove(this);
-					}
-					this._Paragraph.Entity = value;
-					if ((value != null))
-					{
-						value.LawChanges.Add(this);
-						this._ParagraphId = value.ParagraphId;
-					}
-					else
-					{
-						this._ParagraphId = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Paragraph");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_SubChanges(SubChange entity)
-		{
-			this.SendPropertyChanging();
-			entity.LawChange = this;
-		}
-		
-		private void detach_SubChanges(SubChange entity)
-		{
-			this.SendPropertyChanging();
-			entity.LawChange = null;
-		}
-		
-		private void Initialize()
-		{
-			this._SubChanges = new EntitySet<SubChange>(new Action<SubChange>(this.attach_SubChanges), new Action<SubChange>(this.detach_SubChanges));
-			this._Paragraph = default(EntityRef<Paragraph>);
-			OnCreated();
-		}
-		
-		[global::System.Runtime.Serialization.OnDeserializingAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnDeserializing(StreamingContext context)
-		{
-			this.Initialize();
-		}
-		
-		[global::System.Runtime.Serialization.OnSerializingAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnSerializing(StreamingContext context)
-		{
-			this.serializing = true;
-		}
-		
-		[global::System.Runtime.Serialization.OnSerializedAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnSerialized(StreamingContext context)
-		{
-			this.serializing = false;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.LawChapter")]
-	[global::System.Runtime.Serialization.DataContractAttribute()]
-	public partial class LawChapter : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _LawChapterId;
-		
-		private System.Nullable<int> _LawId;
-		
-		private System.Nullable<int> _Number;
-		
-		private System.Nullable<short> _Stage;
-		
-		private string _Titel;
-		
-		private EntitySet<Paragraph> _Paragraphs;
-		
-		private EntityRef<Law> _Law;
-		
-		private bool serializing;
-		
+        
+        public LawChange()
+        {
+            this.Initialize();
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LawChangeId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public int LawChangeId
+        {
+            get
+            {
+                return this._LawChangeId;
+            }
+            set
+            {
+                if ((this._LawChangeId != value))
+                {
+                    this.OnLawChangeIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._LawChangeId = value;
+                    this.SendPropertyChanged("LawChangeId");
+                    this.OnLawChangeIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ParagraphId", DbType="Int")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public System.Nullable<int> ParagraphId
+        {
+            get
+            {
+                return this._ParagraphId;
+            }
+            set
+            {
+                if ((this._ParagraphId != value))
+                {
+                    if (this._Paragraph.HasLoadedOrAssignedValue)
+                    {
+                        throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+                    }
+                    this.OnParagraphIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._ParagraphId = value;
+                    this.SendPropertyChanged("ParagraphId");
+                    this.OnParagraphIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Number", DbType="Int")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        public System.Nullable<int> Number
+        {
+            get
+            {
+                return this._Number;
+            }
+            set
+            {
+                if ((this._Number != value))
+                {
+                    this.OnNumberChanging(value);
+                    this.SendPropertyChanging();
+                    this._Number = value;
+                    this.SendPropertyChanged("Number");
+                    this.OnNumberChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NoformChangeText", DbType="NText", UpdateCheck=UpdateCheck.Never)]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+        public string NoformChangeText
+        {
+            get
+            {
+                return this._NoformChangeText;
+            }
+            set
+            {
+                if ((this._NoformChangeText != value))
+                {
+                    this.OnNoformChangeTextChanging(value);
+                    this.SendPropertyChanging();
+                    this._NoformChangeText = value;
+                    this.SendPropertyChanged("NoformChangeText");
+                    this.OnNoformChangeTextChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="LawChange_SubChange", Storage="_SubChanges", ThisKey="LawChangeId", OtherKey="LawchangeId")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=5, EmitDefaultValue=false)]
+        public EntitySet<SubChange> SubChanges
+        {
+            get
+            {
+                if ((this.serializing 
+                            && (this._SubChanges.HasLoadedOrAssignedValues == false)))
+                {
+                    return null;
+                }
+                return this._SubChanges;
+            }
+            set
+            {
+                this._SubChanges.Assign(value);
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Paragraph_LawChange", Storage="_Paragraph", ThisKey="ParagraphId", OtherKey="ParagraphId", IsForeignKey=true)]
+        public Paragraph Paragraph
+        {
+            get
+            {
+                return this._Paragraph.Entity;
+            }
+            set
+            {
+                Paragraph previousValue = this._Paragraph.Entity;
+                if (((previousValue != value) 
+                            || (this._Paragraph.HasLoadedOrAssignedValue == false)))
+                {
+                    this.SendPropertyChanging();
+                    if ((previousValue != null))
+                    {
+                        this._Paragraph.Entity = null;
+                        previousValue.LawChanges.Remove(this);
+                    }
+                    this._Paragraph.Entity = value;
+                    if ((value != null))
+                    {
+                        value.LawChanges.Add(this);
+                        this._ParagraphId = value.ParagraphId;
+                    }
+                    else
+                    {
+                        this._ParagraphId = default(Nullable<int>);
+                    }
+                    this.SendPropertyChanged("Paragraph");
+                }
+            }
+        }
+        
+        public event PropertyChangingEventHandler PropertyChanging;
+        
+        public event PropertyChangedEventHandler PropertyChanged;
+        
+        protected virtual void SendPropertyChanging()
+        {
+            if ((this.PropertyChanging != null))
+            {
+                this.PropertyChanging(this, emptyChangingEventArgs);
+            }
+        }
+        
+        protected virtual void SendPropertyChanged(String propertyName)
+        {
+            if ((this.PropertyChanged != null))
+            {
+                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+        
+        private void attach_SubChanges(SubChange entity)
+        {
+            this.SendPropertyChanging();
+            entity.LawChange = this;
+        }
+        
+        private void detach_SubChanges(SubChange entity)
+        {
+            this.SendPropertyChanging();
+            entity.LawChange = null;
+        }
+        
+        private void Initialize()
+        {
+            this._SubChanges = new EntitySet<SubChange>(new Action<SubChange>(this.attach_SubChanges), new Action<SubChange>(this.detach_SubChanges));
+            this._Paragraph = default(EntityRef<Paragraph>);
+            OnCreated();
+        }
+        
+        [global::System.Runtime.Serialization.OnDeserializingAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnDeserializing(StreamingContext context)
+        {
+            this.Initialize();
+        }
+        
+        [global::System.Runtime.Serialization.OnSerializingAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnSerializing(StreamingContext context)
+        {
+            this.serializing = true;
+        }
+        
+        [global::System.Runtime.Serialization.OnSerializedAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnSerialized(StreamingContext context)
+        {
+            this.serializing = false;
+        }
+    }
+    
+    [global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.LawChapter")]
+    [global::System.Runtime.Serialization.DataContractAttribute()]
+    public partial class LawChapter : INotifyPropertyChanging, INotifyPropertyChanged
+    {
+        
+        private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+        
+        private int _LawChapterId;
+        
+        private System.Nullable<int> _LawId;
+        
+        private System.Nullable<int> _Number;
+        
+        private System.Nullable<short> _Stage;
+        
+        private string _Titel;
+        
+        private EntitySet<Paragraph> _Paragraphs;
+        
+        private EntityRef<Law> _Law;
+        
+        private bool serializing;
+        
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -2660,250 +2660,250 @@ namespace FT.DB
     partial void OnTitelChanging(string value);
     partial void OnTitelChanged();
     #endregion
-		
-		public LawChapter()
-		{
-			this.Initialize();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LawChapterId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
-		public int LawChapterId
-		{
-			get
-			{
-				return this._LawChapterId;
-			}
-			set
-			{
-				if ((this._LawChapterId != value))
-				{
-					this.OnLawChapterIdChanging(value);
-					this.SendPropertyChanging();
-					this._LawChapterId = value;
-					this.SendPropertyChanged("LawChapterId");
-					this.OnLawChapterIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LawId", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-		public System.Nullable<int> LawId
-		{
-			get
-			{
-				return this._LawId;
-			}
-			set
-			{
-				if ((this._LawId != value))
-				{
-					if (this._Law.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnLawIdChanging(value);
-					this.SendPropertyChanging();
-					this._LawId = value;
-					this.SendPropertyChanged("LawId");
-					this.OnLawIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Number", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
-		public System.Nullable<int> Number
-		{
-			get
-			{
-				return this._Number;
-			}
-			set
-			{
-				if ((this._Number != value))
-				{
-					this.OnNumberChanging(value);
-					this.SendPropertyChanging();
-					this._Number = value;
-					this.SendPropertyChanged("Number");
-					this.OnNumberChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stage", DbType="SmallInt")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
-		public System.Nullable<short> Stage
-		{
-			get
-			{
-				return this._Stage;
-			}
-			set
-			{
-				if ((this._Stage != value))
-				{
-					this.OnStageChanging(value);
-					this.SendPropertyChanging();
-					this._Stage = value;
-					this.SendPropertyChanged("Stage");
-					this.OnStageChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Titel", DbType="NText", UpdateCheck=UpdateCheck.Never)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
-		public string Titel
-		{
-			get
-			{
-				return this._Titel;
-			}
-			set
-			{
-				if ((this._Titel != value))
-				{
-					this.OnTitelChanging(value);
-					this.SendPropertyChanging();
-					this._Titel = value;
-					this.SendPropertyChanged("Titel");
-					this.OnTitelChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="LawChapter_Paragraph", Storage="_Paragraphs", ThisKey="LawChapterId", OtherKey="ChapterId")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=6, EmitDefaultValue=false)]
-		public EntitySet<Paragraph> Paragraphs
-		{
-			get
-			{
-				if ((this.serializing 
-							&& (this._Paragraphs.HasLoadedOrAssignedValues == false)))
-				{
-					return null;
-				}
-				return this._Paragraphs;
-			}
-			set
-			{
-				this._Paragraphs.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Law_LawChapter", Storage="_Law", ThisKey="LawId", OtherKey="LawId", IsForeignKey=true)]
-		public Law Law
-		{
-			get
-			{
-				return this._Law.Entity;
-			}
-			set
-			{
-				Law previousValue = this._Law.Entity;
-				if (((previousValue != value) 
-							|| (this._Law.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Law.Entity = null;
-						previousValue.LawChapters.Remove(this);
-					}
-					this._Law.Entity = value;
-					if ((value != null))
-					{
-						value.LawChapters.Add(this);
-						this._LawId = value.LawId;
-					}
-					else
-					{
-						this._LawId = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Law");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Paragraphs(Paragraph entity)
-		{
-			this.SendPropertyChanging();
-			entity.LawChapter = this;
-		}
-		
-		private void detach_Paragraphs(Paragraph entity)
-		{
-			this.SendPropertyChanging();
-			entity.LawChapter = null;
-		}
-		
-		private void Initialize()
-		{
-			this._Paragraphs = new EntitySet<Paragraph>(new Action<Paragraph>(this.attach_Paragraphs), new Action<Paragraph>(this.detach_Paragraphs));
-			this._Law = default(EntityRef<Law>);
-			OnCreated();
-		}
-		
-		[global::System.Runtime.Serialization.OnDeserializingAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnDeserializing(StreamingContext context)
-		{
-			this.Initialize();
-		}
-		
-		[global::System.Runtime.Serialization.OnSerializingAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnSerializing(StreamingContext context)
-		{
-			this.serializing = true;
-		}
-		
-		[global::System.Runtime.Serialization.OnSerializedAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnSerialized(StreamingContext context)
-		{
-			this.serializing = false;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Ministry")]
-	[global::System.Runtime.Serialization.DataContractAttribute()]
-	public partial class Ministry : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _MinistryId;
-		
-		private string _Name;
-		
-		private EntitySet<Law> _Laws;
-		
-		private bool serializing;
-		
+        
+        public LawChapter()
+        {
+            this.Initialize();
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LawChapterId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public int LawChapterId
+        {
+            get
+            {
+                return this._LawChapterId;
+            }
+            set
+            {
+                if ((this._LawChapterId != value))
+                {
+                    this.OnLawChapterIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._LawChapterId = value;
+                    this.SendPropertyChanged("LawChapterId");
+                    this.OnLawChapterIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LawId", DbType="Int")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public System.Nullable<int> LawId
+        {
+            get
+            {
+                return this._LawId;
+            }
+            set
+            {
+                if ((this._LawId != value))
+                {
+                    if (this._Law.HasLoadedOrAssignedValue)
+                    {
+                        throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+                    }
+                    this.OnLawIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._LawId = value;
+                    this.SendPropertyChanged("LawId");
+                    this.OnLawIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Number", DbType="Int")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        public System.Nullable<int> Number
+        {
+            get
+            {
+                return this._Number;
+            }
+            set
+            {
+                if ((this._Number != value))
+                {
+                    this.OnNumberChanging(value);
+                    this.SendPropertyChanging();
+                    this._Number = value;
+                    this.SendPropertyChanged("Number");
+                    this.OnNumberChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stage", DbType="SmallInt")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+        public System.Nullable<short> Stage
+        {
+            get
+            {
+                return this._Stage;
+            }
+            set
+            {
+                if ((this._Stage != value))
+                {
+                    this.OnStageChanging(value);
+                    this.SendPropertyChanging();
+                    this._Stage = value;
+                    this.SendPropertyChanged("Stage");
+                    this.OnStageChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Titel", DbType="NText", UpdateCheck=UpdateCheck.Never)]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+        public string Titel
+        {
+            get
+            {
+                return this._Titel;
+            }
+            set
+            {
+                if ((this._Titel != value))
+                {
+                    this.OnTitelChanging(value);
+                    this.SendPropertyChanging();
+                    this._Titel = value;
+                    this.SendPropertyChanged("Titel");
+                    this.OnTitelChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="LawChapter_Paragraph", Storage="_Paragraphs", ThisKey="LawChapterId", OtherKey="ChapterId")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=6, EmitDefaultValue=false)]
+        public EntitySet<Paragraph> Paragraphs
+        {
+            get
+            {
+                if ((this.serializing 
+                            && (this._Paragraphs.HasLoadedOrAssignedValues == false)))
+                {
+                    return null;
+                }
+                return this._Paragraphs;
+            }
+            set
+            {
+                this._Paragraphs.Assign(value);
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Law_LawChapter", Storage="_Law", ThisKey="LawId", OtherKey="LawId", IsForeignKey=true)]
+        public Law Law
+        {
+            get
+            {
+                return this._Law.Entity;
+            }
+            set
+            {
+                Law previousValue = this._Law.Entity;
+                if (((previousValue != value) 
+                            || (this._Law.HasLoadedOrAssignedValue == false)))
+                {
+                    this.SendPropertyChanging();
+                    if ((previousValue != null))
+                    {
+                        this._Law.Entity = null;
+                        previousValue.LawChapters.Remove(this);
+                    }
+                    this._Law.Entity = value;
+                    if ((value != null))
+                    {
+                        value.LawChapters.Add(this);
+                        this._LawId = value.LawId;
+                    }
+                    else
+                    {
+                        this._LawId = default(Nullable<int>);
+                    }
+                    this.SendPropertyChanged("Law");
+                }
+            }
+        }
+        
+        public event PropertyChangingEventHandler PropertyChanging;
+        
+        public event PropertyChangedEventHandler PropertyChanged;
+        
+        protected virtual void SendPropertyChanging()
+        {
+            if ((this.PropertyChanging != null))
+            {
+                this.PropertyChanging(this, emptyChangingEventArgs);
+            }
+        }
+        
+        protected virtual void SendPropertyChanged(String propertyName)
+        {
+            if ((this.PropertyChanged != null))
+            {
+                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+        
+        private void attach_Paragraphs(Paragraph entity)
+        {
+            this.SendPropertyChanging();
+            entity.LawChapter = this;
+        }
+        
+        private void detach_Paragraphs(Paragraph entity)
+        {
+            this.SendPropertyChanging();
+            entity.LawChapter = null;
+        }
+        
+        private void Initialize()
+        {
+            this._Paragraphs = new EntitySet<Paragraph>(new Action<Paragraph>(this.attach_Paragraphs), new Action<Paragraph>(this.detach_Paragraphs));
+            this._Law = default(EntityRef<Law>);
+            OnCreated();
+        }
+        
+        [global::System.Runtime.Serialization.OnDeserializingAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnDeserializing(StreamingContext context)
+        {
+            this.Initialize();
+        }
+        
+        [global::System.Runtime.Serialization.OnSerializingAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnSerializing(StreamingContext context)
+        {
+            this.serializing = true;
+        }
+        
+        [global::System.Runtime.Serialization.OnSerializedAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnSerialized(StreamingContext context)
+        {
+            this.serializing = false;
+        }
+    }
+    
+    [global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Ministry")]
+    [global::System.Runtime.Serialization.DataContractAttribute()]
+    public partial class Ministry : INotifyPropertyChanging, INotifyPropertyChanged
+    {
+        
+        private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+        
+        private int _MinistryId;
+        
+        private string _Name;
+        
+        private EntitySet<Law> _Laws;
+        
+        private bool serializing;
+        
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -2913,166 +2913,166 @@ namespace FT.DB
     partial void OnNameChanging(string value);
     partial void OnNameChanged();
     #endregion
-		
-		public Ministry()
-		{
-			this.Initialize();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MinistryId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
-		public int MinistryId
-		{
-			get
-			{
-				return this._MinistryId;
-			}
-			set
-			{
-				if ((this._MinistryId != value))
-				{
-					this.OnMinistryIdChanging(value);
-					this.SendPropertyChanging();
-					this._MinistryId = value;
-					this.SendPropertyChanged("MinistryId");
-					this.OnMinistryIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(100)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-		public string Name
-		{
-			get
-			{
-				return this._Name;
-			}
-			set
-			{
-				if ((this._Name != value))
-				{
-					this.OnNameChanging(value);
-					this.SendPropertyChanging();
-					this._Name = value;
-					this.SendPropertyChanged("Name");
-					this.OnNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Ministry_Law", Storage="_Laws", ThisKey="MinistryId", OtherKey="MinistryId")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3, EmitDefaultValue=false)]
-		public EntitySet<Law> Laws
-		{
-			get
-			{
-				if ((this.serializing 
-							&& (this._Laws.HasLoadedOrAssignedValues == false)))
-				{
-					return null;
-				}
-				return this._Laws;
-			}
-			set
-			{
-				this._Laws.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Laws(Law entity)
-		{
-			this.SendPropertyChanging();
-			entity.Ministry = this;
-		}
-		
-		private void detach_Laws(Law entity)
-		{
-			this.SendPropertyChanging();
-			entity.Ministry = null;
-		}
-		
-		private void Initialize()
-		{
-			this._Laws = new EntitySet<Law>(new Action<Law>(this.attach_Laws), new Action<Law>(this.detach_Laws));
-			OnCreated();
-		}
-		
-		[global::System.Runtime.Serialization.OnDeserializingAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnDeserializing(StreamingContext context)
-		{
-			this.Initialize();
-		}
-		
-		[global::System.Runtime.Serialization.OnSerializingAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnSerializing(StreamingContext context)
-		{
-			this.serializing = true;
-		}
-		
-		[global::System.Runtime.Serialization.OnSerializedAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnSerialized(StreamingContext context)
-		{
-			this.serializing = false;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Paragraph")]
-	[global::System.Runtime.Serialization.DataContractAttribute()]
-	public partial class Paragraph : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ParagraphId;
-		
-		private System.Nullable<int> _LawId;
-		
-		private System.Nullable<int> _Number;
-		
-		private LawStage _Stage;
-		
-		private string _ChangeText;
-		
-		private System.Nullable<bool> _IsChange;
-		
-		private System.Nullable<int> _ChapterId;
-		
-		private string _Letter;
-		
-		private EntitySet<LawChange> _LawChanges;
-		
-		private EntitySet<Section> _Sections;
-		
-		private EntityRef<LawChapter> _LawChapter;
-		
-		private EntityRef<Law> _Law;
-		
-		private bool serializing;
-		
+        
+        public Ministry()
+        {
+            this.Initialize();
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MinistryId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public int MinistryId
+        {
+            get
+            {
+                return this._MinistryId;
+            }
+            set
+            {
+                if ((this._MinistryId != value))
+                {
+                    this.OnMinistryIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._MinistryId = value;
+                    this.SendPropertyChanged("MinistryId");
+                    this.OnMinistryIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(100)")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public string Name
+        {
+            get
+            {
+                return this._Name;
+            }
+            set
+            {
+                if ((this._Name != value))
+                {
+                    this.OnNameChanging(value);
+                    this.SendPropertyChanging();
+                    this._Name = value;
+                    this.SendPropertyChanged("Name");
+                    this.OnNameChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Ministry_Law", Storage="_Laws", ThisKey="MinistryId", OtherKey="MinistryId")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=3, EmitDefaultValue=false)]
+        public EntitySet<Law> Laws
+        {
+            get
+            {
+                if ((this.serializing 
+                            && (this._Laws.HasLoadedOrAssignedValues == false)))
+                {
+                    return null;
+                }
+                return this._Laws;
+            }
+            set
+            {
+                this._Laws.Assign(value);
+            }
+        }
+        
+        public event PropertyChangingEventHandler PropertyChanging;
+        
+        public event PropertyChangedEventHandler PropertyChanged;
+        
+        protected virtual void SendPropertyChanging()
+        {
+            if ((this.PropertyChanging != null))
+            {
+                this.PropertyChanging(this, emptyChangingEventArgs);
+            }
+        }
+        
+        protected virtual void SendPropertyChanged(String propertyName)
+        {
+            if ((this.PropertyChanged != null))
+            {
+                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+        
+        private void attach_Laws(Law entity)
+        {
+            this.SendPropertyChanging();
+            entity.Ministry = this;
+        }
+        
+        private void detach_Laws(Law entity)
+        {
+            this.SendPropertyChanging();
+            entity.Ministry = null;
+        }
+        
+        private void Initialize()
+        {
+            this._Laws = new EntitySet<Law>(new Action<Law>(this.attach_Laws), new Action<Law>(this.detach_Laws));
+            OnCreated();
+        }
+        
+        [global::System.Runtime.Serialization.OnDeserializingAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnDeserializing(StreamingContext context)
+        {
+            this.Initialize();
+        }
+        
+        [global::System.Runtime.Serialization.OnSerializingAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnSerializing(StreamingContext context)
+        {
+            this.serializing = true;
+        }
+        
+        [global::System.Runtime.Serialization.OnSerializedAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnSerialized(StreamingContext context)
+        {
+            this.serializing = false;
+        }
+    }
+    
+    [global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Paragraph")]
+    [global::System.Runtime.Serialization.DataContractAttribute()]
+    public partial class Paragraph : INotifyPropertyChanging, INotifyPropertyChanged
+    {
+        
+        private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+        
+        private int _ParagraphId;
+        
+        private System.Nullable<int> _LawId;
+        
+        private System.Nullable<int> _Number;
+        
+        private LawStage _Stage;
+        
+        private string _ChangeText;
+        
+        private System.Nullable<bool> _IsChange;
+        
+        private System.Nullable<int> _ChapterId;
+        
+        private string _Letter;
+        
+        private EntitySet<LawChange> _LawChanges;
+        
+        private EntitySet<Section> _Sections;
+        
+        private EntityRef<LawChapter> _LawChapter;
+        
+        private EntityRef<Law> _Law;
+        
+        private bool serializing;
+        
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -3094,388 +3094,388 @@ namespace FT.DB
     partial void OnLetterChanging(string value);
     partial void OnLetterChanged();
     #endregion
-		
-		public Paragraph()
-		{
-			this.Initialize();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ParagraphId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
-		public int ParagraphId
-		{
-			get
-			{
-				return this._ParagraphId;
-			}
-			set
-			{
-				if ((this._ParagraphId != value))
-				{
-					this.OnParagraphIdChanging(value);
-					this.SendPropertyChanging();
-					this._ParagraphId = value;
-					this.SendPropertyChanged("ParagraphId");
-					this.OnParagraphIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LawId", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-		public System.Nullable<int> LawId
-		{
-			get
-			{
-				return this._LawId;
-			}
-			set
-			{
-				if ((this._LawId != value))
-				{
-					if (this._Law.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnLawIdChanging(value);
-					this.SendPropertyChanging();
-					this._LawId = value;
-					this.SendPropertyChanged("LawId");
-					this.OnLawIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Number", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
-		public System.Nullable<int> Number
-		{
-			get
-			{
-				return this._Number;
-			}
-			set
-			{
-				if ((this._Number != value))
-				{
-					this.OnNumberChanging(value);
-					this.SendPropertyChanging();
-					this._Number = value;
-					this.SendPropertyChanged("Number");
-					this.OnNumberChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stage", DbType="SmallInt", CanBeNull=true)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
-		public LawStage Stage
-		{
-			get
-			{
-				return this._Stage;
-			}
-			set
-			{
-				if ((this._Stage != value))
-				{
-					this.OnStageChanging(value);
-					this.SendPropertyChanging();
-					this._Stage = value;
-					this.SendPropertyChanged("Stage");
-					this.OnStageChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ChangeText", DbType="NText", UpdateCheck=UpdateCheck.Never)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
-		public string ChangeText
-		{
-			get
-			{
-				return this._ChangeText;
-			}
-			set
-			{
-				if ((this._ChangeText != value))
-				{
-					this.OnChangeTextChanging(value);
-					this.SendPropertyChanging();
-					this._ChangeText = value;
-					this.SendPropertyChanged("ChangeText");
-					this.OnChangeTextChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsChange", DbType="Bit")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=6)]
-		public System.Nullable<bool> IsChange
-		{
-			get
-			{
-				return this._IsChange;
-			}
-			set
-			{
-				if ((this._IsChange != value))
-				{
-					this.OnIsChangeChanging(value);
-					this.SendPropertyChanging();
-					this._IsChange = value;
-					this.SendPropertyChanged("IsChange");
-					this.OnIsChangeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ChapterId", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=7)]
-		public System.Nullable<int> ChapterId
-		{
-			get
-			{
-				return this._ChapterId;
-			}
-			set
-			{
-				if ((this._ChapterId != value))
-				{
-					if (this._LawChapter.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnChapterIdChanging(value);
-					this.SendPropertyChanging();
-					this._ChapterId = value;
-					this.SendPropertyChanged("ChapterId");
-					this.OnChapterIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Letter", DbType="NVarChar(3)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=8)]
-		public string Letter
-		{
-			get
-			{
-				return this._Letter;
-			}
-			set
-			{
-				if ((this._Letter != value))
-				{
-					this.OnLetterChanging(value);
-					this.SendPropertyChanging();
-					this._Letter = value;
-					this.SendPropertyChanged("Letter");
-					this.OnLetterChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Paragraph_LawChange", Storage="_LawChanges", ThisKey="ParagraphId", OtherKey="ParagraphId")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=9, EmitDefaultValue=false)]
-		public EntitySet<LawChange> LawChanges
-		{
-			get
-			{
-				if ((this.serializing 
-							&& (this._LawChanges.HasLoadedOrAssignedValues == false)))
-				{
-					return null;
-				}
-				return this._LawChanges;
-			}
-			set
-			{
-				this._LawChanges.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Paragraph_Section", Storage="_Sections", ThisKey="ParagraphId", OtherKey="ParagraphId")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=10, EmitDefaultValue=false)]
-		public EntitySet<Section> Sections
-		{
-			get
-			{
-				if ((this.serializing 
-							&& (this._Sections.HasLoadedOrAssignedValues == false)))
-				{
-					return null;
-				}
-				return this._Sections;
-			}
-			set
-			{
-				this._Sections.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="LawChapter_Paragraph", Storage="_LawChapter", ThisKey="ChapterId", OtherKey="LawChapterId", IsForeignKey=true)]
-		public LawChapter LawChapter
-		{
-			get
-			{
-				return this._LawChapter.Entity;
-			}
-			set
-			{
-				LawChapter previousValue = this._LawChapter.Entity;
-				if (((previousValue != value) 
-							|| (this._LawChapter.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._LawChapter.Entity = null;
-						previousValue.Paragraphs.Remove(this);
-					}
-					this._LawChapter.Entity = value;
-					if ((value != null))
-					{
-						value.Paragraphs.Add(this);
-						this._ChapterId = value.LawChapterId;
-					}
-					else
-					{
-						this._ChapterId = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("LawChapter");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Law_Paragraph", Storage="_Law", ThisKey="LawId", OtherKey="LawId", IsForeignKey=true)]
-		public Law Law
-		{
-			get
-			{
-				return this._Law.Entity;
-			}
-			set
-			{
-				Law previousValue = this._Law.Entity;
-				if (((previousValue != value) 
-							|| (this._Law.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Law.Entity = null;
-						previousValue.Paragraphs.Remove(this);
-					}
-					this._Law.Entity = value;
-					if ((value != null))
-					{
-						value.Paragraphs.Add(this);
-						this._LawId = value.LawId;
-					}
-					else
-					{
-						this._LawId = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Law");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_LawChanges(LawChange entity)
-		{
-			this.SendPropertyChanging();
-			entity.Paragraph = this;
-		}
-		
-		private void detach_LawChanges(LawChange entity)
-		{
-			this.SendPropertyChanging();
-			entity.Paragraph = null;
-		}
-		
-		private void attach_Sections(Section entity)
-		{
-			this.SendPropertyChanging();
-			entity.Paragraph = this;
-		}
-		
-		private void detach_Sections(Section entity)
-		{
-			this.SendPropertyChanging();
-			entity.Paragraph = null;
-		}
-		
-		private void Initialize()
-		{
-			this._LawChanges = new EntitySet<LawChange>(new Action<LawChange>(this.attach_LawChanges), new Action<LawChange>(this.detach_LawChanges));
-			this._Sections = new EntitySet<Section>(new Action<Section>(this.attach_Sections), new Action<Section>(this.detach_Sections));
-			this._LawChapter = default(EntityRef<LawChapter>);
-			this._Law = default(EntityRef<Law>);
-			OnCreated();
-		}
-		
-		[global::System.Runtime.Serialization.OnDeserializingAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnDeserializing(StreamingContext context)
-		{
-			this.Initialize();
-		}
-		
-		[global::System.Runtime.Serialization.OnSerializingAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnSerializing(StreamingContext context)
-		{
-			this.serializing = true;
-		}
-		
-		[global::System.Runtime.Serialization.OnSerializedAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnSerialized(StreamingContext context)
-		{
-			this.serializing = false;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.PoliticianLawVote")]
-	[global::System.Runtime.Serialization.DataContractAttribute()]
-	public partial class PoliticianLawVote : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _PoliticianLawVoteId;
-		
-		private System.Nullable<int> _PoliticianId;
-		
-		private System.Nullable<int> _LawVoteId;
-		
-		private System.Nullable<byte> _Vote;
-		
-		private EntityRef<Politician> _Politician;
-		
-		private EntityRef<LawVote> _LawVote;
-		
+        
+        public Paragraph()
+        {
+            this.Initialize();
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ParagraphId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public int ParagraphId
+        {
+            get
+            {
+                return this._ParagraphId;
+            }
+            set
+            {
+                if ((this._ParagraphId != value))
+                {
+                    this.OnParagraphIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._ParagraphId = value;
+                    this.SendPropertyChanged("ParagraphId");
+                    this.OnParagraphIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LawId", DbType="Int")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public System.Nullable<int> LawId
+        {
+            get
+            {
+                return this._LawId;
+            }
+            set
+            {
+                if ((this._LawId != value))
+                {
+                    if (this._Law.HasLoadedOrAssignedValue)
+                    {
+                        throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+                    }
+                    this.OnLawIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._LawId = value;
+                    this.SendPropertyChanged("LawId");
+                    this.OnLawIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Number", DbType="Int")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        public System.Nullable<int> Number
+        {
+            get
+            {
+                return this._Number;
+            }
+            set
+            {
+                if ((this._Number != value))
+                {
+                    this.OnNumberChanging(value);
+                    this.SendPropertyChanging();
+                    this._Number = value;
+                    this.SendPropertyChanged("Number");
+                    this.OnNumberChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stage", DbType="SmallInt", CanBeNull=true)]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+        public LawStage Stage
+        {
+            get
+            {
+                return this._Stage;
+            }
+            set
+            {
+                if ((this._Stage != value))
+                {
+                    this.OnStageChanging(value);
+                    this.SendPropertyChanging();
+                    this._Stage = value;
+                    this.SendPropertyChanged("Stage");
+                    this.OnStageChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ChangeText", DbType="NText", UpdateCheck=UpdateCheck.Never)]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+        public string ChangeText
+        {
+            get
+            {
+                return this._ChangeText;
+            }
+            set
+            {
+                if ((this._ChangeText != value))
+                {
+                    this.OnChangeTextChanging(value);
+                    this.SendPropertyChanging();
+                    this._ChangeText = value;
+                    this.SendPropertyChanged("ChangeText");
+                    this.OnChangeTextChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsChange", DbType="Bit")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=6)]
+        public System.Nullable<bool> IsChange
+        {
+            get
+            {
+                return this._IsChange;
+            }
+            set
+            {
+                if ((this._IsChange != value))
+                {
+                    this.OnIsChangeChanging(value);
+                    this.SendPropertyChanging();
+                    this._IsChange = value;
+                    this.SendPropertyChanged("IsChange");
+                    this.OnIsChangeChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ChapterId", DbType="Int")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=7)]
+        public System.Nullable<int> ChapterId
+        {
+            get
+            {
+                return this._ChapterId;
+            }
+            set
+            {
+                if ((this._ChapterId != value))
+                {
+                    if (this._LawChapter.HasLoadedOrAssignedValue)
+                    {
+                        throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+                    }
+                    this.OnChapterIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._ChapterId = value;
+                    this.SendPropertyChanged("ChapterId");
+                    this.OnChapterIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Letter", DbType="NVarChar(3)")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=8)]
+        public string Letter
+        {
+            get
+            {
+                return this._Letter;
+            }
+            set
+            {
+                if ((this._Letter != value))
+                {
+                    this.OnLetterChanging(value);
+                    this.SendPropertyChanging();
+                    this._Letter = value;
+                    this.SendPropertyChanged("Letter");
+                    this.OnLetterChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Paragraph_LawChange", Storage="_LawChanges", ThisKey="ParagraphId", OtherKey="ParagraphId")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=9, EmitDefaultValue=false)]
+        public EntitySet<LawChange> LawChanges
+        {
+            get
+            {
+                if ((this.serializing 
+                            && (this._LawChanges.HasLoadedOrAssignedValues == false)))
+                {
+                    return null;
+                }
+                return this._LawChanges;
+            }
+            set
+            {
+                this._LawChanges.Assign(value);
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Paragraph_Section", Storage="_Sections", ThisKey="ParagraphId", OtherKey="ParagraphId")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=10, EmitDefaultValue=false)]
+        public EntitySet<Section> Sections
+        {
+            get
+            {
+                if ((this.serializing 
+                            && (this._Sections.HasLoadedOrAssignedValues == false)))
+                {
+                    return null;
+                }
+                return this._Sections;
+            }
+            set
+            {
+                this._Sections.Assign(value);
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="LawChapter_Paragraph", Storage="_LawChapter", ThisKey="ChapterId", OtherKey="LawChapterId", IsForeignKey=true)]
+        public LawChapter LawChapter
+        {
+            get
+            {
+                return this._LawChapter.Entity;
+            }
+            set
+            {
+                LawChapter previousValue = this._LawChapter.Entity;
+                if (((previousValue != value) 
+                            || (this._LawChapter.HasLoadedOrAssignedValue == false)))
+                {
+                    this.SendPropertyChanging();
+                    if ((previousValue != null))
+                    {
+                        this._LawChapter.Entity = null;
+                        previousValue.Paragraphs.Remove(this);
+                    }
+                    this._LawChapter.Entity = value;
+                    if ((value != null))
+                    {
+                        value.Paragraphs.Add(this);
+                        this._ChapterId = value.LawChapterId;
+                    }
+                    else
+                    {
+                        this._ChapterId = default(Nullable<int>);
+                    }
+                    this.SendPropertyChanged("LawChapter");
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Law_Paragraph", Storage="_Law", ThisKey="LawId", OtherKey="LawId", IsForeignKey=true)]
+        public Law Law
+        {
+            get
+            {
+                return this._Law.Entity;
+            }
+            set
+            {
+                Law previousValue = this._Law.Entity;
+                if (((previousValue != value) 
+                            || (this._Law.HasLoadedOrAssignedValue == false)))
+                {
+                    this.SendPropertyChanging();
+                    if ((previousValue != null))
+                    {
+                        this._Law.Entity = null;
+                        previousValue.Paragraphs.Remove(this);
+                    }
+                    this._Law.Entity = value;
+                    if ((value != null))
+                    {
+                        value.Paragraphs.Add(this);
+                        this._LawId = value.LawId;
+                    }
+                    else
+                    {
+                        this._LawId = default(Nullable<int>);
+                    }
+                    this.SendPropertyChanged("Law");
+                }
+            }
+        }
+        
+        public event PropertyChangingEventHandler PropertyChanging;
+        
+        public event PropertyChangedEventHandler PropertyChanged;
+        
+        protected virtual void SendPropertyChanging()
+        {
+            if ((this.PropertyChanging != null))
+            {
+                this.PropertyChanging(this, emptyChangingEventArgs);
+            }
+        }
+        
+        protected virtual void SendPropertyChanged(String propertyName)
+        {
+            if ((this.PropertyChanged != null))
+            {
+                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+        
+        private void attach_LawChanges(LawChange entity)
+        {
+            this.SendPropertyChanging();
+            entity.Paragraph = this;
+        }
+        
+        private void detach_LawChanges(LawChange entity)
+        {
+            this.SendPropertyChanging();
+            entity.Paragraph = null;
+        }
+        
+        private void attach_Sections(Section entity)
+        {
+            this.SendPropertyChanging();
+            entity.Paragraph = this;
+        }
+        
+        private void detach_Sections(Section entity)
+        {
+            this.SendPropertyChanging();
+            entity.Paragraph = null;
+        }
+        
+        private void Initialize()
+        {
+            this._LawChanges = new EntitySet<LawChange>(new Action<LawChange>(this.attach_LawChanges), new Action<LawChange>(this.detach_LawChanges));
+            this._Sections = new EntitySet<Section>(new Action<Section>(this.attach_Sections), new Action<Section>(this.detach_Sections));
+            this._LawChapter = default(EntityRef<LawChapter>);
+            this._Law = default(EntityRef<Law>);
+            OnCreated();
+        }
+        
+        [global::System.Runtime.Serialization.OnDeserializingAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnDeserializing(StreamingContext context)
+        {
+            this.Initialize();
+        }
+        
+        [global::System.Runtime.Serialization.OnSerializingAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnSerializing(StreamingContext context)
+        {
+            this.serializing = true;
+        }
+        
+        [global::System.Runtime.Serialization.OnSerializedAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnSerialized(StreamingContext context)
+        {
+            this.serializing = false;
+        }
+    }
+    
+    [global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.PoliticianLawVote")]
+    [global::System.Runtime.Serialization.DataContractAttribute()]
+    public partial class PoliticianLawVote : INotifyPropertyChanging, INotifyPropertyChanged
+    {
+        
+        private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+        
+        private int _PoliticianLawVoteId;
+        
+        private System.Nullable<int> _PoliticianId;
+        
+        private System.Nullable<int> _LawVoteId;
+        
+        private System.Nullable<byte> _Vote;
+        
+        private EntityRef<Politician> _Politician;
+        
+        private EntityRef<LawVote> _LawVote;
+        
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -3489,228 +3489,228 @@ namespace FT.DB
     partial void OnVoteChanging(System.Nullable<byte> value);
     partial void OnVoteChanged();
     #endregion
-		
-		public PoliticianLawVote()
-		{
-			this.Initialize();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PoliticianLawVoteId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
-		public int PoliticianLawVoteId
-		{
-			get
-			{
-				return this._PoliticianLawVoteId;
-			}
-			set
-			{
-				if ((this._PoliticianLawVoteId != value))
-				{
-					this.OnPoliticianLawVoteIdChanging(value);
-					this.SendPropertyChanging();
-					this._PoliticianLawVoteId = value;
-					this.SendPropertyChanged("PoliticianLawVoteId");
-					this.OnPoliticianLawVoteIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PoliticianId", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-		public System.Nullable<int> PoliticianId
-		{
-			get
-			{
-				return this._PoliticianId;
-			}
-			set
-			{
-				if ((this._PoliticianId != value))
-				{
-					if (this._Politician.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnPoliticianIdChanging(value);
-					this.SendPropertyChanging();
-					this._PoliticianId = value;
-					this.SendPropertyChanged("PoliticianId");
-					this.OnPoliticianIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LawVoteId", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
-		public System.Nullable<int> LawVoteId
-		{
-			get
-			{
-				return this._LawVoteId;
-			}
-			set
-			{
-				if ((this._LawVoteId != value))
-				{
-					if (this._LawVote.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnLawVoteIdChanging(value);
-					this.SendPropertyChanging();
-					this._LawVoteId = value;
-					this.SendPropertyChanged("LawVoteId");
-					this.OnLawVoteIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Vote", DbType="TinyInt")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
-		public System.Nullable<byte> Vote
-		{
-			get
-			{
-				return this._Vote;
-			}
-			set
-			{
-				if ((this._Vote != value))
-				{
-					this.OnVoteChanging(value);
-					this.SendPropertyChanging();
-					this._Vote = value;
-					this.SendPropertyChanged("Vote");
-					this.OnVoteChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Politician_PoliticianLawVote", Storage="_Politician", ThisKey="PoliticianId", OtherKey="PoliticianId", IsForeignKey=true)]
-		public Politician Politician
-		{
-			get
-			{
-				return this._Politician.Entity;
-			}
-			set
-			{
-				Politician previousValue = this._Politician.Entity;
-				if (((previousValue != value) 
-							|| (this._Politician.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Politician.Entity = null;
-						previousValue.PoliticianLawVotes.Remove(this);
-					}
-					this._Politician.Entity = value;
-					if ((value != null))
-					{
-						value.PoliticianLawVotes.Add(this);
-						this._PoliticianId = value.PoliticianId;
-					}
-					else
-					{
-						this._PoliticianId = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Politician");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="LawVote_PoliticianLawVote", Storage="_LawVote", ThisKey="LawVoteId", OtherKey="LawVoteId", IsForeignKey=true)]
-		public LawVote LawVote
-		{
-			get
-			{
-				return this._LawVote.Entity;
-			}
-			set
-			{
-				LawVote previousValue = this._LawVote.Entity;
-				if (((previousValue != value) 
-							|| (this._LawVote.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._LawVote.Entity = null;
-						previousValue.PoliticianLawVotes.Remove(this);
-					}
-					this._LawVote.Entity = value;
-					if ((value != null))
-					{
-						value.PoliticianLawVotes.Add(this);
-						this._LawVoteId = value.LawVoteId;
-					}
-					else
-					{
-						this._LawVoteId = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("LawVote");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void Initialize()
-		{
-			this._Politician = default(EntityRef<Politician>);
-			this._LawVote = default(EntityRef<LawVote>);
-			OnCreated();
-		}
-		
-		[global::System.Runtime.Serialization.OnDeserializingAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnDeserializing(StreamingContext context)
-		{
-			this.Initialize();
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ProposedLaw")]
-	[global::System.Runtime.Serialization.DataContractAttribute()]
-	public partial class ProposedLaw : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ProposedLawId;
-		
-		private System.Nullable<int> _PoliticianId;
-		
-		private System.Nullable<int> _LawId;
-		
-		private System.Nullable<bool> _IsMinister;
-		
-		private string _Title;
-		
-		private EntityRef<Law> _Law;
-		
-		private EntityRef<Politician> _Politician;
-		
+        
+        public PoliticianLawVote()
+        {
+            this.Initialize();
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PoliticianLawVoteId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public int PoliticianLawVoteId
+        {
+            get
+            {
+                return this._PoliticianLawVoteId;
+            }
+            set
+            {
+                if ((this._PoliticianLawVoteId != value))
+                {
+                    this.OnPoliticianLawVoteIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._PoliticianLawVoteId = value;
+                    this.SendPropertyChanged("PoliticianLawVoteId");
+                    this.OnPoliticianLawVoteIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PoliticianId", DbType="Int")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public System.Nullable<int> PoliticianId
+        {
+            get
+            {
+                return this._PoliticianId;
+            }
+            set
+            {
+                if ((this._PoliticianId != value))
+                {
+                    if (this._Politician.HasLoadedOrAssignedValue)
+                    {
+                        throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+                    }
+                    this.OnPoliticianIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._PoliticianId = value;
+                    this.SendPropertyChanged("PoliticianId");
+                    this.OnPoliticianIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LawVoteId", DbType="Int")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        public System.Nullable<int> LawVoteId
+        {
+            get
+            {
+                return this._LawVoteId;
+            }
+            set
+            {
+                if ((this._LawVoteId != value))
+                {
+                    if (this._LawVote.HasLoadedOrAssignedValue)
+                    {
+                        throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+                    }
+                    this.OnLawVoteIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._LawVoteId = value;
+                    this.SendPropertyChanged("LawVoteId");
+                    this.OnLawVoteIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Vote", DbType="TinyInt")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+        public System.Nullable<byte> Vote
+        {
+            get
+            {
+                return this._Vote;
+            }
+            set
+            {
+                if ((this._Vote != value))
+                {
+                    this.OnVoteChanging(value);
+                    this.SendPropertyChanging();
+                    this._Vote = value;
+                    this.SendPropertyChanged("Vote");
+                    this.OnVoteChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Politician_PoliticianLawVote", Storage="_Politician", ThisKey="PoliticianId", OtherKey="PoliticianId", IsForeignKey=true)]
+        public Politician Politician
+        {
+            get
+            {
+                return this._Politician.Entity;
+            }
+            set
+            {
+                Politician previousValue = this._Politician.Entity;
+                if (((previousValue != value) 
+                            || (this._Politician.HasLoadedOrAssignedValue == false)))
+                {
+                    this.SendPropertyChanging();
+                    if ((previousValue != null))
+                    {
+                        this._Politician.Entity = null;
+                        previousValue.PoliticianLawVotes.Remove(this);
+                    }
+                    this._Politician.Entity = value;
+                    if ((value != null))
+                    {
+                        value.PoliticianLawVotes.Add(this);
+                        this._PoliticianId = value.PoliticianId;
+                    }
+                    else
+                    {
+                        this._PoliticianId = default(Nullable<int>);
+                    }
+                    this.SendPropertyChanged("Politician");
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="LawVote_PoliticianLawVote", Storage="_LawVote", ThisKey="LawVoteId", OtherKey="LawVoteId", IsForeignKey=true)]
+        public LawVote LawVote
+        {
+            get
+            {
+                return this._LawVote.Entity;
+            }
+            set
+            {
+                LawVote previousValue = this._LawVote.Entity;
+                if (((previousValue != value) 
+                            || (this._LawVote.HasLoadedOrAssignedValue == false)))
+                {
+                    this.SendPropertyChanging();
+                    if ((previousValue != null))
+                    {
+                        this._LawVote.Entity = null;
+                        previousValue.PoliticianLawVotes.Remove(this);
+                    }
+                    this._LawVote.Entity = value;
+                    if ((value != null))
+                    {
+                        value.PoliticianLawVotes.Add(this);
+                        this._LawVoteId = value.LawVoteId;
+                    }
+                    else
+                    {
+                        this._LawVoteId = default(Nullable<int>);
+                    }
+                    this.SendPropertyChanged("LawVote");
+                }
+            }
+        }
+        
+        public event PropertyChangingEventHandler PropertyChanging;
+        
+        public event PropertyChangedEventHandler PropertyChanged;
+        
+        protected virtual void SendPropertyChanging()
+        {
+            if ((this.PropertyChanging != null))
+            {
+                this.PropertyChanging(this, emptyChangingEventArgs);
+            }
+        }
+        
+        protected virtual void SendPropertyChanged(String propertyName)
+        {
+            if ((this.PropertyChanged != null))
+            {
+                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+        
+        private void Initialize()
+        {
+            this._Politician = default(EntityRef<Politician>);
+            this._LawVote = default(EntityRef<LawVote>);
+            OnCreated();
+        }
+        
+        [global::System.Runtime.Serialization.OnDeserializingAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnDeserializing(StreamingContext context)
+        {
+            this.Initialize();
+        }
+    }
+    
+    [global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ProposedLaw")]
+    [global::System.Runtime.Serialization.DataContractAttribute()]
+    public partial class ProposedLaw : INotifyPropertyChanging, INotifyPropertyChanged
+    {
+        
+        private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+        
+        private int _ProposedLawId;
+        
+        private System.Nullable<int> _PoliticianId;
+        
+        private System.Nullable<int> _LawId;
+        
+        private System.Nullable<bool> _IsMinister;
+        
+        private string _Title;
+        
+        private EntityRef<Law> _Law;
+        
+        private EntityRef<Politician> _Politician;
+        
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -3726,245 +3726,245 @@ namespace FT.DB
     partial void OnTitleChanging(string value);
     partial void OnTitleChanged();
     #endregion
-		
-		public ProposedLaw()
-		{
-			this.Initialize();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProposedLawId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
-		public int ProposedLawId
-		{
-			get
-			{
-				return this._ProposedLawId;
-			}
-			set
-			{
-				if ((this._ProposedLawId != value))
-				{
-					this.OnProposedLawIdChanging(value);
-					this.SendPropertyChanging();
-					this._ProposedLawId = value;
-					this.SendPropertyChanged("ProposedLawId");
-					this.OnProposedLawIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PoliticianId", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-		public System.Nullable<int> PoliticianId
-		{
-			get
-			{
-				return this._PoliticianId;
-			}
-			set
-			{
-				if ((this._PoliticianId != value))
-				{
-					if (this._Politician.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnPoliticianIdChanging(value);
-					this.SendPropertyChanging();
-					this._PoliticianId = value;
-					this.SendPropertyChanged("PoliticianId");
-					this.OnPoliticianIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LawId", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
-		public System.Nullable<int> LawId
-		{
-			get
-			{
-				return this._LawId;
-			}
-			set
-			{
-				if ((this._LawId != value))
-				{
-					if (this._Law.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnLawIdChanging(value);
-					this.SendPropertyChanging();
-					this._LawId = value;
-					this.SendPropertyChanged("LawId");
-					this.OnLawIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsMinister", DbType="Bit")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
-		public System.Nullable<bool> IsMinister
-		{
-			get
-			{
-				return this._IsMinister;
-			}
-			set
-			{
-				if ((this._IsMinister != value))
-				{
-					this.OnIsMinisterChanging(value);
-					this.SendPropertyChanging();
-					this._IsMinister = value;
-					this.SendPropertyChanged("IsMinister");
-					this.OnIsMinisterChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", DbType="NVarChar(200)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
-		public string Title
-		{
-			get
-			{
-				return this._Title;
-			}
-			set
-			{
-				if ((this._Title != value))
-				{
-					this.OnTitleChanging(value);
-					this.SendPropertyChanging();
-					this._Title = value;
-					this.SendPropertyChanged("Title");
-					this.OnTitleChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Law_ProposedLaw", Storage="_Law", ThisKey="LawId", OtherKey="LawId", IsForeignKey=true)]
-		public Law Law
-		{
-			get
-			{
-				return this._Law.Entity;
-			}
-			set
-			{
-				Law previousValue = this._Law.Entity;
-				if (((previousValue != value) 
-							|| (this._Law.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Law.Entity = null;
-						previousValue.ProposedLaws.Remove(this);
-					}
-					this._Law.Entity = value;
-					if ((value != null))
-					{
-						value.ProposedLaws.Add(this);
-						this._LawId = value.LawId;
-					}
-					else
-					{
-						this._LawId = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Law");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Politician_ProposedLaw", Storage="_Politician", ThisKey="PoliticianId", OtherKey="PoliticianId", IsForeignKey=true)]
-		public Politician Politician
-		{
-			get
-			{
-				return this._Politician.Entity;
-			}
-			set
-			{
-				Politician previousValue = this._Politician.Entity;
-				if (((previousValue != value) 
-							|| (this._Politician.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Politician.Entity = null;
-						previousValue.ProposedLaws.Remove(this);
-					}
-					this._Politician.Entity = value;
-					if ((value != null))
-					{
-						value.ProposedLaws.Add(this);
-						this._PoliticianId = value.PoliticianId;
-					}
-					else
-					{
-						this._PoliticianId = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Politician");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void Initialize()
-		{
-			this._Law = default(EntityRef<Law>);
-			this._Politician = default(EntityRef<Politician>);
-			OnCreated();
-		}
-		
-		[global::System.Runtime.Serialization.OnDeserializingAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnDeserializing(StreamingContext context)
-		{
-			this.Initialize();
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Section")]
-	[global::System.Runtime.Serialization.DataContractAttribute()]
-	public partial class Section : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _SectionId;
-		
-		private System.Nullable<int> _ParagraphId;
-		
-		private System.Nullable<int> _Number;
-		
-		private string _Text;
-		
-		private EntityRef<Paragraph> _Paragraph;
-		
+        
+        public ProposedLaw()
+        {
+            this.Initialize();
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProposedLawId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public int ProposedLawId
+        {
+            get
+            {
+                return this._ProposedLawId;
+            }
+            set
+            {
+                if ((this._ProposedLawId != value))
+                {
+                    this.OnProposedLawIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._ProposedLawId = value;
+                    this.SendPropertyChanged("ProposedLawId");
+                    this.OnProposedLawIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PoliticianId", DbType="Int")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public System.Nullable<int> PoliticianId
+        {
+            get
+            {
+                return this._PoliticianId;
+            }
+            set
+            {
+                if ((this._PoliticianId != value))
+                {
+                    if (this._Politician.HasLoadedOrAssignedValue)
+                    {
+                        throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+                    }
+                    this.OnPoliticianIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._PoliticianId = value;
+                    this.SendPropertyChanged("PoliticianId");
+                    this.OnPoliticianIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LawId", DbType="Int")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        public System.Nullable<int> LawId
+        {
+            get
+            {
+                return this._LawId;
+            }
+            set
+            {
+                if ((this._LawId != value))
+                {
+                    if (this._Law.HasLoadedOrAssignedValue)
+                    {
+                        throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+                    }
+                    this.OnLawIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._LawId = value;
+                    this.SendPropertyChanged("LawId");
+                    this.OnLawIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsMinister", DbType="Bit")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+        public System.Nullable<bool> IsMinister
+        {
+            get
+            {
+                return this._IsMinister;
+            }
+            set
+            {
+                if ((this._IsMinister != value))
+                {
+                    this.OnIsMinisterChanging(value);
+                    this.SendPropertyChanging();
+                    this._IsMinister = value;
+                    this.SendPropertyChanged("IsMinister");
+                    this.OnIsMinisterChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", DbType="NVarChar(200)")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+        public string Title
+        {
+            get
+            {
+                return this._Title;
+            }
+            set
+            {
+                if ((this._Title != value))
+                {
+                    this.OnTitleChanging(value);
+                    this.SendPropertyChanging();
+                    this._Title = value;
+                    this.SendPropertyChanged("Title");
+                    this.OnTitleChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Law_ProposedLaw", Storage="_Law", ThisKey="LawId", OtherKey="LawId", IsForeignKey=true)]
+        public Law Law
+        {
+            get
+            {
+                return this._Law.Entity;
+            }
+            set
+            {
+                Law previousValue = this._Law.Entity;
+                if (((previousValue != value) 
+                            || (this._Law.HasLoadedOrAssignedValue == false)))
+                {
+                    this.SendPropertyChanging();
+                    if ((previousValue != null))
+                    {
+                        this._Law.Entity = null;
+                        previousValue.ProposedLaws.Remove(this);
+                    }
+                    this._Law.Entity = value;
+                    if ((value != null))
+                    {
+                        value.ProposedLaws.Add(this);
+                        this._LawId = value.LawId;
+                    }
+                    else
+                    {
+                        this._LawId = default(Nullable<int>);
+                    }
+                    this.SendPropertyChanged("Law");
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Politician_ProposedLaw", Storage="_Politician", ThisKey="PoliticianId", OtherKey="PoliticianId", IsForeignKey=true)]
+        public Politician Politician
+        {
+            get
+            {
+                return this._Politician.Entity;
+            }
+            set
+            {
+                Politician previousValue = this._Politician.Entity;
+                if (((previousValue != value) 
+                            || (this._Politician.HasLoadedOrAssignedValue == false)))
+                {
+                    this.SendPropertyChanging();
+                    if ((previousValue != null))
+                    {
+                        this._Politician.Entity = null;
+                        previousValue.ProposedLaws.Remove(this);
+                    }
+                    this._Politician.Entity = value;
+                    if ((value != null))
+                    {
+                        value.ProposedLaws.Add(this);
+                        this._PoliticianId = value.PoliticianId;
+                    }
+                    else
+                    {
+                        this._PoliticianId = default(Nullable<int>);
+                    }
+                    this.SendPropertyChanged("Politician");
+                }
+            }
+        }
+        
+        public event PropertyChangingEventHandler PropertyChanging;
+        
+        public event PropertyChangedEventHandler PropertyChanged;
+        
+        protected virtual void SendPropertyChanging()
+        {
+            if ((this.PropertyChanging != null))
+            {
+                this.PropertyChanging(this, emptyChangingEventArgs);
+            }
+        }
+        
+        protected virtual void SendPropertyChanged(String propertyName)
+        {
+            if ((this.PropertyChanged != null))
+            {
+                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+        
+        private void Initialize()
+        {
+            this._Law = default(EntityRef<Law>);
+            this._Politician = default(EntityRef<Politician>);
+            OnCreated();
+        }
+        
+        [global::System.Runtime.Serialization.OnDeserializingAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnDeserializing(StreamingContext context)
+        {
+            this.Initialize();
+        }
+    }
+    
+    [global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Section")]
+    [global::System.Runtime.Serialization.DataContractAttribute()]
+    public partial class Section : INotifyPropertyChanging, INotifyPropertyChanged
+    {
+        
+        private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+        
+        private int _SectionId;
+        
+        private System.Nullable<int> _ParagraphId;
+        
+        private System.Nullable<int> _Number;
+        
+        private string _Text;
+        
+        private EntityRef<Paragraph> _Paragraph;
+        
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -3978,189 +3978,189 @@ namespace FT.DB
     partial void OnTextChanging(string value);
     partial void OnTextChanged();
     #endregion
-		
-		public Section()
-		{
-			this.Initialize();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SectionId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
-		public int SectionId
-		{
-			get
-			{
-				return this._SectionId;
-			}
-			set
-			{
-				if ((this._SectionId != value))
-				{
-					this.OnSectionIdChanging(value);
-					this.SendPropertyChanging();
-					this._SectionId = value;
-					this.SendPropertyChanged("SectionId");
-					this.OnSectionIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ParagraphId", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-		public System.Nullable<int> ParagraphId
-		{
-			get
-			{
-				return this._ParagraphId;
-			}
-			set
-			{
-				if ((this._ParagraphId != value))
-				{
-					if (this._Paragraph.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnParagraphIdChanging(value);
-					this.SendPropertyChanging();
-					this._ParagraphId = value;
-					this.SendPropertyChanged("ParagraphId");
-					this.OnParagraphIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Number", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
-		public System.Nullable<int> Number
-		{
-			get
-			{
-				return this._Number;
-			}
-			set
-			{
-				if ((this._Number != value))
-				{
-					this.OnNumberChanging(value);
-					this.SendPropertyChanging();
-					this._Number = value;
-					this.SendPropertyChanged("Number");
-					this.OnNumberChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Text", DbType="NText", UpdateCheck=UpdateCheck.Never)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
-		public string Text
-		{
-			get
-			{
-				return this._Text;
-			}
-			set
-			{
-				if ((this._Text != value))
-				{
-					this.OnTextChanging(value);
-					this.SendPropertyChanging();
-					this._Text = value;
-					this.SendPropertyChanged("Text");
-					this.OnTextChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Paragraph_Section", Storage="_Paragraph", ThisKey="ParagraphId", OtherKey="ParagraphId", IsForeignKey=true)]
-		public Paragraph Paragraph
-		{
-			get
-			{
-				return this._Paragraph.Entity;
-			}
-			set
-			{
-				Paragraph previousValue = this._Paragraph.Entity;
-				if (((previousValue != value) 
-							|| (this._Paragraph.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Paragraph.Entity = null;
-						previousValue.Sections.Remove(this);
-					}
-					this._Paragraph.Entity = value;
-					if ((value != null))
-					{
-						value.Sections.Add(this);
-						this._ParagraphId = value.ParagraphId;
-					}
-					else
-					{
-						this._ParagraphId = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Paragraph");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void Initialize()
-		{
-			this._Paragraph = default(EntityRef<Paragraph>);
-			OnCreated();
-		}
-		
-		[global::System.Runtime.Serialization.OnDeserializingAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnDeserializing(StreamingContext context)
-		{
-			this.Initialize();
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Session")]
-	[global::System.Runtime.Serialization.DataContractAttribute()]
-	public partial class Session : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _SessionId;
-		
-		private int _Year;
-		
-		private int _Number;
-		
-		private System.Nullable<bool> _IsDone;
-		
-		private EntitySet<Law> _Laws;
-		
-		private EntitySet<P20Question> _P20Questions;
-		
-		private bool serializing;
-		
+        
+        public Section()
+        {
+            this.Initialize();
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SectionId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public int SectionId
+        {
+            get
+            {
+                return this._SectionId;
+            }
+            set
+            {
+                if ((this._SectionId != value))
+                {
+                    this.OnSectionIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._SectionId = value;
+                    this.SendPropertyChanged("SectionId");
+                    this.OnSectionIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ParagraphId", DbType="Int")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public System.Nullable<int> ParagraphId
+        {
+            get
+            {
+                return this._ParagraphId;
+            }
+            set
+            {
+                if ((this._ParagraphId != value))
+                {
+                    if (this._Paragraph.HasLoadedOrAssignedValue)
+                    {
+                        throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+                    }
+                    this.OnParagraphIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._ParagraphId = value;
+                    this.SendPropertyChanged("ParagraphId");
+                    this.OnParagraphIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Number", DbType="Int")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        public System.Nullable<int> Number
+        {
+            get
+            {
+                return this._Number;
+            }
+            set
+            {
+                if ((this._Number != value))
+                {
+                    this.OnNumberChanging(value);
+                    this.SendPropertyChanging();
+                    this._Number = value;
+                    this.SendPropertyChanged("Number");
+                    this.OnNumberChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Text", DbType="NText", UpdateCheck=UpdateCheck.Never)]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+        public string Text
+        {
+            get
+            {
+                return this._Text;
+            }
+            set
+            {
+                if ((this._Text != value))
+                {
+                    this.OnTextChanging(value);
+                    this.SendPropertyChanging();
+                    this._Text = value;
+                    this.SendPropertyChanged("Text");
+                    this.OnTextChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Paragraph_Section", Storage="_Paragraph", ThisKey="ParagraphId", OtherKey="ParagraphId", IsForeignKey=true)]
+        public Paragraph Paragraph
+        {
+            get
+            {
+                return this._Paragraph.Entity;
+            }
+            set
+            {
+                Paragraph previousValue = this._Paragraph.Entity;
+                if (((previousValue != value) 
+                            || (this._Paragraph.HasLoadedOrAssignedValue == false)))
+                {
+                    this.SendPropertyChanging();
+                    if ((previousValue != null))
+                    {
+                        this._Paragraph.Entity = null;
+                        previousValue.Sections.Remove(this);
+                    }
+                    this._Paragraph.Entity = value;
+                    if ((value != null))
+                    {
+                        value.Sections.Add(this);
+                        this._ParagraphId = value.ParagraphId;
+                    }
+                    else
+                    {
+                        this._ParagraphId = default(Nullable<int>);
+                    }
+                    this.SendPropertyChanged("Paragraph");
+                }
+            }
+        }
+        
+        public event PropertyChangingEventHandler PropertyChanging;
+        
+        public event PropertyChangedEventHandler PropertyChanged;
+        
+        protected virtual void SendPropertyChanging()
+        {
+            if ((this.PropertyChanging != null))
+            {
+                this.PropertyChanging(this, emptyChangingEventArgs);
+            }
+        }
+        
+        protected virtual void SendPropertyChanged(String propertyName)
+        {
+            if ((this.PropertyChanged != null))
+            {
+                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+        
+        private void Initialize()
+        {
+            this._Paragraph = default(EntityRef<Paragraph>);
+            OnCreated();
+        }
+        
+        [global::System.Runtime.Serialization.OnDeserializingAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnDeserializing(StreamingContext context)
+        {
+            this.Initialize();
+        }
+    }
+    
+    [global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Session")]
+    [global::System.Runtime.Serialization.DataContractAttribute()]
+    public partial class Session : INotifyPropertyChanging, INotifyPropertyChanged
+    {
+        
+        private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+        
+        private int _SessionId;
+        
+        private int _Year;
+        
+        private int _Number;
+        
+        private System.Nullable<bool> _IsDone;
+        
+        private EntitySet<Law> _Laws;
+        
+        private EntitySet<P20Question> _P20Questions;
+        
+        private bool serializing;
+        
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -4174,224 +4174,224 @@ namespace FT.DB
     partial void OnIsDoneChanging(System.Nullable<bool> value);
     partial void OnIsDoneChanged();
     #endregion
-		
-		public Session()
-		{
-			this.Initialize();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SessionId", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
-		public int SessionId
-		{
-			get
-			{
-				return this._SessionId;
-			}
-			set
-			{
-				if ((this._SessionId != value))
-				{
-					this.OnSessionIdChanging(value);
-					this.SendPropertyChanging();
-					this._SessionId = value;
-					this.SendPropertyChanged("SessionId");
-					this.OnSessionIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Year", DbType="Int NOT NULL")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-		public int Year
-		{
-			get
-			{
-				return this._Year;
-			}
-			set
-			{
-				if ((this._Year != value))
-				{
-					this.OnYearChanging(value);
-					this.SendPropertyChanging();
-					this._Year = value;
-					this.SendPropertyChanged("Year");
-					this.OnYearChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Number", DbType="Int NOT NULL")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
-		public int Number
-		{
-			get
-			{
-				return this._Number;
-			}
-			set
-			{
-				if ((this._Number != value))
-				{
-					this.OnNumberChanging(value);
-					this.SendPropertyChanging();
-					this._Number = value;
-					this.SendPropertyChanged("Number");
-					this.OnNumberChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsDone", DbType="Bit")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
-		public System.Nullable<bool> IsDone
-		{
-			get
-			{
-				return this._IsDone;
-			}
-			set
-			{
-				if ((this._IsDone != value))
-				{
-					this.OnIsDoneChanging(value);
-					this.SendPropertyChanging();
-					this._IsDone = value;
-					this.SendPropertyChanged("IsDone");
-					this.OnIsDoneChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Session_Law", Storage="_Laws", ThisKey="SessionId", OtherKey="SessionId")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5, EmitDefaultValue=false)]
-		public EntitySet<Law> Laws
-		{
-			get
-			{
-				if ((this.serializing 
-							&& (this._Laws.HasLoadedOrAssignedValues == false)))
-				{
-					return null;
-				}
-				return this._Laws;
-			}
-			set
-			{
-				this._Laws.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Session_P20Question", Storage="_P20Questions", ThisKey="SessionId", OtherKey="SessionId")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=6, EmitDefaultValue=false)]
-		public EntitySet<P20Question> P20Questions
-		{
-			get
-			{
-				if ((this.serializing 
-							&& (this._P20Questions.HasLoadedOrAssignedValues == false)))
-				{
-					return null;
-				}
-				return this._P20Questions;
-			}
-			set
-			{
-				this._P20Questions.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Laws(Law entity)
-		{
-			this.SendPropertyChanging();
-			entity.Session = this;
-		}
-		
-		private void detach_Laws(Law entity)
-		{
-			this.SendPropertyChanging();
-			entity.Session = null;
-		}
-		
-		private void attach_P20Questions(P20Question entity)
-		{
-			this.SendPropertyChanging();
-			entity.Session = this;
-		}
-		
-		private void detach_P20Questions(P20Question entity)
-		{
-			this.SendPropertyChanging();
-			entity.Session = null;
-		}
-		
-		private void Initialize()
-		{
-			this._Laws = new EntitySet<Law>(new Action<Law>(this.attach_Laws), new Action<Law>(this.detach_Laws));
-			this._P20Questions = new EntitySet<P20Question>(new Action<P20Question>(this.attach_P20Questions), new Action<P20Question>(this.detach_P20Questions));
-			OnCreated();
-		}
-		
-		[global::System.Runtime.Serialization.OnDeserializingAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnDeserializing(StreamingContext context)
-		{
-			this.Initialize();
-		}
-		
-		[global::System.Runtime.Serialization.OnSerializingAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnSerializing(StreamingContext context)
-		{
-			this.serializing = true;
-		}
-		
-		[global::System.Runtime.Serialization.OnSerializedAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnSerialized(StreamingContext context)
-		{
-			this.serializing = false;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SpeechPara")]
-	[global::System.Runtime.Serialization.DataContractAttribute()]
-	public partial class SpeechPara : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _SpeechParaId;
-		
-		private System.Nullable<int> _SpeechId;
-		
-		private string _ParText;
-		
-		private System.Nullable<int> _Number;
-		
-		private EntityRef<Speech> _Speech;
-		
+        
+        public Session()
+        {
+            this.Initialize();
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SessionId", DbType="Int NOT NULL", IsPrimaryKey=true)]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public int SessionId
+        {
+            get
+            {
+                return this._SessionId;
+            }
+            set
+            {
+                if ((this._SessionId != value))
+                {
+                    this.OnSessionIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._SessionId = value;
+                    this.SendPropertyChanged("SessionId");
+                    this.OnSessionIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Year", DbType="Int NOT NULL")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public int Year
+        {
+            get
+            {
+                return this._Year;
+            }
+            set
+            {
+                if ((this._Year != value))
+                {
+                    this.OnYearChanging(value);
+                    this.SendPropertyChanging();
+                    this._Year = value;
+                    this.SendPropertyChanged("Year");
+                    this.OnYearChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Number", DbType="Int NOT NULL")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        public int Number
+        {
+            get
+            {
+                return this._Number;
+            }
+            set
+            {
+                if ((this._Number != value))
+                {
+                    this.OnNumberChanging(value);
+                    this.SendPropertyChanging();
+                    this._Number = value;
+                    this.SendPropertyChanged("Number");
+                    this.OnNumberChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsDone", DbType="Bit")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+        public System.Nullable<bool> IsDone
+        {
+            get
+            {
+                return this._IsDone;
+            }
+            set
+            {
+                if ((this._IsDone != value))
+                {
+                    this.OnIsDoneChanging(value);
+                    this.SendPropertyChanging();
+                    this._IsDone = value;
+                    this.SendPropertyChanged("IsDone");
+                    this.OnIsDoneChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Session_Law", Storage="_Laws", ThisKey="SessionId", OtherKey="SessionId")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=5, EmitDefaultValue=false)]
+        public EntitySet<Law> Laws
+        {
+            get
+            {
+                if ((this.serializing 
+                            && (this._Laws.HasLoadedOrAssignedValues == false)))
+                {
+                    return null;
+                }
+                return this._Laws;
+            }
+            set
+            {
+                this._Laws.Assign(value);
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Session_P20Question", Storage="_P20Questions", ThisKey="SessionId", OtherKey="SessionId")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=6, EmitDefaultValue=false)]
+        public EntitySet<P20Question> P20Questions
+        {
+            get
+            {
+                if ((this.serializing 
+                            && (this._P20Questions.HasLoadedOrAssignedValues == false)))
+                {
+                    return null;
+                }
+                return this._P20Questions;
+            }
+            set
+            {
+                this._P20Questions.Assign(value);
+            }
+        }
+        
+        public event PropertyChangingEventHandler PropertyChanging;
+        
+        public event PropertyChangedEventHandler PropertyChanged;
+        
+        protected virtual void SendPropertyChanging()
+        {
+            if ((this.PropertyChanging != null))
+            {
+                this.PropertyChanging(this, emptyChangingEventArgs);
+            }
+        }
+        
+        protected virtual void SendPropertyChanged(String propertyName)
+        {
+            if ((this.PropertyChanged != null))
+            {
+                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+        
+        private void attach_Laws(Law entity)
+        {
+            this.SendPropertyChanging();
+            entity.Session = this;
+        }
+        
+        private void detach_Laws(Law entity)
+        {
+            this.SendPropertyChanging();
+            entity.Session = null;
+        }
+        
+        private void attach_P20Questions(P20Question entity)
+        {
+            this.SendPropertyChanging();
+            entity.Session = this;
+        }
+        
+        private void detach_P20Questions(P20Question entity)
+        {
+            this.SendPropertyChanging();
+            entity.Session = null;
+        }
+        
+        private void Initialize()
+        {
+            this._Laws = new EntitySet<Law>(new Action<Law>(this.attach_Laws), new Action<Law>(this.detach_Laws));
+            this._P20Questions = new EntitySet<P20Question>(new Action<P20Question>(this.attach_P20Questions), new Action<P20Question>(this.detach_P20Questions));
+            OnCreated();
+        }
+        
+        [global::System.Runtime.Serialization.OnDeserializingAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnDeserializing(StreamingContext context)
+        {
+            this.Initialize();
+        }
+        
+        [global::System.Runtime.Serialization.OnSerializingAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnSerializing(StreamingContext context)
+        {
+            this.serializing = true;
+        }
+        
+        [global::System.Runtime.Serialization.OnSerializedAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnSerialized(StreamingContext context)
+        {
+            this.serializing = false;
+        }
+    }
+    
+    [global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SpeechPara")]
+    [global::System.Runtime.Serialization.DataContractAttribute()]
+    public partial class SpeechPara : INotifyPropertyChanging, INotifyPropertyChanged
+    {
+        
+        private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+        
+        private int _SpeechParaId;
+        
+        private System.Nullable<int> _SpeechId;
+        
+        private string _ParText;
+        
+        private System.Nullable<int> _Number;
+        
+        private EntityRef<Speech> _Speech;
+        
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -4405,185 +4405,185 @@ namespace FT.DB
     partial void OnNumberChanging(System.Nullable<int> value);
     partial void OnNumberChanged();
     #endregion
-		
-		public SpeechPara()
-		{
-			this.Initialize();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SpeechParaId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
-		public int SpeechParaId
-		{
-			get
-			{
-				return this._SpeechParaId;
-			}
-			set
-			{
-				if ((this._SpeechParaId != value))
-				{
-					this.OnSpeechParaIdChanging(value);
-					this.SendPropertyChanging();
-					this._SpeechParaId = value;
-					this.SendPropertyChanged("SpeechParaId");
-					this.OnSpeechParaIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SpeechId", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-		public System.Nullable<int> SpeechId
-		{
-			get
-			{
-				return this._SpeechId;
-			}
-			set
-			{
-				if ((this._SpeechId != value))
-				{
-					if (this._Speech.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnSpeechIdChanging(value);
-					this.SendPropertyChanging();
-					this._SpeechId = value;
-					this.SendPropertyChanged("SpeechId");
-					this.OnSpeechIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ParText", DbType="NText", UpdateCheck=UpdateCheck.Never)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
-		public string ParText
-		{
-			get
-			{
-				return this._ParText;
-			}
-			set
-			{
-				if ((this._ParText != value))
-				{
-					this.OnParTextChanging(value);
-					this.SendPropertyChanging();
-					this._ParText = value;
-					this.SendPropertyChanged("ParText");
-					this.OnParTextChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Number", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
-		public System.Nullable<int> Number
-		{
-			get
-			{
-				return this._Number;
-			}
-			set
-			{
-				if ((this._Number != value))
-				{
-					this.OnNumberChanging(value);
-					this.SendPropertyChanging();
-					this._Number = value;
-					this.SendPropertyChanged("Number");
-					this.OnNumberChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Speech_SpeechPara", Storage="_Speech", ThisKey="SpeechId", OtherKey="SpeechId", IsForeignKey=true)]
-		public Speech Speech
-		{
-			get
-			{
-				return this._Speech.Entity;
-			}
-			set
-			{
-				Speech previousValue = this._Speech.Entity;
-				if (((previousValue != value) 
-							|| (this._Speech.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Speech.Entity = null;
-						previousValue.SpeechParas.Remove(this);
-					}
-					this._Speech.Entity = value;
-					if ((value != null))
-					{
-						value.SpeechParas.Add(this);
-						this._SpeechId = value.SpeechId;
-					}
-					else
-					{
-						this._SpeechId = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Speech");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void Initialize()
-		{
-			this._Speech = default(EntityRef<Speech>);
-			OnCreated();
-		}
-		
-		[global::System.Runtime.Serialization.OnDeserializingAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnDeserializing(StreamingContext context)
-		{
-			this.Initialize();
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SubChange")]
-	[global::System.Runtime.Serialization.DataContractAttribute()]
-	public partial class SubChange : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _SubchangeId;
-		
-		private System.Nullable<int> _LawchangeId;
-		
-		private System.Nullable<int> _Number;
-		
-		private string _Text;
-		
-		private EntityRef<LawChange> _LawChange;
-		
+        
+        public SpeechPara()
+        {
+            this.Initialize();
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SpeechParaId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public int SpeechParaId
+        {
+            get
+            {
+                return this._SpeechParaId;
+            }
+            set
+            {
+                if ((this._SpeechParaId != value))
+                {
+                    this.OnSpeechParaIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._SpeechParaId = value;
+                    this.SendPropertyChanged("SpeechParaId");
+                    this.OnSpeechParaIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SpeechId", DbType="Int")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public System.Nullable<int> SpeechId
+        {
+            get
+            {
+                return this._SpeechId;
+            }
+            set
+            {
+                if ((this._SpeechId != value))
+                {
+                    if (this._Speech.HasLoadedOrAssignedValue)
+                    {
+                        throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+                    }
+                    this.OnSpeechIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._SpeechId = value;
+                    this.SendPropertyChanged("SpeechId");
+                    this.OnSpeechIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ParText", DbType="NText", UpdateCheck=UpdateCheck.Never)]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        public string ParText
+        {
+            get
+            {
+                return this._ParText;
+            }
+            set
+            {
+                if ((this._ParText != value))
+                {
+                    this.OnParTextChanging(value);
+                    this.SendPropertyChanging();
+                    this._ParText = value;
+                    this.SendPropertyChanged("ParText");
+                    this.OnParTextChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Number", DbType="Int")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+        public System.Nullable<int> Number
+        {
+            get
+            {
+                return this._Number;
+            }
+            set
+            {
+                if ((this._Number != value))
+                {
+                    this.OnNumberChanging(value);
+                    this.SendPropertyChanging();
+                    this._Number = value;
+                    this.SendPropertyChanged("Number");
+                    this.OnNumberChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Speech_SpeechPara", Storage="_Speech", ThisKey="SpeechId", OtherKey="SpeechId", IsForeignKey=true)]
+        public Speech Speech
+        {
+            get
+            {
+                return this._Speech.Entity;
+            }
+            set
+            {
+                Speech previousValue = this._Speech.Entity;
+                if (((previousValue != value) 
+                            || (this._Speech.HasLoadedOrAssignedValue == false)))
+                {
+                    this.SendPropertyChanging();
+                    if ((previousValue != null))
+                    {
+                        this._Speech.Entity = null;
+                        previousValue.SpeechParas.Remove(this);
+                    }
+                    this._Speech.Entity = value;
+                    if ((value != null))
+                    {
+                        value.SpeechParas.Add(this);
+                        this._SpeechId = value.SpeechId;
+                    }
+                    else
+                    {
+                        this._SpeechId = default(Nullable<int>);
+                    }
+                    this.SendPropertyChanged("Speech");
+                }
+            }
+        }
+        
+        public event PropertyChangingEventHandler PropertyChanging;
+        
+        public event PropertyChangedEventHandler PropertyChanged;
+        
+        protected virtual void SendPropertyChanging()
+        {
+            if ((this.PropertyChanging != null))
+            {
+                this.PropertyChanging(this, emptyChangingEventArgs);
+            }
+        }
+        
+        protected virtual void SendPropertyChanged(String propertyName)
+        {
+            if ((this.PropertyChanged != null))
+            {
+                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+        
+        private void Initialize()
+        {
+            this._Speech = default(EntityRef<Speech>);
+            OnCreated();
+        }
+        
+        [global::System.Runtime.Serialization.OnDeserializingAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnDeserializing(StreamingContext context)
+        {
+            this.Initialize();
+        }
+    }
+    
+    [global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SubChange")]
+    [global::System.Runtime.Serialization.DataContractAttribute()]
+    public partial class SubChange : INotifyPropertyChanging, INotifyPropertyChanged
+    {
+        
+        private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+        
+        private int _SubchangeId;
+        
+        private System.Nullable<int> _LawchangeId;
+        
+        private System.Nullable<int> _Number;
+        
+        private string _Text;
+        
+        private EntityRef<LawChange> _LawChange;
+        
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -4597,189 +4597,189 @@ namespace FT.DB
     partial void OnTextChanging(string value);
     partial void OnTextChanged();
     #endregion
-		
-		public SubChange()
-		{
-			this.Initialize();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SubchangeId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
-		public int SubchangeId
-		{
-			get
-			{
-				return this._SubchangeId;
-			}
-			set
-			{
-				if ((this._SubchangeId != value))
-				{
-					this.OnSubchangeIdChanging(value);
-					this.SendPropertyChanging();
-					this._SubchangeId = value;
-					this.SendPropertyChanged("SubchangeId");
-					this.OnSubchangeIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LawchangeId", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-		public System.Nullable<int> LawchangeId
-		{
-			get
-			{
-				return this._LawchangeId;
-			}
-			set
-			{
-				if ((this._LawchangeId != value))
-				{
-					if (this._LawChange.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnLawchangeIdChanging(value);
-					this.SendPropertyChanging();
-					this._LawchangeId = value;
-					this.SendPropertyChanged("LawchangeId");
-					this.OnLawchangeIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Number", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
-		public System.Nullable<int> Number
-		{
-			get
-			{
-				return this._Number;
-			}
-			set
-			{
-				if ((this._Number != value))
-				{
-					this.OnNumberChanging(value);
-					this.SendPropertyChanging();
-					this._Number = value;
-					this.SendPropertyChanged("Number");
-					this.OnNumberChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Text", DbType="NText", UpdateCheck=UpdateCheck.Never)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
-		public string Text
-		{
-			get
-			{
-				return this._Text;
-			}
-			set
-			{
-				if ((this._Text != value))
-				{
-					this.OnTextChanging(value);
-					this.SendPropertyChanging();
-					this._Text = value;
-					this.SendPropertyChanged("Text");
-					this.OnTextChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="LawChange_SubChange", Storage="_LawChange", ThisKey="LawchangeId", OtherKey="LawChangeId", IsForeignKey=true)]
-		public LawChange LawChange
-		{
-			get
-			{
-				return this._LawChange.Entity;
-			}
-			set
-			{
-				LawChange previousValue = this._LawChange.Entity;
-				if (((previousValue != value) 
-							|| (this._LawChange.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._LawChange.Entity = null;
-						previousValue.SubChanges.Remove(this);
-					}
-					this._LawChange.Entity = value;
-					if ((value != null))
-					{
-						value.SubChanges.Add(this);
-						this._LawchangeId = value.LawChangeId;
-					}
-					else
-					{
-						this._LawchangeId = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("LawChange");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void Initialize()
-		{
-			this._LawChange = default(EntityRef<LawChange>);
-			OnCreated();
-		}
-		
-		[global::System.Runtime.Serialization.OnDeserializingAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnDeserializing(StreamingContext context)
-		{
-			this.Initialize();
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Tag")]
-	[global::System.Runtime.Serialization.DataContractAttribute()]
-	public partial class Tag : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _UserId;
-		
-		private int _ContentId;
-		
-		private ContentType _ContentType;
-		
-		private System.DateTime _Date;
-		
-		private int _TagId;
-		
-		private string _TagName;
-		
-		private EntityRef<User> _User;
-		
+        
+        public SubChange()
+        {
+            this.Initialize();
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SubchangeId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public int SubchangeId
+        {
+            get
+            {
+                return this._SubchangeId;
+            }
+            set
+            {
+                if ((this._SubchangeId != value))
+                {
+                    this.OnSubchangeIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._SubchangeId = value;
+                    this.SendPropertyChanged("SubchangeId");
+                    this.OnSubchangeIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LawchangeId", DbType="Int")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public System.Nullable<int> LawchangeId
+        {
+            get
+            {
+                return this._LawchangeId;
+            }
+            set
+            {
+                if ((this._LawchangeId != value))
+                {
+                    if (this._LawChange.HasLoadedOrAssignedValue)
+                    {
+                        throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+                    }
+                    this.OnLawchangeIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._LawchangeId = value;
+                    this.SendPropertyChanged("LawchangeId");
+                    this.OnLawchangeIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Number", DbType="Int")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        public System.Nullable<int> Number
+        {
+            get
+            {
+                return this._Number;
+            }
+            set
+            {
+                if ((this._Number != value))
+                {
+                    this.OnNumberChanging(value);
+                    this.SendPropertyChanging();
+                    this._Number = value;
+                    this.SendPropertyChanged("Number");
+                    this.OnNumberChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Text", DbType="NText", UpdateCheck=UpdateCheck.Never)]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+        public string Text
+        {
+            get
+            {
+                return this._Text;
+            }
+            set
+            {
+                if ((this._Text != value))
+                {
+                    this.OnTextChanging(value);
+                    this.SendPropertyChanging();
+                    this._Text = value;
+                    this.SendPropertyChanged("Text");
+                    this.OnTextChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="LawChange_SubChange", Storage="_LawChange", ThisKey="LawchangeId", OtherKey="LawChangeId", IsForeignKey=true)]
+        public LawChange LawChange
+        {
+            get
+            {
+                return this._LawChange.Entity;
+            }
+            set
+            {
+                LawChange previousValue = this._LawChange.Entity;
+                if (((previousValue != value) 
+                            || (this._LawChange.HasLoadedOrAssignedValue == false)))
+                {
+                    this.SendPropertyChanging();
+                    if ((previousValue != null))
+                    {
+                        this._LawChange.Entity = null;
+                        previousValue.SubChanges.Remove(this);
+                    }
+                    this._LawChange.Entity = value;
+                    if ((value != null))
+                    {
+                        value.SubChanges.Add(this);
+                        this._LawchangeId = value.LawChangeId;
+                    }
+                    else
+                    {
+                        this._LawchangeId = default(Nullable<int>);
+                    }
+                    this.SendPropertyChanged("LawChange");
+                }
+            }
+        }
+        
+        public event PropertyChangingEventHandler PropertyChanging;
+        
+        public event PropertyChangedEventHandler PropertyChanged;
+        
+        protected virtual void SendPropertyChanging()
+        {
+            if ((this.PropertyChanging != null))
+            {
+                this.PropertyChanging(this, emptyChangingEventArgs);
+            }
+        }
+        
+        protected virtual void SendPropertyChanged(String propertyName)
+        {
+            if ((this.PropertyChanged != null))
+            {
+                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+        
+        private void Initialize()
+        {
+            this._LawChange = default(EntityRef<LawChange>);
+            OnCreated();
+        }
+        
+        [global::System.Runtime.Serialization.OnDeserializingAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnDeserializing(StreamingContext context)
+        {
+            this.Initialize();
+        }
+    }
+    
+    [global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Tag")]
+    [global::System.Runtime.Serialization.DataContractAttribute()]
+    public partial class Tag : INotifyPropertyChanging, INotifyPropertyChanged
+    {
+        
+        private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+        
+        private int _UserId;
+        
+        private int _ContentId;
+        
+        private ContentType _ContentType;
+        
+        private System.DateTime _Date;
+        
+        private int _TagId;
+        
+        private string _TagName;
+        
+        private EntityRef<User> _User;
+        
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -4797,241 +4797,241 @@ namespace FT.DB
     partial void OnTagNameChanging(string value);
     partial void OnTagNameChanged();
     #endregion
-		
-		public Tag()
-		{
-			this.Initialize();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserId", DbType="Int NOT NULL")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
-		public int UserId
-		{
-			get
-			{
-				return this._UserId;
-			}
-			set
-			{
-				if ((this._UserId != value))
-				{
-					if (this._User.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnUserIdChanging(value);
-					this.SendPropertyChanging();
-					this._UserId = value;
-					this.SendPropertyChanged("UserId");
-					this.OnUserIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContentId", DbType="Int NOT NULL")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-		public int ContentId
-		{
-			get
-			{
-				return this._ContentId;
-			}
-			set
-			{
-				if ((this._ContentId != value))
-				{
-					this.OnContentIdChanging(value);
-					this.SendPropertyChanging();
-					this._ContentId = value;
-					this.SendPropertyChanged("ContentId");
-					this.OnContentIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContentType", DbType="TinyInt NOT NULL", CanBeNull=false)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
-		public ContentType ContentType
-		{
-			get
-			{
-				return this._ContentType;
-			}
-			set
-			{
-				if ((this._ContentType != value))
-				{
-					this.OnContentTypeChanging(value);
-					this.SendPropertyChanging();
-					this._ContentType = value;
-					this.SendPropertyChanged("ContentType");
-					this.OnContentTypeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="DateTime NOT NULL")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
-		public System.DateTime Date
-		{
-			get
-			{
-				return this._Date;
-			}
-			set
-			{
-				if ((this._Date != value))
-				{
-					this.OnDateChanging(value);
-					this.SendPropertyChanging();
-					this._Date = value;
-					this.SendPropertyChanged("Date");
-					this.OnDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TagId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
-		public int TagId
-		{
-			get
-			{
-				return this._TagId;
-			}
-			set
-			{
-				if ((this._TagId != value))
-				{
-					this.OnTagIdChanging(value);
-					this.SendPropertyChanging();
-					this._TagId = value;
-					this.SendPropertyChanged("TagId");
-					this.OnTagIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TagName", DbType="NVarChar(150) NOT NULL", CanBeNull=false)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=6)]
-		public string TagName
-		{
-			get
-			{
-				return this._TagName;
-			}
-			set
-			{
-				if ((this._TagName != value))
-				{
-					this.OnTagNameChanging(value);
-					this.SendPropertyChanging();
-					this._TagName = value;
-					this.SendPropertyChanged("TagName");
-					this.OnTagNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_Tag", Storage="_User", ThisKey="UserId", OtherKey="UserId", IsForeignKey=true)]
-		public User User
-		{
-			get
-			{
-				return this._User.Entity;
-			}
-			set
-			{
-				User previousValue = this._User.Entity;
-				if (((previousValue != value) 
-							|| (this._User.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._User.Entity = null;
-						previousValue.Tags.Remove(this);
-					}
-					this._User.Entity = value;
-					if ((value != null))
-					{
-						value.Tags.Add(this);
-						this._UserId = value.UserId;
-					}
-					else
-					{
-						this._UserId = default(int);
-					}
-					this.SendPropertyChanged("User");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void Initialize()
-		{
-			this._User = default(EntityRef<User>);
-			OnCreated();
-		}
-		
-		[global::System.Runtime.Serialization.OnDeserializingAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnDeserializing(StreamingContext context)
-		{
-			this.Initialize();
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.[User]")]
-	[global::System.Runtime.Serialization.DataContractAttribute()]
-	public partial class User : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _UserId;
-		
-		private string _Username;
-		
-		private System.Guid _Aspnetuserid;
-		
-		private string _Url;
-		
-		private System.Data.Linq.Binary _Pic;
-		
-		private System.Nullable<System.DateTime> _CreatedOn;
-		
-		private EntitySet<UserLawVote> _UserLawVotes;
-		
-		private EntitySet<Comment> _Comments;
-		
-		private EntitySet<CommentVote> _CommentVotes;
-		
-		private EntitySet<Tag> _Tags;
-		
-		private EntitySet<P20Question> _P20Questions;
-		
-		private bool serializing;
-		
+        
+        public Tag()
+        {
+            this.Initialize();
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserId", DbType="Int NOT NULL")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public int UserId
+        {
+            get
+            {
+                return this._UserId;
+            }
+            set
+            {
+                if ((this._UserId != value))
+                {
+                    if (this._User.HasLoadedOrAssignedValue)
+                    {
+                        throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+                    }
+                    this.OnUserIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._UserId = value;
+                    this.SendPropertyChanged("UserId");
+                    this.OnUserIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContentId", DbType="Int NOT NULL")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public int ContentId
+        {
+            get
+            {
+                return this._ContentId;
+            }
+            set
+            {
+                if ((this._ContentId != value))
+                {
+                    this.OnContentIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._ContentId = value;
+                    this.SendPropertyChanged("ContentId");
+                    this.OnContentIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContentType", DbType="TinyInt NOT NULL", CanBeNull=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        public ContentType ContentType
+        {
+            get
+            {
+                return this._ContentType;
+            }
+            set
+            {
+                if ((this._ContentType != value))
+                {
+                    this.OnContentTypeChanging(value);
+                    this.SendPropertyChanging();
+                    this._ContentType = value;
+                    this.SendPropertyChanged("ContentType");
+                    this.OnContentTypeChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="DateTime NOT NULL")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+        public System.DateTime Date
+        {
+            get
+            {
+                return this._Date;
+            }
+            set
+            {
+                if ((this._Date != value))
+                {
+                    this.OnDateChanging(value);
+                    this.SendPropertyChanging();
+                    this._Date = value;
+                    this.SendPropertyChanged("Date");
+                    this.OnDateChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TagId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+        public int TagId
+        {
+            get
+            {
+                return this._TagId;
+            }
+            set
+            {
+                if ((this._TagId != value))
+                {
+                    this.OnTagIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._TagId = value;
+                    this.SendPropertyChanged("TagId");
+                    this.OnTagIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TagName", DbType="NVarChar(150) NOT NULL", CanBeNull=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=6)]
+        public string TagName
+        {
+            get
+            {
+                return this._TagName;
+            }
+            set
+            {
+                if ((this._TagName != value))
+                {
+                    this.OnTagNameChanging(value);
+                    this.SendPropertyChanging();
+                    this._TagName = value;
+                    this.SendPropertyChanged("TagName");
+                    this.OnTagNameChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_Tag", Storage="_User", ThisKey="UserId", OtherKey="UserId", IsForeignKey=true)]
+        public User User
+        {
+            get
+            {
+                return this._User.Entity;
+            }
+            set
+            {
+                User previousValue = this._User.Entity;
+                if (((previousValue != value) 
+                            || (this._User.HasLoadedOrAssignedValue == false)))
+                {
+                    this.SendPropertyChanging();
+                    if ((previousValue != null))
+                    {
+                        this._User.Entity = null;
+                        previousValue.Tags.Remove(this);
+                    }
+                    this._User.Entity = value;
+                    if ((value != null))
+                    {
+                        value.Tags.Add(this);
+                        this._UserId = value.UserId;
+                    }
+                    else
+                    {
+                        this._UserId = default(int);
+                    }
+                    this.SendPropertyChanged("User");
+                }
+            }
+        }
+        
+        public event PropertyChangingEventHandler PropertyChanging;
+        
+        public event PropertyChangedEventHandler PropertyChanged;
+        
+        protected virtual void SendPropertyChanging()
+        {
+            if ((this.PropertyChanging != null))
+            {
+                this.PropertyChanging(this, emptyChangingEventArgs);
+            }
+        }
+        
+        protected virtual void SendPropertyChanged(String propertyName)
+        {
+            if ((this.PropertyChanged != null))
+            {
+                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+        
+        private void Initialize()
+        {
+            this._User = default(EntityRef<User>);
+            OnCreated();
+        }
+        
+        [global::System.Runtime.Serialization.OnDeserializingAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnDeserializing(StreamingContext context)
+        {
+            this.Initialize();
+        }
+    }
+    
+    [global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.[User]")]
+    [global::System.Runtime.Serialization.DataContractAttribute()]
+    public partial class User : INotifyPropertyChanging, INotifyPropertyChanged
+    {
+        
+        private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+        
+        private int _UserId;
+        
+        private string _Username;
+        
+        private System.Guid _Aspnetuserid;
+        
+        private string _Url;
+        
+        private System.Data.Linq.Binary _Pic;
+        
+        private System.Nullable<System.DateTime> _CreatedOn;
+        
+        private EntitySet<UserLawVote> _UserLawVotes;
+        
+        private EntitySet<Comment> _Comments;
+        
+        private EntitySet<CommentVote> _CommentVotes;
+        
+        private EntitySet<Tag> _Tags;
+        
+        private EntitySet<P20Question> _P20Questions;
+        
+        private bool serializing;
+        
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -5049,362 +5049,362 @@ namespace FT.DB
     partial void OnCreatedOnChanging(System.Nullable<System.DateTime> value);
     partial void OnCreatedOnChanged();
     #endregion
-		
-		public User()
-		{
-			this.Initialize();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
-		public int UserId
-		{
-			get
-			{
-				return this._UserId;
-			}
-			set
-			{
-				if ((this._UserId != value))
-				{
-					this.OnUserIdChanging(value);
-					this.SendPropertyChanging();
-					this._UserId = value;
-					this.SendPropertyChanged("UserId");
-					this.OnUserIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Username", DbType="NVarChar(256) NOT NULL", CanBeNull=false)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-		public string Username
-		{
-			get
-			{
-				return this._Username;
-			}
-			set
-			{
-				if ((this._Username != value))
-				{
-					this.OnUsernameChanging(value);
-					this.SendPropertyChanging();
-					this._Username = value;
-					this.SendPropertyChanged("Username");
-					this.OnUsernameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Aspnetuserid", DbType="UniqueIdentifier NOT NULL")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
-		public System.Guid Aspnetuserid
-		{
-			get
-			{
-				return this._Aspnetuserid;
-			}
-			set
-			{
-				if ((this._Aspnetuserid != value))
-				{
-					this.OnAspnetuseridChanging(value);
-					this.SendPropertyChanging();
-					this._Aspnetuserid = value;
-					this.SendPropertyChanged("Aspnetuserid");
-					this.OnAspnetuseridChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Url", DbType="NVarChar(256)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
-		public string Url
-		{
-			get
-			{
-				return this._Url;
-			}
-			set
-			{
-				if ((this._Url != value))
-				{
-					this.OnUrlChanging(value);
-					this.SendPropertyChanging();
-					this._Url = value;
-					this.SendPropertyChanged("Url");
-					this.OnUrlChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pic", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
-		public System.Data.Linq.Binary Pic
-		{
-			get
-			{
-				return this._Pic;
-			}
-			set
-			{
-				if ((this._Pic != value))
-				{
-					this.OnPicChanging(value);
-					this.SendPropertyChanging();
-					this._Pic = value;
-					this.SendPropertyChanged("Pic");
-					this.OnPicChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedOn", DbType="DateTime")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=6)]
-		public System.Nullable<System.DateTime> CreatedOn
-		{
-			get
-			{
-				return this._CreatedOn;
-			}
-			set
-			{
-				if ((this._CreatedOn != value))
-				{
-					this.OnCreatedOnChanging(value);
-					this.SendPropertyChanging();
-					this._CreatedOn = value;
-					this.SendPropertyChanged("CreatedOn");
-					this.OnCreatedOnChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_UserLawVote", Storage="_UserLawVotes", ThisKey="UserId", OtherKey="UserId")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=7, EmitDefaultValue=false)]
-		public EntitySet<UserLawVote> UserLawVotes
-		{
-			get
-			{
-				if ((this.serializing 
-							&& (this._UserLawVotes.HasLoadedOrAssignedValues == false)))
-				{
-					return null;
-				}
-				return this._UserLawVotes;
-			}
-			set
-			{
-				this._UserLawVotes.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_Comment", Storage="_Comments", ThisKey="UserId", OtherKey="UserId")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=8, EmitDefaultValue=false)]
-		public EntitySet<Comment> Comments
-		{
-			get
-			{
-				if ((this.serializing 
-							&& (this._Comments.HasLoadedOrAssignedValues == false)))
-				{
-					return null;
-				}
-				return this._Comments;
-			}
-			set
-			{
-				this._Comments.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_CommentVote", Storage="_CommentVotes", ThisKey="UserId", OtherKey="UserId")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=9, EmitDefaultValue=false)]
-		public EntitySet<CommentVote> CommentVotes
-		{
-			get
-			{
-				if ((this.serializing 
-							&& (this._CommentVotes.HasLoadedOrAssignedValues == false)))
-				{
-					return null;
-				}
-				return this._CommentVotes;
-			}
-			set
-			{
-				this._CommentVotes.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_Tag", Storage="_Tags", ThisKey="UserId", OtherKey="UserId")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=10, EmitDefaultValue=false)]
-		public EntitySet<Tag> Tags
-		{
-			get
-			{
-				if ((this.serializing 
-							&& (this._Tags.HasLoadedOrAssignedValues == false)))
-				{
-					return null;
-				}
-				return this._Tags;
-			}
-			set
-			{
-				this._Tags.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_P20Question", Storage="_P20Questions", ThisKey="UserId", OtherKey="AskerUserId")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=11, EmitDefaultValue=false)]
-		public EntitySet<P20Question> P20Questions
-		{
-			get
-			{
-				if ((this.serializing 
-							&& (this._P20Questions.HasLoadedOrAssignedValues == false)))
-				{
-					return null;
-				}
-				return this._P20Questions;
-			}
-			set
-			{
-				this._P20Questions.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_UserLawVotes(UserLawVote entity)
-		{
-			this.SendPropertyChanging();
-			entity.User = this;
-		}
-		
-		private void detach_UserLawVotes(UserLawVote entity)
-		{
-			this.SendPropertyChanging();
-			entity.User = null;
-		}
-		
-		private void attach_Comments(Comment entity)
-		{
-			this.SendPropertyChanging();
-			entity.User = this;
-		}
-		
-		private void detach_Comments(Comment entity)
-		{
-			this.SendPropertyChanging();
-			entity.User = null;
-		}
-		
-		private void attach_CommentVotes(CommentVote entity)
-		{
-			this.SendPropertyChanging();
-			entity.User = this;
-		}
-		
-		private void detach_CommentVotes(CommentVote entity)
-		{
-			this.SendPropertyChanging();
-			entity.User = null;
-		}
-		
-		private void attach_Tags(Tag entity)
-		{
-			this.SendPropertyChanging();
-			entity.User = this;
-		}
-		
-		private void detach_Tags(Tag entity)
-		{
-			this.SendPropertyChanging();
-			entity.User = null;
-		}
-		
-		private void attach_P20Questions(P20Question entity)
-		{
-			this.SendPropertyChanging();
-			entity.User = this;
-		}
-		
-		private void detach_P20Questions(P20Question entity)
-		{
-			this.SendPropertyChanging();
-			entity.User = null;
-		}
-		
-		private void Initialize()
-		{
-			this._UserLawVotes = new EntitySet<UserLawVote>(new Action<UserLawVote>(this.attach_UserLawVotes), new Action<UserLawVote>(this.detach_UserLawVotes));
-			this._Comments = new EntitySet<Comment>(new Action<Comment>(this.attach_Comments), new Action<Comment>(this.detach_Comments));
-			this._CommentVotes = new EntitySet<CommentVote>(new Action<CommentVote>(this.attach_CommentVotes), new Action<CommentVote>(this.detach_CommentVotes));
-			this._Tags = new EntitySet<Tag>(new Action<Tag>(this.attach_Tags), new Action<Tag>(this.detach_Tags));
-			this._P20Questions = new EntitySet<P20Question>(new Action<P20Question>(this.attach_P20Questions), new Action<P20Question>(this.detach_P20Questions));
-			OnCreated();
-		}
-		
-		[global::System.Runtime.Serialization.OnDeserializingAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnDeserializing(StreamingContext context)
-		{
-			this.Initialize();
-		}
-		
-		[global::System.Runtime.Serialization.OnSerializingAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnSerializing(StreamingContext context)
-		{
-			this.serializing = true;
-		}
-		
-		[global::System.Runtime.Serialization.OnSerializedAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnSerialized(StreamingContext context)
-		{
-			this.serializing = false;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Speaker")]
-	[global::System.Runtime.Serialization.DataContractAttribute()]
-	public partial class Speaker : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _SpeakerId;
-		
-		private System.Nullable<int> _PoliticianId;
-		
-		private System.Nullable<int> _LawId;
-		
-		private EntityRef<Law> _Law;
-		
-		private EntityRef<Politician> _Politician;
-		
+        
+        public User()
+        {
+            this.Initialize();
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public int UserId
+        {
+            get
+            {
+                return this._UserId;
+            }
+            set
+            {
+                if ((this._UserId != value))
+                {
+                    this.OnUserIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._UserId = value;
+                    this.SendPropertyChanged("UserId");
+                    this.OnUserIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Username", DbType="NVarChar(256) NOT NULL", CanBeNull=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public string Username
+        {
+            get
+            {
+                return this._Username;
+            }
+            set
+            {
+                if ((this._Username != value))
+                {
+                    this.OnUsernameChanging(value);
+                    this.SendPropertyChanging();
+                    this._Username = value;
+                    this.SendPropertyChanged("Username");
+                    this.OnUsernameChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Aspnetuserid", DbType="UniqueIdentifier NOT NULL")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        public System.Guid Aspnetuserid
+        {
+            get
+            {
+                return this._Aspnetuserid;
+            }
+            set
+            {
+                if ((this._Aspnetuserid != value))
+                {
+                    this.OnAspnetuseridChanging(value);
+                    this.SendPropertyChanging();
+                    this._Aspnetuserid = value;
+                    this.SendPropertyChanged("Aspnetuserid");
+                    this.OnAspnetuseridChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Url", DbType="NVarChar(256)")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+        public string Url
+        {
+            get
+            {
+                return this._Url;
+            }
+            set
+            {
+                if ((this._Url != value))
+                {
+                    this.OnUrlChanging(value);
+                    this.SendPropertyChanging();
+                    this._Url = value;
+                    this.SendPropertyChanged("Url");
+                    this.OnUrlChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pic", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+        public System.Data.Linq.Binary Pic
+        {
+            get
+            {
+                return this._Pic;
+            }
+            set
+            {
+                if ((this._Pic != value))
+                {
+                    this.OnPicChanging(value);
+                    this.SendPropertyChanging();
+                    this._Pic = value;
+                    this.SendPropertyChanged("Pic");
+                    this.OnPicChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedOn", DbType="DateTime")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=6)]
+        public System.Nullable<System.DateTime> CreatedOn
+        {
+            get
+            {
+                return this._CreatedOn;
+            }
+            set
+            {
+                if ((this._CreatedOn != value))
+                {
+                    this.OnCreatedOnChanging(value);
+                    this.SendPropertyChanging();
+                    this._CreatedOn = value;
+                    this.SendPropertyChanged("CreatedOn");
+                    this.OnCreatedOnChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_UserLawVote", Storage="_UserLawVotes", ThisKey="UserId", OtherKey="UserId")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=7, EmitDefaultValue=false)]
+        public EntitySet<UserLawVote> UserLawVotes
+        {
+            get
+            {
+                if ((this.serializing 
+                            && (this._UserLawVotes.HasLoadedOrAssignedValues == false)))
+                {
+                    return null;
+                }
+                return this._UserLawVotes;
+            }
+            set
+            {
+                this._UserLawVotes.Assign(value);
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_Comment", Storage="_Comments", ThisKey="UserId", OtherKey="UserId")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=8, EmitDefaultValue=false)]
+        public EntitySet<Comment> Comments
+        {
+            get
+            {
+                if ((this.serializing 
+                            && (this._Comments.HasLoadedOrAssignedValues == false)))
+                {
+                    return null;
+                }
+                return this._Comments;
+            }
+            set
+            {
+                this._Comments.Assign(value);
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_CommentVote", Storage="_CommentVotes", ThisKey="UserId", OtherKey="UserId")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=9, EmitDefaultValue=false)]
+        public EntitySet<CommentVote> CommentVotes
+        {
+            get
+            {
+                if ((this.serializing 
+                            && (this._CommentVotes.HasLoadedOrAssignedValues == false)))
+                {
+                    return null;
+                }
+                return this._CommentVotes;
+            }
+            set
+            {
+                this._CommentVotes.Assign(value);
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_Tag", Storage="_Tags", ThisKey="UserId", OtherKey="UserId")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=10, EmitDefaultValue=false)]
+        public EntitySet<Tag> Tags
+        {
+            get
+            {
+                if ((this.serializing 
+                            && (this._Tags.HasLoadedOrAssignedValues == false)))
+                {
+                    return null;
+                }
+                return this._Tags;
+            }
+            set
+            {
+                this._Tags.Assign(value);
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_P20Question", Storage="_P20Questions", ThisKey="UserId", OtherKey="AskerUserId")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=11, EmitDefaultValue=false)]
+        public EntitySet<P20Question> P20Questions
+        {
+            get
+            {
+                if ((this.serializing 
+                            && (this._P20Questions.HasLoadedOrAssignedValues == false)))
+                {
+                    return null;
+                }
+                return this._P20Questions;
+            }
+            set
+            {
+                this._P20Questions.Assign(value);
+            }
+        }
+        
+        public event PropertyChangingEventHandler PropertyChanging;
+        
+        public event PropertyChangedEventHandler PropertyChanged;
+        
+        protected virtual void SendPropertyChanging()
+        {
+            if ((this.PropertyChanging != null))
+            {
+                this.PropertyChanging(this, emptyChangingEventArgs);
+            }
+        }
+        
+        protected virtual void SendPropertyChanged(String propertyName)
+        {
+            if ((this.PropertyChanged != null))
+            {
+                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+        
+        private void attach_UserLawVotes(UserLawVote entity)
+        {
+            this.SendPropertyChanging();
+            entity.User = this;
+        }
+        
+        private void detach_UserLawVotes(UserLawVote entity)
+        {
+            this.SendPropertyChanging();
+            entity.User = null;
+        }
+        
+        private void attach_Comments(Comment entity)
+        {
+            this.SendPropertyChanging();
+            entity.User = this;
+        }
+        
+        private void detach_Comments(Comment entity)
+        {
+            this.SendPropertyChanging();
+            entity.User = null;
+        }
+        
+        private void attach_CommentVotes(CommentVote entity)
+        {
+            this.SendPropertyChanging();
+            entity.User = this;
+        }
+        
+        private void detach_CommentVotes(CommentVote entity)
+        {
+            this.SendPropertyChanging();
+            entity.User = null;
+        }
+        
+        private void attach_Tags(Tag entity)
+        {
+            this.SendPropertyChanging();
+            entity.User = this;
+        }
+        
+        private void detach_Tags(Tag entity)
+        {
+            this.SendPropertyChanging();
+            entity.User = null;
+        }
+        
+        private void attach_P20Questions(P20Question entity)
+        {
+            this.SendPropertyChanging();
+            entity.User = this;
+        }
+        
+        private void detach_P20Questions(P20Question entity)
+        {
+            this.SendPropertyChanging();
+            entity.User = null;
+        }
+        
+        private void Initialize()
+        {
+            this._UserLawVotes = new EntitySet<UserLawVote>(new Action<UserLawVote>(this.attach_UserLawVotes), new Action<UserLawVote>(this.detach_UserLawVotes));
+            this._Comments = new EntitySet<Comment>(new Action<Comment>(this.attach_Comments), new Action<Comment>(this.detach_Comments));
+            this._CommentVotes = new EntitySet<CommentVote>(new Action<CommentVote>(this.attach_CommentVotes), new Action<CommentVote>(this.detach_CommentVotes));
+            this._Tags = new EntitySet<Tag>(new Action<Tag>(this.attach_Tags), new Action<Tag>(this.detach_Tags));
+            this._P20Questions = new EntitySet<P20Question>(new Action<P20Question>(this.attach_P20Questions), new Action<P20Question>(this.detach_P20Questions));
+            OnCreated();
+        }
+        
+        [global::System.Runtime.Serialization.OnDeserializingAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnDeserializing(StreamingContext context)
+        {
+            this.Initialize();
+        }
+        
+        [global::System.Runtime.Serialization.OnSerializingAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnSerializing(StreamingContext context)
+        {
+            this.serializing = true;
+        }
+        
+        [global::System.Runtime.Serialization.OnSerializedAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnSerialized(StreamingContext context)
+        {
+            this.serializing = false;
+        }
+    }
+    
+    [global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Speaker")]
+    [global::System.Runtime.Serialization.DataContractAttribute()]
+    public partial class Speaker : INotifyPropertyChanging, INotifyPropertyChanged
+    {
+        
+        private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+        
+        private int _SpeakerId;
+        
+        private System.Nullable<int> _PoliticianId;
+        
+        private System.Nullable<int> _LawId;
+        
+        private EntityRef<Law> _Law;
+        
+        private EntityRef<Politician> _Politician;
+        
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -5416,203 +5416,203 @@ namespace FT.DB
     partial void OnLawIdChanging(System.Nullable<int> value);
     partial void OnLawIdChanged();
     #endregion
-		
-		public Speaker()
-		{
-			this.Initialize();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SpeakerId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
-		public int SpeakerId
-		{
-			get
-			{
-				return this._SpeakerId;
-			}
-			set
-			{
-				if ((this._SpeakerId != value))
-				{
-					this.OnSpeakerIdChanging(value);
-					this.SendPropertyChanging();
-					this._SpeakerId = value;
-					this.SendPropertyChanged("SpeakerId");
-					this.OnSpeakerIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PoliticianId", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-		public System.Nullable<int> PoliticianId
-		{
-			get
-			{
-				return this._PoliticianId;
-			}
-			set
-			{
-				if ((this._PoliticianId != value))
-				{
-					if (this._Politician.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnPoliticianIdChanging(value);
-					this.SendPropertyChanging();
-					this._PoliticianId = value;
-					this.SendPropertyChanged("PoliticianId");
-					this.OnPoliticianIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LawId", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
-		public System.Nullable<int> LawId
-		{
-			get
-			{
-				return this._LawId;
-			}
-			set
-			{
-				if ((this._LawId != value))
-				{
-					if (this._Law.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnLawIdChanging(value);
-					this.SendPropertyChanging();
-					this._LawId = value;
-					this.SendPropertyChanged("LawId");
-					this.OnLawIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Law_Speaker", Storage="_Law", ThisKey="LawId", OtherKey="LawId", IsForeignKey=true)]
-		public Law Law
-		{
-			get
-			{
-				return this._Law.Entity;
-			}
-			set
-			{
-				Law previousValue = this._Law.Entity;
-				if (((previousValue != value) 
-							|| (this._Law.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Law.Entity = null;
-						previousValue.Speakers.Remove(this);
-					}
-					this._Law.Entity = value;
-					if ((value != null))
-					{
-						value.Speakers.Add(this);
-						this._LawId = value.LawId;
-					}
-					else
-					{
-						this._LawId = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Law");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Politician_Speaker", Storage="_Politician", ThisKey="PoliticianId", OtherKey="PoliticianId", IsForeignKey=true)]
-		public Politician Politician
-		{
-			get
-			{
-				return this._Politician.Entity;
-			}
-			set
-			{
-				Politician previousValue = this._Politician.Entity;
-				if (((previousValue != value) 
-							|| (this._Politician.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Politician.Entity = null;
-						previousValue.Speakers.Remove(this);
-					}
-					this._Politician.Entity = value;
-					if ((value != null))
-					{
-						value.Speakers.Add(this);
-						this._PoliticianId = value.PoliticianId;
-					}
-					else
-					{
-						this._PoliticianId = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Politician");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void Initialize()
-		{
-			this._Law = default(EntityRef<Law>);
-			this._Politician = default(EntityRef<Politician>);
-			OnCreated();
-		}
-		
-		[global::System.Runtime.Serialization.OnDeserializingAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnDeserializing(StreamingContext context)
-		{
-			this.Initialize();
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Party")]
-	[global::System.Runtime.Serialization.DataContractAttribute()]
-	public partial class Party : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _PartyId;
-		
-		private string _Name;
-		
-		private string _Initials;
-		
-		private EntitySet<Politician> _Politicians;
-		
-		private bool serializing;
-		
+        
+        public Speaker()
+        {
+            this.Initialize();
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SpeakerId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public int SpeakerId
+        {
+            get
+            {
+                return this._SpeakerId;
+            }
+            set
+            {
+                if ((this._SpeakerId != value))
+                {
+                    this.OnSpeakerIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._SpeakerId = value;
+                    this.SendPropertyChanged("SpeakerId");
+                    this.OnSpeakerIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PoliticianId", DbType="Int")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public System.Nullable<int> PoliticianId
+        {
+            get
+            {
+                return this._PoliticianId;
+            }
+            set
+            {
+                if ((this._PoliticianId != value))
+                {
+                    if (this._Politician.HasLoadedOrAssignedValue)
+                    {
+                        throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+                    }
+                    this.OnPoliticianIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._PoliticianId = value;
+                    this.SendPropertyChanged("PoliticianId");
+                    this.OnPoliticianIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LawId", DbType="Int")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        public System.Nullable<int> LawId
+        {
+            get
+            {
+                return this._LawId;
+            }
+            set
+            {
+                if ((this._LawId != value))
+                {
+                    if (this._Law.HasLoadedOrAssignedValue)
+                    {
+                        throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+                    }
+                    this.OnLawIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._LawId = value;
+                    this.SendPropertyChanged("LawId");
+                    this.OnLawIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Law_Speaker", Storage="_Law", ThisKey="LawId", OtherKey="LawId", IsForeignKey=true)]
+        public Law Law
+        {
+            get
+            {
+                return this._Law.Entity;
+            }
+            set
+            {
+                Law previousValue = this._Law.Entity;
+                if (((previousValue != value) 
+                            || (this._Law.HasLoadedOrAssignedValue == false)))
+                {
+                    this.SendPropertyChanging();
+                    if ((previousValue != null))
+                    {
+                        this._Law.Entity = null;
+                        previousValue.Speakers.Remove(this);
+                    }
+                    this._Law.Entity = value;
+                    if ((value != null))
+                    {
+                        value.Speakers.Add(this);
+                        this._LawId = value.LawId;
+                    }
+                    else
+                    {
+                        this._LawId = default(Nullable<int>);
+                    }
+                    this.SendPropertyChanged("Law");
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Politician_Speaker", Storage="_Politician", ThisKey="PoliticianId", OtherKey="PoliticianId", IsForeignKey=true)]
+        public Politician Politician
+        {
+            get
+            {
+                return this._Politician.Entity;
+            }
+            set
+            {
+                Politician previousValue = this._Politician.Entity;
+                if (((previousValue != value) 
+                            || (this._Politician.HasLoadedOrAssignedValue == false)))
+                {
+                    this.SendPropertyChanging();
+                    if ((previousValue != null))
+                    {
+                        this._Politician.Entity = null;
+                        previousValue.Speakers.Remove(this);
+                    }
+                    this._Politician.Entity = value;
+                    if ((value != null))
+                    {
+                        value.Speakers.Add(this);
+                        this._PoliticianId = value.PoliticianId;
+                    }
+                    else
+                    {
+                        this._PoliticianId = default(Nullable<int>);
+                    }
+                    this.SendPropertyChanged("Politician");
+                }
+            }
+        }
+        
+        public event PropertyChangingEventHandler PropertyChanging;
+        
+        public event PropertyChangedEventHandler PropertyChanged;
+        
+        protected virtual void SendPropertyChanging()
+        {
+            if ((this.PropertyChanging != null))
+            {
+                this.PropertyChanging(this, emptyChangingEventArgs);
+            }
+        }
+        
+        protected virtual void SendPropertyChanged(String propertyName)
+        {
+            if ((this.PropertyChanged != null))
+            {
+                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+        
+        private void Initialize()
+        {
+            this._Law = default(EntityRef<Law>);
+            this._Politician = default(EntityRef<Politician>);
+            OnCreated();
+        }
+        
+        [global::System.Runtime.Serialization.OnDeserializingAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnDeserializing(StreamingContext context)
+        {
+            this.Initialize();
+        }
+    }
+    
+    [global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Party")]
+    [global::System.Runtime.Serialization.DataContractAttribute()]
+    public partial class Party : INotifyPropertyChanging, INotifyPropertyChanged
+    {
+        
+        private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+        
+        private int _PartyId;
+        
+        private string _Name;
+        
+        private string _Initials;
+        
+        private EntitySet<Politician> _Politicians;
+        
+        private bool serializing;
+        
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -5624,189 +5624,189 @@ namespace FT.DB
     partial void OnInitialsChanging(string value);
     partial void OnInitialsChanged();
     #endregion
-		
-		public Party()
-		{
-			this.Initialize();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PartyId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
-		public int PartyId
-		{
-			get
-			{
-				return this._PartyId;
-			}
-			set
-			{
-				if ((this._PartyId != value))
-				{
-					this.OnPartyIdChanging(value);
-					this.SendPropertyChanging();
-					this._PartyId = value;
-					this.SendPropertyChanged("PartyId");
-					this.OnPartyIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(100)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-		public string Name
-		{
-			get
-			{
-				return this._Name;
-			}
-			set
-			{
-				if ((this._Name != value))
-				{
-					this.OnNameChanging(value);
-					this.SendPropertyChanging();
-					this._Name = value;
-					this.SendPropertyChanged("Name");
-					this.OnNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Initials", DbType="NVarChar(5)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
-		public string Initials
-		{
-			get
-			{
-				return this._Initials;
-			}
-			set
-			{
-				if ((this._Initials != value))
-				{
-					this.OnInitialsChanging(value);
-					this.SendPropertyChanging();
-					this._Initials = value;
-					this.SendPropertyChanged("Initials");
-					this.OnInitialsChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Party_Politician", Storage="_Politicians", ThisKey="PartyId", OtherKey="PartyId")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4, EmitDefaultValue=false)]
-		public EntitySet<Politician> Politicians
-		{
-			get
-			{
-				if ((this.serializing 
-							&& (this._Politicians.HasLoadedOrAssignedValues == false)))
-				{
-					return null;
-				}
-				return this._Politicians;
-			}
-			set
-			{
-				this._Politicians.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Politicians(Politician entity)
-		{
-			this.SendPropertyChanging();
-			entity.Party = this;
-		}
-		
-		private void detach_Politicians(Politician entity)
-		{
-			this.SendPropertyChanging();
-			entity.Party = null;
-		}
-		
-		private void Initialize()
-		{
-			this._Politicians = new EntitySet<Politician>(new Action<Politician>(this.attach_Politicians), new Action<Politician>(this.detach_Politicians));
-			OnCreated();
-		}
-		
-		[global::System.Runtime.Serialization.OnDeserializingAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnDeserializing(StreamingContext context)
-		{
-			this.Initialize();
-		}
-		
-		[global::System.Runtime.Serialization.OnSerializingAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnSerializing(StreamingContext context)
-		{
-			this.serializing = true;
-		}
-		
-		[global::System.Runtime.Serialization.OnSerializedAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnSerialized(StreamingContext context)
-		{
-			this.serializing = false;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Speech")]
-	[global::System.Runtime.Serialization.DataContractAttribute()]
-	public partial class Speech : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _SpeechId;
-		
-		private System.Nullable<int> _DeliberationId;
-		
-		private System.Nullable<int> _PoliticianId;
-		
-		private System.Nullable<int> _SpeechNr;
-		
-		private System.Nullable<System.DateTime> _SpeechTime;
-		
-		private System.Nullable<bool> _IsTemp;
-		
-		private System.Nullable<int> _ParentSpeechId;
-		
-		private string _PoliticianTitle;
-		
-		private EntitySet<SpeechPara> _SpeechParas;
-		
-		private EntitySet<Speech> _Speeches;
-		
-		private EntityRef<Speech> _Speech1;
-		
-		private EntityRef<Deliberation> _Deliberation;
-		
-		private EntityRef<Politician> _Politician;
-		
-		private bool serializing;
-		
+        
+        public Party()
+        {
+            this.Initialize();
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PartyId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public int PartyId
+        {
+            get
+            {
+                return this._PartyId;
+            }
+            set
+            {
+                if ((this._PartyId != value))
+                {
+                    this.OnPartyIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._PartyId = value;
+                    this.SendPropertyChanged("PartyId");
+                    this.OnPartyIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(100)")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public string Name
+        {
+            get
+            {
+                return this._Name;
+            }
+            set
+            {
+                if ((this._Name != value))
+                {
+                    this.OnNameChanging(value);
+                    this.SendPropertyChanging();
+                    this._Name = value;
+                    this.SendPropertyChanged("Name");
+                    this.OnNameChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Initials", DbType="NVarChar(5)")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        public string Initials
+        {
+            get
+            {
+                return this._Initials;
+            }
+            set
+            {
+                if ((this._Initials != value))
+                {
+                    this.OnInitialsChanging(value);
+                    this.SendPropertyChanging();
+                    this._Initials = value;
+                    this.SendPropertyChanged("Initials");
+                    this.OnInitialsChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Party_Politician", Storage="_Politicians", ThisKey="PartyId", OtherKey="PartyId")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=4, EmitDefaultValue=false)]
+        public EntitySet<Politician> Politicians
+        {
+            get
+            {
+                if ((this.serializing 
+                            && (this._Politicians.HasLoadedOrAssignedValues == false)))
+                {
+                    return null;
+                }
+                return this._Politicians;
+            }
+            set
+            {
+                this._Politicians.Assign(value);
+            }
+        }
+        
+        public event PropertyChangingEventHandler PropertyChanging;
+        
+        public event PropertyChangedEventHandler PropertyChanged;
+        
+        protected virtual void SendPropertyChanging()
+        {
+            if ((this.PropertyChanging != null))
+            {
+                this.PropertyChanging(this, emptyChangingEventArgs);
+            }
+        }
+        
+        protected virtual void SendPropertyChanged(String propertyName)
+        {
+            if ((this.PropertyChanged != null))
+            {
+                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+        
+        private void attach_Politicians(Politician entity)
+        {
+            this.SendPropertyChanging();
+            entity.Party = this;
+        }
+        
+        private void detach_Politicians(Politician entity)
+        {
+            this.SendPropertyChanging();
+            entity.Party = null;
+        }
+        
+        private void Initialize()
+        {
+            this._Politicians = new EntitySet<Politician>(new Action<Politician>(this.attach_Politicians), new Action<Politician>(this.detach_Politicians));
+            OnCreated();
+        }
+        
+        [global::System.Runtime.Serialization.OnDeserializingAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnDeserializing(StreamingContext context)
+        {
+            this.Initialize();
+        }
+        
+        [global::System.Runtime.Serialization.OnSerializingAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnSerializing(StreamingContext context)
+        {
+            this.serializing = true;
+        }
+        
+        [global::System.Runtime.Serialization.OnSerializedAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnSerialized(StreamingContext context)
+        {
+            this.serializing = false;
+        }
+    }
+    
+    [global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Speech")]
+    [global::System.Runtime.Serialization.DataContractAttribute()]
+    public partial class Speech : INotifyPropertyChanging, INotifyPropertyChanged
+    {
+        
+        private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+        
+        private int _SpeechId;
+        
+        private System.Nullable<int> _DeliberationId;
+        
+        private System.Nullable<int> _PoliticianId;
+        
+        private System.Nullable<int> _SpeechNr;
+        
+        private System.Nullable<System.DateTime> _SpeechTime;
+        
+        private System.Nullable<bool> _IsTemp;
+        
+        private System.Nullable<int> _ParentSpeechId;
+        
+        private string _PoliticianTitle;
+        
+        private EntitySet<SpeechPara> _SpeechParas;
+        
+        private EntitySet<Speech> _Speeches;
+        
+        private EntityRef<Speech> _Speech1;
+        
+        private EntityRef<Deliberation> _Deliberation;
+        
+        private EntityRef<Politician> _Politician;
+        
+        private bool serializing;
+        
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -5828,459 +5828,459 @@ namespace FT.DB
     partial void OnPoliticianTitleChanging(string value);
     partial void OnPoliticianTitleChanged();
     #endregion
-		
-		public Speech()
-		{
-			this.Initialize();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SpeechId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
-		public int SpeechId
-		{
-			get
-			{
-				return this._SpeechId;
-			}
-			set
-			{
-				if ((this._SpeechId != value))
-				{
-					this.OnSpeechIdChanging(value);
-					this.SendPropertyChanging();
-					this._SpeechId = value;
-					this.SendPropertyChanged("SpeechId");
-					this.OnSpeechIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DeliberationId", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-		public System.Nullable<int> DeliberationId
-		{
-			get
-			{
-				return this._DeliberationId;
-			}
-			set
-			{
-				if ((this._DeliberationId != value))
-				{
-					if (this._Deliberation.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnDeliberationIdChanging(value);
-					this.SendPropertyChanging();
-					this._DeliberationId = value;
-					this.SendPropertyChanged("DeliberationId");
-					this.OnDeliberationIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PoliticianId", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
-		public System.Nullable<int> PoliticianId
-		{
-			get
-			{
-				return this._PoliticianId;
-			}
-			set
-			{
-				if ((this._PoliticianId != value))
-				{
-					if (this._Politician.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnPoliticianIdChanging(value);
-					this.SendPropertyChanging();
-					this._PoliticianId = value;
-					this.SendPropertyChanged("PoliticianId");
-					this.OnPoliticianIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SpeechNr", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
-		public System.Nullable<int> SpeechNr
-		{
-			get
-			{
-				return this._SpeechNr;
-			}
-			set
-			{
-				if ((this._SpeechNr != value))
-				{
-					this.OnSpeechNrChanging(value);
-					this.SendPropertyChanging();
-					this._SpeechNr = value;
-					this.SendPropertyChanged("SpeechNr");
-					this.OnSpeechNrChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SpeechTime", DbType="DateTime")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
-		public System.Nullable<System.DateTime> SpeechTime
-		{
-			get
-			{
-				return this._SpeechTime;
-			}
-			set
-			{
-				if ((this._SpeechTime != value))
-				{
-					this.OnSpeechTimeChanging(value);
-					this.SendPropertyChanging();
-					this._SpeechTime = value;
-					this.SendPropertyChanged("SpeechTime");
-					this.OnSpeechTimeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsTemp", DbType="Bit")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=6)]
-		public System.Nullable<bool> IsTemp
-		{
-			get
-			{
-				return this._IsTemp;
-			}
-			set
-			{
-				if ((this._IsTemp != value))
-				{
-					this.OnIsTempChanging(value);
-					this.SendPropertyChanging();
-					this._IsTemp = value;
-					this.SendPropertyChanged("IsTemp");
-					this.OnIsTempChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ParentSpeechId", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=7)]
-		public System.Nullable<int> ParentSpeechId
-		{
-			get
-			{
-				return this._ParentSpeechId;
-			}
-			set
-			{
-				if ((this._ParentSpeechId != value))
-				{
-					if (this._Speech1.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnParentSpeechIdChanging(value);
-					this.SendPropertyChanging();
-					this._ParentSpeechId = value;
-					this.SendPropertyChanged("ParentSpeechId");
-					this.OnParentSpeechIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PoliticianTitle", DbType="NVarChar(50)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=8)]
-		public string PoliticianTitle
-		{
-			get
-			{
-				return this._PoliticianTitle;
-			}
-			set
-			{
-				if ((this._PoliticianTitle != value))
-				{
-					this.OnPoliticianTitleChanging(value);
-					this.SendPropertyChanging();
-					this._PoliticianTitle = value;
-					this.SendPropertyChanged("PoliticianTitle");
-					this.OnPoliticianTitleChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Speech_SpeechPara", Storage="_SpeechParas", ThisKey="SpeechId", OtherKey="SpeechId")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=9, EmitDefaultValue=false)]
-		public EntitySet<SpeechPara> SpeechParas
-		{
-			get
-			{
-				if ((this.serializing 
-							&& (this._SpeechParas.HasLoadedOrAssignedValues == false)))
-				{
-					return null;
-				}
-				return this._SpeechParas;
-			}
-			set
-			{
-				this._SpeechParas.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Speech_Speech", Storage="_Speeches", ThisKey="SpeechId", OtherKey="ParentSpeechId")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=10, EmitDefaultValue=false)]
-		public EntitySet<Speech> Speeches
-		{
-			get
-			{
-				if ((this.serializing 
-							&& (this._Speeches.HasLoadedOrAssignedValues == false)))
-				{
-					return null;
-				}
-				return this._Speeches;
-			}
-			set
-			{
-				this._Speeches.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Speech_Speech", Storage="_Speech1", ThisKey="ParentSpeechId", OtherKey="SpeechId", IsForeignKey=true)]
-		public Speech Speech1
-		{
-			get
-			{
-				return this._Speech1.Entity;
-			}
-			set
-			{
-				Speech previousValue = this._Speech1.Entity;
-				if (((previousValue != value) 
-							|| (this._Speech1.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Speech1.Entity = null;
-						previousValue.Speeches.Remove(this);
-					}
-					this._Speech1.Entity = value;
-					if ((value != null))
-					{
-						value.Speeches.Add(this);
-						this._ParentSpeechId = value.SpeechId;
-					}
-					else
-					{
-						this._ParentSpeechId = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Speech1");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Deliberation_Speech", Storage="_Deliberation", ThisKey="DeliberationId", OtherKey="DeliberationId", IsForeignKey=true)]
-		public Deliberation Deliberation
-		{
-			get
-			{
-				return this._Deliberation.Entity;
-			}
-			set
-			{
-				Deliberation previousValue = this._Deliberation.Entity;
-				if (((previousValue != value) 
-							|| (this._Deliberation.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Deliberation.Entity = null;
-						previousValue.Speeches.Remove(this);
-					}
-					this._Deliberation.Entity = value;
-					if ((value != null))
-					{
-						value.Speeches.Add(this);
-						this._DeliberationId = value.DeliberationId;
-					}
-					else
-					{
-						this._DeliberationId = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Deliberation");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Politician_Speech", Storage="_Politician", ThisKey="PoliticianId", OtherKey="PoliticianId", IsForeignKey=true)]
-		public Politician Politician
-		{
-			get
-			{
-				return this._Politician.Entity;
-			}
-			set
-			{
-				Politician previousValue = this._Politician.Entity;
-				if (((previousValue != value) 
-							|| (this._Politician.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Politician.Entity = null;
-						previousValue.Speeches.Remove(this);
-					}
-					this._Politician.Entity = value;
-					if ((value != null))
-					{
-						value.Speeches.Add(this);
-						this._PoliticianId = value.PoliticianId;
-					}
-					else
-					{
-						this._PoliticianId = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Politician");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_SpeechParas(SpeechPara entity)
-		{
-			this.SendPropertyChanging();
-			entity.Speech = this;
-		}
-		
-		private void detach_SpeechParas(SpeechPara entity)
-		{
-			this.SendPropertyChanging();
-			entity.Speech = null;
-		}
-		
-		private void attach_Speeches(Speech entity)
-		{
-			this.SendPropertyChanging();
-			entity.Speech1 = this;
-		}
-		
-		private void detach_Speeches(Speech entity)
-		{
-			this.SendPropertyChanging();
-			entity.Speech1 = null;
-		}
-		
-		private void Initialize()
-		{
-			this._SpeechParas = new EntitySet<SpeechPara>(new Action<SpeechPara>(this.attach_SpeechParas), new Action<SpeechPara>(this.detach_SpeechParas));
-			this._Speeches = new EntitySet<Speech>(new Action<Speech>(this.attach_Speeches), new Action<Speech>(this.detach_Speeches));
-			this._Speech1 = default(EntityRef<Speech>);
-			this._Deliberation = default(EntityRef<Deliberation>);
-			this._Politician = default(EntityRef<Politician>);
-			OnCreated();
-		}
-		
-		[global::System.Runtime.Serialization.OnDeserializingAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnDeserializing(StreamingContext context)
-		{
-			this.Initialize();
-		}
-		
-		[global::System.Runtime.Serialization.OnSerializingAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnSerializing(StreamingContext context)
-		{
-			this.serializing = true;
-		}
-		
-		[global::System.Runtime.Serialization.OnSerializedAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnSerialized(StreamingContext context)
-		{
-			this.serializing = false;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Law")]
-	[global::System.Runtime.Serialization.DataContractAttribute()]
-	public partial class Law : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _LawId;
-		
-		private System.Nullable<int> _SessionId;
-		
-		private System.Nullable<int> _MinistryId;
-		
-		private string _Subtitle;
-		
-		private string _ShortName;
-		
-		private string _Summary;
-		
-		private System.Nullable<int> _CommitteeId;
-		
-		private System.Nullable<System.DateTime> _FirstDeliberation;
-		
-		private System.Nullable<System.DateTime> _SecondDeliberation;
-		
-		private System.Nullable<System.DateTime> _Passed;
-		
-		private System.Nullable<System.DateTime> _Proposed;
-		
-		private string _FtId;
-		
-		private EntitySet<Deliberation> _Deliberations;
-		
-		private EntitySet<LawChapter> _LawChapters;
-		
-		private EntitySet<Paragraph> _Paragraphs;
-		
-		private EntitySet<ProposedLaw> _ProposedLaws;
-		
-		private EntitySet<Speaker> _Speakers;
-		
-		private EntitySet<LawVote> _LawVotes;
-		
-		private EntityRef<Ministry> _Ministry;
-		
-		private EntityRef<Session> _Session;
-		
-		private EntityRef<Committee> _Committee;
-		
-		private bool serializing;
-		
+        
+        public Speech()
+        {
+            this.Initialize();
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SpeechId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public int SpeechId
+        {
+            get
+            {
+                return this._SpeechId;
+            }
+            set
+            {
+                if ((this._SpeechId != value))
+                {
+                    this.OnSpeechIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._SpeechId = value;
+                    this.SendPropertyChanged("SpeechId");
+                    this.OnSpeechIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DeliberationId", DbType="Int")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public System.Nullable<int> DeliberationId
+        {
+            get
+            {
+                return this._DeliberationId;
+            }
+            set
+            {
+                if ((this._DeliberationId != value))
+                {
+                    if (this._Deliberation.HasLoadedOrAssignedValue)
+                    {
+                        throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+                    }
+                    this.OnDeliberationIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._DeliberationId = value;
+                    this.SendPropertyChanged("DeliberationId");
+                    this.OnDeliberationIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PoliticianId", DbType="Int")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        public System.Nullable<int> PoliticianId
+        {
+            get
+            {
+                return this._PoliticianId;
+            }
+            set
+            {
+                if ((this._PoliticianId != value))
+                {
+                    if (this._Politician.HasLoadedOrAssignedValue)
+                    {
+                        throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+                    }
+                    this.OnPoliticianIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._PoliticianId = value;
+                    this.SendPropertyChanged("PoliticianId");
+                    this.OnPoliticianIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SpeechNr", DbType="Int")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+        public System.Nullable<int> SpeechNr
+        {
+            get
+            {
+                return this._SpeechNr;
+            }
+            set
+            {
+                if ((this._SpeechNr != value))
+                {
+                    this.OnSpeechNrChanging(value);
+                    this.SendPropertyChanging();
+                    this._SpeechNr = value;
+                    this.SendPropertyChanged("SpeechNr");
+                    this.OnSpeechNrChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SpeechTime", DbType="DateTime")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+        public System.Nullable<System.DateTime> SpeechTime
+        {
+            get
+            {
+                return this._SpeechTime;
+            }
+            set
+            {
+                if ((this._SpeechTime != value))
+                {
+                    this.OnSpeechTimeChanging(value);
+                    this.SendPropertyChanging();
+                    this._SpeechTime = value;
+                    this.SendPropertyChanged("SpeechTime");
+                    this.OnSpeechTimeChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsTemp", DbType="Bit")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=6)]
+        public System.Nullable<bool> IsTemp
+        {
+            get
+            {
+                return this._IsTemp;
+            }
+            set
+            {
+                if ((this._IsTemp != value))
+                {
+                    this.OnIsTempChanging(value);
+                    this.SendPropertyChanging();
+                    this._IsTemp = value;
+                    this.SendPropertyChanged("IsTemp");
+                    this.OnIsTempChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ParentSpeechId", DbType="Int")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=7)]
+        public System.Nullable<int> ParentSpeechId
+        {
+            get
+            {
+                return this._ParentSpeechId;
+            }
+            set
+            {
+                if ((this._ParentSpeechId != value))
+                {
+                    if (this._Speech1.HasLoadedOrAssignedValue)
+                    {
+                        throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+                    }
+                    this.OnParentSpeechIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._ParentSpeechId = value;
+                    this.SendPropertyChanged("ParentSpeechId");
+                    this.OnParentSpeechIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PoliticianTitle", DbType="NVarChar(50)")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=8)]
+        public string PoliticianTitle
+        {
+            get
+            {
+                return this._PoliticianTitle;
+            }
+            set
+            {
+                if ((this._PoliticianTitle != value))
+                {
+                    this.OnPoliticianTitleChanging(value);
+                    this.SendPropertyChanging();
+                    this._PoliticianTitle = value;
+                    this.SendPropertyChanged("PoliticianTitle");
+                    this.OnPoliticianTitleChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Speech_SpeechPara", Storage="_SpeechParas", ThisKey="SpeechId", OtherKey="SpeechId")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=9, EmitDefaultValue=false)]
+        public EntitySet<SpeechPara> SpeechParas
+        {
+            get
+            {
+                if ((this.serializing 
+                            && (this._SpeechParas.HasLoadedOrAssignedValues == false)))
+                {
+                    return null;
+                }
+                return this._SpeechParas;
+            }
+            set
+            {
+                this._SpeechParas.Assign(value);
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Speech_Speech", Storage="_Speeches", ThisKey="SpeechId", OtherKey="ParentSpeechId")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=10, EmitDefaultValue=false)]
+        public EntitySet<Speech> Speeches
+        {
+            get
+            {
+                if ((this.serializing 
+                            && (this._Speeches.HasLoadedOrAssignedValues == false)))
+                {
+                    return null;
+                }
+                return this._Speeches;
+            }
+            set
+            {
+                this._Speeches.Assign(value);
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Speech_Speech", Storage="_Speech1", ThisKey="ParentSpeechId", OtherKey="SpeechId", IsForeignKey=true)]
+        public Speech Speech1
+        {
+            get
+            {
+                return this._Speech1.Entity;
+            }
+            set
+            {
+                Speech previousValue = this._Speech1.Entity;
+                if (((previousValue != value) 
+                            || (this._Speech1.HasLoadedOrAssignedValue == false)))
+                {
+                    this.SendPropertyChanging();
+                    if ((previousValue != null))
+                    {
+                        this._Speech1.Entity = null;
+                        previousValue.Speeches.Remove(this);
+                    }
+                    this._Speech1.Entity = value;
+                    if ((value != null))
+                    {
+                        value.Speeches.Add(this);
+                        this._ParentSpeechId = value.SpeechId;
+                    }
+                    else
+                    {
+                        this._ParentSpeechId = default(Nullable<int>);
+                    }
+                    this.SendPropertyChanged("Speech1");
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Deliberation_Speech", Storage="_Deliberation", ThisKey="DeliberationId", OtherKey="DeliberationId", IsForeignKey=true)]
+        public Deliberation Deliberation
+        {
+            get
+            {
+                return this._Deliberation.Entity;
+            }
+            set
+            {
+                Deliberation previousValue = this._Deliberation.Entity;
+                if (((previousValue != value) 
+                            || (this._Deliberation.HasLoadedOrAssignedValue == false)))
+                {
+                    this.SendPropertyChanging();
+                    if ((previousValue != null))
+                    {
+                        this._Deliberation.Entity = null;
+                        previousValue.Speeches.Remove(this);
+                    }
+                    this._Deliberation.Entity = value;
+                    if ((value != null))
+                    {
+                        value.Speeches.Add(this);
+                        this._DeliberationId = value.DeliberationId;
+                    }
+                    else
+                    {
+                        this._DeliberationId = default(Nullable<int>);
+                    }
+                    this.SendPropertyChanged("Deliberation");
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Politician_Speech", Storage="_Politician", ThisKey="PoliticianId", OtherKey="PoliticianId", IsForeignKey=true)]
+        public Politician Politician
+        {
+            get
+            {
+                return this._Politician.Entity;
+            }
+            set
+            {
+                Politician previousValue = this._Politician.Entity;
+                if (((previousValue != value) 
+                            || (this._Politician.HasLoadedOrAssignedValue == false)))
+                {
+                    this.SendPropertyChanging();
+                    if ((previousValue != null))
+                    {
+                        this._Politician.Entity = null;
+                        previousValue.Speeches.Remove(this);
+                    }
+                    this._Politician.Entity = value;
+                    if ((value != null))
+                    {
+                        value.Speeches.Add(this);
+                        this._PoliticianId = value.PoliticianId;
+                    }
+                    else
+                    {
+                        this._PoliticianId = default(Nullable<int>);
+                    }
+                    this.SendPropertyChanged("Politician");
+                }
+            }
+        }
+        
+        public event PropertyChangingEventHandler PropertyChanging;
+        
+        public event PropertyChangedEventHandler PropertyChanged;
+        
+        protected virtual void SendPropertyChanging()
+        {
+            if ((this.PropertyChanging != null))
+            {
+                this.PropertyChanging(this, emptyChangingEventArgs);
+            }
+        }
+        
+        protected virtual void SendPropertyChanged(String propertyName)
+        {
+            if ((this.PropertyChanged != null))
+            {
+                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+        
+        private void attach_SpeechParas(SpeechPara entity)
+        {
+            this.SendPropertyChanging();
+            entity.Speech = this;
+        }
+        
+        private void detach_SpeechParas(SpeechPara entity)
+        {
+            this.SendPropertyChanging();
+            entity.Speech = null;
+        }
+        
+        private void attach_Speeches(Speech entity)
+        {
+            this.SendPropertyChanging();
+            entity.Speech1 = this;
+        }
+        
+        private void detach_Speeches(Speech entity)
+        {
+            this.SendPropertyChanging();
+            entity.Speech1 = null;
+        }
+        
+        private void Initialize()
+        {
+            this._SpeechParas = new EntitySet<SpeechPara>(new Action<SpeechPara>(this.attach_SpeechParas), new Action<SpeechPara>(this.detach_SpeechParas));
+            this._Speeches = new EntitySet<Speech>(new Action<Speech>(this.attach_Speeches), new Action<Speech>(this.detach_Speeches));
+            this._Speech1 = default(EntityRef<Speech>);
+            this._Deliberation = default(EntityRef<Deliberation>);
+            this._Politician = default(EntityRef<Politician>);
+            OnCreated();
+        }
+        
+        [global::System.Runtime.Serialization.OnDeserializingAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnDeserializing(StreamingContext context)
+        {
+            this.Initialize();
+        }
+        
+        [global::System.Runtime.Serialization.OnSerializingAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnSerializing(StreamingContext context)
+        {
+            this.serializing = true;
+        }
+        
+        [global::System.Runtime.Serialization.OnSerializedAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnSerialized(StreamingContext context)
+        {
+            this.serializing = false;
+        }
+    }
+    
+    [global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Law")]
+    [global::System.Runtime.Serialization.DataContractAttribute()]
+    public partial class Law : INotifyPropertyChanging, INotifyPropertyChanged
+    {
+        
+        private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+        
+        private int _LawId;
+        
+        private System.Nullable<int> _SessionId;
+        
+        private System.Nullable<int> _MinistryId;
+        
+        private string _Subtitle;
+        
+        private string _ShortName;
+        
+        private string _Summary;
+        
+        private System.Nullable<int> _CommitteeId;
+        
+        private System.Nullable<System.DateTime> _FirstDeliberation;
+        
+        private System.Nullable<System.DateTime> _SecondDeliberation;
+        
+        private System.Nullable<System.DateTime> _Passed;
+        
+        private System.Nullable<System.DateTime> _Proposed;
+        
+        private string _FtId;
+        
+        private EntitySet<Deliberation> _Deliberations;
+        
+        private EntitySet<LawChapter> _LawChapters;
+        
+        private EntitySet<Paragraph> _Paragraphs;
+        
+        private EntitySet<ProposedLaw> _ProposedLaws;
+        
+        private EntitySet<Speaker> _Speakers;
+        
+        private EntitySet<LawVote> _LawVotes;
+        
+        private EntityRef<Ministry> _Ministry;
+        
+        private EntityRef<Session> _Session;
+        
+        private EntityRef<Committee> _Committee;
+        
+        private bool serializing;
+        
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -6310,675 +6310,675 @@ namespace FT.DB
     partial void OnFtIdChanging(string value);
     partial void OnFtIdChanged();
     #endregion
-		
-		public Law()
-		{
-			this.Initialize();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LawId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
-		public int LawId
-		{
-			get
-			{
-				return this._LawId;
-			}
-			set
-			{
-				if ((this._LawId != value))
-				{
-					this.OnLawIdChanging(value);
-					this.SendPropertyChanging();
-					this._LawId = value;
-					this.SendPropertyChanged("LawId");
-					this.OnLawIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SessionId", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-		public System.Nullable<int> SessionId
-		{
-			get
-			{
-				return this._SessionId;
-			}
-			set
-			{
-				if ((this._SessionId != value))
-				{
-					if (this._Session.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnSessionIdChanging(value);
-					this.SendPropertyChanging();
-					this._SessionId = value;
-					this.SendPropertyChanged("SessionId");
-					this.OnSessionIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MinistryId", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
-		public System.Nullable<int> MinistryId
-		{
-			get
-			{
-				return this._MinistryId;
-			}
-			set
-			{
-				if ((this._MinistryId != value))
-				{
-					if (this._Ministry.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnMinistryIdChanging(value);
-					this.SendPropertyChanging();
-					this._MinistryId = value;
-					this.SendPropertyChanged("MinistryId");
-					this.OnMinistryIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Subtitle", DbType="NText", UpdateCheck=UpdateCheck.Never)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
-		public string Subtitle
-		{
-			get
-			{
-				return this._Subtitle;
-			}
-			set
-			{
-				if ((this._Subtitle != value))
-				{
-					this.OnSubtitleChanging(value);
-					this.SendPropertyChanging();
-					this._Subtitle = value;
-					this.SendPropertyChanged("Subtitle");
-					this.OnSubtitleChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ShortName", DbType="NText", UpdateCheck=UpdateCheck.Never)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
-		public string ShortName
-		{
-			get
-			{
-				return this._ShortName;
-			}
-			set
-			{
-				if ((this._ShortName != value))
-				{
-					this.OnShortNameChanging(value);
-					this.SendPropertyChanging();
-					this._ShortName = value;
-					this.SendPropertyChanged("ShortName");
-					this.OnShortNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Summary", DbType="NText", UpdateCheck=UpdateCheck.Never)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=6)]
-		public string Summary
-		{
-			get
-			{
-				return this._Summary;
-			}
-			set
-			{
-				if ((this._Summary != value))
-				{
-					this.OnSummaryChanging(value);
-					this.SendPropertyChanging();
-					this._Summary = value;
-					this.SendPropertyChanged("Summary");
-					this.OnSummaryChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CommitteeId", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=7)]
-		public System.Nullable<int> CommitteeId
-		{
-			get
-			{
-				return this._CommitteeId;
-			}
-			set
-			{
-				if ((this._CommitteeId != value))
-				{
-					if (this._Committee.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnCommitteeIdChanging(value);
-					this.SendPropertyChanging();
-					this._CommitteeId = value;
-					this.SendPropertyChanged("CommitteeId");
-					this.OnCommitteeIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FirstDeliberation", DbType="Date")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=8)]
-		public System.Nullable<System.DateTime> FirstDeliberation
-		{
-			get
-			{
-				return this._FirstDeliberation;
-			}
-			set
-			{
-				if ((this._FirstDeliberation != value))
-				{
-					this.OnFirstDeliberationChanging(value);
-					this.SendPropertyChanging();
-					this._FirstDeliberation = value;
-					this.SendPropertyChanged("FirstDeliberation");
-					this.OnFirstDeliberationChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SecondDeliberation", DbType="Date")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=9)]
-		public System.Nullable<System.DateTime> SecondDeliberation
-		{
-			get
-			{
-				return this._SecondDeliberation;
-			}
-			set
-			{
-				if ((this._SecondDeliberation != value))
-				{
-					this.OnSecondDeliberationChanging(value);
-					this.SendPropertyChanging();
-					this._SecondDeliberation = value;
-					this.SendPropertyChanged("SecondDeliberation");
-					this.OnSecondDeliberationChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Passed", DbType="Date")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=10)]
-		public System.Nullable<System.DateTime> Passed
-		{
-			get
-			{
-				return this._Passed;
-			}
-			set
-			{
-				if ((this._Passed != value))
-				{
-					this.OnPassedChanging(value);
-					this.SendPropertyChanging();
-					this._Passed = value;
-					this.SendPropertyChanged("Passed");
-					this.OnPassedChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Proposed", DbType="Date")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=11)]
-		public System.Nullable<System.DateTime> Proposed
-		{
-			get
-			{
-				return this._Proposed;
-			}
-			set
-			{
-				if ((this._Proposed != value))
-				{
-					this.OnProposedChanging(value);
-					this.SendPropertyChanging();
-					this._Proposed = value;
-					this.SendPropertyChanged("Proposed");
-					this.OnProposedChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FtId", DbType="VarChar(10)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=12)]
-		public string FtId
-		{
-			get
-			{
-				return this._FtId;
-			}
-			set
-			{
-				if ((this._FtId != value))
-				{
-					this.OnFtIdChanging(value);
-					this.SendPropertyChanging();
-					this._FtId = value;
-					this.SendPropertyChanged("FtId");
-					this.OnFtIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Law_Deliberation", Storage="_Deliberations", ThisKey="LawId", OtherKey="LawId")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=13, EmitDefaultValue=false)]
-		public EntitySet<Deliberation> Deliberations
-		{
-			get
-			{
-				if ((this.serializing 
-							&& (this._Deliberations.HasLoadedOrAssignedValues == false)))
-				{
-					return null;
-				}
-				return this._Deliberations;
-			}
-			set
-			{
-				this._Deliberations.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Law_LawChapter", Storage="_LawChapters", ThisKey="LawId", OtherKey="LawId")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=14, EmitDefaultValue=false)]
-		public EntitySet<LawChapter> LawChapters
-		{
-			get
-			{
-				if ((this.serializing 
-							&& (this._LawChapters.HasLoadedOrAssignedValues == false)))
-				{
-					return null;
-				}
-				return this._LawChapters;
-			}
-			set
-			{
-				this._LawChapters.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Law_Paragraph", Storage="_Paragraphs", ThisKey="LawId", OtherKey="LawId")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=15, EmitDefaultValue=false)]
-		public EntitySet<Paragraph> Paragraphs
-		{
-			get
-			{
-				if ((this.serializing 
-							&& (this._Paragraphs.HasLoadedOrAssignedValues == false)))
-				{
-					return null;
-				}
-				return this._Paragraphs;
-			}
-			set
-			{
-				this._Paragraphs.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Law_ProposedLaw", Storage="_ProposedLaws", ThisKey="LawId", OtherKey="LawId")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=16, EmitDefaultValue=false)]
-		public EntitySet<ProposedLaw> ProposedLaws
-		{
-			get
-			{
-				if ((this.serializing 
-							&& (this._ProposedLaws.HasLoadedOrAssignedValues == false)))
-				{
-					return null;
-				}
-				return this._ProposedLaws;
-			}
-			set
-			{
-				this._ProposedLaws.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Law_Speaker", Storage="_Speakers", ThisKey="LawId", OtherKey="LawId")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=17, EmitDefaultValue=false)]
-		public EntitySet<Speaker> Speakers
-		{
-			get
-			{
-				if ((this.serializing 
-							&& (this._Speakers.HasLoadedOrAssignedValues == false)))
-				{
-					return null;
-				}
-				return this._Speakers;
-			}
-			set
-			{
-				this._Speakers.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Law_LawVote", Storage="_LawVotes", ThisKey="LawId", OtherKey="LawId")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=18, EmitDefaultValue=false)]
-		public EntitySet<LawVote> LawVotes
-		{
-			get
-			{
-				if ((this.serializing 
-							&& (this._LawVotes.HasLoadedOrAssignedValues == false)))
-				{
-					return null;
-				}
-				return this._LawVotes;
-			}
-			set
-			{
-				this._LawVotes.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Ministry_Law", Storage="_Ministry", ThisKey="MinistryId", OtherKey="MinistryId", IsForeignKey=true)]
-		public Ministry Ministry
-		{
-			get
-			{
-				return this._Ministry.Entity;
-			}
-			set
-			{
-				Ministry previousValue = this._Ministry.Entity;
-				if (((previousValue != value) 
-							|| (this._Ministry.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Ministry.Entity = null;
-						previousValue.Laws.Remove(this);
-					}
-					this._Ministry.Entity = value;
-					if ((value != null))
-					{
-						value.Laws.Add(this);
-						this._MinistryId = value.MinistryId;
-					}
-					else
-					{
-						this._MinistryId = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Ministry");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Session_Law", Storage="_Session", ThisKey="SessionId", OtherKey="SessionId", IsForeignKey=true)]
-		public Session Session
-		{
-			get
-			{
-				return this._Session.Entity;
-			}
-			set
-			{
-				Session previousValue = this._Session.Entity;
-				if (((previousValue != value) 
-							|| (this._Session.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Session.Entity = null;
-						previousValue.Laws.Remove(this);
-					}
-					this._Session.Entity = value;
-					if ((value != null))
-					{
-						value.Laws.Add(this);
-						this._SessionId = value.SessionId;
-					}
-					else
-					{
-						this._SessionId = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Session");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Committee_Law", Storage="_Committee", ThisKey="CommitteeId", OtherKey="CommitteeId", IsForeignKey=true)]
-		public Committee Committee
-		{
-			get
-			{
-				return this._Committee.Entity;
-			}
-			set
-			{
-				Committee previousValue = this._Committee.Entity;
-				if (((previousValue != value) 
-							|| (this._Committee.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Committee.Entity = null;
-						previousValue.Laws.Remove(this);
-					}
-					this._Committee.Entity = value;
-					if ((value != null))
-					{
-						value.Laws.Add(this);
-						this._CommitteeId = value.CommitteeId;
-					}
-					else
-					{
-						this._CommitteeId = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Committee");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Deliberations(Deliberation entity)
-		{
-			this.SendPropertyChanging();
-			entity.Law = this;
-		}
-		
-		private void detach_Deliberations(Deliberation entity)
-		{
-			this.SendPropertyChanging();
-			entity.Law = null;
-		}
-		
-		private void attach_LawChapters(LawChapter entity)
-		{
-			this.SendPropertyChanging();
-			entity.Law = this;
-		}
-		
-		private void detach_LawChapters(LawChapter entity)
-		{
-			this.SendPropertyChanging();
-			entity.Law = null;
-		}
-		
-		private void attach_Paragraphs(Paragraph entity)
-		{
-			this.SendPropertyChanging();
-			entity.Law = this;
-		}
-		
-		private void detach_Paragraphs(Paragraph entity)
-		{
-			this.SendPropertyChanging();
-			entity.Law = null;
-		}
-		
-		private void attach_ProposedLaws(ProposedLaw entity)
-		{
-			this.SendPropertyChanging();
-			entity.Law = this;
-		}
-		
-		private void detach_ProposedLaws(ProposedLaw entity)
-		{
-			this.SendPropertyChanging();
-			entity.Law = null;
-		}
-		
-		private void attach_Speakers(Speaker entity)
-		{
-			this.SendPropertyChanging();
-			entity.Law = this;
-		}
-		
-		private void detach_Speakers(Speaker entity)
-		{
-			this.SendPropertyChanging();
-			entity.Law = null;
-		}
-		
-		private void attach_LawVotes(LawVote entity)
-		{
-			this.SendPropertyChanging();
-			entity.Law = this;
-		}
-		
-		private void detach_LawVotes(LawVote entity)
-		{
-			this.SendPropertyChanging();
-			entity.Law = null;
-		}
-		
-		private void Initialize()
-		{
-			this._Deliberations = new EntitySet<Deliberation>(new Action<Deliberation>(this.attach_Deliberations), new Action<Deliberation>(this.detach_Deliberations));
-			this._LawChapters = new EntitySet<LawChapter>(new Action<LawChapter>(this.attach_LawChapters), new Action<LawChapter>(this.detach_LawChapters));
-			this._Paragraphs = new EntitySet<Paragraph>(new Action<Paragraph>(this.attach_Paragraphs), new Action<Paragraph>(this.detach_Paragraphs));
-			this._ProposedLaws = new EntitySet<ProposedLaw>(new Action<ProposedLaw>(this.attach_ProposedLaws), new Action<ProposedLaw>(this.detach_ProposedLaws));
-			this._Speakers = new EntitySet<Speaker>(new Action<Speaker>(this.attach_Speakers), new Action<Speaker>(this.detach_Speakers));
-			this._LawVotes = new EntitySet<LawVote>(new Action<LawVote>(this.attach_LawVotes), new Action<LawVote>(this.detach_LawVotes));
-			this._Ministry = default(EntityRef<Ministry>);
-			this._Session = default(EntityRef<Session>);
-			this._Committee = default(EntityRef<Committee>);
-			OnCreated();
-		}
-		
-		[global::System.Runtime.Serialization.OnDeserializingAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnDeserializing(StreamingContext context)
-		{
-			this.Initialize();
-		}
-		
-		[global::System.Runtime.Serialization.OnSerializingAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnSerializing(StreamingContext context)
-		{
-			this.serializing = true;
-		}
-		
-		[global::System.Runtime.Serialization.OnSerializedAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnSerialized(StreamingContext context)
-		{
-			this.serializing = false;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Politician")]
-	[global::System.Runtime.Serialization.DataContractAttribute()]
-	public partial class Politician : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _PoliticianId;
-		
-		private string _Firstname;
-		
-		private string _BioText;
-		
-		private string _Initials;
-		
-		private string _JoinedString;
-		
-		private string _Title;
-		
-		private string _EmailAdd;
-		
-		private System.Nullable<int> _ImageId;
-		
-		private string _Lastname;
-		
-		private string _Telephone;
-		
-		private string _Mobile;
-		
-		private System.Nullable<int> _PartyId;
-		
-		private string _Homepage;
-		
-		private System.Nullable<System.DateTime> _Birthdate;
-		
-		private EntitySet<PoliticianLawVote> _PoliticianLawVotes;
-		
-		private EntitySet<ProposedLaw> _ProposedLaws;
-		
-		private EntitySet<Speaker> _Speakers;
-		
-		private EntitySet<Speech> _Speeches;
-		
-		private EntitySet<P20Question> _P20Questions;
-		
-		private EntitySet<P20Question> _P20Questions1;
-		
-		private EntitySet<CommitteeTripParticipant> _CommitteeTripParticipants;
-		
-		private EntityRef<Image> _Image1;
-		
-		private EntityRef<Party> _Party;
-		
-		private bool serializing;
-		
+        
+        public Law()
+        {
+            this.Initialize();
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LawId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public int LawId
+        {
+            get
+            {
+                return this._LawId;
+            }
+            set
+            {
+                if ((this._LawId != value))
+                {
+                    this.OnLawIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._LawId = value;
+                    this.SendPropertyChanged("LawId");
+                    this.OnLawIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SessionId", DbType="Int")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public System.Nullable<int> SessionId
+        {
+            get
+            {
+                return this._SessionId;
+            }
+            set
+            {
+                if ((this._SessionId != value))
+                {
+                    if (this._Session.HasLoadedOrAssignedValue)
+                    {
+                        throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+                    }
+                    this.OnSessionIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._SessionId = value;
+                    this.SendPropertyChanged("SessionId");
+                    this.OnSessionIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MinistryId", DbType="Int")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        public System.Nullable<int> MinistryId
+        {
+            get
+            {
+                return this._MinistryId;
+            }
+            set
+            {
+                if ((this._MinistryId != value))
+                {
+                    if (this._Ministry.HasLoadedOrAssignedValue)
+                    {
+                        throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+                    }
+                    this.OnMinistryIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._MinistryId = value;
+                    this.SendPropertyChanged("MinistryId");
+                    this.OnMinistryIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Subtitle", DbType="NText", UpdateCheck=UpdateCheck.Never)]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+        public string Subtitle
+        {
+            get
+            {
+                return this._Subtitle;
+            }
+            set
+            {
+                if ((this._Subtitle != value))
+                {
+                    this.OnSubtitleChanging(value);
+                    this.SendPropertyChanging();
+                    this._Subtitle = value;
+                    this.SendPropertyChanged("Subtitle");
+                    this.OnSubtitleChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ShortName", DbType="NText", UpdateCheck=UpdateCheck.Never)]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+        public string ShortName
+        {
+            get
+            {
+                return this._ShortName;
+            }
+            set
+            {
+                if ((this._ShortName != value))
+                {
+                    this.OnShortNameChanging(value);
+                    this.SendPropertyChanging();
+                    this._ShortName = value;
+                    this.SendPropertyChanged("ShortName");
+                    this.OnShortNameChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Summary", DbType="NText", UpdateCheck=UpdateCheck.Never)]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=6)]
+        public string Summary
+        {
+            get
+            {
+                return this._Summary;
+            }
+            set
+            {
+                if ((this._Summary != value))
+                {
+                    this.OnSummaryChanging(value);
+                    this.SendPropertyChanging();
+                    this._Summary = value;
+                    this.SendPropertyChanged("Summary");
+                    this.OnSummaryChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CommitteeId", DbType="Int")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=7)]
+        public System.Nullable<int> CommitteeId
+        {
+            get
+            {
+                return this._CommitteeId;
+            }
+            set
+            {
+                if ((this._CommitteeId != value))
+                {
+                    if (this._Committee.HasLoadedOrAssignedValue)
+                    {
+                        throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+                    }
+                    this.OnCommitteeIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._CommitteeId = value;
+                    this.SendPropertyChanged("CommitteeId");
+                    this.OnCommitteeIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FirstDeliberation", DbType="Date")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=8)]
+        public System.Nullable<System.DateTime> FirstDeliberation
+        {
+            get
+            {
+                return this._FirstDeliberation;
+            }
+            set
+            {
+                if ((this._FirstDeliberation != value))
+                {
+                    this.OnFirstDeliberationChanging(value);
+                    this.SendPropertyChanging();
+                    this._FirstDeliberation = value;
+                    this.SendPropertyChanged("FirstDeliberation");
+                    this.OnFirstDeliberationChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SecondDeliberation", DbType="Date")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=9)]
+        public System.Nullable<System.DateTime> SecondDeliberation
+        {
+            get
+            {
+                return this._SecondDeliberation;
+            }
+            set
+            {
+                if ((this._SecondDeliberation != value))
+                {
+                    this.OnSecondDeliberationChanging(value);
+                    this.SendPropertyChanging();
+                    this._SecondDeliberation = value;
+                    this.SendPropertyChanged("SecondDeliberation");
+                    this.OnSecondDeliberationChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Passed", DbType="Date")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=10)]
+        public System.Nullable<System.DateTime> Passed
+        {
+            get
+            {
+                return this._Passed;
+            }
+            set
+            {
+                if ((this._Passed != value))
+                {
+                    this.OnPassedChanging(value);
+                    this.SendPropertyChanging();
+                    this._Passed = value;
+                    this.SendPropertyChanged("Passed");
+                    this.OnPassedChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Proposed", DbType="Date")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=11)]
+        public System.Nullable<System.DateTime> Proposed
+        {
+            get
+            {
+                return this._Proposed;
+            }
+            set
+            {
+                if ((this._Proposed != value))
+                {
+                    this.OnProposedChanging(value);
+                    this.SendPropertyChanging();
+                    this._Proposed = value;
+                    this.SendPropertyChanged("Proposed");
+                    this.OnProposedChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FtId", DbType="VarChar(10)")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=12)]
+        public string FtId
+        {
+            get
+            {
+                return this._FtId;
+            }
+            set
+            {
+                if ((this._FtId != value))
+                {
+                    this.OnFtIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._FtId = value;
+                    this.SendPropertyChanged("FtId");
+                    this.OnFtIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Law_Deliberation", Storage="_Deliberations", ThisKey="LawId", OtherKey="LawId")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=13, EmitDefaultValue=false)]
+        public EntitySet<Deliberation> Deliberations
+        {
+            get
+            {
+                if ((this.serializing 
+                            && (this._Deliberations.HasLoadedOrAssignedValues == false)))
+                {
+                    return null;
+                }
+                return this._Deliberations;
+            }
+            set
+            {
+                this._Deliberations.Assign(value);
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Law_LawChapter", Storage="_LawChapters", ThisKey="LawId", OtherKey="LawId")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=14, EmitDefaultValue=false)]
+        public EntitySet<LawChapter> LawChapters
+        {
+            get
+            {
+                if ((this.serializing 
+                            && (this._LawChapters.HasLoadedOrAssignedValues == false)))
+                {
+                    return null;
+                }
+                return this._LawChapters;
+            }
+            set
+            {
+                this._LawChapters.Assign(value);
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Law_Paragraph", Storage="_Paragraphs", ThisKey="LawId", OtherKey="LawId")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=15, EmitDefaultValue=false)]
+        public EntitySet<Paragraph> Paragraphs
+        {
+            get
+            {
+                if ((this.serializing 
+                            && (this._Paragraphs.HasLoadedOrAssignedValues == false)))
+                {
+                    return null;
+                }
+                return this._Paragraphs;
+            }
+            set
+            {
+                this._Paragraphs.Assign(value);
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Law_ProposedLaw", Storage="_ProposedLaws", ThisKey="LawId", OtherKey="LawId")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=16, EmitDefaultValue=false)]
+        public EntitySet<ProposedLaw> ProposedLaws
+        {
+            get
+            {
+                if ((this.serializing 
+                            && (this._ProposedLaws.HasLoadedOrAssignedValues == false)))
+                {
+                    return null;
+                }
+                return this._ProposedLaws;
+            }
+            set
+            {
+                this._ProposedLaws.Assign(value);
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Law_Speaker", Storage="_Speakers", ThisKey="LawId", OtherKey="LawId")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=17, EmitDefaultValue=false)]
+        public EntitySet<Speaker> Speakers
+        {
+            get
+            {
+                if ((this.serializing 
+                            && (this._Speakers.HasLoadedOrAssignedValues == false)))
+                {
+                    return null;
+                }
+                return this._Speakers;
+            }
+            set
+            {
+                this._Speakers.Assign(value);
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Law_LawVote", Storage="_LawVotes", ThisKey="LawId", OtherKey="LawId")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=18, EmitDefaultValue=false)]
+        public EntitySet<LawVote> LawVotes
+        {
+            get
+            {
+                if ((this.serializing 
+                            && (this._LawVotes.HasLoadedOrAssignedValues == false)))
+                {
+                    return null;
+                }
+                return this._LawVotes;
+            }
+            set
+            {
+                this._LawVotes.Assign(value);
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Ministry_Law", Storage="_Ministry", ThisKey="MinistryId", OtherKey="MinistryId", IsForeignKey=true)]
+        public Ministry Ministry
+        {
+            get
+            {
+                return this._Ministry.Entity;
+            }
+            set
+            {
+                Ministry previousValue = this._Ministry.Entity;
+                if (((previousValue != value) 
+                            || (this._Ministry.HasLoadedOrAssignedValue == false)))
+                {
+                    this.SendPropertyChanging();
+                    if ((previousValue != null))
+                    {
+                        this._Ministry.Entity = null;
+                        previousValue.Laws.Remove(this);
+                    }
+                    this._Ministry.Entity = value;
+                    if ((value != null))
+                    {
+                        value.Laws.Add(this);
+                        this._MinistryId = value.MinistryId;
+                    }
+                    else
+                    {
+                        this._MinistryId = default(Nullable<int>);
+                    }
+                    this.SendPropertyChanged("Ministry");
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Session_Law", Storage="_Session", ThisKey="SessionId", OtherKey="SessionId", IsForeignKey=true)]
+        public Session Session
+        {
+            get
+            {
+                return this._Session.Entity;
+            }
+            set
+            {
+                Session previousValue = this._Session.Entity;
+                if (((previousValue != value) 
+                            || (this._Session.HasLoadedOrAssignedValue == false)))
+                {
+                    this.SendPropertyChanging();
+                    if ((previousValue != null))
+                    {
+                        this._Session.Entity = null;
+                        previousValue.Laws.Remove(this);
+                    }
+                    this._Session.Entity = value;
+                    if ((value != null))
+                    {
+                        value.Laws.Add(this);
+                        this._SessionId = value.SessionId;
+                    }
+                    else
+                    {
+                        this._SessionId = default(Nullable<int>);
+                    }
+                    this.SendPropertyChanged("Session");
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Committee_Law", Storage="_Committee", ThisKey="CommitteeId", OtherKey="CommitteeId", IsForeignKey=true)]
+        public Committee Committee
+        {
+            get
+            {
+                return this._Committee.Entity;
+            }
+            set
+            {
+                Committee previousValue = this._Committee.Entity;
+                if (((previousValue != value) 
+                            || (this._Committee.HasLoadedOrAssignedValue == false)))
+                {
+                    this.SendPropertyChanging();
+                    if ((previousValue != null))
+                    {
+                        this._Committee.Entity = null;
+                        previousValue.Laws.Remove(this);
+                    }
+                    this._Committee.Entity = value;
+                    if ((value != null))
+                    {
+                        value.Laws.Add(this);
+                        this._CommitteeId = value.CommitteeId;
+                    }
+                    else
+                    {
+                        this._CommitteeId = default(Nullable<int>);
+                    }
+                    this.SendPropertyChanged("Committee");
+                }
+            }
+        }
+        
+        public event PropertyChangingEventHandler PropertyChanging;
+        
+        public event PropertyChangedEventHandler PropertyChanged;
+        
+        protected virtual void SendPropertyChanging()
+        {
+            if ((this.PropertyChanging != null))
+            {
+                this.PropertyChanging(this, emptyChangingEventArgs);
+            }
+        }
+        
+        protected virtual void SendPropertyChanged(String propertyName)
+        {
+            if ((this.PropertyChanged != null))
+            {
+                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+        
+        private void attach_Deliberations(Deliberation entity)
+        {
+            this.SendPropertyChanging();
+            entity.Law = this;
+        }
+        
+        private void detach_Deliberations(Deliberation entity)
+        {
+            this.SendPropertyChanging();
+            entity.Law = null;
+        }
+        
+        private void attach_LawChapters(LawChapter entity)
+        {
+            this.SendPropertyChanging();
+            entity.Law = this;
+        }
+        
+        private void detach_LawChapters(LawChapter entity)
+        {
+            this.SendPropertyChanging();
+            entity.Law = null;
+        }
+        
+        private void attach_Paragraphs(Paragraph entity)
+        {
+            this.SendPropertyChanging();
+            entity.Law = this;
+        }
+        
+        private void detach_Paragraphs(Paragraph entity)
+        {
+            this.SendPropertyChanging();
+            entity.Law = null;
+        }
+        
+        private void attach_ProposedLaws(ProposedLaw entity)
+        {
+            this.SendPropertyChanging();
+            entity.Law = this;
+        }
+        
+        private void detach_ProposedLaws(ProposedLaw entity)
+        {
+            this.SendPropertyChanging();
+            entity.Law = null;
+        }
+        
+        private void attach_Speakers(Speaker entity)
+        {
+            this.SendPropertyChanging();
+            entity.Law = this;
+        }
+        
+        private void detach_Speakers(Speaker entity)
+        {
+            this.SendPropertyChanging();
+            entity.Law = null;
+        }
+        
+        private void attach_LawVotes(LawVote entity)
+        {
+            this.SendPropertyChanging();
+            entity.Law = this;
+        }
+        
+        private void detach_LawVotes(LawVote entity)
+        {
+            this.SendPropertyChanging();
+            entity.Law = null;
+        }
+        
+        private void Initialize()
+        {
+            this._Deliberations = new EntitySet<Deliberation>(new Action<Deliberation>(this.attach_Deliberations), new Action<Deliberation>(this.detach_Deliberations));
+            this._LawChapters = new EntitySet<LawChapter>(new Action<LawChapter>(this.attach_LawChapters), new Action<LawChapter>(this.detach_LawChapters));
+            this._Paragraphs = new EntitySet<Paragraph>(new Action<Paragraph>(this.attach_Paragraphs), new Action<Paragraph>(this.detach_Paragraphs));
+            this._ProposedLaws = new EntitySet<ProposedLaw>(new Action<ProposedLaw>(this.attach_ProposedLaws), new Action<ProposedLaw>(this.detach_ProposedLaws));
+            this._Speakers = new EntitySet<Speaker>(new Action<Speaker>(this.attach_Speakers), new Action<Speaker>(this.detach_Speakers));
+            this._LawVotes = new EntitySet<LawVote>(new Action<LawVote>(this.attach_LawVotes), new Action<LawVote>(this.detach_LawVotes));
+            this._Ministry = default(EntityRef<Ministry>);
+            this._Session = default(EntityRef<Session>);
+            this._Committee = default(EntityRef<Committee>);
+            OnCreated();
+        }
+        
+        [global::System.Runtime.Serialization.OnDeserializingAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnDeserializing(StreamingContext context)
+        {
+            this.Initialize();
+        }
+        
+        [global::System.Runtime.Serialization.OnSerializingAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnSerializing(StreamingContext context)
+        {
+            this.serializing = true;
+        }
+        
+        [global::System.Runtime.Serialization.OnSerializedAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnSerialized(StreamingContext context)
+        {
+            this.serializing = false;
+        }
+    }
+    
+    [global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Politician")]
+    [global::System.Runtime.Serialization.DataContractAttribute()]
+    public partial class Politician : INotifyPropertyChanging, INotifyPropertyChanged
+    {
+        
+        private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+        
+        private int _PoliticianId;
+        
+        private string _Firstname;
+        
+        private string _BioText;
+        
+        private string _Initials;
+        
+        private string _JoinedString;
+        
+        private string _Title;
+        
+        private string _EmailAdd;
+        
+        private System.Nullable<int> _ImageId;
+        
+        private string _Lastname;
+        
+        private string _Telephone;
+        
+        private string _Mobile;
+        
+        private System.Nullable<int> _PartyId;
+        
+        private string _Homepage;
+        
+        private System.Nullable<System.DateTime> _Birthdate;
+        
+        private EntitySet<PoliticianLawVote> _PoliticianLawVotes;
+        
+        private EntitySet<ProposedLaw> _ProposedLaws;
+        
+        private EntitySet<Speaker> _Speakers;
+        
+        private EntitySet<Speech> _Speeches;
+        
+        private EntitySet<P20Question> _P20Questions;
+        
+        private EntitySet<P20Question> _P20Questions1;
+        
+        private EntitySet<CommitteeTripParticipant> _CommitteeTripParticipants;
+        
+        private EntityRef<Image> _Image1;
+        
+        private EntityRef<Party> _Party;
+        
+        private bool serializing;
+        
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -7012,684 +7012,684 @@ namespace FT.DB
     partial void OnBirthdateChanging(System.Nullable<System.DateTime> value);
     partial void OnBirthdateChanged();
     #endregion
-		
-		public Politician()
-		{
-			this.Initialize();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PoliticianId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
-		public int PoliticianId
-		{
-			get
-			{
-				return this._PoliticianId;
-			}
-			set
-			{
-				if ((this._PoliticianId != value))
-				{
-					this.OnPoliticianIdChanging(value);
-					this.SendPropertyChanging();
-					this._PoliticianId = value;
-					this.SendPropertyChanged("PoliticianId");
-					this.OnPoliticianIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Firstname", DbType="NVarChar(100)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-		public string Firstname
-		{
-			get
-			{
-				return this._Firstname;
-			}
-			set
-			{
-				if ((this._Firstname != value))
-				{
-					this.OnFirstnameChanging(value);
-					this.SendPropertyChanging();
-					this._Firstname = value;
-					this.SendPropertyChanged("Firstname");
-					this.OnFirstnameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BioText", DbType="NText", UpdateCheck=UpdateCheck.Never)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
-		public string BioText
-		{
-			get
-			{
-				return this._BioText;
-			}
-			set
-			{
-				if ((this._BioText != value))
-				{
-					this.OnBioTextChanging(value);
-					this.SendPropertyChanging();
-					this._BioText = value;
-					this.SendPropertyChanged("BioText");
-					this.OnBioTextChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Initials", DbType="NVarChar(50)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
-		public string Initials
-		{
-			get
-			{
-				return this._Initials;
-			}
-			set
-			{
-				if ((this._Initials != value))
-				{
-					this.OnInitialsChanging(value);
-					this.SendPropertyChanging();
-					this._Initials = value;
-					this.SendPropertyChanged("Initials");
-					this.OnInitialsChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_JoinedString", DbType="NVarChar(50)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
-		public string JoinedString
-		{
-			get
-			{
-				return this._JoinedString;
-			}
-			set
-			{
-				if ((this._JoinedString != value))
-				{
-					this.OnJoinedStringChanging(value);
-					this.SendPropertyChanging();
-					this._JoinedString = value;
-					this.SendPropertyChanged("JoinedString");
-					this.OnJoinedStringChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", DbType="NVarChar(50)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=6)]
-		public string Title
-		{
-			get
-			{
-				return this._Title;
-			}
-			set
-			{
-				if ((this._Title != value))
-				{
-					this.OnTitleChanging(value);
-					this.SendPropertyChanging();
-					this._Title = value;
-					this.SendPropertyChanged("Title");
-					this.OnTitleChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmailAdd", DbType="NVarChar(200)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=7)]
-		public string EmailAdd
-		{
-			get
-			{
-				return this._EmailAdd;
-			}
-			set
-			{
-				if ((this._EmailAdd != value))
-				{
-					this.OnEmailAddChanging(value);
-					this.SendPropertyChanging();
-					this._EmailAdd = value;
-					this.SendPropertyChanged("EmailAdd");
-					this.OnEmailAddChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImageId", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=8)]
-		public System.Nullable<int> ImageId
-		{
-			get
-			{
-				return this._ImageId;
-			}
-			set
-			{
-				if ((this._ImageId != value))
-				{
-					if (this._Image1.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnImageIdChanging(value);
-					this.SendPropertyChanging();
-					this._ImageId = value;
-					this.SendPropertyChanged("ImageId");
-					this.OnImageIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Lastname", DbType="NVarChar(100)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=9)]
-		public string Lastname
-		{
-			get
-			{
-				return this._Lastname;
-			}
-			set
-			{
-				if ((this._Lastname != value))
-				{
-					this.OnLastnameChanging(value);
-					this.SendPropertyChanging();
-					this._Lastname = value;
-					this.SendPropertyChanged("Lastname");
-					this.OnLastnameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Telephone", DbType="NVarChar(50)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=10)]
-		public string Telephone
-		{
-			get
-			{
-				return this._Telephone;
-			}
-			set
-			{
-				if ((this._Telephone != value))
-				{
-					this.OnTelephoneChanging(value);
-					this.SendPropertyChanging();
-					this._Telephone = value;
-					this.SendPropertyChanged("Telephone");
-					this.OnTelephoneChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mobile", DbType="NVarChar(50)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=11)]
-		public string Mobile
-		{
-			get
-			{
-				return this._Mobile;
-			}
-			set
-			{
-				if ((this._Mobile != value))
-				{
-					this.OnMobileChanging(value);
-					this.SendPropertyChanging();
-					this._Mobile = value;
-					this.SendPropertyChanged("Mobile");
-					this.OnMobileChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PartyId", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=12)]
-		public System.Nullable<int> PartyId
-		{
-			get
-			{
-				return this._PartyId;
-			}
-			set
-			{
-				if ((this._PartyId != value))
-				{
-					if (this._Party.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnPartyIdChanging(value);
-					this.SendPropertyChanging();
-					this._PartyId = value;
-					this.SendPropertyChanged("PartyId");
-					this.OnPartyIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Homepage", DbType="NText", UpdateCheck=UpdateCheck.Never)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=13)]
-		public string Homepage
-		{
-			get
-			{
-				return this._Homepage;
-			}
-			set
-			{
-				if ((this._Homepage != value))
-				{
-					this.OnHomepageChanging(value);
-					this.SendPropertyChanging();
-					this._Homepage = value;
-					this.SendPropertyChanged("Homepage");
-					this.OnHomepageChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Birthdate")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=14)]
-		public System.Nullable<System.DateTime> Birthdate
-		{
-			get
-			{
-				return this._Birthdate;
-			}
-			set
-			{
-				if ((this._Birthdate != value))
-				{
-					this.OnBirthdateChanging(value);
-					this.SendPropertyChanging();
-					this._Birthdate = value;
-					this.SendPropertyChanged("Birthdate");
-					this.OnBirthdateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Politician_PoliticianLawVote", Storage="_PoliticianLawVotes", ThisKey="PoliticianId", OtherKey="PoliticianId")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=15, EmitDefaultValue=false)]
-		public EntitySet<PoliticianLawVote> PoliticianLawVotes
-		{
-			get
-			{
-				if ((this.serializing 
-							&& (this._PoliticianLawVotes.HasLoadedOrAssignedValues == false)))
-				{
-					return null;
-				}
-				return this._PoliticianLawVotes;
-			}
-			set
-			{
-				this._PoliticianLawVotes.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Politician_ProposedLaw", Storage="_ProposedLaws", ThisKey="PoliticianId", OtherKey="PoliticianId")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=16, EmitDefaultValue=false)]
-		public EntitySet<ProposedLaw> ProposedLaws
-		{
-			get
-			{
-				if ((this.serializing 
-							&& (this._ProposedLaws.HasLoadedOrAssignedValues == false)))
-				{
-					return null;
-				}
-				return this._ProposedLaws;
-			}
-			set
-			{
-				this._ProposedLaws.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Politician_Speaker", Storage="_Speakers", ThisKey="PoliticianId", OtherKey="PoliticianId")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=17, EmitDefaultValue=false)]
-		public EntitySet<Speaker> Speakers
-		{
-			get
-			{
-				if ((this.serializing 
-							&& (this._Speakers.HasLoadedOrAssignedValues == false)))
-				{
-					return null;
-				}
-				return this._Speakers;
-			}
-			set
-			{
-				this._Speakers.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Politician_Speech", Storage="_Speeches", ThisKey="PoliticianId", OtherKey="PoliticianId")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=18, EmitDefaultValue=false)]
-		public EntitySet<Speech> Speeches
-		{
-			get
-			{
-				if ((this.serializing 
-							&& (this._Speeches.HasLoadedOrAssignedValues == false)))
-				{
-					return null;
-				}
-				return this._Speeches;
-			}
-			set
-			{
-				this._Speeches.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Politician_P20Question", Storage="_P20Questions", ThisKey="PoliticianId", OtherKey="AskerPolId")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=19, EmitDefaultValue=false)]
-		public EntitySet<P20Question> P20Questions
-		{
-			get
-			{
-				if ((this.serializing 
-							&& (this._P20Questions.HasLoadedOrAssignedValues == false)))
-				{
-					return null;
-				}
-				return this._P20Questions;
-			}
-			set
-			{
-				this._P20Questions.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Politician_P20Question1", Storage="_P20Questions1", ThisKey="PoliticianId", OtherKey="AskeeId")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=20, EmitDefaultValue=false)]
-		public EntitySet<P20Question> P20Questions1
-		{
-			get
-			{
-				if ((this.serializing 
-							&& (this._P20Questions1.HasLoadedOrAssignedValues == false)))
-				{
-					return null;
-				}
-				return this._P20Questions1;
-			}
-			set
-			{
-				this._P20Questions1.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Politician_CommitteeTripParticipant", Storage="_CommitteeTripParticipants", ThisKey="PoliticianId", OtherKey="ParticipantId")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=21, EmitDefaultValue=false)]
-		public EntitySet<CommitteeTripParticipant> CommitteeTripParticipants
-		{
-			get
-			{
-				if ((this.serializing 
-							&& (this._CommitteeTripParticipants.HasLoadedOrAssignedValues == false)))
-				{
-					return null;
-				}
-				return this._CommitteeTripParticipants;
-			}
-			set
-			{
-				this._CommitteeTripParticipants.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Image_Politician", Storage="_Image1", ThisKey="ImageId", OtherKey="ImageId", IsForeignKey=true)]
-		public Image Image1
-		{
-			get
-			{
-				return this._Image1.Entity;
-			}
-			set
-			{
-				Image previousValue = this._Image1.Entity;
-				if (((previousValue != value) 
-							|| (this._Image1.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Image1.Entity = null;
-						previousValue.Politicians1.Remove(this);
-					}
-					this._Image1.Entity = value;
-					if ((value != null))
-					{
-						value.Politicians1.Add(this);
-						this._ImageId = value.ImageId;
-					}
-					else
-					{
-						this._ImageId = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Image1");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Party_Politician", Storage="_Party", ThisKey="PartyId", OtherKey="PartyId", IsForeignKey=true)]
-		public Party Party
-		{
-			get
-			{
-				return this._Party.Entity;
-			}
-			set
-			{
-				Party previousValue = this._Party.Entity;
-				if (((previousValue != value) 
-							|| (this._Party.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Party.Entity = null;
-						previousValue.Politicians.Remove(this);
-					}
-					this._Party.Entity = value;
-					if ((value != null))
-					{
-						value.Politicians.Add(this);
-						this._PartyId = value.PartyId;
-					}
-					else
-					{
-						this._PartyId = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Party");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_PoliticianLawVotes(PoliticianLawVote entity)
-		{
-			this.SendPropertyChanging();
-			entity.Politician = this;
-		}
-		
-		private void detach_PoliticianLawVotes(PoliticianLawVote entity)
-		{
-			this.SendPropertyChanging();
-			entity.Politician = null;
-		}
-		
-		private void attach_ProposedLaws(ProposedLaw entity)
-		{
-			this.SendPropertyChanging();
-			entity.Politician = this;
-		}
-		
-		private void detach_ProposedLaws(ProposedLaw entity)
-		{
-			this.SendPropertyChanging();
-			entity.Politician = null;
-		}
-		
-		private void attach_Speakers(Speaker entity)
-		{
-			this.SendPropertyChanging();
-			entity.Politician = this;
-		}
-		
-		private void detach_Speakers(Speaker entity)
-		{
-			this.SendPropertyChanging();
-			entity.Politician = null;
-		}
-		
-		private void attach_Speeches(Speech entity)
-		{
-			this.SendPropertyChanging();
-			entity.Politician = this;
-		}
-		
-		private void detach_Speeches(Speech entity)
-		{
-			this.SendPropertyChanging();
-			entity.Politician = null;
-		}
-		
-		private void attach_P20Questions(P20Question entity)
-		{
-			this.SendPropertyChanging();
-			entity.Politician = this;
-		}
-		
-		private void detach_P20Questions(P20Question entity)
-		{
-			this.SendPropertyChanging();
-			entity.Politician = null;
-		}
-		
-		private void attach_P20Questions1(P20Question entity)
-		{
-			this.SendPropertyChanging();
-			entity.Politician1 = this;
-		}
-		
-		private void detach_P20Questions1(P20Question entity)
-		{
-			this.SendPropertyChanging();
-			entity.Politician1 = null;
-		}
-		
-		private void attach_CommitteeTripParticipants(CommitteeTripParticipant entity)
-		{
-			this.SendPropertyChanging();
-			entity.Politician = this;
-		}
-		
-		private void detach_CommitteeTripParticipants(CommitteeTripParticipant entity)
-		{
-			this.SendPropertyChanging();
-			entity.Politician = null;
-		}
-		
-		private void Initialize()
-		{
-			this._PoliticianLawVotes = new EntitySet<PoliticianLawVote>(new Action<PoliticianLawVote>(this.attach_PoliticianLawVotes), new Action<PoliticianLawVote>(this.detach_PoliticianLawVotes));
-			this._ProposedLaws = new EntitySet<ProposedLaw>(new Action<ProposedLaw>(this.attach_ProposedLaws), new Action<ProposedLaw>(this.detach_ProposedLaws));
-			this._Speakers = new EntitySet<Speaker>(new Action<Speaker>(this.attach_Speakers), new Action<Speaker>(this.detach_Speakers));
-			this._Speeches = new EntitySet<Speech>(new Action<Speech>(this.attach_Speeches), new Action<Speech>(this.detach_Speeches));
-			this._P20Questions = new EntitySet<P20Question>(new Action<P20Question>(this.attach_P20Questions), new Action<P20Question>(this.detach_P20Questions));
-			this._P20Questions1 = new EntitySet<P20Question>(new Action<P20Question>(this.attach_P20Questions1), new Action<P20Question>(this.detach_P20Questions1));
-			this._CommitteeTripParticipants = new EntitySet<CommitteeTripParticipant>(new Action<CommitteeTripParticipant>(this.attach_CommitteeTripParticipants), new Action<CommitteeTripParticipant>(this.detach_CommitteeTripParticipants));
-			this._Image1 = default(EntityRef<Image>);
-			this._Party = default(EntityRef<Party>);
-			OnCreated();
-		}
-		
-		[global::System.Runtime.Serialization.OnDeserializingAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnDeserializing(StreamingContext context)
-		{
-			this.Initialize();
-		}
-		
-		[global::System.Runtime.Serialization.OnSerializingAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnSerializing(StreamingContext context)
-		{
-			this.serializing = true;
-		}
-		
-		[global::System.Runtime.Serialization.OnSerializedAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnSerialized(StreamingContext context)
-		{
-			this.serializing = false;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.LawVote")]
-	[global::System.Runtime.Serialization.DataContractAttribute()]
-	public partial class LawVote : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _LawVoteId;
-		
-		private System.Nullable<int> _LawId;
-		
-		private System.Nullable<System.DateTime> _Date;
-		
-		private string _VoteText;
-		
-		private System.Nullable<bool> _IsFinal;
-		
-		private System.Nullable<short> _Stage;
-		
-		private string _Name;
-		
-		private EntitySet<UserLawVote> _UserLawVotes;
-		
-		private EntitySet<PoliticianLawVote> _PoliticianLawVotes;
-		
-		private EntityRef<Law> _Law;
-		
-		private bool serializing;
-		
+        
+        public Politician()
+        {
+            this.Initialize();
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PoliticianId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public int PoliticianId
+        {
+            get
+            {
+                return this._PoliticianId;
+            }
+            set
+            {
+                if ((this._PoliticianId != value))
+                {
+                    this.OnPoliticianIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._PoliticianId = value;
+                    this.SendPropertyChanged("PoliticianId");
+                    this.OnPoliticianIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Firstname", DbType="NVarChar(100)")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public string Firstname
+        {
+            get
+            {
+                return this._Firstname;
+            }
+            set
+            {
+                if ((this._Firstname != value))
+                {
+                    this.OnFirstnameChanging(value);
+                    this.SendPropertyChanging();
+                    this._Firstname = value;
+                    this.SendPropertyChanged("Firstname");
+                    this.OnFirstnameChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BioText", DbType="NText", UpdateCheck=UpdateCheck.Never)]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        public string BioText
+        {
+            get
+            {
+                return this._BioText;
+            }
+            set
+            {
+                if ((this._BioText != value))
+                {
+                    this.OnBioTextChanging(value);
+                    this.SendPropertyChanging();
+                    this._BioText = value;
+                    this.SendPropertyChanged("BioText");
+                    this.OnBioTextChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Initials", DbType="NVarChar(50)")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+        public string Initials
+        {
+            get
+            {
+                return this._Initials;
+            }
+            set
+            {
+                if ((this._Initials != value))
+                {
+                    this.OnInitialsChanging(value);
+                    this.SendPropertyChanging();
+                    this._Initials = value;
+                    this.SendPropertyChanged("Initials");
+                    this.OnInitialsChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_JoinedString", DbType="NVarChar(50)")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+        public string JoinedString
+        {
+            get
+            {
+                return this._JoinedString;
+            }
+            set
+            {
+                if ((this._JoinedString != value))
+                {
+                    this.OnJoinedStringChanging(value);
+                    this.SendPropertyChanging();
+                    this._JoinedString = value;
+                    this.SendPropertyChanged("JoinedString");
+                    this.OnJoinedStringChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", DbType="NVarChar(50)")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=6)]
+        public string Title
+        {
+            get
+            {
+                return this._Title;
+            }
+            set
+            {
+                if ((this._Title != value))
+                {
+                    this.OnTitleChanging(value);
+                    this.SendPropertyChanging();
+                    this._Title = value;
+                    this.SendPropertyChanged("Title");
+                    this.OnTitleChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmailAdd", DbType="NVarChar(200)")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=7)]
+        public string EmailAdd
+        {
+            get
+            {
+                return this._EmailAdd;
+            }
+            set
+            {
+                if ((this._EmailAdd != value))
+                {
+                    this.OnEmailAddChanging(value);
+                    this.SendPropertyChanging();
+                    this._EmailAdd = value;
+                    this.SendPropertyChanged("EmailAdd");
+                    this.OnEmailAddChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImageId", DbType="Int")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=8)]
+        public System.Nullable<int> ImageId
+        {
+            get
+            {
+                return this._ImageId;
+            }
+            set
+            {
+                if ((this._ImageId != value))
+                {
+                    if (this._Image1.HasLoadedOrAssignedValue)
+                    {
+                        throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+                    }
+                    this.OnImageIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._ImageId = value;
+                    this.SendPropertyChanged("ImageId");
+                    this.OnImageIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Lastname", DbType="NVarChar(100)")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=9)]
+        public string Lastname
+        {
+            get
+            {
+                return this._Lastname;
+            }
+            set
+            {
+                if ((this._Lastname != value))
+                {
+                    this.OnLastnameChanging(value);
+                    this.SendPropertyChanging();
+                    this._Lastname = value;
+                    this.SendPropertyChanged("Lastname");
+                    this.OnLastnameChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Telephone", DbType="NVarChar(50)")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=10)]
+        public string Telephone
+        {
+            get
+            {
+                return this._Telephone;
+            }
+            set
+            {
+                if ((this._Telephone != value))
+                {
+                    this.OnTelephoneChanging(value);
+                    this.SendPropertyChanging();
+                    this._Telephone = value;
+                    this.SendPropertyChanged("Telephone");
+                    this.OnTelephoneChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mobile", DbType="NVarChar(50)")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=11)]
+        public string Mobile
+        {
+            get
+            {
+                return this._Mobile;
+            }
+            set
+            {
+                if ((this._Mobile != value))
+                {
+                    this.OnMobileChanging(value);
+                    this.SendPropertyChanging();
+                    this._Mobile = value;
+                    this.SendPropertyChanged("Mobile");
+                    this.OnMobileChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PartyId", DbType="Int")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=12)]
+        public System.Nullable<int> PartyId
+        {
+            get
+            {
+                return this._PartyId;
+            }
+            set
+            {
+                if ((this._PartyId != value))
+                {
+                    if (this._Party.HasLoadedOrAssignedValue)
+                    {
+                        throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+                    }
+                    this.OnPartyIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._PartyId = value;
+                    this.SendPropertyChanged("PartyId");
+                    this.OnPartyIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Homepage", DbType="NText", UpdateCheck=UpdateCheck.Never)]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=13)]
+        public string Homepage
+        {
+            get
+            {
+                return this._Homepage;
+            }
+            set
+            {
+                if ((this._Homepage != value))
+                {
+                    this.OnHomepageChanging(value);
+                    this.SendPropertyChanging();
+                    this._Homepage = value;
+                    this.SendPropertyChanged("Homepage");
+                    this.OnHomepageChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Birthdate")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=14)]
+        public System.Nullable<System.DateTime> Birthdate
+        {
+            get
+            {
+                return this._Birthdate;
+            }
+            set
+            {
+                if ((this._Birthdate != value))
+                {
+                    this.OnBirthdateChanging(value);
+                    this.SendPropertyChanging();
+                    this._Birthdate = value;
+                    this.SendPropertyChanged("Birthdate");
+                    this.OnBirthdateChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Politician_PoliticianLawVote", Storage="_PoliticianLawVotes", ThisKey="PoliticianId", OtherKey="PoliticianId")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=15, EmitDefaultValue=false)]
+        public EntitySet<PoliticianLawVote> PoliticianLawVotes
+        {
+            get
+            {
+                if ((this.serializing 
+                            && (this._PoliticianLawVotes.HasLoadedOrAssignedValues == false)))
+                {
+                    return null;
+                }
+                return this._PoliticianLawVotes;
+            }
+            set
+            {
+                this._PoliticianLawVotes.Assign(value);
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Politician_ProposedLaw", Storage="_ProposedLaws", ThisKey="PoliticianId", OtherKey="PoliticianId")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=16, EmitDefaultValue=false)]
+        public EntitySet<ProposedLaw> ProposedLaws
+        {
+            get
+            {
+                if ((this.serializing 
+                            && (this._ProposedLaws.HasLoadedOrAssignedValues == false)))
+                {
+                    return null;
+                }
+                return this._ProposedLaws;
+            }
+            set
+            {
+                this._ProposedLaws.Assign(value);
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Politician_Speaker", Storage="_Speakers", ThisKey="PoliticianId", OtherKey="PoliticianId")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=17, EmitDefaultValue=false)]
+        public EntitySet<Speaker> Speakers
+        {
+            get
+            {
+                if ((this.serializing 
+                            && (this._Speakers.HasLoadedOrAssignedValues == false)))
+                {
+                    return null;
+                }
+                return this._Speakers;
+            }
+            set
+            {
+                this._Speakers.Assign(value);
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Politician_Speech", Storage="_Speeches", ThisKey="PoliticianId", OtherKey="PoliticianId")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=18, EmitDefaultValue=false)]
+        public EntitySet<Speech> Speeches
+        {
+            get
+            {
+                if ((this.serializing 
+                            && (this._Speeches.HasLoadedOrAssignedValues == false)))
+                {
+                    return null;
+                }
+                return this._Speeches;
+            }
+            set
+            {
+                this._Speeches.Assign(value);
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Politician_P20Question", Storage="_P20Questions", ThisKey="PoliticianId", OtherKey="AskerPolId")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=19, EmitDefaultValue=false)]
+        public EntitySet<P20Question> P20Questions
+        {
+            get
+            {
+                if ((this.serializing 
+                            && (this._P20Questions.HasLoadedOrAssignedValues == false)))
+                {
+                    return null;
+                }
+                return this._P20Questions;
+            }
+            set
+            {
+                this._P20Questions.Assign(value);
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Politician_P20Question1", Storage="_P20Questions1", ThisKey="PoliticianId", OtherKey="AskeeId")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=20, EmitDefaultValue=false)]
+        public EntitySet<P20Question> P20Questions1
+        {
+            get
+            {
+                if ((this.serializing 
+                            && (this._P20Questions1.HasLoadedOrAssignedValues == false)))
+                {
+                    return null;
+                }
+                return this._P20Questions1;
+            }
+            set
+            {
+                this._P20Questions1.Assign(value);
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Politician_CommitteeTripParticipant", Storage="_CommitteeTripParticipants", ThisKey="PoliticianId", OtherKey="ParticipantId")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=21, EmitDefaultValue=false)]
+        public EntitySet<CommitteeTripParticipant> CommitteeTripParticipants
+        {
+            get
+            {
+                if ((this.serializing 
+                            && (this._CommitteeTripParticipants.HasLoadedOrAssignedValues == false)))
+                {
+                    return null;
+                }
+                return this._CommitteeTripParticipants;
+            }
+            set
+            {
+                this._CommitteeTripParticipants.Assign(value);
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Image_Politician", Storage="_Image1", ThisKey="ImageId", OtherKey="ImageId", IsForeignKey=true)]
+        public Image Image1
+        {
+            get
+            {
+                return this._Image1.Entity;
+            }
+            set
+            {
+                Image previousValue = this._Image1.Entity;
+                if (((previousValue != value) 
+                            || (this._Image1.HasLoadedOrAssignedValue == false)))
+                {
+                    this.SendPropertyChanging();
+                    if ((previousValue != null))
+                    {
+                        this._Image1.Entity = null;
+                        previousValue.Politicians1.Remove(this);
+                    }
+                    this._Image1.Entity = value;
+                    if ((value != null))
+                    {
+                        value.Politicians1.Add(this);
+                        this._ImageId = value.ImageId;
+                    }
+                    else
+                    {
+                        this._ImageId = default(Nullable<int>);
+                    }
+                    this.SendPropertyChanged("Image1");
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Party_Politician", Storage="_Party", ThisKey="PartyId", OtherKey="PartyId", IsForeignKey=true)]
+        public Party Party
+        {
+            get
+            {
+                return this._Party.Entity;
+            }
+            set
+            {
+                Party previousValue = this._Party.Entity;
+                if (((previousValue != value) 
+                            || (this._Party.HasLoadedOrAssignedValue == false)))
+                {
+                    this.SendPropertyChanging();
+                    if ((previousValue != null))
+                    {
+                        this._Party.Entity = null;
+                        previousValue.Politicians.Remove(this);
+                    }
+                    this._Party.Entity = value;
+                    if ((value != null))
+                    {
+                        value.Politicians.Add(this);
+                        this._PartyId = value.PartyId;
+                    }
+                    else
+                    {
+                        this._PartyId = default(Nullable<int>);
+                    }
+                    this.SendPropertyChanged("Party");
+                }
+            }
+        }
+        
+        public event PropertyChangingEventHandler PropertyChanging;
+        
+        public event PropertyChangedEventHandler PropertyChanged;
+        
+        protected virtual void SendPropertyChanging()
+        {
+            if ((this.PropertyChanging != null))
+            {
+                this.PropertyChanging(this, emptyChangingEventArgs);
+            }
+        }
+        
+        protected virtual void SendPropertyChanged(String propertyName)
+        {
+            if ((this.PropertyChanged != null))
+            {
+                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+        
+        private void attach_PoliticianLawVotes(PoliticianLawVote entity)
+        {
+            this.SendPropertyChanging();
+            entity.Politician = this;
+        }
+        
+        private void detach_PoliticianLawVotes(PoliticianLawVote entity)
+        {
+            this.SendPropertyChanging();
+            entity.Politician = null;
+        }
+        
+        private void attach_ProposedLaws(ProposedLaw entity)
+        {
+            this.SendPropertyChanging();
+            entity.Politician = this;
+        }
+        
+        private void detach_ProposedLaws(ProposedLaw entity)
+        {
+            this.SendPropertyChanging();
+            entity.Politician = null;
+        }
+        
+        private void attach_Speakers(Speaker entity)
+        {
+            this.SendPropertyChanging();
+            entity.Politician = this;
+        }
+        
+        private void detach_Speakers(Speaker entity)
+        {
+            this.SendPropertyChanging();
+            entity.Politician = null;
+        }
+        
+        private void attach_Speeches(Speech entity)
+        {
+            this.SendPropertyChanging();
+            entity.Politician = this;
+        }
+        
+        private void detach_Speeches(Speech entity)
+        {
+            this.SendPropertyChanging();
+            entity.Politician = null;
+        }
+        
+        private void attach_P20Questions(P20Question entity)
+        {
+            this.SendPropertyChanging();
+            entity.Politician = this;
+        }
+        
+        private void detach_P20Questions(P20Question entity)
+        {
+            this.SendPropertyChanging();
+            entity.Politician = null;
+        }
+        
+        private void attach_P20Questions1(P20Question entity)
+        {
+            this.SendPropertyChanging();
+            entity.Politician1 = this;
+        }
+        
+        private void detach_P20Questions1(P20Question entity)
+        {
+            this.SendPropertyChanging();
+            entity.Politician1 = null;
+        }
+        
+        private void attach_CommitteeTripParticipants(CommitteeTripParticipant entity)
+        {
+            this.SendPropertyChanging();
+            entity.Politician = this;
+        }
+        
+        private void detach_CommitteeTripParticipants(CommitteeTripParticipant entity)
+        {
+            this.SendPropertyChanging();
+            entity.Politician = null;
+        }
+        
+        private void Initialize()
+        {
+            this._PoliticianLawVotes = new EntitySet<PoliticianLawVote>(new Action<PoliticianLawVote>(this.attach_PoliticianLawVotes), new Action<PoliticianLawVote>(this.detach_PoliticianLawVotes));
+            this._ProposedLaws = new EntitySet<ProposedLaw>(new Action<ProposedLaw>(this.attach_ProposedLaws), new Action<ProposedLaw>(this.detach_ProposedLaws));
+            this._Speakers = new EntitySet<Speaker>(new Action<Speaker>(this.attach_Speakers), new Action<Speaker>(this.detach_Speakers));
+            this._Speeches = new EntitySet<Speech>(new Action<Speech>(this.attach_Speeches), new Action<Speech>(this.detach_Speeches));
+            this._P20Questions = new EntitySet<P20Question>(new Action<P20Question>(this.attach_P20Questions), new Action<P20Question>(this.detach_P20Questions));
+            this._P20Questions1 = new EntitySet<P20Question>(new Action<P20Question>(this.attach_P20Questions1), new Action<P20Question>(this.detach_P20Questions1));
+            this._CommitteeTripParticipants = new EntitySet<CommitteeTripParticipant>(new Action<CommitteeTripParticipant>(this.attach_CommitteeTripParticipants), new Action<CommitteeTripParticipant>(this.detach_CommitteeTripParticipants));
+            this._Image1 = default(EntityRef<Image>);
+            this._Party = default(EntityRef<Party>);
+            OnCreated();
+        }
+        
+        [global::System.Runtime.Serialization.OnDeserializingAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnDeserializing(StreamingContext context)
+        {
+            this.Initialize();
+        }
+        
+        [global::System.Runtime.Serialization.OnSerializingAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnSerializing(StreamingContext context)
+        {
+            this.serializing = true;
+        }
+        
+        [global::System.Runtime.Serialization.OnSerializedAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnSerialized(StreamingContext context)
+        {
+            this.serializing = false;
+        }
+    }
+    
+    [global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.LawVote")]
+    [global::System.Runtime.Serialization.DataContractAttribute()]
+    public partial class LawVote : INotifyPropertyChanging, INotifyPropertyChanged
+    {
+        
+        private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+        
+        private int _LawVoteId;
+        
+        private System.Nullable<int> _LawId;
+        
+        private System.Nullable<System.DateTime> _Date;
+        
+        private string _VoteText;
+        
+        private System.Nullable<bool> _IsFinal;
+        
+        private System.Nullable<short> _Stage;
+        
+        private string _Name;
+        
+        private EntitySet<UserLawVote> _UserLawVotes;
+        
+        private EntitySet<PoliticianLawVote> _PoliticianLawVotes;
+        
+        private EntityRef<Law> _Law;
+        
+        private bool serializing;
+        
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -7709,326 +7709,326 @@ namespace FT.DB
     partial void OnNameChanging(string value);
     partial void OnNameChanged();
     #endregion
-		
-		public LawVote()
-		{
-			this.Initialize();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LawVoteId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
-		public int LawVoteId
-		{
-			get
-			{
-				return this._LawVoteId;
-			}
-			set
-			{
-				if ((this._LawVoteId != value))
-				{
-					this.OnLawVoteIdChanging(value);
-					this.SendPropertyChanging();
-					this._LawVoteId = value;
-					this.SendPropertyChanged("LawVoteId");
-					this.OnLawVoteIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LawId", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-		public System.Nullable<int> LawId
-		{
-			get
-			{
-				return this._LawId;
-			}
-			set
-			{
-				if ((this._LawId != value))
-				{
-					if (this._Law.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnLawIdChanging(value);
-					this.SendPropertyChanging();
-					this._LawId = value;
-					this.SendPropertyChanged("LawId");
-					this.OnLawIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="DateTime")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
-		public System.Nullable<System.DateTime> Date
-		{
-			get
-			{
-				return this._Date;
-			}
-			set
-			{
-				if ((this._Date != value))
-				{
-					this.OnDateChanging(value);
-					this.SendPropertyChanging();
-					this._Date = value;
-					this.SendPropertyChanged("Date");
-					this.OnDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VoteText", DbType="NText", UpdateCheck=UpdateCheck.Never)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
-		public string VoteText
-		{
-			get
-			{
-				return this._VoteText;
-			}
-			set
-			{
-				if ((this._VoteText != value))
-				{
-					this.OnVoteTextChanging(value);
-					this.SendPropertyChanging();
-					this._VoteText = value;
-					this.SendPropertyChanged("VoteText");
-					this.OnVoteTextChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsFinal", DbType="Bit")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
-		public System.Nullable<bool> IsFinal
-		{
-			get
-			{
-				return this._IsFinal;
-			}
-			set
-			{
-				if ((this._IsFinal != value))
-				{
-					this.OnIsFinalChanging(value);
-					this.SendPropertyChanging();
-					this._IsFinal = value;
-					this.SendPropertyChanged("IsFinal");
-					this.OnIsFinalChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stage", DbType="SmallInt")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=6)]
-		public System.Nullable<short> Stage
-		{
-			get
-			{
-				return this._Stage;
-			}
-			set
-			{
-				if ((this._Stage != value))
-				{
-					this.OnStageChanging(value);
-					this.SendPropertyChanging();
-					this._Stage = value;
-					this.SendPropertyChanged("Stage");
-					this.OnStageChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(500)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=7)]
-		public string Name
-		{
-			get
-			{
-				return this._Name;
-			}
-			set
-			{
-				if ((this._Name != value))
-				{
-					this.OnNameChanging(value);
-					this.SendPropertyChanging();
-					this._Name = value;
-					this.SendPropertyChanged("Name");
-					this.OnNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="LawVote_UserLawVote", Storage="_UserLawVotes", ThisKey="LawVoteId", OtherKey="LawVoteId")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=8, EmitDefaultValue=false)]
-		public EntitySet<UserLawVote> UserLawVotes
-		{
-			get
-			{
-				if ((this.serializing 
-							&& (this._UserLawVotes.HasLoadedOrAssignedValues == false)))
-				{
-					return null;
-				}
-				return this._UserLawVotes;
-			}
-			set
-			{
-				this._UserLawVotes.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="LawVote_PoliticianLawVote", Storage="_PoliticianLawVotes", ThisKey="LawVoteId", OtherKey="LawVoteId")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=9, EmitDefaultValue=false)]
-		public EntitySet<PoliticianLawVote> PoliticianLawVotes
-		{
-			get
-			{
-				if ((this.serializing 
-							&& (this._PoliticianLawVotes.HasLoadedOrAssignedValues == false)))
-				{
-					return null;
-				}
-				return this._PoliticianLawVotes;
-			}
-			set
-			{
-				this._PoliticianLawVotes.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Law_LawVote", Storage="_Law", ThisKey="LawId", OtherKey="LawId", IsForeignKey=true)]
-		public Law Law
-		{
-			get
-			{
-				return this._Law.Entity;
-			}
-			set
-			{
-				Law previousValue = this._Law.Entity;
-				if (((previousValue != value) 
-							|| (this._Law.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Law.Entity = null;
-						previousValue.LawVotes.Remove(this);
-					}
-					this._Law.Entity = value;
-					if ((value != null))
-					{
-						value.LawVotes.Add(this);
-						this._LawId = value.LawId;
-					}
-					else
-					{
-						this._LawId = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Law");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_UserLawVotes(UserLawVote entity)
-		{
-			this.SendPropertyChanging();
-			entity.LawVote = this;
-		}
-		
-		private void detach_UserLawVotes(UserLawVote entity)
-		{
-			this.SendPropertyChanging();
-			entity.LawVote = null;
-		}
-		
-		private void attach_PoliticianLawVotes(PoliticianLawVote entity)
-		{
-			this.SendPropertyChanging();
-			entity.LawVote = this;
-		}
-		
-		private void detach_PoliticianLawVotes(PoliticianLawVote entity)
-		{
-			this.SendPropertyChanging();
-			entity.LawVote = null;
-		}
-		
-		private void Initialize()
-		{
-			this._UserLawVotes = new EntitySet<UserLawVote>(new Action<UserLawVote>(this.attach_UserLawVotes), new Action<UserLawVote>(this.detach_UserLawVotes));
-			this._PoliticianLawVotes = new EntitySet<PoliticianLawVote>(new Action<PoliticianLawVote>(this.attach_PoliticianLawVotes), new Action<PoliticianLawVote>(this.detach_PoliticianLawVotes));
-			this._Law = default(EntityRef<Law>);
-			OnCreated();
-		}
-		
-		[global::System.Runtime.Serialization.OnDeserializingAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnDeserializing(StreamingContext context)
-		{
-			this.Initialize();
-		}
-		
-		[global::System.Runtime.Serialization.OnSerializingAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnSerializing(StreamingContext context)
-		{
-			this.serializing = true;
-		}
-		
-		[global::System.Runtime.Serialization.OnSerializedAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnSerialized(StreamingContext context)
-		{
-			this.serializing = false;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ItemCategory")]
-	[global::System.Runtime.Serialization.DataContractAttribute()]
-	public partial class ItemCategory : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ItemId;
-		
-		private ItemType _ItemType;
-		
-		private int _CategoryId;
-		
-		private int _ItemCategoryId;
-		
-		private EntityRef<Category> _Category;
-		
+        
+        public LawVote()
+        {
+            this.Initialize();
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LawVoteId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public int LawVoteId
+        {
+            get
+            {
+                return this._LawVoteId;
+            }
+            set
+            {
+                if ((this._LawVoteId != value))
+                {
+                    this.OnLawVoteIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._LawVoteId = value;
+                    this.SendPropertyChanged("LawVoteId");
+                    this.OnLawVoteIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LawId", DbType="Int")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public System.Nullable<int> LawId
+        {
+            get
+            {
+                return this._LawId;
+            }
+            set
+            {
+                if ((this._LawId != value))
+                {
+                    if (this._Law.HasLoadedOrAssignedValue)
+                    {
+                        throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+                    }
+                    this.OnLawIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._LawId = value;
+                    this.SendPropertyChanged("LawId");
+                    this.OnLawIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="DateTime")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        public System.Nullable<System.DateTime> Date
+        {
+            get
+            {
+                return this._Date;
+            }
+            set
+            {
+                if ((this._Date != value))
+                {
+                    this.OnDateChanging(value);
+                    this.SendPropertyChanging();
+                    this._Date = value;
+                    this.SendPropertyChanged("Date");
+                    this.OnDateChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VoteText", DbType="NText", UpdateCheck=UpdateCheck.Never)]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+        public string VoteText
+        {
+            get
+            {
+                return this._VoteText;
+            }
+            set
+            {
+                if ((this._VoteText != value))
+                {
+                    this.OnVoteTextChanging(value);
+                    this.SendPropertyChanging();
+                    this._VoteText = value;
+                    this.SendPropertyChanged("VoteText");
+                    this.OnVoteTextChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsFinal", DbType="Bit")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+        public System.Nullable<bool> IsFinal
+        {
+            get
+            {
+                return this._IsFinal;
+            }
+            set
+            {
+                if ((this._IsFinal != value))
+                {
+                    this.OnIsFinalChanging(value);
+                    this.SendPropertyChanging();
+                    this._IsFinal = value;
+                    this.SendPropertyChanged("IsFinal");
+                    this.OnIsFinalChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stage", DbType="SmallInt")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=6)]
+        public System.Nullable<short> Stage
+        {
+            get
+            {
+                return this._Stage;
+            }
+            set
+            {
+                if ((this._Stage != value))
+                {
+                    this.OnStageChanging(value);
+                    this.SendPropertyChanging();
+                    this._Stage = value;
+                    this.SendPropertyChanged("Stage");
+                    this.OnStageChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(500)")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=7)]
+        public string Name
+        {
+            get
+            {
+                return this._Name;
+            }
+            set
+            {
+                if ((this._Name != value))
+                {
+                    this.OnNameChanging(value);
+                    this.SendPropertyChanging();
+                    this._Name = value;
+                    this.SendPropertyChanged("Name");
+                    this.OnNameChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="LawVote_UserLawVote", Storage="_UserLawVotes", ThisKey="LawVoteId", OtherKey="LawVoteId")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=8, EmitDefaultValue=false)]
+        public EntitySet<UserLawVote> UserLawVotes
+        {
+            get
+            {
+                if ((this.serializing 
+                            && (this._UserLawVotes.HasLoadedOrAssignedValues == false)))
+                {
+                    return null;
+                }
+                return this._UserLawVotes;
+            }
+            set
+            {
+                this._UserLawVotes.Assign(value);
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="LawVote_PoliticianLawVote", Storage="_PoliticianLawVotes", ThisKey="LawVoteId", OtherKey="LawVoteId")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=9, EmitDefaultValue=false)]
+        public EntitySet<PoliticianLawVote> PoliticianLawVotes
+        {
+            get
+            {
+                if ((this.serializing 
+                            && (this._PoliticianLawVotes.HasLoadedOrAssignedValues == false)))
+                {
+                    return null;
+                }
+                return this._PoliticianLawVotes;
+            }
+            set
+            {
+                this._PoliticianLawVotes.Assign(value);
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Law_LawVote", Storage="_Law", ThisKey="LawId", OtherKey="LawId", IsForeignKey=true)]
+        public Law Law
+        {
+            get
+            {
+                return this._Law.Entity;
+            }
+            set
+            {
+                Law previousValue = this._Law.Entity;
+                if (((previousValue != value) 
+                            || (this._Law.HasLoadedOrAssignedValue == false)))
+                {
+                    this.SendPropertyChanging();
+                    if ((previousValue != null))
+                    {
+                        this._Law.Entity = null;
+                        previousValue.LawVotes.Remove(this);
+                    }
+                    this._Law.Entity = value;
+                    if ((value != null))
+                    {
+                        value.LawVotes.Add(this);
+                        this._LawId = value.LawId;
+                    }
+                    else
+                    {
+                        this._LawId = default(Nullable<int>);
+                    }
+                    this.SendPropertyChanged("Law");
+                }
+            }
+        }
+        
+        public event PropertyChangingEventHandler PropertyChanging;
+        
+        public event PropertyChangedEventHandler PropertyChanged;
+        
+        protected virtual void SendPropertyChanging()
+        {
+            if ((this.PropertyChanging != null))
+            {
+                this.PropertyChanging(this, emptyChangingEventArgs);
+            }
+        }
+        
+        protected virtual void SendPropertyChanged(String propertyName)
+        {
+            if ((this.PropertyChanged != null))
+            {
+                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+        
+        private void attach_UserLawVotes(UserLawVote entity)
+        {
+            this.SendPropertyChanging();
+            entity.LawVote = this;
+        }
+        
+        private void detach_UserLawVotes(UserLawVote entity)
+        {
+            this.SendPropertyChanging();
+            entity.LawVote = null;
+        }
+        
+        private void attach_PoliticianLawVotes(PoliticianLawVote entity)
+        {
+            this.SendPropertyChanging();
+            entity.LawVote = this;
+        }
+        
+        private void detach_PoliticianLawVotes(PoliticianLawVote entity)
+        {
+            this.SendPropertyChanging();
+            entity.LawVote = null;
+        }
+        
+        private void Initialize()
+        {
+            this._UserLawVotes = new EntitySet<UserLawVote>(new Action<UserLawVote>(this.attach_UserLawVotes), new Action<UserLawVote>(this.detach_UserLawVotes));
+            this._PoliticianLawVotes = new EntitySet<PoliticianLawVote>(new Action<PoliticianLawVote>(this.attach_PoliticianLawVotes), new Action<PoliticianLawVote>(this.detach_PoliticianLawVotes));
+            this._Law = default(EntityRef<Law>);
+            OnCreated();
+        }
+        
+        [global::System.Runtime.Serialization.OnDeserializingAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnDeserializing(StreamingContext context)
+        {
+            this.Initialize();
+        }
+        
+        [global::System.Runtime.Serialization.OnSerializingAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnSerializing(StreamingContext context)
+        {
+            this.serializing = true;
+        }
+        
+        [global::System.Runtime.Serialization.OnSerializedAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnSerialized(StreamingContext context)
+        {
+            this.serializing = false;
+        }
+    }
+    
+    [global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ItemCategory")]
+    [global::System.Runtime.Serialization.DataContractAttribute()]
+    public partial class ItemCategory : INotifyPropertyChanging, INotifyPropertyChanged
+    {
+        
+        private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+        
+        private int _ItemId;
+        
+        private ItemType _ItemType;
+        
+        private int _CategoryId;
+        
+        private int _ItemCategoryId;
+        
+        private EntityRef<Category> _Category;
+        
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -8042,185 +8042,185 @@ namespace FT.DB
     partial void OnItemCategoryIdChanging(int value);
     partial void OnItemCategoryIdChanged();
     #endregion
-		
-		public ItemCategory()
-		{
-			this.Initialize();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ItemId", DbType="Int NOT NULL")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
-		public int ItemId
-		{
-			get
-			{
-				return this._ItemId;
-			}
-			set
-			{
-				if ((this._ItemId != value))
-				{
-					this.OnItemIdChanging(value);
-					this.SendPropertyChanging();
-					this._ItemId = value;
-					this.SendPropertyChanged("ItemId");
-					this.OnItemIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ItemType", DbType="TinyInt NOT NULL", CanBeNull=false)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-		public ItemType ItemType
-		{
-			get
-			{
-				return this._ItemType;
-			}
-			set
-			{
-				if ((this._ItemType != value))
-				{
-					this.OnItemTypeChanging(value);
-					this.SendPropertyChanging();
-					this._ItemType = value;
-					this.SendPropertyChanged("ItemType");
-					this.OnItemTypeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CategoryId", DbType="Int NOT NULL")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
-		public int CategoryId
-		{
-			get
-			{
-				return this._CategoryId;
-			}
-			set
-			{
-				if ((this._CategoryId != value))
-				{
-					this.OnCategoryIdChanging(value);
-					this.SendPropertyChanging();
-					this._CategoryId = value;
-					this.SendPropertyChanged("CategoryId");
-					this.OnCategoryIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ItemCategoryId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
-		public int ItemCategoryId
-		{
-			get
-			{
-				return this._ItemCategoryId;
-			}
-			set
-			{
-				if ((this._ItemCategoryId != value))
-				{
-					if (this._Category.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnItemCategoryIdChanging(value);
-					this.SendPropertyChanging();
-					this._ItemCategoryId = value;
-					this.SendPropertyChanged("ItemCategoryId");
-					this.OnItemCategoryIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_ItemCategory", Storage="_Category", ThisKey="ItemCategoryId", OtherKey="CategoryId", IsForeignKey=true)]
-		public Category Category
-		{
-			get
-			{
-				return this._Category.Entity;
-			}
-			set
-			{
-				Category previousValue = this._Category.Entity;
-				if (((previousValue != value) 
-							|| (this._Category.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Category.Entity = null;
-						previousValue.ItemCategories.Remove(this);
-					}
-					this._Category.Entity = value;
-					if ((value != null))
-					{
-						value.ItemCategories.Add(this);
-						this._ItemCategoryId = value.CategoryId;
-					}
-					else
-					{
-						this._ItemCategoryId = default(int);
-					}
-					this.SendPropertyChanged("Category");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void Initialize()
-		{
-			this._Category = default(EntityRef<Category>);
-			OnCreated();
-		}
-		
-		[global::System.Runtime.Serialization.OnDeserializingAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnDeserializing(StreamingContext context)
-		{
-			this.Initialize();
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Category")]
-	[global::System.Runtime.Serialization.DataContractAttribute()]
-	public partial class Category : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _CategoryId;
-		
-		private string _Name;
-		
-		private byte _FTId;
-		
-		private EntitySet<ItemCategory> _ItemCategories;
-		
-		private bool serializing;
-		
+        
+        public ItemCategory()
+        {
+            this.Initialize();
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ItemId", DbType="Int NOT NULL")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public int ItemId
+        {
+            get
+            {
+                return this._ItemId;
+            }
+            set
+            {
+                if ((this._ItemId != value))
+                {
+                    this.OnItemIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._ItemId = value;
+                    this.SendPropertyChanged("ItemId");
+                    this.OnItemIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ItemType", DbType="TinyInt NOT NULL", CanBeNull=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public ItemType ItemType
+        {
+            get
+            {
+                return this._ItemType;
+            }
+            set
+            {
+                if ((this._ItemType != value))
+                {
+                    this.OnItemTypeChanging(value);
+                    this.SendPropertyChanging();
+                    this._ItemType = value;
+                    this.SendPropertyChanged("ItemType");
+                    this.OnItemTypeChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CategoryId", DbType="Int NOT NULL")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        public int CategoryId
+        {
+            get
+            {
+                return this._CategoryId;
+            }
+            set
+            {
+                if ((this._CategoryId != value))
+                {
+                    this.OnCategoryIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._CategoryId = value;
+                    this.SendPropertyChanged("CategoryId");
+                    this.OnCategoryIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ItemCategoryId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+        public int ItemCategoryId
+        {
+            get
+            {
+                return this._ItemCategoryId;
+            }
+            set
+            {
+                if ((this._ItemCategoryId != value))
+                {
+                    if (this._Category.HasLoadedOrAssignedValue)
+                    {
+                        throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+                    }
+                    this.OnItemCategoryIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._ItemCategoryId = value;
+                    this.SendPropertyChanged("ItemCategoryId");
+                    this.OnItemCategoryIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_ItemCategory", Storage="_Category", ThisKey="ItemCategoryId", OtherKey="CategoryId", IsForeignKey=true)]
+        public Category Category
+        {
+            get
+            {
+                return this._Category.Entity;
+            }
+            set
+            {
+                Category previousValue = this._Category.Entity;
+                if (((previousValue != value) 
+                            || (this._Category.HasLoadedOrAssignedValue == false)))
+                {
+                    this.SendPropertyChanging();
+                    if ((previousValue != null))
+                    {
+                        this._Category.Entity = null;
+                        previousValue.ItemCategories.Remove(this);
+                    }
+                    this._Category.Entity = value;
+                    if ((value != null))
+                    {
+                        value.ItemCategories.Add(this);
+                        this._ItemCategoryId = value.CategoryId;
+                    }
+                    else
+                    {
+                        this._ItemCategoryId = default(int);
+                    }
+                    this.SendPropertyChanged("Category");
+                }
+            }
+        }
+        
+        public event PropertyChangingEventHandler PropertyChanging;
+        
+        public event PropertyChangedEventHandler PropertyChanged;
+        
+        protected virtual void SendPropertyChanging()
+        {
+            if ((this.PropertyChanging != null))
+            {
+                this.PropertyChanging(this, emptyChangingEventArgs);
+            }
+        }
+        
+        protected virtual void SendPropertyChanged(String propertyName)
+        {
+            if ((this.PropertyChanged != null))
+            {
+                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+        
+        private void Initialize()
+        {
+            this._Category = default(EntityRef<Category>);
+            OnCreated();
+        }
+        
+        [global::System.Runtime.Serialization.OnDeserializingAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnDeserializing(StreamingContext context)
+        {
+            this.Initialize();
+        }
+    }
+    
+    [global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Category")]
+    [global::System.Runtime.Serialization.DataContractAttribute()]
+    public partial class Category : INotifyPropertyChanging, INotifyPropertyChanged
+    {
+        
+        private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+        
+        private int _CategoryId;
+        
+        private string _Name;
+        
+        private byte _FTId;
+        
+        private EntitySet<ItemCategory> _ItemCategories;
+        
+        private bool serializing;
+        
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -8232,203 +8232,203 @@ namespace FT.DB
     partial void OnFTIdChanging(byte value);
     partial void OnFTIdChanged();
     #endregion
-		
-		public Category()
-		{
-			this.Initialize();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CategoryId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
-		public int CategoryId
-		{
-			get
-			{
-				return this._CategoryId;
-			}
-			set
-			{
-				if ((this._CategoryId != value))
-				{
-					this.OnCategoryIdChanging(value);
-					this.SendPropertyChanging();
-					this._CategoryId = value;
-					this.SendPropertyChanged("CategoryId");
-					this.OnCategoryIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(50)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-		public string Name
-		{
-			get
-			{
-				return this._Name;
-			}
-			set
-			{
-				if ((this._Name != value))
-				{
-					this.OnNameChanging(value);
-					this.SendPropertyChanging();
-					this._Name = value;
-					this.SendPropertyChanged("Name");
-					this.OnNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FTId", DbType="TinyInt NOT NULL")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
-		public byte FTId
-		{
-			get
-			{
-				return this._FTId;
-			}
-			set
-			{
-				if ((this._FTId != value))
-				{
-					this.OnFTIdChanging(value);
-					this.SendPropertyChanging();
-					this._FTId = value;
-					this.SendPropertyChanged("FTId");
-					this.OnFTIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_ItemCategory", Storage="_ItemCategories", ThisKey="CategoryId", OtherKey="ItemCategoryId")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4, EmitDefaultValue=false)]
-		public EntitySet<ItemCategory> ItemCategories
-		{
-			get
-			{
-				if ((this.serializing 
-							&& (this._ItemCategories.HasLoadedOrAssignedValues == false)))
-				{
-					return null;
-				}
-				return this._ItemCategories;
-			}
-			set
-			{
-				this._ItemCategories.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_ItemCategories(ItemCategory entity)
-		{
-			this.SendPropertyChanging();
-			entity.Category = this;
-		}
-		
-		private void detach_ItemCategories(ItemCategory entity)
-		{
-			this.SendPropertyChanging();
-			entity.Category = null;
-		}
-		
-		private void Initialize()
-		{
-			this._ItemCategories = new EntitySet<ItemCategory>(new Action<ItemCategory>(this.attach_ItemCategories), new Action<ItemCategory>(this.detach_ItemCategories));
-			OnCreated();
-		}
-		
-		[global::System.Runtime.Serialization.OnDeserializingAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnDeserializing(StreamingContext context)
-		{
-			this.Initialize();
-		}
-		
-		[global::System.Runtime.Serialization.OnSerializingAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnSerializing(StreamingContext context)
-		{
-			this.serializing = true;
-		}
-		
-		[global::System.Runtime.Serialization.OnSerializedAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnSerialized(StreamingContext context)
-		{
-			this.serializing = false;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.P20Question")]
-	[global::System.Runtime.Serialization.DataContractAttribute()]
-	public partial class P20Question : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _P20QuestionId;
-		
-		private System.Nullable<int> _SessionId;
-		
-		private System.Nullable<int> _AskerPolId;
-		
-		private System.Nullable<int> _AskeeId;
-		
-		private System.Nullable<int> _FTId;
-		
-		private System.Nullable<System.DateTime> _AskDate;
-		
-		private System.Nullable<System.DateTime> _AnswerDate;
-		
-		private string _Question;
-		
-		private string _Background;
-		
-		private string _AskeeTitle;
-		
-		private string _Title;
-		
-		private QuestionType _Type;
-		
-		private System.Nullable<int> _AskerUserId;
-		
-		private System.Nullable<int> _AnswerDocumentId;
-		
-		private EntitySet<AnswerPara> _AnswerParas;
-		
-		private EntityRef<Politician> _Politician;
-		
-		private EntityRef<Politician> _Politician1;
-		
-		private EntityRef<Session> _Session;
-		
-		private EntityRef<User> _User;
-		
-		private EntityRef<Document> _Document;
-		
-		private bool serializing;
-		
+        
+        public Category()
+        {
+            this.Initialize();
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CategoryId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public int CategoryId
+        {
+            get
+            {
+                return this._CategoryId;
+            }
+            set
+            {
+                if ((this._CategoryId != value))
+                {
+                    this.OnCategoryIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._CategoryId = value;
+                    this.SendPropertyChanged("CategoryId");
+                    this.OnCategoryIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(50)")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public string Name
+        {
+            get
+            {
+                return this._Name;
+            }
+            set
+            {
+                if ((this._Name != value))
+                {
+                    this.OnNameChanging(value);
+                    this.SendPropertyChanging();
+                    this._Name = value;
+                    this.SendPropertyChanged("Name");
+                    this.OnNameChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FTId", DbType="TinyInt NOT NULL")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        public byte FTId
+        {
+            get
+            {
+                return this._FTId;
+            }
+            set
+            {
+                if ((this._FTId != value))
+                {
+                    this.OnFTIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._FTId = value;
+                    this.SendPropertyChanged("FTId");
+                    this.OnFTIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_ItemCategory", Storage="_ItemCategories", ThisKey="CategoryId", OtherKey="ItemCategoryId")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=4, EmitDefaultValue=false)]
+        public EntitySet<ItemCategory> ItemCategories
+        {
+            get
+            {
+                if ((this.serializing 
+                            && (this._ItemCategories.HasLoadedOrAssignedValues == false)))
+                {
+                    return null;
+                }
+                return this._ItemCategories;
+            }
+            set
+            {
+                this._ItemCategories.Assign(value);
+            }
+        }
+        
+        public event PropertyChangingEventHandler PropertyChanging;
+        
+        public event PropertyChangedEventHandler PropertyChanged;
+        
+        protected virtual void SendPropertyChanging()
+        {
+            if ((this.PropertyChanging != null))
+            {
+                this.PropertyChanging(this, emptyChangingEventArgs);
+            }
+        }
+        
+        protected virtual void SendPropertyChanged(String propertyName)
+        {
+            if ((this.PropertyChanged != null))
+            {
+                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+        
+        private void attach_ItemCategories(ItemCategory entity)
+        {
+            this.SendPropertyChanging();
+            entity.Category = this;
+        }
+        
+        private void detach_ItemCategories(ItemCategory entity)
+        {
+            this.SendPropertyChanging();
+            entity.Category = null;
+        }
+        
+        private void Initialize()
+        {
+            this._ItemCategories = new EntitySet<ItemCategory>(new Action<ItemCategory>(this.attach_ItemCategories), new Action<ItemCategory>(this.detach_ItemCategories));
+            OnCreated();
+        }
+        
+        [global::System.Runtime.Serialization.OnDeserializingAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnDeserializing(StreamingContext context)
+        {
+            this.Initialize();
+        }
+        
+        [global::System.Runtime.Serialization.OnSerializingAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnSerializing(StreamingContext context)
+        {
+            this.serializing = true;
+        }
+        
+        [global::System.Runtime.Serialization.OnSerializedAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnSerialized(StreamingContext context)
+        {
+            this.serializing = false;
+        }
+    }
+    
+    [global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.P20Question")]
+    [global::System.Runtime.Serialization.DataContractAttribute()]
+    public partial class P20Question : INotifyPropertyChanging, INotifyPropertyChanged
+    {
+        
+        private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+        
+        private int _P20QuestionId;
+        
+        private System.Nullable<int> _SessionId;
+        
+        private System.Nullable<int> _AskerPolId;
+        
+        private System.Nullable<int> _AskeeId;
+        
+        private System.Nullable<int> _FTId;
+        
+        private System.Nullable<System.DateTime> _AskDate;
+        
+        private System.Nullable<System.DateTime> _AnswerDate;
+        
+        private string _Question;
+        
+        private string _Background;
+        
+        private string _AskeeTitle;
+        
+        private string _Title;
+        
+        private QuestionType _Type;
+        
+        private System.Nullable<int> _AskerUserId;
+        
+        private System.Nullable<int> _AnswerDocumentId;
+        
+        private EntitySet<AnswerPara> _AnswerParas;
+        
+        private EntityRef<Politician> _Politician;
+        
+        private EntityRef<Politician> _Politician1;
+        
+        private EntityRef<Session> _Session;
+        
+        private EntityRef<User> _User;
+        
+        private EntityRef<Document> _Document;
+        
+        private bool serializing;
+        
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -8462,597 +8462,597 @@ namespace FT.DB
     partial void OnAnswerDocumentIdChanging(System.Nullable<int> value);
     partial void OnAnswerDocumentIdChanged();
     #endregion
-		
-		public P20Question()
-		{
-			this.Initialize();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_P20QuestionId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
-		public int P20QuestionId
-		{
-			get
-			{
-				return this._P20QuestionId;
-			}
-			set
-			{
-				if ((this._P20QuestionId != value))
-				{
-					this.OnP20QuestionIdChanging(value);
-					this.SendPropertyChanging();
-					this._P20QuestionId = value;
-					this.SendPropertyChanged("P20QuestionId");
-					this.OnP20QuestionIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SessionId", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-		public System.Nullable<int> SessionId
-		{
-			get
-			{
-				return this._SessionId;
-			}
-			set
-			{
-				if ((this._SessionId != value))
-				{
-					if (this._Session.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnSessionIdChanging(value);
-					this.SendPropertyChanging();
-					this._SessionId = value;
-					this.SendPropertyChanged("SessionId");
-					this.OnSessionIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AskerPolId", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
-		public System.Nullable<int> AskerPolId
-		{
-			get
-			{
-				return this._AskerPolId;
-			}
-			set
-			{
-				if ((this._AskerPolId != value))
-				{
-					if (this._Politician.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnAskerPolIdChanging(value);
-					this.SendPropertyChanging();
-					this._AskerPolId = value;
-					this.SendPropertyChanged("AskerPolId");
-					this.OnAskerPolIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AskeeId", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
-		public System.Nullable<int> AskeeId
-		{
-			get
-			{
-				return this._AskeeId;
-			}
-			set
-			{
-				if ((this._AskeeId != value))
-				{
-					if (this._Politician1.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnAskeeIdChanging(value);
-					this.SendPropertyChanging();
-					this._AskeeId = value;
-					this.SendPropertyChanged("AskeeId");
-					this.OnAskeeIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FTId", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
-		public System.Nullable<int> FTId
-		{
-			get
-			{
-				return this._FTId;
-			}
-			set
-			{
-				if ((this._FTId != value))
-				{
-					this.OnFTIdChanging(value);
-					this.SendPropertyChanging();
-					this._FTId = value;
-					this.SendPropertyChanged("FTId");
-					this.OnFTIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AskDate", DbType="DateTime")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=6)]
-		public System.Nullable<System.DateTime> AskDate
-		{
-			get
-			{
-				return this._AskDate;
-			}
-			set
-			{
-				if ((this._AskDate != value))
-				{
-					this.OnAskDateChanging(value);
-					this.SendPropertyChanging();
-					this._AskDate = value;
-					this.SendPropertyChanged("AskDate");
-					this.OnAskDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AnswerDate", DbType="DateTime")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=7)]
-		public System.Nullable<System.DateTime> AnswerDate
-		{
-			get
-			{
-				return this._AnswerDate;
-			}
-			set
-			{
-				if ((this._AnswerDate != value))
-				{
-					this.OnAnswerDateChanging(value);
-					this.SendPropertyChanging();
-					this._AnswerDate = value;
-					this.SendPropertyChanged("AnswerDate");
-					this.OnAnswerDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Question", DbType="NText", UpdateCheck=UpdateCheck.Never)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=8)]
-		public string Question
-		{
-			get
-			{
-				return this._Question;
-			}
-			set
-			{
-				if ((this._Question != value))
-				{
-					this.OnQuestionChanging(value);
-					this.SendPropertyChanging();
-					this._Question = value;
-					this.SendPropertyChanged("Question");
-					this.OnQuestionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Background", DbType="NText", UpdateCheck=UpdateCheck.Never)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=9)]
-		public string Background
-		{
-			get
-			{
-				return this._Background;
-			}
-			set
-			{
-				if ((this._Background != value))
-				{
-					this.OnBackgroundChanging(value);
-					this.SendPropertyChanging();
-					this._Background = value;
-					this.SendPropertyChanged("Background");
-					this.OnBackgroundChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AskeeTitle", DbType="NVarChar(200)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=10)]
-		public string AskeeTitle
-		{
-			get
-			{
-				return this._AskeeTitle;
-			}
-			set
-			{
-				if ((this._AskeeTitle != value))
-				{
-					this.OnAskeeTitleChanging(value);
-					this.SendPropertyChanging();
-					this._AskeeTitle = value;
-					this.SendPropertyChanged("AskeeTitle");
-					this.OnAskeeTitleChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", DbType="NText", UpdateCheck=UpdateCheck.Never)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=11)]
-		public string Title
-		{
-			get
-			{
-				return this._Title;
-			}
-			set
-			{
-				if ((this._Title != value))
-				{
-					this.OnTitleChanging(value);
-					this.SendPropertyChanging();
-					this._Title = value;
-					this.SendPropertyChanged("Title");
-					this.OnTitleChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Type", DbType="TinyInt NOT NULL", CanBeNull=false)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=12)]
-		public QuestionType Type
-		{
-			get
-			{
-				return this._Type;
-			}
-			set
-			{
-				if ((this._Type != value))
-				{
-					this.OnTypeChanging(value);
-					this.SendPropertyChanging();
-					this._Type = value;
-					this.SendPropertyChanged("Type");
-					this.OnTypeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AskerUserId", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=13)]
-		public System.Nullable<int> AskerUserId
-		{
-			get
-			{
-				return this._AskerUserId;
-			}
-			set
-			{
-				if ((this._AskerUserId != value))
-				{
-					if (this._User.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnAskerUserIdChanging(value);
-					this.SendPropertyChanging();
-					this._AskerUserId = value;
-					this.SendPropertyChanged("AskerUserId");
-					this.OnAskerUserIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AnswerDocumentId", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=14)]
-		public System.Nullable<int> AnswerDocumentId
-		{
-			get
-			{
-				return this._AnswerDocumentId;
-			}
-			set
-			{
-				if ((this._AnswerDocumentId != value))
-				{
-					if (this._Document.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnAnswerDocumentIdChanging(value);
-					this.SendPropertyChanging();
-					this._AnswerDocumentId = value;
-					this.SendPropertyChanged("AnswerDocumentId");
-					this.OnAnswerDocumentIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="P20Question_AnswerPara", Storage="_AnswerParas", ThisKey="P20QuestionId", OtherKey="QuestionId")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=15, EmitDefaultValue=false)]
-		public EntitySet<AnswerPara> AnswerParas
-		{
-			get
-			{
-				if ((this.serializing 
-							&& (this._AnswerParas.HasLoadedOrAssignedValues == false)))
-				{
-					return null;
-				}
-				return this._AnswerParas;
-			}
-			set
-			{
-				this._AnswerParas.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Politician_P20Question", Storage="_Politician", ThisKey="AskerPolId", OtherKey="PoliticianId", IsForeignKey=true)]
-		public Politician Politician
-		{
-			get
-			{
-				return this._Politician.Entity;
-			}
-			set
-			{
-				Politician previousValue = this._Politician.Entity;
-				if (((previousValue != value) 
-							|| (this._Politician.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Politician.Entity = null;
-						previousValue.P20Questions.Remove(this);
-					}
-					this._Politician.Entity = value;
-					if ((value != null))
-					{
-						value.P20Questions.Add(this);
-						this._AskerPolId = value.PoliticianId;
-					}
-					else
-					{
-						this._AskerPolId = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Politician");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Politician_P20Question1", Storage="_Politician1", ThisKey="AskeeId", OtherKey="PoliticianId", IsForeignKey=true)]
-		public Politician Politician1
-		{
-			get
-			{
-				return this._Politician1.Entity;
-			}
-			set
-			{
-				Politician previousValue = this._Politician1.Entity;
-				if (((previousValue != value) 
-							|| (this._Politician1.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Politician1.Entity = null;
-						previousValue.P20Questions1.Remove(this);
-					}
-					this._Politician1.Entity = value;
-					if ((value != null))
-					{
-						value.P20Questions1.Add(this);
-						this._AskeeId = value.PoliticianId;
-					}
-					else
-					{
-						this._AskeeId = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Politician1");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Session_P20Question", Storage="_Session", ThisKey="SessionId", OtherKey="SessionId", IsForeignKey=true)]
-		public Session Session
-		{
-			get
-			{
-				return this._Session.Entity;
-			}
-			set
-			{
-				Session previousValue = this._Session.Entity;
-				if (((previousValue != value) 
-							|| (this._Session.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Session.Entity = null;
-						previousValue.P20Questions.Remove(this);
-					}
-					this._Session.Entity = value;
-					if ((value != null))
-					{
-						value.P20Questions.Add(this);
-						this._SessionId = value.SessionId;
-					}
-					else
-					{
-						this._SessionId = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Session");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_P20Question", Storage="_User", ThisKey="AskerUserId", OtherKey="UserId", IsForeignKey=true)]
-		public User User
-		{
-			get
-			{
-				return this._User.Entity;
-			}
-			set
-			{
-				User previousValue = this._User.Entity;
-				if (((previousValue != value) 
-							|| (this._User.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._User.Entity = null;
-						previousValue.P20Questions.Remove(this);
-					}
-					this._User.Entity = value;
-					if ((value != null))
-					{
-						value.P20Questions.Add(this);
-						this._AskerUserId = value.UserId;
-					}
-					else
-					{
-						this._AskerUserId = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("User");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Document_P20Question", Storage="_Document", ThisKey="AnswerDocumentId", OtherKey="DocumentId", IsForeignKey=true)]
-		public Document Document
-		{
-			get
-			{
-				return this._Document.Entity;
-			}
-			set
-			{
-				Document previousValue = this._Document.Entity;
-				if (((previousValue != value) 
-							|| (this._Document.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Document.Entity = null;
-						previousValue.P20Questions.Remove(this);
-					}
-					this._Document.Entity = value;
-					if ((value != null))
-					{
-						value.P20Questions.Add(this);
-						this._AnswerDocumentId = value.DocumentId;
-					}
-					else
-					{
-						this._AnswerDocumentId = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Document");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_AnswerParas(AnswerPara entity)
-		{
-			this.SendPropertyChanging();
-			entity.P20Question = this;
-		}
-		
-		private void detach_AnswerParas(AnswerPara entity)
-		{
-			this.SendPropertyChanging();
-			entity.P20Question = null;
-		}
-		
-		private void Initialize()
-		{
-			this._AnswerParas = new EntitySet<AnswerPara>(new Action<AnswerPara>(this.attach_AnswerParas), new Action<AnswerPara>(this.detach_AnswerParas));
-			this._Politician = default(EntityRef<Politician>);
-			this._Politician1 = default(EntityRef<Politician>);
-			this._Session = default(EntityRef<Session>);
-			this._User = default(EntityRef<User>);
-			this._Document = default(EntityRef<Document>);
-			OnCreated();
-		}
-		
-		[global::System.Runtime.Serialization.OnDeserializingAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnDeserializing(StreamingContext context)
-		{
-			this.Initialize();
-		}
-		
-		[global::System.Runtime.Serialization.OnSerializingAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnSerializing(StreamingContext context)
-		{
-			this.serializing = true;
-		}
-		
-		[global::System.Runtime.Serialization.OnSerializedAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnSerialized(StreamingContext context)
-		{
-			this.serializing = false;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ItemCommittee")]
-	[global::System.Runtime.Serialization.DataContractAttribute()]
-	public partial class ItemCommittee : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ItemId;
-		
-		private byte _ItemType;
-		
-		private int _CommitteeId;
-		
-		private int _ItemCommitteeId;
-		
-		private EntityRef<Committee> _Committee;
-		
+        
+        public P20Question()
+        {
+            this.Initialize();
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_P20QuestionId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public int P20QuestionId
+        {
+            get
+            {
+                return this._P20QuestionId;
+            }
+            set
+            {
+                if ((this._P20QuestionId != value))
+                {
+                    this.OnP20QuestionIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._P20QuestionId = value;
+                    this.SendPropertyChanged("P20QuestionId");
+                    this.OnP20QuestionIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SessionId", DbType="Int")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public System.Nullable<int> SessionId
+        {
+            get
+            {
+                return this._SessionId;
+            }
+            set
+            {
+                if ((this._SessionId != value))
+                {
+                    if (this._Session.HasLoadedOrAssignedValue)
+                    {
+                        throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+                    }
+                    this.OnSessionIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._SessionId = value;
+                    this.SendPropertyChanged("SessionId");
+                    this.OnSessionIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AskerPolId", DbType="Int")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        public System.Nullable<int> AskerPolId
+        {
+            get
+            {
+                return this._AskerPolId;
+            }
+            set
+            {
+                if ((this._AskerPolId != value))
+                {
+                    if (this._Politician.HasLoadedOrAssignedValue)
+                    {
+                        throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+                    }
+                    this.OnAskerPolIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._AskerPolId = value;
+                    this.SendPropertyChanged("AskerPolId");
+                    this.OnAskerPolIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AskeeId", DbType="Int")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+        public System.Nullable<int> AskeeId
+        {
+            get
+            {
+                return this._AskeeId;
+            }
+            set
+            {
+                if ((this._AskeeId != value))
+                {
+                    if (this._Politician1.HasLoadedOrAssignedValue)
+                    {
+                        throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+                    }
+                    this.OnAskeeIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._AskeeId = value;
+                    this.SendPropertyChanged("AskeeId");
+                    this.OnAskeeIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FTId", DbType="Int")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+        public System.Nullable<int> FTId
+        {
+            get
+            {
+                return this._FTId;
+            }
+            set
+            {
+                if ((this._FTId != value))
+                {
+                    this.OnFTIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._FTId = value;
+                    this.SendPropertyChanged("FTId");
+                    this.OnFTIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AskDate", DbType="DateTime")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=6)]
+        public System.Nullable<System.DateTime> AskDate
+        {
+            get
+            {
+                return this._AskDate;
+            }
+            set
+            {
+                if ((this._AskDate != value))
+                {
+                    this.OnAskDateChanging(value);
+                    this.SendPropertyChanging();
+                    this._AskDate = value;
+                    this.SendPropertyChanged("AskDate");
+                    this.OnAskDateChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AnswerDate", DbType="DateTime")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=7)]
+        public System.Nullable<System.DateTime> AnswerDate
+        {
+            get
+            {
+                return this._AnswerDate;
+            }
+            set
+            {
+                if ((this._AnswerDate != value))
+                {
+                    this.OnAnswerDateChanging(value);
+                    this.SendPropertyChanging();
+                    this._AnswerDate = value;
+                    this.SendPropertyChanged("AnswerDate");
+                    this.OnAnswerDateChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Question", DbType="NText", UpdateCheck=UpdateCheck.Never)]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=8)]
+        public string Question
+        {
+            get
+            {
+                return this._Question;
+            }
+            set
+            {
+                if ((this._Question != value))
+                {
+                    this.OnQuestionChanging(value);
+                    this.SendPropertyChanging();
+                    this._Question = value;
+                    this.SendPropertyChanged("Question");
+                    this.OnQuestionChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Background", DbType="NText", UpdateCheck=UpdateCheck.Never)]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=9)]
+        public string Background
+        {
+            get
+            {
+                return this._Background;
+            }
+            set
+            {
+                if ((this._Background != value))
+                {
+                    this.OnBackgroundChanging(value);
+                    this.SendPropertyChanging();
+                    this._Background = value;
+                    this.SendPropertyChanged("Background");
+                    this.OnBackgroundChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AskeeTitle", DbType="NVarChar(200)")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=10)]
+        public string AskeeTitle
+        {
+            get
+            {
+                return this._AskeeTitle;
+            }
+            set
+            {
+                if ((this._AskeeTitle != value))
+                {
+                    this.OnAskeeTitleChanging(value);
+                    this.SendPropertyChanging();
+                    this._AskeeTitle = value;
+                    this.SendPropertyChanged("AskeeTitle");
+                    this.OnAskeeTitleChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", DbType="NText", UpdateCheck=UpdateCheck.Never)]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=11)]
+        public string Title
+        {
+            get
+            {
+                return this._Title;
+            }
+            set
+            {
+                if ((this._Title != value))
+                {
+                    this.OnTitleChanging(value);
+                    this.SendPropertyChanging();
+                    this._Title = value;
+                    this.SendPropertyChanged("Title");
+                    this.OnTitleChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Type", DbType="TinyInt NOT NULL", CanBeNull=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=12)]
+        public QuestionType Type
+        {
+            get
+            {
+                return this._Type;
+            }
+            set
+            {
+                if ((this._Type != value))
+                {
+                    this.OnTypeChanging(value);
+                    this.SendPropertyChanging();
+                    this._Type = value;
+                    this.SendPropertyChanged("Type");
+                    this.OnTypeChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AskerUserId", DbType="Int")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=13)]
+        public System.Nullable<int> AskerUserId
+        {
+            get
+            {
+                return this._AskerUserId;
+            }
+            set
+            {
+                if ((this._AskerUserId != value))
+                {
+                    if (this._User.HasLoadedOrAssignedValue)
+                    {
+                        throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+                    }
+                    this.OnAskerUserIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._AskerUserId = value;
+                    this.SendPropertyChanged("AskerUserId");
+                    this.OnAskerUserIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AnswerDocumentId", DbType="Int")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=14)]
+        public System.Nullable<int> AnswerDocumentId
+        {
+            get
+            {
+                return this._AnswerDocumentId;
+            }
+            set
+            {
+                if ((this._AnswerDocumentId != value))
+                {
+                    if (this._Document.HasLoadedOrAssignedValue)
+                    {
+                        throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+                    }
+                    this.OnAnswerDocumentIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._AnswerDocumentId = value;
+                    this.SendPropertyChanged("AnswerDocumentId");
+                    this.OnAnswerDocumentIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="P20Question_AnswerPara", Storage="_AnswerParas", ThisKey="P20QuestionId", OtherKey="QuestionId")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=15, EmitDefaultValue=false)]
+        public EntitySet<AnswerPara> AnswerParas
+        {
+            get
+            {
+                if ((this.serializing 
+                            && (this._AnswerParas.HasLoadedOrAssignedValues == false)))
+                {
+                    return null;
+                }
+                return this._AnswerParas;
+            }
+            set
+            {
+                this._AnswerParas.Assign(value);
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Politician_P20Question", Storage="_Politician", ThisKey="AskerPolId", OtherKey="PoliticianId", IsForeignKey=true)]
+        public Politician Politician
+        {
+            get
+            {
+                return this._Politician.Entity;
+            }
+            set
+            {
+                Politician previousValue = this._Politician.Entity;
+                if (((previousValue != value) 
+                            || (this._Politician.HasLoadedOrAssignedValue == false)))
+                {
+                    this.SendPropertyChanging();
+                    if ((previousValue != null))
+                    {
+                        this._Politician.Entity = null;
+                        previousValue.P20Questions.Remove(this);
+                    }
+                    this._Politician.Entity = value;
+                    if ((value != null))
+                    {
+                        value.P20Questions.Add(this);
+                        this._AskerPolId = value.PoliticianId;
+                    }
+                    else
+                    {
+                        this._AskerPolId = default(Nullable<int>);
+                    }
+                    this.SendPropertyChanged("Politician");
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Politician_P20Question1", Storage="_Politician1", ThisKey="AskeeId", OtherKey="PoliticianId", IsForeignKey=true)]
+        public Politician Politician1
+        {
+            get
+            {
+                return this._Politician1.Entity;
+            }
+            set
+            {
+                Politician previousValue = this._Politician1.Entity;
+                if (((previousValue != value) 
+                            || (this._Politician1.HasLoadedOrAssignedValue == false)))
+                {
+                    this.SendPropertyChanging();
+                    if ((previousValue != null))
+                    {
+                        this._Politician1.Entity = null;
+                        previousValue.P20Questions1.Remove(this);
+                    }
+                    this._Politician1.Entity = value;
+                    if ((value != null))
+                    {
+                        value.P20Questions1.Add(this);
+                        this._AskeeId = value.PoliticianId;
+                    }
+                    else
+                    {
+                        this._AskeeId = default(Nullable<int>);
+                    }
+                    this.SendPropertyChanged("Politician1");
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Session_P20Question", Storage="_Session", ThisKey="SessionId", OtherKey="SessionId", IsForeignKey=true)]
+        public Session Session
+        {
+            get
+            {
+                return this._Session.Entity;
+            }
+            set
+            {
+                Session previousValue = this._Session.Entity;
+                if (((previousValue != value) 
+                            || (this._Session.HasLoadedOrAssignedValue == false)))
+                {
+                    this.SendPropertyChanging();
+                    if ((previousValue != null))
+                    {
+                        this._Session.Entity = null;
+                        previousValue.P20Questions.Remove(this);
+                    }
+                    this._Session.Entity = value;
+                    if ((value != null))
+                    {
+                        value.P20Questions.Add(this);
+                        this._SessionId = value.SessionId;
+                    }
+                    else
+                    {
+                        this._SessionId = default(Nullable<int>);
+                    }
+                    this.SendPropertyChanged("Session");
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_P20Question", Storage="_User", ThisKey="AskerUserId", OtherKey="UserId", IsForeignKey=true)]
+        public User User
+        {
+            get
+            {
+                return this._User.Entity;
+            }
+            set
+            {
+                User previousValue = this._User.Entity;
+                if (((previousValue != value) 
+                            || (this._User.HasLoadedOrAssignedValue == false)))
+                {
+                    this.SendPropertyChanging();
+                    if ((previousValue != null))
+                    {
+                        this._User.Entity = null;
+                        previousValue.P20Questions.Remove(this);
+                    }
+                    this._User.Entity = value;
+                    if ((value != null))
+                    {
+                        value.P20Questions.Add(this);
+                        this._AskerUserId = value.UserId;
+                    }
+                    else
+                    {
+                        this._AskerUserId = default(Nullable<int>);
+                    }
+                    this.SendPropertyChanged("User");
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Document_P20Question", Storage="_Document", ThisKey="AnswerDocumentId", OtherKey="DocumentId", IsForeignKey=true)]
+        public Document Document
+        {
+            get
+            {
+                return this._Document.Entity;
+            }
+            set
+            {
+                Document previousValue = this._Document.Entity;
+                if (((previousValue != value) 
+                            || (this._Document.HasLoadedOrAssignedValue == false)))
+                {
+                    this.SendPropertyChanging();
+                    if ((previousValue != null))
+                    {
+                        this._Document.Entity = null;
+                        previousValue.P20Questions.Remove(this);
+                    }
+                    this._Document.Entity = value;
+                    if ((value != null))
+                    {
+                        value.P20Questions.Add(this);
+                        this._AnswerDocumentId = value.DocumentId;
+                    }
+                    else
+                    {
+                        this._AnswerDocumentId = default(Nullable<int>);
+                    }
+                    this.SendPropertyChanged("Document");
+                }
+            }
+        }
+        
+        public event PropertyChangingEventHandler PropertyChanging;
+        
+        public event PropertyChangedEventHandler PropertyChanged;
+        
+        protected virtual void SendPropertyChanging()
+        {
+            if ((this.PropertyChanging != null))
+            {
+                this.PropertyChanging(this, emptyChangingEventArgs);
+            }
+        }
+        
+        protected virtual void SendPropertyChanged(String propertyName)
+        {
+            if ((this.PropertyChanged != null))
+            {
+                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+        
+        private void attach_AnswerParas(AnswerPara entity)
+        {
+            this.SendPropertyChanging();
+            entity.P20Question = this;
+        }
+        
+        private void detach_AnswerParas(AnswerPara entity)
+        {
+            this.SendPropertyChanging();
+            entity.P20Question = null;
+        }
+        
+        private void Initialize()
+        {
+            this._AnswerParas = new EntitySet<AnswerPara>(new Action<AnswerPara>(this.attach_AnswerParas), new Action<AnswerPara>(this.detach_AnswerParas));
+            this._Politician = default(EntityRef<Politician>);
+            this._Politician1 = default(EntityRef<Politician>);
+            this._Session = default(EntityRef<Session>);
+            this._User = default(EntityRef<User>);
+            this._Document = default(EntityRef<Document>);
+            OnCreated();
+        }
+        
+        [global::System.Runtime.Serialization.OnDeserializingAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnDeserializing(StreamingContext context)
+        {
+            this.Initialize();
+        }
+        
+        [global::System.Runtime.Serialization.OnSerializingAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnSerializing(StreamingContext context)
+        {
+            this.serializing = true;
+        }
+        
+        [global::System.Runtime.Serialization.OnSerializedAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnSerialized(StreamingContext context)
+        {
+            this.serializing = false;
+        }
+    }
+    
+    [global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ItemCommittee")]
+    [global::System.Runtime.Serialization.DataContractAttribute()]
+    public partial class ItemCommittee : INotifyPropertyChanging, INotifyPropertyChanged
+    {
+        
+        private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+        
+        private int _ItemId;
+        
+        private byte _ItemType;
+        
+        private int _CommitteeId;
+        
+        private int _ItemCommitteeId;
+        
+        private EntityRef<Committee> _Committee;
+        
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -9066,187 +9066,187 @@ namespace FT.DB
     partial void OnItemCommitteeIdChanging(int value);
     partial void OnItemCommitteeIdChanged();
     #endregion
-		
-		public ItemCommittee()
-		{
-			this.Initialize();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ItemId", DbType="Int NOT NULL")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
-		public int ItemId
-		{
-			get
-			{
-				return this._ItemId;
-			}
-			set
-			{
-				if ((this._ItemId != value))
-				{
-					this.OnItemIdChanging(value);
-					this.SendPropertyChanging();
-					this._ItemId = value;
-					this.SendPropertyChanged("ItemId");
-					this.OnItemIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ItemType", DbType="TinyInt NOT NULL")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-		public byte ItemType
-		{
-			get
-			{
-				return this._ItemType;
-			}
-			set
-			{
-				if ((this._ItemType != value))
-				{
-					this.OnItemTypeChanging(value);
-					this.SendPropertyChanging();
-					this._ItemType = value;
-					this.SendPropertyChanged("ItemType");
-					this.OnItemTypeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CommitteeId", DbType="Int NOT NULL")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
-		public int CommitteeId
-		{
-			get
-			{
-				return this._CommitteeId;
-			}
-			set
-			{
-				if ((this._CommitteeId != value))
-				{
-					if (this._Committee.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnCommitteeIdChanging(value);
-					this.SendPropertyChanging();
-					this._CommitteeId = value;
-					this.SendPropertyChanged("CommitteeId");
-					this.OnCommitteeIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ItemCommitteeId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
-		public int ItemCommitteeId
-		{
-			get
-			{
-				return this._ItemCommitteeId;
-			}
-			set
-			{
-				if ((this._ItemCommitteeId != value))
-				{
-					this.OnItemCommitteeIdChanging(value);
-					this.SendPropertyChanging();
-					this._ItemCommitteeId = value;
-					this.SendPropertyChanged("ItemCommitteeId");
-					this.OnItemCommitteeIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Committee_ItemCommittee", Storage="_Committee", ThisKey="CommitteeId", OtherKey="CommitteeId", IsForeignKey=true)]
-		public Committee Committee
-		{
-			get
-			{
-				return this._Committee.Entity;
-			}
-			set
-			{
-				Committee previousValue = this._Committee.Entity;
-				if (((previousValue != value) 
-							|| (this._Committee.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Committee.Entity = null;
-						previousValue.ItemCommittees.Remove(this);
-					}
-					this._Committee.Entity = value;
-					if ((value != null))
-					{
-						value.ItemCommittees.Add(this);
-						this._CommitteeId = value.CommitteeId;
-					}
-					else
-					{
-						this._CommitteeId = default(int);
-					}
-					this.SendPropertyChanged("Committee");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void Initialize()
-		{
-			this._Committee = default(EntityRef<Committee>);
-			OnCreated();
-		}
-		
-		[global::System.Runtime.Serialization.OnDeserializingAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnDeserializing(StreamingContext context)
-		{
-			this.Initialize();
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Committee")]
-	[global::System.Runtime.Serialization.DataContractAttribute()]
-	public partial class Committee : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _CommitteeId;
-		
-		private string _Name;
-		
-		private EntitySet<Law> _Laws;
-		
-		private EntitySet<ItemCommittee> _ItemCommittees;
-		
-		private EntitySet<CommitteeTrip> _CommitteeTrips;
-		
-		private bool serializing;
-		
+        
+        public ItemCommittee()
+        {
+            this.Initialize();
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ItemId", DbType="Int NOT NULL")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public int ItemId
+        {
+            get
+            {
+                return this._ItemId;
+            }
+            set
+            {
+                if ((this._ItemId != value))
+                {
+                    this.OnItemIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._ItemId = value;
+                    this.SendPropertyChanged("ItemId");
+                    this.OnItemIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ItemType", DbType="TinyInt NOT NULL")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public byte ItemType
+        {
+            get
+            {
+                return this._ItemType;
+            }
+            set
+            {
+                if ((this._ItemType != value))
+                {
+                    this.OnItemTypeChanging(value);
+                    this.SendPropertyChanging();
+                    this._ItemType = value;
+                    this.SendPropertyChanged("ItemType");
+                    this.OnItemTypeChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CommitteeId", DbType="Int NOT NULL")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        public int CommitteeId
+        {
+            get
+            {
+                return this._CommitteeId;
+            }
+            set
+            {
+                if ((this._CommitteeId != value))
+                {
+                    if (this._Committee.HasLoadedOrAssignedValue)
+                    {
+                        throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+                    }
+                    this.OnCommitteeIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._CommitteeId = value;
+                    this.SendPropertyChanged("CommitteeId");
+                    this.OnCommitteeIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ItemCommitteeId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+        public int ItemCommitteeId
+        {
+            get
+            {
+                return this._ItemCommitteeId;
+            }
+            set
+            {
+                if ((this._ItemCommitteeId != value))
+                {
+                    this.OnItemCommitteeIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._ItemCommitteeId = value;
+                    this.SendPropertyChanged("ItemCommitteeId");
+                    this.OnItemCommitteeIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Committee_ItemCommittee", Storage="_Committee", ThisKey="CommitteeId", OtherKey="CommitteeId", IsForeignKey=true)]
+        public Committee Committee
+        {
+            get
+            {
+                return this._Committee.Entity;
+            }
+            set
+            {
+                Committee previousValue = this._Committee.Entity;
+                if (((previousValue != value) 
+                            || (this._Committee.HasLoadedOrAssignedValue == false)))
+                {
+                    this.SendPropertyChanging();
+                    if ((previousValue != null))
+                    {
+                        this._Committee.Entity = null;
+                        previousValue.ItemCommittees.Remove(this);
+                    }
+                    this._Committee.Entity = value;
+                    if ((value != null))
+                    {
+                        value.ItemCommittees.Add(this);
+                        this._CommitteeId = value.CommitteeId;
+                    }
+                    else
+                    {
+                        this._CommitteeId = default(int);
+                    }
+                    this.SendPropertyChanged("Committee");
+                }
+            }
+        }
+        
+        public event PropertyChangingEventHandler PropertyChanging;
+        
+        public event PropertyChangedEventHandler PropertyChanged;
+        
+        protected virtual void SendPropertyChanging()
+        {
+            if ((this.PropertyChanging != null))
+            {
+                this.PropertyChanging(this, emptyChangingEventArgs);
+            }
+        }
+        
+        protected virtual void SendPropertyChanged(String propertyName)
+        {
+            if ((this.PropertyChanged != null))
+            {
+                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+        
+        private void Initialize()
+        {
+            this._Committee = default(EntityRef<Committee>);
+            OnCreated();
+        }
+        
+        [global::System.Runtime.Serialization.OnDeserializingAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnDeserializing(StreamingContext context)
+        {
+            this.Initialize();
+        }
+    }
+    
+    [global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Committee")]
+    [global::System.Runtime.Serialization.DataContractAttribute()]
+    public partial class Committee : INotifyPropertyChanging, INotifyPropertyChanged
+    {
+        
+        private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+        
+        private int _CommitteeId;
+        
+        private string _Name;
+        
+        private EntitySet<Law> _Laws;
+        
+        private EntitySet<ItemCommittee> _ItemCommittees;
+        
+        private EntitySet<CommitteeTrip> _CommitteeTrips;
+        
+        private bool serializing;
+        
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -9256,220 +9256,220 @@ namespace FT.DB
     partial void OnNameChanging(string value);
     partial void OnNameChanged();
     #endregion
-		
-		public Committee()
-		{
-			this.Initialize();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CommitteeId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
-		public int CommitteeId
-		{
-			get
-			{
-				return this._CommitteeId;
-			}
-			set
-			{
-				if ((this._CommitteeId != value))
-				{
-					this.OnCommitteeIdChanging(value);
-					this.SendPropertyChanging();
-					this._CommitteeId = value;
-					this.SendPropertyChanged("CommitteeId");
-					this.OnCommitteeIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(100)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-		public string Name
-		{
-			get
-			{
-				return this._Name;
-			}
-			set
-			{
-				if ((this._Name != value))
-				{
-					this.OnNameChanging(value);
-					this.SendPropertyChanging();
-					this._Name = value;
-					this.SendPropertyChanged("Name");
-					this.OnNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Committee_Law", Storage="_Laws", ThisKey="CommitteeId", OtherKey="CommitteeId")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3, EmitDefaultValue=false)]
-		public EntitySet<Law> Laws
-		{
-			get
-			{
-				if ((this.serializing 
-							&& (this._Laws.HasLoadedOrAssignedValues == false)))
-				{
-					return null;
-				}
-				return this._Laws;
-			}
-			set
-			{
-				this._Laws.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Committee_ItemCommittee", Storage="_ItemCommittees", ThisKey="CommitteeId", OtherKey="CommitteeId")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4, EmitDefaultValue=false)]
-		public EntitySet<ItemCommittee> ItemCommittees
-		{
-			get
-			{
-				if ((this.serializing 
-							&& (this._ItemCommittees.HasLoadedOrAssignedValues == false)))
-				{
-					return null;
-				}
-				return this._ItemCommittees;
-			}
-			set
-			{
-				this._ItemCommittees.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Committee_CommitteeTrip", Storage="_CommitteeTrips", ThisKey="CommitteeId", OtherKey="CommitteeId")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5, EmitDefaultValue=false)]
-		public EntitySet<CommitteeTrip> CommitteeTrips
-		{
-			get
-			{
-				if ((this.serializing 
-							&& (this._CommitteeTrips.HasLoadedOrAssignedValues == false)))
-				{
-					return null;
-				}
-				return this._CommitteeTrips;
-			}
-			set
-			{
-				this._CommitteeTrips.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Laws(Law entity)
-		{
-			this.SendPropertyChanging();
-			entity.Committee = this;
-		}
-		
-		private void detach_Laws(Law entity)
-		{
-			this.SendPropertyChanging();
-			entity.Committee = null;
-		}
-		
-		private void attach_ItemCommittees(ItemCommittee entity)
-		{
-			this.SendPropertyChanging();
-			entity.Committee = this;
-		}
-		
-		private void detach_ItemCommittees(ItemCommittee entity)
-		{
-			this.SendPropertyChanging();
-			entity.Committee = null;
-		}
-		
-		private void attach_CommitteeTrips(CommitteeTrip entity)
-		{
-			this.SendPropertyChanging();
-			entity.Committee = this;
-		}
-		
-		private void detach_CommitteeTrips(CommitteeTrip entity)
-		{
-			this.SendPropertyChanging();
-			entity.Committee = null;
-		}
-		
-		private void Initialize()
-		{
-			this._Laws = new EntitySet<Law>(new Action<Law>(this.attach_Laws), new Action<Law>(this.detach_Laws));
-			this._ItemCommittees = new EntitySet<ItemCommittee>(new Action<ItemCommittee>(this.attach_ItemCommittees), new Action<ItemCommittee>(this.detach_ItemCommittees));
-			this._CommitteeTrips = new EntitySet<CommitteeTrip>(new Action<CommitteeTrip>(this.attach_CommitteeTrips), new Action<CommitteeTrip>(this.detach_CommitteeTrips));
-			OnCreated();
-		}
-		
-		[global::System.Runtime.Serialization.OnDeserializingAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnDeserializing(StreamingContext context)
-		{
-			this.Initialize();
-		}
-		
-		[global::System.Runtime.Serialization.OnSerializingAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnSerializing(StreamingContext context)
-		{
-			this.serializing = true;
-		}
-		
-		[global::System.Runtime.Serialization.OnSerializedAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnSerialized(StreamingContext context)
-		{
-			this.serializing = false;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Document")]
-	[global::System.Runtime.Serialization.DataContractAttribute()]
-	public partial class Document : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _DocumentId;
-		
-		private string _ContentType;
-		
-		private System.Data.Linq.Binary _Data;
-		
-		private System.Nullable<int> _ScribdId;
-		
-		private string _Uri;
-		
-		private string _ScribdAccessKey;
-		
-		private EntitySet<P20Question> _P20Questions;
-		
-		private bool serializing;
-		
+        
+        public Committee()
+        {
+            this.Initialize();
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CommitteeId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public int CommitteeId
+        {
+            get
+            {
+                return this._CommitteeId;
+            }
+            set
+            {
+                if ((this._CommitteeId != value))
+                {
+                    this.OnCommitteeIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._CommitteeId = value;
+                    this.SendPropertyChanged("CommitteeId");
+                    this.OnCommitteeIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(100)")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public string Name
+        {
+            get
+            {
+                return this._Name;
+            }
+            set
+            {
+                if ((this._Name != value))
+                {
+                    this.OnNameChanging(value);
+                    this.SendPropertyChanging();
+                    this._Name = value;
+                    this.SendPropertyChanged("Name");
+                    this.OnNameChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Committee_Law", Storage="_Laws", ThisKey="CommitteeId", OtherKey="CommitteeId")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=3, EmitDefaultValue=false)]
+        public EntitySet<Law> Laws
+        {
+            get
+            {
+                if ((this.serializing 
+                            && (this._Laws.HasLoadedOrAssignedValues == false)))
+                {
+                    return null;
+                }
+                return this._Laws;
+            }
+            set
+            {
+                this._Laws.Assign(value);
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Committee_ItemCommittee", Storage="_ItemCommittees", ThisKey="CommitteeId", OtherKey="CommitteeId")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=4, EmitDefaultValue=false)]
+        public EntitySet<ItemCommittee> ItemCommittees
+        {
+            get
+            {
+                if ((this.serializing 
+                            && (this._ItemCommittees.HasLoadedOrAssignedValues == false)))
+                {
+                    return null;
+                }
+                return this._ItemCommittees;
+            }
+            set
+            {
+                this._ItemCommittees.Assign(value);
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Committee_CommitteeTrip", Storage="_CommitteeTrips", ThisKey="CommitteeId", OtherKey="CommitteeId")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=5, EmitDefaultValue=false)]
+        public EntitySet<CommitteeTrip> CommitteeTrips
+        {
+            get
+            {
+                if ((this.serializing 
+                            && (this._CommitteeTrips.HasLoadedOrAssignedValues == false)))
+                {
+                    return null;
+                }
+                return this._CommitteeTrips;
+            }
+            set
+            {
+                this._CommitteeTrips.Assign(value);
+            }
+        }
+        
+        public event PropertyChangingEventHandler PropertyChanging;
+        
+        public event PropertyChangedEventHandler PropertyChanged;
+        
+        protected virtual void SendPropertyChanging()
+        {
+            if ((this.PropertyChanging != null))
+            {
+                this.PropertyChanging(this, emptyChangingEventArgs);
+            }
+        }
+        
+        protected virtual void SendPropertyChanged(String propertyName)
+        {
+            if ((this.PropertyChanged != null))
+            {
+                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+        
+        private void attach_Laws(Law entity)
+        {
+            this.SendPropertyChanging();
+            entity.Committee = this;
+        }
+        
+        private void detach_Laws(Law entity)
+        {
+            this.SendPropertyChanging();
+            entity.Committee = null;
+        }
+        
+        private void attach_ItemCommittees(ItemCommittee entity)
+        {
+            this.SendPropertyChanging();
+            entity.Committee = this;
+        }
+        
+        private void detach_ItemCommittees(ItemCommittee entity)
+        {
+            this.SendPropertyChanging();
+            entity.Committee = null;
+        }
+        
+        private void attach_CommitteeTrips(CommitteeTrip entity)
+        {
+            this.SendPropertyChanging();
+            entity.Committee = this;
+        }
+        
+        private void detach_CommitteeTrips(CommitteeTrip entity)
+        {
+            this.SendPropertyChanging();
+            entity.Committee = null;
+        }
+        
+        private void Initialize()
+        {
+            this._Laws = new EntitySet<Law>(new Action<Law>(this.attach_Laws), new Action<Law>(this.detach_Laws));
+            this._ItemCommittees = new EntitySet<ItemCommittee>(new Action<ItemCommittee>(this.attach_ItemCommittees), new Action<ItemCommittee>(this.detach_ItemCommittees));
+            this._CommitteeTrips = new EntitySet<CommitteeTrip>(new Action<CommitteeTrip>(this.attach_CommitteeTrips), new Action<CommitteeTrip>(this.detach_CommitteeTrips));
+            OnCreated();
+        }
+        
+        [global::System.Runtime.Serialization.OnDeserializingAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnDeserializing(StreamingContext context)
+        {
+            this.Initialize();
+        }
+        
+        [global::System.Runtime.Serialization.OnSerializingAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnSerializing(StreamingContext context)
+        {
+            this.serializing = true;
+        }
+        
+        [global::System.Runtime.Serialization.OnSerializedAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnSerialized(StreamingContext context)
+        {
+            this.serializing = false;
+        }
+    }
+    
+    [global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Document")]
+    [global::System.Runtime.Serialization.DataContractAttribute()]
+    public partial class Document : INotifyPropertyChanging, INotifyPropertyChanged
+    {
+        
+        private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+        
+        private int _DocumentId;
+        
+        private string _ContentType;
+        
+        private System.Data.Linq.Binary _Data;
+        
+        private System.Nullable<int> _ScribdId;
+        
+        private string _Uri;
+        
+        private string _ScribdAccessKey;
+        
+        private EntitySet<P20Question> _P20Questions;
+        
+        private bool serializing;
+        
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -9487,234 +9487,234 @@ namespace FT.DB
     partial void OnScribdAccessKeyChanging(string value);
     partial void OnScribdAccessKeyChanged();
     #endregion
-		
-		public Document()
-		{
-			this.Initialize();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DocumentId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
-		public int DocumentId
-		{
-			get
-			{
-				return this._DocumentId;
-			}
-			set
-			{
-				if ((this._DocumentId != value))
-				{
-					this.OnDocumentIdChanging(value);
-					this.SendPropertyChanging();
-					this._DocumentId = value;
-					this.SendPropertyChanged("DocumentId");
-					this.OnDocumentIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContentType", DbType="VarChar(50)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-		public string ContentType
-		{
-			get
-			{
-				return this._ContentType;
-			}
-			set
-			{
-				if ((this._ContentType != value))
-				{
-					this.OnContentTypeChanging(value);
-					this.SendPropertyChanging();
-					this._ContentType = value;
-					this.SendPropertyChanged("ContentType");
-					this.OnContentTypeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Data", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
-		public System.Data.Linq.Binary Data
-		{
-			get
-			{
-				return this._Data;
-			}
-			set
-			{
-				if ((this._Data != value))
-				{
-					this.OnDataChanging(value);
-					this.SendPropertyChanging();
-					this._Data = value;
-					this.SendPropertyChanged("Data");
-					this.OnDataChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ScribdId", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
-		public System.Nullable<int> ScribdId
-		{
-			get
-			{
-				return this._ScribdId;
-			}
-			set
-			{
-				if ((this._ScribdId != value))
-				{
-					this.OnScribdIdChanging(value);
-					this.SendPropertyChanging();
-					this._ScribdId = value;
-					this.SendPropertyChanged("ScribdId");
-					this.OnScribdIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Uri", DbType="NVarChar(250)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
-		public string Uri
-		{
-			get
-			{
-				return this._Uri;
-			}
-			set
-			{
-				if ((this._Uri != value))
-				{
-					this.OnUriChanging(value);
-					this.SendPropertyChanging();
-					this._Uri = value;
-					this.SendPropertyChanged("Uri");
-					this.OnUriChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ScribdAccessKey", DbType="NVarChar(50)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=6)]
-		public string ScribdAccessKey
-		{
-			get
-			{
-				return this._ScribdAccessKey;
-			}
-			set
-			{
-				if ((this._ScribdAccessKey != value))
-				{
-					this.OnScribdAccessKeyChanging(value);
-					this.SendPropertyChanging();
-					this._ScribdAccessKey = value;
-					this.SendPropertyChanged("ScribdAccessKey");
-					this.OnScribdAccessKeyChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Document_P20Question", Storage="_P20Questions", ThisKey="DocumentId", OtherKey="AnswerDocumentId")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=7, EmitDefaultValue=false)]
-		public EntitySet<P20Question> P20Questions
-		{
-			get
-			{
-				if ((this.serializing 
-							&& (this._P20Questions.HasLoadedOrAssignedValues == false)))
-				{
-					return null;
-				}
-				return this._P20Questions;
-			}
-			set
-			{
-				this._P20Questions.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_P20Questions(P20Question entity)
-		{
-			this.SendPropertyChanging();
-			entity.Document = this;
-		}
-		
-		private void detach_P20Questions(P20Question entity)
-		{
-			this.SendPropertyChanging();
-			entity.Document = null;
-		}
-		
-		private void Initialize()
-		{
-			this._P20Questions = new EntitySet<P20Question>(new Action<P20Question>(this.attach_P20Questions), new Action<P20Question>(this.detach_P20Questions));
-			OnCreated();
-		}
-		
-		[global::System.Runtime.Serialization.OnDeserializingAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnDeserializing(StreamingContext context)
-		{
-			this.Initialize();
-		}
-		
-		[global::System.Runtime.Serialization.OnSerializingAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnSerializing(StreamingContext context)
-		{
-			this.serializing = true;
-		}
-		
-		[global::System.Runtime.Serialization.OnSerializedAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnSerialized(StreamingContext context)
-		{
-			this.serializing = false;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CommitteeTripParticipant")]
-	[global::System.Runtime.Serialization.DataContractAttribute()]
-	public partial class CommitteeTripParticipant : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _CommitteeTripParticipantId;
-		
-		private int _CommitteeTripId;
-		
-		private int _ParticipantId;
-		
-		private EntityRef<Politician> _Politician;
-		
-		private EntityRef<CommitteeTrip> _CommitteeTrip;
-		
+        
+        public Document()
+        {
+            this.Initialize();
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DocumentId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public int DocumentId
+        {
+            get
+            {
+                return this._DocumentId;
+            }
+            set
+            {
+                if ((this._DocumentId != value))
+                {
+                    this.OnDocumentIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._DocumentId = value;
+                    this.SendPropertyChanged("DocumentId");
+                    this.OnDocumentIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContentType", DbType="VarChar(50)")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public string ContentType
+        {
+            get
+            {
+                return this._ContentType;
+            }
+            set
+            {
+                if ((this._ContentType != value))
+                {
+                    this.OnContentTypeChanging(value);
+                    this.SendPropertyChanging();
+                    this._ContentType = value;
+                    this.SendPropertyChanged("ContentType");
+                    this.OnContentTypeChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Data", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        public System.Data.Linq.Binary Data
+        {
+            get
+            {
+                return this._Data;
+            }
+            set
+            {
+                if ((this._Data != value))
+                {
+                    this.OnDataChanging(value);
+                    this.SendPropertyChanging();
+                    this._Data = value;
+                    this.SendPropertyChanged("Data");
+                    this.OnDataChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ScribdId", DbType="Int")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+        public System.Nullable<int> ScribdId
+        {
+            get
+            {
+                return this._ScribdId;
+            }
+            set
+            {
+                if ((this._ScribdId != value))
+                {
+                    this.OnScribdIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._ScribdId = value;
+                    this.SendPropertyChanged("ScribdId");
+                    this.OnScribdIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Uri", DbType="NVarChar(250)")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+        public string Uri
+        {
+            get
+            {
+                return this._Uri;
+            }
+            set
+            {
+                if ((this._Uri != value))
+                {
+                    this.OnUriChanging(value);
+                    this.SendPropertyChanging();
+                    this._Uri = value;
+                    this.SendPropertyChanged("Uri");
+                    this.OnUriChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ScribdAccessKey", DbType="NVarChar(50)")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=6)]
+        public string ScribdAccessKey
+        {
+            get
+            {
+                return this._ScribdAccessKey;
+            }
+            set
+            {
+                if ((this._ScribdAccessKey != value))
+                {
+                    this.OnScribdAccessKeyChanging(value);
+                    this.SendPropertyChanging();
+                    this._ScribdAccessKey = value;
+                    this.SendPropertyChanged("ScribdAccessKey");
+                    this.OnScribdAccessKeyChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Document_P20Question", Storage="_P20Questions", ThisKey="DocumentId", OtherKey="AnswerDocumentId")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=7, EmitDefaultValue=false)]
+        public EntitySet<P20Question> P20Questions
+        {
+            get
+            {
+                if ((this.serializing 
+                            && (this._P20Questions.HasLoadedOrAssignedValues == false)))
+                {
+                    return null;
+                }
+                return this._P20Questions;
+            }
+            set
+            {
+                this._P20Questions.Assign(value);
+            }
+        }
+        
+        public event PropertyChangingEventHandler PropertyChanging;
+        
+        public event PropertyChangedEventHandler PropertyChanged;
+        
+        protected virtual void SendPropertyChanging()
+        {
+            if ((this.PropertyChanging != null))
+            {
+                this.PropertyChanging(this, emptyChangingEventArgs);
+            }
+        }
+        
+        protected virtual void SendPropertyChanged(String propertyName)
+        {
+            if ((this.PropertyChanged != null))
+            {
+                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+        
+        private void attach_P20Questions(P20Question entity)
+        {
+            this.SendPropertyChanging();
+            entity.Document = this;
+        }
+        
+        private void detach_P20Questions(P20Question entity)
+        {
+            this.SendPropertyChanging();
+            entity.Document = null;
+        }
+        
+        private void Initialize()
+        {
+            this._P20Questions = new EntitySet<P20Question>(new Action<P20Question>(this.attach_P20Questions), new Action<P20Question>(this.detach_P20Questions));
+            OnCreated();
+        }
+        
+        [global::System.Runtime.Serialization.OnDeserializingAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnDeserializing(StreamingContext context)
+        {
+            this.Initialize();
+        }
+        
+        [global::System.Runtime.Serialization.OnSerializingAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnSerializing(StreamingContext context)
+        {
+            this.serializing = true;
+        }
+        
+        [global::System.Runtime.Serialization.OnSerializedAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnSerialized(StreamingContext context)
+        {
+            this.serializing = false;
+        }
+    }
+    
+    [global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CommitteeTripParticipant")]
+    [global::System.Runtime.Serialization.DataContractAttribute()]
+    public partial class CommitteeTripParticipant : INotifyPropertyChanging, INotifyPropertyChanged
+    {
+        
+        private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+        
+        private int _CommitteeTripParticipantId;
+        
+        private int _CommitteeTripId;
+        
+        private int _ParticipantId;
+        
+        private EntityRef<Politician> _Politician;
+        
+        private EntityRef<CommitteeTrip> _CommitteeTrip;
+        
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -9726,223 +9726,223 @@ namespace FT.DB
     partial void OnParticipantIdChanging(int value);
     partial void OnParticipantIdChanged();
     #endregion
-		
-		public CommitteeTripParticipant()
-		{
-			this.Initialize();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CommitteeTripParticipantId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
-		public int CommitteeTripParticipantId
-		{
-			get
-			{
-				return this._CommitteeTripParticipantId;
-			}
-			set
-			{
-				if ((this._CommitteeTripParticipantId != value))
-				{
-					this.OnCommitteeTripParticipantIdChanging(value);
-					this.SendPropertyChanging();
-					this._CommitteeTripParticipantId = value;
-					this.SendPropertyChanged("CommitteeTripParticipantId");
-					this.OnCommitteeTripParticipantIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CommitteeTripId", DbType="Int NOT NULL")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-		public int CommitteeTripId
-		{
-			get
-			{
-				return this._CommitteeTripId;
-			}
-			set
-			{
-				if ((this._CommitteeTripId != value))
-				{
-					if (this._CommitteeTrip.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnCommitteeTripIdChanging(value);
-					this.SendPropertyChanging();
-					this._CommitteeTripId = value;
-					this.SendPropertyChanged("CommitteeTripId");
-					this.OnCommitteeTripIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ParticipantId", DbType="Int NOT NULL")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
-		public int ParticipantId
-		{
-			get
-			{
-				return this._ParticipantId;
-			}
-			set
-			{
-				if ((this._ParticipantId != value))
-				{
-					if (this._Politician.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnParticipantIdChanging(value);
-					this.SendPropertyChanging();
-					this._ParticipantId = value;
-					this.SendPropertyChanged("ParticipantId");
-					this.OnParticipantIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Politician_CommitteeTripParticipant", Storage="_Politician", ThisKey="ParticipantId", OtherKey="PoliticianId", IsForeignKey=true)]
-		public Politician Politician
-		{
-			get
-			{
-				return this._Politician.Entity;
-			}
-			set
-			{
-				Politician previousValue = this._Politician.Entity;
-				if (((previousValue != value) 
-							|| (this._Politician.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Politician.Entity = null;
-						previousValue.CommitteeTripParticipants.Remove(this);
-					}
-					this._Politician.Entity = value;
-					if ((value != null))
-					{
-						value.CommitteeTripParticipants.Add(this);
-						this._ParticipantId = value.PoliticianId;
-					}
-					else
-					{
-						this._ParticipantId = default(int);
-					}
-					this.SendPropertyChanged("Politician");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="CommitteeTrip_CommitteeTripParticipant", Storage="_CommitteeTrip", ThisKey="CommitteeTripId", OtherKey="CommitteeTripId", IsForeignKey=true)]
-		public CommitteeTrip CommitteeTrip
-		{
-			get
-			{
-				return this._CommitteeTrip.Entity;
-			}
-			set
-			{
-				CommitteeTrip previousValue = this._CommitteeTrip.Entity;
-				if (((previousValue != value) 
-							|| (this._CommitteeTrip.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._CommitteeTrip.Entity = null;
-						previousValue.CommitteeTripParticipants.Remove(this);
-					}
-					this._CommitteeTrip.Entity = value;
-					if ((value != null))
-					{
-						value.CommitteeTripParticipants.Add(this);
-						this._CommitteeTripId = value.CommitteeTripId;
-					}
-					else
-					{
-						this._CommitteeTripId = default(int);
-					}
-					this.SendPropertyChanged("CommitteeTrip");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void Initialize()
-		{
-			this._Politician = default(EntityRef<Politician>);
-			this._CommitteeTrip = default(EntityRef<CommitteeTrip>);
-			OnCreated();
-		}
-		
-		[global::System.Runtime.Serialization.OnDeserializingAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnDeserializing(StreamingContext context)
-		{
-			this.Initialize();
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CommitteeTrip")]
-	[global::System.Runtime.Serialization.DataContractAttribute()]
-	public partial class CommitteeTrip : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _CommitteeTripId;
-		
-		private int _CommitteeId;
-		
-		private System.DateTime _StartDate;
-		
-		private System.DateTime _EndDate;
-		
-		private string _Place;
-		
-		private string _Purpose;
-		
-		private System.Nullable<decimal> _Budget;
-		
-		private System.Nullable<decimal> _ActualExpenses;
-		
-		private System.Nullable<int> _NonPolParticipants;
-		
-		private string _FTId;
-		
-		private string _Uri;
-		
-		private EntitySet<CommitteeTripParticipant> _CommitteeTripParticipants;
-		
-		private EntitySet<CommitteeTripDestination> _CommitteeTripDestinations;
-		
-		private EntityRef<Committee> _Committee;
-		
-		private bool serializing;
-		
+        
+        public CommitteeTripParticipant()
+        {
+            this.Initialize();
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CommitteeTripParticipantId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public int CommitteeTripParticipantId
+        {
+            get
+            {
+                return this._CommitteeTripParticipantId;
+            }
+            set
+            {
+                if ((this._CommitteeTripParticipantId != value))
+                {
+                    this.OnCommitteeTripParticipantIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._CommitteeTripParticipantId = value;
+                    this.SendPropertyChanged("CommitteeTripParticipantId");
+                    this.OnCommitteeTripParticipantIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CommitteeTripId", DbType="Int NOT NULL")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public int CommitteeTripId
+        {
+            get
+            {
+                return this._CommitteeTripId;
+            }
+            set
+            {
+                if ((this._CommitteeTripId != value))
+                {
+                    if (this._CommitteeTrip.HasLoadedOrAssignedValue)
+                    {
+                        throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+                    }
+                    this.OnCommitteeTripIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._CommitteeTripId = value;
+                    this.SendPropertyChanged("CommitteeTripId");
+                    this.OnCommitteeTripIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ParticipantId", DbType="Int NOT NULL")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        public int ParticipantId
+        {
+            get
+            {
+                return this._ParticipantId;
+            }
+            set
+            {
+                if ((this._ParticipantId != value))
+                {
+                    if (this._Politician.HasLoadedOrAssignedValue)
+                    {
+                        throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+                    }
+                    this.OnParticipantIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._ParticipantId = value;
+                    this.SendPropertyChanged("ParticipantId");
+                    this.OnParticipantIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Politician_CommitteeTripParticipant", Storage="_Politician", ThisKey="ParticipantId", OtherKey="PoliticianId", IsForeignKey=true)]
+        public Politician Politician
+        {
+            get
+            {
+                return this._Politician.Entity;
+            }
+            set
+            {
+                Politician previousValue = this._Politician.Entity;
+                if (((previousValue != value) 
+                            || (this._Politician.HasLoadedOrAssignedValue == false)))
+                {
+                    this.SendPropertyChanging();
+                    if ((previousValue != null))
+                    {
+                        this._Politician.Entity = null;
+                        previousValue.CommitteeTripParticipants.Remove(this);
+                    }
+                    this._Politician.Entity = value;
+                    if ((value != null))
+                    {
+                        value.CommitteeTripParticipants.Add(this);
+                        this._ParticipantId = value.PoliticianId;
+                    }
+                    else
+                    {
+                        this._ParticipantId = default(int);
+                    }
+                    this.SendPropertyChanged("Politician");
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="CommitteeTrip_CommitteeTripParticipant", Storage="_CommitteeTrip", ThisKey="CommitteeTripId", OtherKey="CommitteeTripId", IsForeignKey=true)]
+        public CommitteeTrip CommitteeTrip
+        {
+            get
+            {
+                return this._CommitteeTrip.Entity;
+            }
+            set
+            {
+                CommitteeTrip previousValue = this._CommitteeTrip.Entity;
+                if (((previousValue != value) 
+                            || (this._CommitteeTrip.HasLoadedOrAssignedValue == false)))
+                {
+                    this.SendPropertyChanging();
+                    if ((previousValue != null))
+                    {
+                        this._CommitteeTrip.Entity = null;
+                        previousValue.CommitteeTripParticipants.Remove(this);
+                    }
+                    this._CommitteeTrip.Entity = value;
+                    if ((value != null))
+                    {
+                        value.CommitteeTripParticipants.Add(this);
+                        this._CommitteeTripId = value.CommitteeTripId;
+                    }
+                    else
+                    {
+                        this._CommitteeTripId = default(int);
+                    }
+                    this.SendPropertyChanged("CommitteeTrip");
+                }
+            }
+        }
+        
+        public event PropertyChangingEventHandler PropertyChanging;
+        
+        public event PropertyChangedEventHandler PropertyChanged;
+        
+        protected virtual void SendPropertyChanging()
+        {
+            if ((this.PropertyChanging != null))
+            {
+                this.PropertyChanging(this, emptyChangingEventArgs);
+            }
+        }
+        
+        protected virtual void SendPropertyChanged(String propertyName)
+        {
+            if ((this.PropertyChanged != null))
+            {
+                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+        
+        private void Initialize()
+        {
+            this._Politician = default(EntityRef<Politician>);
+            this._CommitteeTrip = default(EntityRef<CommitteeTrip>);
+            OnCreated();
+        }
+        
+        [global::System.Runtime.Serialization.OnDeserializingAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnDeserializing(StreamingContext context)
+        {
+            this.Initialize();
+        }
+    }
+    
+    [global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CommitteeTrip")]
+    [global::System.Runtime.Serialization.DataContractAttribute()]
+    public partial class CommitteeTrip : INotifyPropertyChanging, INotifyPropertyChanged
+    {
+        
+        private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+        
+        private int _CommitteeTripId;
+        
+        private int _CommitteeId;
+        
+        private System.DateTime _StartDate;
+        
+        private System.DateTime _EndDate;
+        
+        private string _Place;
+        
+        private string _Purpose;
+        
+        private System.Nullable<decimal> _Budget;
+        
+        private System.Nullable<decimal> _ActualExpenses;
+        
+        private System.Nullable<int> _NonPolParticipants;
+        
+        private string _FTId;
+        
+        private string _Uri;
+        
+        private EntitySet<CommitteeTripParticipant> _CommitteeTripParticipants;
+        
+        private EntitySet<CommitteeTripDestination> _CommitteeTripDestinations;
+        
+        private EntityRef<Committee> _Committee;
+        
+        private bool serializing;
+        
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -9970,410 +9970,410 @@ namespace FT.DB
     partial void OnUriChanging(string value);
     partial void OnUriChanged();
     #endregion
-		
-		public CommitteeTrip()
-		{
-			this.Initialize();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CommitteeTripId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
-		public int CommitteeTripId
-		{
-			get
-			{
-				return this._CommitteeTripId;
-			}
-			set
-			{
-				if ((this._CommitteeTripId != value))
-				{
-					this.OnCommitteeTripIdChanging(value);
-					this.SendPropertyChanging();
-					this._CommitteeTripId = value;
-					this.SendPropertyChanged("CommitteeTripId");
-					this.OnCommitteeTripIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CommitteeId", DbType="Int NOT NULL")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-		public int CommitteeId
-		{
-			get
-			{
-				return this._CommitteeId;
-			}
-			set
-			{
-				if ((this._CommitteeId != value))
-				{
-					if (this._Committee.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnCommitteeIdChanging(value);
-					this.SendPropertyChanging();
-					this._CommitteeId = value;
-					this.SendPropertyChanged("CommitteeId");
-					this.OnCommitteeIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StartDate", DbType="DateTime NOT NULL")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
-		public System.DateTime StartDate
-		{
-			get
-			{
-				return this._StartDate;
-			}
-			set
-			{
-				if ((this._StartDate != value))
-				{
-					this.OnStartDateChanging(value);
-					this.SendPropertyChanging();
-					this._StartDate = value;
-					this.SendPropertyChanged("StartDate");
-					this.OnStartDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EndDate", DbType="DateTime NOT NULL")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
-		public System.DateTime EndDate
-		{
-			get
-			{
-				return this._EndDate;
-			}
-			set
-			{
-				if ((this._EndDate != value))
-				{
-					this.OnEndDateChanging(value);
-					this.SendPropertyChanging();
-					this._EndDate = value;
-					this.SendPropertyChanged("EndDate");
-					this.OnEndDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Place", DbType="NVarChar(200)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
-		public string Place
-		{
-			get
-			{
-				return this._Place;
-			}
-			set
-			{
-				if ((this._Place != value))
-				{
-					this.OnPlaceChanging(value);
-					this.SendPropertyChanging();
-					this._Place = value;
-					this.SendPropertyChanged("Place");
-					this.OnPlaceChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Purpose", DbType="NText", UpdateCheck=UpdateCheck.Never)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=6)]
-		public string Purpose
-		{
-			get
-			{
-				return this._Purpose;
-			}
-			set
-			{
-				if ((this._Purpose != value))
-				{
-					this.OnPurposeChanging(value);
-					this.SendPropertyChanging();
-					this._Purpose = value;
-					this.SendPropertyChanged("Purpose");
-					this.OnPurposeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Budget", DbType="Decimal(18,2)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=7)]
-		public System.Nullable<decimal> Budget
-		{
-			get
-			{
-				return this._Budget;
-			}
-			set
-			{
-				if ((this._Budget != value))
-				{
-					this.OnBudgetChanging(value);
-					this.SendPropertyChanging();
-					this._Budget = value;
-					this.SendPropertyChanged("Budget");
-					this.OnBudgetChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ActualExpenses", DbType="Decimal(18,2)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=8)]
-		public System.Nullable<decimal> ActualExpenses
-		{
-			get
-			{
-				return this._ActualExpenses;
-			}
-			set
-			{
-				if ((this._ActualExpenses != value))
-				{
-					this.OnActualExpensesChanging(value);
-					this.SendPropertyChanging();
-					this._ActualExpenses = value;
-					this.SendPropertyChanged("ActualExpenses");
-					this.OnActualExpensesChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NonPolParticipants", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=9)]
-		public System.Nullable<int> NonPolParticipants
-		{
-			get
-			{
-				return this._NonPolParticipants;
-			}
-			set
-			{
-				if ((this._NonPolParticipants != value))
-				{
-					this.OnNonPolParticipantsChanging(value);
-					this.SendPropertyChanging();
-					this._NonPolParticipants = value;
-					this.SendPropertyChanged("NonPolParticipants");
-					this.OnNonPolParticipantsChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FTId", DbType="NVarChar(200)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=10)]
-		public string FTId
-		{
-			get
-			{
-				return this._FTId;
-			}
-			set
-			{
-				if ((this._FTId != value))
-				{
-					this.OnFTIdChanging(value);
-					this.SendPropertyChanging();
-					this._FTId = value;
-					this.SendPropertyChanged("FTId");
-					this.OnFTIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Uri", DbType="NVarChar(200)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=11)]
-		public string Uri
-		{
-			get
-			{
-				return this._Uri;
-			}
-			set
-			{
-				if ((this._Uri != value))
-				{
-					this.OnUriChanging(value);
-					this.SendPropertyChanging();
-					this._Uri = value;
-					this.SendPropertyChanged("Uri");
-					this.OnUriChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="CommitteeTrip_CommitteeTripParticipant", Storage="_CommitteeTripParticipants", ThisKey="CommitteeTripId", OtherKey="CommitteeTripId")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=12, EmitDefaultValue=false)]
-		public EntitySet<CommitteeTripParticipant> CommitteeTripParticipants
-		{
-			get
-			{
-				if ((this.serializing 
-							&& (this._CommitteeTripParticipants.HasLoadedOrAssignedValues == false)))
-				{
-					return null;
-				}
-				return this._CommitteeTripParticipants;
-			}
-			set
-			{
-				this._CommitteeTripParticipants.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="CommitteeTrip_CommitteeTripDestination", Storage="_CommitteeTripDestinations", ThisKey="CommitteeTripId", OtherKey="CommitteeTripId")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=13, EmitDefaultValue=false)]
-		public EntitySet<CommitteeTripDestination> CommitteeTripDestinations
-		{
-			get
-			{
-				if ((this.serializing 
-							&& (this._CommitteeTripDestinations.HasLoadedOrAssignedValues == false)))
-				{
-					return null;
-				}
-				return this._CommitteeTripDestinations;
-			}
-			set
-			{
-				this._CommitteeTripDestinations.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Committee_CommitteeTrip", Storage="_Committee", ThisKey="CommitteeId", OtherKey="CommitteeId", IsForeignKey=true)]
-		public Committee Committee
-		{
-			get
-			{
-				return this._Committee.Entity;
-			}
-			set
-			{
-				Committee previousValue = this._Committee.Entity;
-				if (((previousValue != value) 
-							|| (this._Committee.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Committee.Entity = null;
-						previousValue.CommitteeTrips.Remove(this);
-					}
-					this._Committee.Entity = value;
-					if ((value != null))
-					{
-						value.CommitteeTrips.Add(this);
-						this._CommitteeId = value.CommitteeId;
-					}
-					else
-					{
-						this._CommitteeId = default(int);
-					}
-					this.SendPropertyChanged("Committee");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_CommitteeTripParticipants(CommitteeTripParticipant entity)
-		{
-			this.SendPropertyChanging();
-			entity.CommitteeTrip = this;
-		}
-		
-		private void detach_CommitteeTripParticipants(CommitteeTripParticipant entity)
-		{
-			this.SendPropertyChanging();
-			entity.CommitteeTrip = null;
-		}
-		
-		private void attach_CommitteeTripDestinations(CommitteeTripDestination entity)
-		{
-			this.SendPropertyChanging();
-			entity.CommitteeTrip = this;
-		}
-		
-		private void detach_CommitteeTripDestinations(CommitteeTripDestination entity)
-		{
-			this.SendPropertyChanging();
-			entity.CommitteeTrip = null;
-		}
-		
-		private void Initialize()
-		{
-			this._CommitteeTripParticipants = new EntitySet<CommitteeTripParticipant>(new Action<CommitteeTripParticipant>(this.attach_CommitteeTripParticipants), new Action<CommitteeTripParticipant>(this.detach_CommitteeTripParticipants));
-			this._CommitteeTripDestinations = new EntitySet<CommitteeTripDestination>(new Action<CommitteeTripDestination>(this.attach_CommitteeTripDestinations), new Action<CommitteeTripDestination>(this.detach_CommitteeTripDestinations));
-			this._Committee = default(EntityRef<Committee>);
-			OnCreated();
-		}
-		
-		[global::System.Runtime.Serialization.OnDeserializingAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnDeserializing(StreamingContext context)
-		{
-			this.Initialize();
-		}
-		
-		[global::System.Runtime.Serialization.OnSerializingAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnSerializing(StreamingContext context)
-		{
-			this.serializing = true;
-		}
-		
-		[global::System.Runtime.Serialization.OnSerializedAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnSerialized(StreamingContext context)
-		{
-			this.serializing = false;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ApiUser")]
-	[global::System.Runtime.Serialization.DataContractAttribute()]
-	public partial class ApiUser : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private System.DateTime _CreatedDate;
-		
-		private int _ApiUserId;
-		
-		private string _ApiKey;
-		
-		private string _EmailAddress;
-		
-		private string _IntendedUse;
-		
+        
+        public CommitteeTrip()
+        {
+            this.Initialize();
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CommitteeTripId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public int CommitteeTripId
+        {
+            get
+            {
+                return this._CommitteeTripId;
+            }
+            set
+            {
+                if ((this._CommitteeTripId != value))
+                {
+                    this.OnCommitteeTripIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._CommitteeTripId = value;
+                    this.SendPropertyChanged("CommitteeTripId");
+                    this.OnCommitteeTripIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CommitteeId", DbType="Int NOT NULL")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public int CommitteeId
+        {
+            get
+            {
+                return this._CommitteeId;
+            }
+            set
+            {
+                if ((this._CommitteeId != value))
+                {
+                    if (this._Committee.HasLoadedOrAssignedValue)
+                    {
+                        throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+                    }
+                    this.OnCommitteeIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._CommitteeId = value;
+                    this.SendPropertyChanged("CommitteeId");
+                    this.OnCommitteeIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StartDate", DbType="DateTime NOT NULL")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        public System.DateTime StartDate
+        {
+            get
+            {
+                return this._StartDate;
+            }
+            set
+            {
+                if ((this._StartDate != value))
+                {
+                    this.OnStartDateChanging(value);
+                    this.SendPropertyChanging();
+                    this._StartDate = value;
+                    this.SendPropertyChanged("StartDate");
+                    this.OnStartDateChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EndDate", DbType="DateTime NOT NULL")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+        public System.DateTime EndDate
+        {
+            get
+            {
+                return this._EndDate;
+            }
+            set
+            {
+                if ((this._EndDate != value))
+                {
+                    this.OnEndDateChanging(value);
+                    this.SendPropertyChanging();
+                    this._EndDate = value;
+                    this.SendPropertyChanged("EndDate");
+                    this.OnEndDateChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Place", DbType="NVarChar(200)")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+        public string Place
+        {
+            get
+            {
+                return this._Place;
+            }
+            set
+            {
+                if ((this._Place != value))
+                {
+                    this.OnPlaceChanging(value);
+                    this.SendPropertyChanging();
+                    this._Place = value;
+                    this.SendPropertyChanged("Place");
+                    this.OnPlaceChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Purpose", DbType="NText", UpdateCheck=UpdateCheck.Never)]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=6)]
+        public string Purpose
+        {
+            get
+            {
+                return this._Purpose;
+            }
+            set
+            {
+                if ((this._Purpose != value))
+                {
+                    this.OnPurposeChanging(value);
+                    this.SendPropertyChanging();
+                    this._Purpose = value;
+                    this.SendPropertyChanged("Purpose");
+                    this.OnPurposeChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Budget", DbType="Decimal(18,2)")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=7)]
+        public System.Nullable<decimal> Budget
+        {
+            get
+            {
+                return this._Budget;
+            }
+            set
+            {
+                if ((this._Budget != value))
+                {
+                    this.OnBudgetChanging(value);
+                    this.SendPropertyChanging();
+                    this._Budget = value;
+                    this.SendPropertyChanged("Budget");
+                    this.OnBudgetChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ActualExpenses", DbType="Decimal(18,2)")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=8)]
+        public System.Nullable<decimal> ActualExpenses
+        {
+            get
+            {
+                return this._ActualExpenses;
+            }
+            set
+            {
+                if ((this._ActualExpenses != value))
+                {
+                    this.OnActualExpensesChanging(value);
+                    this.SendPropertyChanging();
+                    this._ActualExpenses = value;
+                    this.SendPropertyChanged("ActualExpenses");
+                    this.OnActualExpensesChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NonPolParticipants", DbType="Int")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=9)]
+        public System.Nullable<int> NonPolParticipants
+        {
+            get
+            {
+                return this._NonPolParticipants;
+            }
+            set
+            {
+                if ((this._NonPolParticipants != value))
+                {
+                    this.OnNonPolParticipantsChanging(value);
+                    this.SendPropertyChanging();
+                    this._NonPolParticipants = value;
+                    this.SendPropertyChanged("NonPolParticipants");
+                    this.OnNonPolParticipantsChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FTId", DbType="NVarChar(200)")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=10)]
+        public string FTId
+        {
+            get
+            {
+                return this._FTId;
+            }
+            set
+            {
+                if ((this._FTId != value))
+                {
+                    this.OnFTIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._FTId = value;
+                    this.SendPropertyChanged("FTId");
+                    this.OnFTIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Uri", DbType="NVarChar(200)")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=11)]
+        public string Uri
+        {
+            get
+            {
+                return this._Uri;
+            }
+            set
+            {
+                if ((this._Uri != value))
+                {
+                    this.OnUriChanging(value);
+                    this.SendPropertyChanging();
+                    this._Uri = value;
+                    this.SendPropertyChanged("Uri");
+                    this.OnUriChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="CommitteeTrip_CommitteeTripParticipant", Storage="_CommitteeTripParticipants", ThisKey="CommitteeTripId", OtherKey="CommitteeTripId")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=12, EmitDefaultValue=false)]
+        public EntitySet<CommitteeTripParticipant> CommitteeTripParticipants
+        {
+            get
+            {
+                if ((this.serializing 
+                            && (this._CommitteeTripParticipants.HasLoadedOrAssignedValues == false)))
+                {
+                    return null;
+                }
+                return this._CommitteeTripParticipants;
+            }
+            set
+            {
+                this._CommitteeTripParticipants.Assign(value);
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="CommitteeTrip_CommitteeTripDestination", Storage="_CommitteeTripDestinations", ThisKey="CommitteeTripId", OtherKey="CommitteeTripId")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=13, EmitDefaultValue=false)]
+        public EntitySet<CommitteeTripDestination> CommitteeTripDestinations
+        {
+            get
+            {
+                if ((this.serializing 
+                            && (this._CommitteeTripDestinations.HasLoadedOrAssignedValues == false)))
+                {
+                    return null;
+                }
+                return this._CommitteeTripDestinations;
+            }
+            set
+            {
+                this._CommitteeTripDestinations.Assign(value);
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="Committee_CommitteeTrip", Storage="_Committee", ThisKey="CommitteeId", OtherKey="CommitteeId", IsForeignKey=true)]
+        public Committee Committee
+        {
+            get
+            {
+                return this._Committee.Entity;
+            }
+            set
+            {
+                Committee previousValue = this._Committee.Entity;
+                if (((previousValue != value) 
+                            || (this._Committee.HasLoadedOrAssignedValue == false)))
+                {
+                    this.SendPropertyChanging();
+                    if ((previousValue != null))
+                    {
+                        this._Committee.Entity = null;
+                        previousValue.CommitteeTrips.Remove(this);
+                    }
+                    this._Committee.Entity = value;
+                    if ((value != null))
+                    {
+                        value.CommitteeTrips.Add(this);
+                        this._CommitteeId = value.CommitteeId;
+                    }
+                    else
+                    {
+                        this._CommitteeId = default(int);
+                    }
+                    this.SendPropertyChanged("Committee");
+                }
+            }
+        }
+        
+        public event PropertyChangingEventHandler PropertyChanging;
+        
+        public event PropertyChangedEventHandler PropertyChanged;
+        
+        protected virtual void SendPropertyChanging()
+        {
+            if ((this.PropertyChanging != null))
+            {
+                this.PropertyChanging(this, emptyChangingEventArgs);
+            }
+        }
+        
+        protected virtual void SendPropertyChanged(String propertyName)
+        {
+            if ((this.PropertyChanged != null))
+            {
+                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+        
+        private void attach_CommitteeTripParticipants(CommitteeTripParticipant entity)
+        {
+            this.SendPropertyChanging();
+            entity.CommitteeTrip = this;
+        }
+        
+        private void detach_CommitteeTripParticipants(CommitteeTripParticipant entity)
+        {
+            this.SendPropertyChanging();
+            entity.CommitteeTrip = null;
+        }
+        
+        private void attach_CommitteeTripDestinations(CommitteeTripDestination entity)
+        {
+            this.SendPropertyChanging();
+            entity.CommitteeTrip = this;
+        }
+        
+        private void detach_CommitteeTripDestinations(CommitteeTripDestination entity)
+        {
+            this.SendPropertyChanging();
+            entity.CommitteeTrip = null;
+        }
+        
+        private void Initialize()
+        {
+            this._CommitteeTripParticipants = new EntitySet<CommitteeTripParticipant>(new Action<CommitteeTripParticipant>(this.attach_CommitteeTripParticipants), new Action<CommitteeTripParticipant>(this.detach_CommitteeTripParticipants));
+            this._CommitteeTripDestinations = new EntitySet<CommitteeTripDestination>(new Action<CommitteeTripDestination>(this.attach_CommitteeTripDestinations), new Action<CommitteeTripDestination>(this.detach_CommitteeTripDestinations));
+            this._Committee = default(EntityRef<Committee>);
+            OnCreated();
+        }
+        
+        [global::System.Runtime.Serialization.OnDeserializingAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnDeserializing(StreamingContext context)
+        {
+            this.Initialize();
+        }
+        
+        [global::System.Runtime.Serialization.OnSerializingAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnSerializing(StreamingContext context)
+        {
+            this.serializing = true;
+        }
+        
+        [global::System.Runtime.Serialization.OnSerializedAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnSerialized(StreamingContext context)
+        {
+            this.serializing = false;
+        }
+    }
+    
+    [global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ApiUser")]
+    [global::System.Runtime.Serialization.DataContractAttribute()]
+    public partial class ApiUser : INotifyPropertyChanging, INotifyPropertyChanged
+    {
+        
+        private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+        
+        private System.DateTime _CreatedDate;
+        
+        private int _ApiUserId;
+        
+        private string _ApiKey;
+        
+        private string _EmailAddress;
+        
+        private string _IntendedUse;
+        
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -10389,169 +10389,169 @@ namespace FT.DB
     partial void OnIntendedUseChanging(string value);
     partial void OnIntendedUseChanged();
     #endregion
-		
-		public ApiUser()
-		{
-			this.Initialize();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedDate", DbType="DateTime NOT NULL")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
-		public System.DateTime CreatedDate
-		{
-			get
-			{
-				return this._CreatedDate;
-			}
-			set
-			{
-				if ((this._CreatedDate != value))
-				{
-					this.OnCreatedDateChanging(value);
-					this.SendPropertyChanging();
-					this._CreatedDate = value;
-					this.SendPropertyChanged("CreatedDate");
-					this.OnCreatedDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ApiUserId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-		public int ApiUserId
-		{
-			get
-			{
-				return this._ApiUserId;
-			}
-			set
-			{
-				if ((this._ApiUserId != value))
-				{
-					this.OnApiUserIdChanging(value);
-					this.SendPropertyChanging();
-					this._ApiUserId = value;
-					this.SendPropertyChanged("ApiUserId");
-					this.OnApiUserIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ApiKey", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
-		public string ApiKey
-		{
-			get
-			{
-				return this._ApiKey;
-			}
-			set
-			{
-				if ((this._ApiKey != value))
-				{
-					this.OnApiKeyChanging(value);
-					this.SendPropertyChanging();
-					this._ApiKey = value;
-					this.SendPropertyChanged("ApiKey");
-					this.OnApiKeyChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmailAddress", DbType="VarChar(200) NOT NULL", CanBeNull=false)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
-		public string EmailAddress
-		{
-			get
-			{
-				return this._EmailAddress;
-			}
-			set
-			{
-				if ((this._EmailAddress != value))
-				{
-					this.OnEmailAddressChanging(value);
-					this.SendPropertyChanging();
-					this._EmailAddress = value;
-					this.SendPropertyChanged("EmailAddress");
-					this.OnEmailAddressChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IntendedUse", DbType="NText", UpdateCheck=UpdateCheck.Never)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
-		public string IntendedUse
-		{
-			get
-			{
-				return this._IntendedUse;
-			}
-			set
-			{
-				if ((this._IntendedUse != value))
-				{
-					this.OnIntendedUseChanging(value);
-					this.SendPropertyChanging();
-					this._IntendedUse = value;
-					this.SendPropertyChanged("IntendedUse");
-					this.OnIntendedUseChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void Initialize()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Runtime.Serialization.OnDeserializingAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnDeserializing(StreamingContext context)
-		{
-			this.Initialize();
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CommitteeTripDestination")]
-	[global::System.Runtime.Serialization.DataContractAttribute()]
-	public partial class CommitteeTripDestination : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _CommitteeTripDestinationId;
-		
-		private string _PlaceNameName;
-		
-		private System.Nullable<int> _CommitteeTripId;
-		
-		private System.Nullable<double> _Lat;
-		
-		private System.Nullable<double> _Lng;
-		
-		private EntityRef<CommitteeTrip> _CommitteeTrip;
-		
+        
+        public ApiUser()
+        {
+            this.Initialize();
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedDate", DbType="DateTime NOT NULL")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public System.DateTime CreatedDate
+        {
+            get
+            {
+                return this._CreatedDate;
+            }
+            set
+            {
+                if ((this._CreatedDate != value))
+                {
+                    this.OnCreatedDateChanging(value);
+                    this.SendPropertyChanging();
+                    this._CreatedDate = value;
+                    this.SendPropertyChanged("CreatedDate");
+                    this.OnCreatedDateChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ApiUserId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public int ApiUserId
+        {
+            get
+            {
+                return this._ApiUserId;
+            }
+            set
+            {
+                if ((this._ApiUserId != value))
+                {
+                    this.OnApiUserIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._ApiUserId = value;
+                    this.SendPropertyChanged("ApiUserId");
+                    this.OnApiUserIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ApiKey", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        public string ApiKey
+        {
+            get
+            {
+                return this._ApiKey;
+            }
+            set
+            {
+                if ((this._ApiKey != value))
+                {
+                    this.OnApiKeyChanging(value);
+                    this.SendPropertyChanging();
+                    this._ApiKey = value;
+                    this.SendPropertyChanged("ApiKey");
+                    this.OnApiKeyChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmailAddress", DbType="VarChar(200) NOT NULL", CanBeNull=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+        public string EmailAddress
+        {
+            get
+            {
+                return this._EmailAddress;
+            }
+            set
+            {
+                if ((this._EmailAddress != value))
+                {
+                    this.OnEmailAddressChanging(value);
+                    this.SendPropertyChanging();
+                    this._EmailAddress = value;
+                    this.SendPropertyChanged("EmailAddress");
+                    this.OnEmailAddressChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IntendedUse", DbType="NText", UpdateCheck=UpdateCheck.Never)]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+        public string IntendedUse
+        {
+            get
+            {
+                return this._IntendedUse;
+            }
+            set
+            {
+                if ((this._IntendedUse != value))
+                {
+                    this.OnIntendedUseChanging(value);
+                    this.SendPropertyChanging();
+                    this._IntendedUse = value;
+                    this.SendPropertyChanged("IntendedUse");
+                    this.OnIntendedUseChanged();
+                }
+            }
+        }
+        
+        public event PropertyChangingEventHandler PropertyChanging;
+        
+        public event PropertyChangedEventHandler PropertyChanged;
+        
+        protected virtual void SendPropertyChanging()
+        {
+            if ((this.PropertyChanging != null))
+            {
+                this.PropertyChanging(this, emptyChangingEventArgs);
+            }
+        }
+        
+        protected virtual void SendPropertyChanged(String propertyName)
+        {
+            if ((this.PropertyChanged != null))
+            {
+                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+        
+        private void Initialize()
+        {
+            OnCreated();
+        }
+        
+        [global::System.Runtime.Serialization.OnDeserializingAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnDeserializing(StreamingContext context)
+        {
+            this.Initialize();
+        }
+    }
+    
+    [global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CommitteeTripDestination")]
+    [global::System.Runtime.Serialization.DataContractAttribute()]
+    public partial class CommitteeTripDestination : INotifyPropertyChanging, INotifyPropertyChanged
+    {
+        
+        private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+        
+        private int _CommitteeTripDestinationId;
+        
+        private string _PlaceNameName;
+        
+        private System.Nullable<int> _CommitteeTripId;
+        
+        private System.Nullable<double> _Lat;
+        
+        private System.Nullable<double> _Lng;
+        
+        private EntityRef<CommitteeTrip> _CommitteeTrip;
+        
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -10567,187 +10567,187 @@ namespace FT.DB
     partial void OnLngChanging(System.Nullable<double> value);
     partial void OnLngChanged();
     #endregion
-		
-		public CommitteeTripDestination()
-		{
-			this.Initialize();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CommitteeTripDestinationId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
-		public int CommitteeTripDestinationId
-		{
-			get
-			{
-				return this._CommitteeTripDestinationId;
-			}
-			set
-			{
-				if ((this._CommitteeTripDestinationId != value))
-				{
-					this.OnCommitteeTripDestinationIdChanging(value);
-					this.SendPropertyChanging();
-					this._CommitteeTripDestinationId = value;
-					this.SendPropertyChanged("CommitteeTripDestinationId");
-					this.OnCommitteeTripDestinationIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PlaceNameName", DbType="NVarChar(100)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-		public string PlaceNameName
-		{
-			get
-			{
-				return this._PlaceNameName;
-			}
-			set
-			{
-				if ((this._PlaceNameName != value))
-				{
-					this.OnPlaceNameNameChanging(value);
-					this.SendPropertyChanging();
-					this._PlaceNameName = value;
-					this.SendPropertyChanged("PlaceNameName");
-					this.OnPlaceNameNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CommitteeTripId", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
-		public System.Nullable<int> CommitteeTripId
-		{
-			get
-			{
-				return this._CommitteeTripId;
-			}
-			set
-			{
-				if ((this._CommitteeTripId != value))
-				{
-					if (this._CommitteeTrip.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnCommitteeTripIdChanging(value);
-					this.SendPropertyChanging();
-					this._CommitteeTripId = value;
-					this.SendPropertyChanged("CommitteeTripId");
-					this.OnCommitteeTripIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Lat", DbType="Float")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
-		public System.Nullable<double> Lat
-		{
-			get
-			{
-				return this._Lat;
-			}
-			set
-			{
-				if ((this._Lat != value))
-				{
-					this.OnLatChanging(value);
-					this.SendPropertyChanging();
-					this._Lat = value;
-					this.SendPropertyChanged("Lat");
-					this.OnLatChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Lng", DbType="Float")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
-		public System.Nullable<double> Lng
-		{
-			get
-			{
-				return this._Lng;
-			}
-			set
-			{
-				if ((this._Lng != value))
-				{
-					this.OnLngChanging(value);
-					this.SendPropertyChanging();
-					this._Lng = value;
-					this.SendPropertyChanged("Lng");
-					this.OnLngChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="CommitteeTrip_CommitteeTripDestination", Storage="_CommitteeTrip", ThisKey="CommitteeTripId", OtherKey="CommitteeTripId", IsForeignKey=true)]
-		public CommitteeTrip CommitteeTrip
-		{
-			get
-			{
-				return this._CommitteeTrip.Entity;
-			}
-			set
-			{
-				CommitteeTrip previousValue = this._CommitteeTrip.Entity;
-				if (((previousValue != value) 
-							|| (this._CommitteeTrip.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._CommitteeTrip.Entity = null;
-						previousValue.CommitteeTripDestinations.Remove(this);
-					}
-					this._CommitteeTrip.Entity = value;
-					if ((value != null))
-					{
-						value.CommitteeTripDestinations.Add(this);
-						this._CommitteeTripId = value.CommitteeTripId;
-					}
-					else
-					{
-						this._CommitteeTripId = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("CommitteeTrip");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void Initialize()
-		{
-			this._CommitteeTrip = default(EntityRef<CommitteeTrip>);
-			OnCreated();
-		}
-		
-		[global::System.Runtime.Serialization.OnDeserializingAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnDeserializing(StreamingContext context)
-		{
-			this.Initialize();
-		}
-	}
+        
+        public CommitteeTripDestination()
+        {
+            this.Initialize();
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CommitteeTripDestinationId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public int CommitteeTripDestinationId
+        {
+            get
+            {
+                return this._CommitteeTripDestinationId;
+            }
+            set
+            {
+                if ((this._CommitteeTripDestinationId != value))
+                {
+                    this.OnCommitteeTripDestinationIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._CommitteeTripDestinationId = value;
+                    this.SendPropertyChanged("CommitteeTripDestinationId");
+                    this.OnCommitteeTripDestinationIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PlaceNameName", DbType="NVarChar(100)")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public string PlaceNameName
+        {
+            get
+            {
+                return this._PlaceNameName;
+            }
+            set
+            {
+                if ((this._PlaceNameName != value))
+                {
+                    this.OnPlaceNameNameChanging(value);
+                    this.SendPropertyChanging();
+                    this._PlaceNameName = value;
+                    this.SendPropertyChanged("PlaceNameName");
+                    this.OnPlaceNameNameChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CommitteeTripId", DbType="Int")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        public System.Nullable<int> CommitteeTripId
+        {
+            get
+            {
+                return this._CommitteeTripId;
+            }
+            set
+            {
+                if ((this._CommitteeTripId != value))
+                {
+                    if (this._CommitteeTrip.HasLoadedOrAssignedValue)
+                    {
+                        throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+                    }
+                    this.OnCommitteeTripIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._CommitteeTripId = value;
+                    this.SendPropertyChanged("CommitteeTripId");
+                    this.OnCommitteeTripIdChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Lat", DbType="Float")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+        public System.Nullable<double> Lat
+        {
+            get
+            {
+                return this._Lat;
+            }
+            set
+            {
+                if ((this._Lat != value))
+                {
+                    this.OnLatChanging(value);
+                    this.SendPropertyChanging();
+                    this._Lat = value;
+                    this.SendPropertyChanged("Lat");
+                    this.OnLatChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Lng", DbType="Float")]
+        [global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+        public System.Nullable<double> Lng
+        {
+            get
+            {
+                return this._Lng;
+            }
+            set
+            {
+                if ((this._Lng != value))
+                {
+                    this.OnLngChanging(value);
+                    this.SendPropertyChanging();
+                    this._Lng = value;
+                    this.SendPropertyChanged("Lng");
+                    this.OnLngChanged();
+                }
+            }
+        }
+        
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name="CommitteeTrip_CommitteeTripDestination", Storage="_CommitteeTrip", ThisKey="CommitteeTripId", OtherKey="CommitteeTripId", IsForeignKey=true)]
+        public CommitteeTrip CommitteeTrip
+        {
+            get
+            {
+                return this._CommitteeTrip.Entity;
+            }
+            set
+            {
+                CommitteeTrip previousValue = this._CommitteeTrip.Entity;
+                if (((previousValue != value) 
+                            || (this._CommitteeTrip.HasLoadedOrAssignedValue == false)))
+                {
+                    this.SendPropertyChanging();
+                    if ((previousValue != null))
+                    {
+                        this._CommitteeTrip.Entity = null;
+                        previousValue.CommitteeTripDestinations.Remove(this);
+                    }
+                    this._CommitteeTrip.Entity = value;
+                    if ((value != null))
+                    {
+                        value.CommitteeTripDestinations.Add(this);
+                        this._CommitteeTripId = value.CommitteeTripId;
+                    }
+                    else
+                    {
+                        this._CommitteeTripId = default(Nullable<int>);
+                    }
+                    this.SendPropertyChanged("CommitteeTrip");
+                }
+            }
+        }
+        
+        public event PropertyChangingEventHandler PropertyChanging;
+        
+        public event PropertyChangedEventHandler PropertyChanged;
+        
+        protected virtual void SendPropertyChanging()
+        {
+            if ((this.PropertyChanging != null))
+            {
+                this.PropertyChanging(this, emptyChangingEventArgs);
+            }
+        }
+        
+        protected virtual void SendPropertyChanged(String propertyName)
+        {
+            if ((this.PropertyChanged != null))
+            {
+                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+        
+        private void Initialize()
+        {
+            this._CommitteeTrip = default(EntityRef<CommitteeTrip>);
+            OnCreated();
+        }
+        
+        [global::System.Runtime.Serialization.OnDeserializingAttribute()]
+        [global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+        public void OnDeserializing(StreamingContext context)
+        {
+            this.Initialize();
+        }
+    }
 }
 #pragma warning restore 1591

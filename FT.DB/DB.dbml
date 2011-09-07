@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ftdb" Class="DBDataContext" Serialization="Unidirectional" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=.\sqlexpress;Initial Catalog=ftdb;Integrated Security=True" SettingsObjectName="FT.DB.Properties.Settings" SettingsPropertyName="ftdbConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="ConnectionString" ConnectionString="Data Source=.\sqlexpress;Initial Catalog=ftdb;Integrated Security=True" Provider="System.Data.SqlClient" />
   <Table Name="dbo.AnswerPara" Member="AnswerParas">
     <Type Name="AnswerPara">
       <Column Name="AnswerParaId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
