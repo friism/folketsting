@@ -90,7 +90,7 @@ namespace FolketsTing.Controllers
 				//{
 				createStatus =
 					MembershipService.CreateUser(userName, password, email);
-				
+
 				if (createStatus == MembershipCreateStatus.Success)
 				{
 					FormsAuth.SignIn(userName, false /* createPersistentCookie */);
