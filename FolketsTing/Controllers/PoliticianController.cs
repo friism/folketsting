@@ -69,7 +69,7 @@ namespace FolketsTing.Controllers
 					terms.Shuffle().Select(t =>
 						string.Format("{{c:[{{v:\"{0}\"}},{{v:{1}}}]}}", t.Item1, t.Item2)
 						).Aggregate((a, b) => a + "," + b)
-						+ "]" : "";
+						+ "]" : "[]";
 
 			var res = new PolViewModel()
 			{
